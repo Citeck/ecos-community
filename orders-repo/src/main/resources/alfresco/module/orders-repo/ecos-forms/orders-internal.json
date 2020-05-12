@@ -8,7 +8,7 @@
         "en": ""
     },
     "customModule": null,
-    "typeRef": "emodel/type@orders-cat-doctype-internal",
+    "typeRef": "",
     "width": "default",
     "i18n": {
         "ru": {
@@ -120,7 +120,7 @@
                                 "fuseOptions": {},
                                 "customOptions": {},
                                 "refreshEventName": "",
-                                "id": "ebk10dl"
+                                "id": "efzd21"
                             }
                         ],
                         "xs": 0,
@@ -176,7 +176,7 @@
                             "when": null,
                             "eq": ""
                         },
-                        "id": "e98y1d"
+                        "id": "elhv4zg"
                     },
                     {
                         "xs": 0,
@@ -370,7 +370,7 @@
                                     "mousewheel": true,
                                     "arrowkeys": true
                                 },
-                                "id": "eibppbk"
+                                "id": "e53o2ts"
                             }
                         ],
                         "placeholder": "",
@@ -413,7 +413,7 @@
                             "when": null,
                             "eq": ""
                         },
-                        "id": "eortt6"
+                        "id": "euz91nc"
                     }
                 ],
                 "mask": false,
@@ -471,7 +471,7 @@
                 "inlineColumns": false,
                 "autoAdjust": false,
                 "hideOnChildrenHidden": false,
-                "id": "euxjh8"
+                "id": "e5qub97"
             },
             {
                 "label": "Columns",
@@ -547,7 +547,7 @@
                                 "excludeAuthoritiesByType": "",
                                 "modalTitle": "",
                                 "isSelectedValueAsText": false,
-                                "id": "eue4ut"
+                                "id": "ecaxxi"
                             }
                         ],
                         "xs": 0,
@@ -603,7 +603,7 @@
                             "when": null,
                             "eq": ""
                         },
-                        "id": "exgswhs"
+                        "id": "e1wdqt"
                     },
                     {
                         "xs": 0,
@@ -689,7 +689,7 @@
                                 "excludeAuthoritiesByType": "",
                                 "modalTitle": "",
                                 "isSelectedValueAsText": false,
-                                "id": "eckn3ub"
+                                "id": "ejc7t3b"
                             }
                         ],
                         "placeholder": "",
@@ -732,7 +732,7 @@
                             "when": null,
                             "eq": ""
                         },
-                        "id": "ef67gq"
+                        "id": "ecx0vb"
                     }
                 ],
                 "mask": false,
@@ -790,7 +790,7 @@
                 "inlineColumns": false,
                 "autoAdjust": false,
                 "hideOnChildrenHidden": false,
-                "id": "eu3qo6"
+                "id": "edziex"
             },
             {
                 "label": "Columns",
@@ -866,7 +866,7 @@
                                 "excludeAuthoritiesByType": "",
                                 "modalTitle": "",
                                 "isSelectedValueAsText": false,
-                                "id": "e6hfa"
+                                "id": "e36dzbn"
                             }
                         ],
                         "xs": 0,
@@ -922,7 +922,7 @@
                             "when": null,
                             "eq": ""
                         },
-                        "id": "elfknua"
+                        "id": "ey9ctm"
                     },
                     {
                         "xs": 0,
@@ -1017,7 +1017,7 @@
                                 "isSelectedValueAsText": false,
                                 "sortAttribute": "sys:node-dbid",
                                 "sortAscending": "asc",
-                                "id": "erukz5o"
+                                "id": "eectuvi"
                             }
                         ],
                         "placeholder": "",
@@ -1060,7 +1060,7 @@
                             "when": null,
                             "eq": ""
                         },
-                        "id": "ezjr05o"
+                        "id": "eyg7az"
                     }
                 ],
                 "mask": false,
@@ -1118,7 +1118,7 @@
                 "inlineColumns": false,
                 "autoAdjust": false,
                 "hideOnChildrenHidden": false,
-                "id": "ev4mwne"
+                "id": "e31pfdxd"
             },
             {
                 "label": "Columns",
@@ -1200,7 +1200,7 @@
                                 "mask": false,
                                 "inputType": "text",
                                 "inputMask": "",
-                                "id": "e7ebdac"
+                                "id": "eam1oza"
                             }
                         ],
                         "xs": 0,
@@ -1256,7 +1256,7 @@
                             "when": null,
                             "eq": ""
                         },
-                        "id": "egvjbin"
+                        "id": "eqk3x3d"
                     },
                     {
                         "xs": 0,
@@ -1348,7 +1348,7 @@
                                 "mask": false,
                                 "inputType": "text",
                                 "inputMask": "",
-                                "id": "e7jixoq"
+                                "id": "ebzs1d"
                             }
                         ],
                         "placeholder": "",
@@ -1391,7 +1391,7 @@
                             "when": null,
                             "eq": ""
                         },
-                        "id": "e3tb9z6"
+                        "id": "e3tc3zs"
                     }
                 ],
                 "mask": false,
@@ -1449,7 +1449,7 @@
                 "inlineColumns": false,
                 "autoAdjust": false,
                 "hideOnChildrenHidden": false,
-                "id": "epch91l"
+                "id": "egv5gy"
             },
             {
                 "label": "Columns",
@@ -1519,7 +1519,7 @@
                                 "inputType": "checkbox",
                                 "value": "",
                                 "name": "",
-                                "id": "eoohr3a"
+                                "id": "ecl618"
                             },
                             {
                                 "label": "dms:updateContent",
@@ -1527,7 +1527,9 @@
                                 "mask": false,
                                 "tableView": true,
                                 "alwaysEnabled": false,
+                                "refreshOn": "tk_kind",
                                 "encrypted": false,
+                                "triggerChangeWhenCalculate": false,
                                 "validate": {
                                     "customMessage": "",
                                     "json": "",
@@ -1578,13 +1580,12 @@
                                 "calculateValue": "",
                                 "allowCalculateOverride": false,
                                 "widget": null,
-                                "refreshOn": "",
                                 "clearOnRefresh": false,
                                 "validateOn": "change",
                                 "inputType": "checkbox",
                                 "value": "",
                                 "name": "",
-                                "id": "e6fmjzr"
+                                "id": "e03hkfg"
                             }
                         ],
                         "xs": 0,
@@ -1640,7 +1641,7 @@
                             "when": null,
                             "eq": ""
                         },
-                        "id": "egr5fra"
+                        "id": "e58wena"
                     },
                     {
                         "xs": 0,
@@ -1735,7 +1736,7 @@
                                 "inputMask": "",
                                 "wysiwyg": false,
                                 "editor": "",
-                                "id": "ehhdf7q"
+                                "id": "elpegbj"
                             }
                         ],
                         "placeholder": "",
@@ -1778,7 +1779,7 @@
                             "when": null,
                             "eq": ""
                         },
-                        "id": "efop5v"
+                        "id": "ef582r"
                     }
                 ],
                 "mask": false,
@@ -1836,7 +1837,7 @@
                 "inlineColumns": false,
                 "autoAdjust": false,
                 "hideOnChildrenHidden": false,
-                "id": "errnnz"
+                "id": "epcv54k"
             },
             {
                 "label": "Columns",
@@ -1896,7 +1897,7 @@
                             "when": null,
                             "eq": ""
                         },
-                        "id": "egtgzon"
+                        "id": "eyj2icm"
                     },
                     {
                         "xs": 0,
@@ -1931,7 +1932,9 @@
                                         "value": ""
                                     }
                                 ],
+                                "refreshOn": "tk_kind",
                                 "encrypted": false,
+                                "triggerChangeWhenCalculate": false,
                                 "validate": {
                                     "required": true,
                                     "customMessage": "",
@@ -1944,12 +1947,12 @@
                                     "attribute": "cm:content"
                                 },
                                 "conditional": {
-                                    "show": "false",
-                                    "when": "dms_updateContent",
-                                    "eq": "true",
-                                    "json": ""
+                                    "show": "",
+                                    "when": "",
+                                    "json": "",
+                                    "eq": ""
                                 },
-                                "customConditional": "",
+                                "customConditional": "const {tk_kind = \"\"} = data || {};\nvar temp = data.dms_updateContent;\nif (!temp){\n  show = tk_kind != \"\";\n} else {\n  show = false;\n}\n\n\n\n",
                                 "logic": [],
                                 "attributes": {},
                                 "type": "file",
@@ -1982,7 +1985,6 @@
                                 "calculateValue": "",
                                 "allowCalculateOverride": false,
                                 "widget": null,
-                                "refreshOn": "",
                                 "clearOnRefresh": false,
                                 "validateOn": "change",
                                 "image": false,
@@ -1995,8 +1997,8 @@
                                 "defaultOverlayWidth": 200,
                                 "defaultOverlayHeight": 200,
                                 "displayElementsJS": {},
-                                "id": "ezk7dgl",
-                                "valueDisplayName": {}
+                                "valueDisplayName": {},
+                                "id": "erxdx7j"
                             }
                         ],
                         "placeholder": "",
@@ -2039,7 +2041,7 @@
                             "when": null,
                             "eq": ""
                         },
-                        "id": "e82m8pk"
+                        "id": "ema2vvd"
                     }
                 ],
                 "mask": false,
@@ -2097,7 +2099,7 @@
                 "inlineColumns": false,
                 "autoAdjust": false,
                 "hideOnChildrenHidden": false,
-                "id": "e72bqfq"
+                "id": "ed1r9ym"
             },
             {
                 "label": "Columns",
@@ -2173,7 +2175,7 @@
                                 "disableOnInvalid": false,
                                 "theme": "default",
                                 "removeIndents": false,
-                                "id": "eg433z7"
+                                "id": "ex29gtu"
                             }
                         ],
                         "xs": 0,
@@ -2229,7 +2231,7 @@
                             "when": null,
                             "eq": ""
                         },
-                        "id": "eyruuvs"
+                        "id": "eno7ebp"
                     },
                     {
                         "xs": 0,
@@ -2313,7 +2315,7 @@
                                 "disableOnInvalid": false,
                                 "theme": "default",
                                 "removeIndents": false,
-                                "id": "emte35"
+                                "id": "e8uqlvg"
                             }
                         ],
                         "placeholder": "",
@@ -2356,7 +2358,7 @@
                             "when": null,
                             "eq": ""
                         },
-                        "id": "e69txdc"
+                        "id": "e2r0bo"
                     },
                     {
                         "xs": 0,
@@ -2413,7 +2415,7 @@
                             "when": null,
                             "eq": ""
                         },
-                        "id": "evlpcro"
+                        "id": "eu93on"
                     },
                     {
                         "xs": 0,
@@ -2497,7 +2499,7 @@
                                 "rightIcon": "",
                                 "action": "submit",
                                 "removeIndents": false,
-                                "id": "e8hpmcj"
+                                "id": "ejw0zqc"
                             }
                         ],
                         "placeholder": "",
@@ -2540,7 +2542,7 @@
                             "when": null,
                             "eq": ""
                         },
-                        "id": "ezocgpd"
+                        "id": "euxb96o"
                     }
                 ],
                 "mask": false,
@@ -2598,7 +2600,7 @@
                 "inlineColumns": false,
                 "autoAdjust": false,
                 "hideOnChildrenHidden": false,
-                "id": "elxs2wh"
+                "id": "eukdixs"
             },
             {
                 "label": "subCategories",
@@ -2617,6 +2619,7 @@
                         },
                         "id": ""
                     },
+                    "forceLoad": false,
                     "ajax": {
                         "method": "GET",
                         "url": "",
@@ -2692,7 +2695,7 @@
                 "eventName": "",
                 "executionCondition": "",
                 "ignoreValuesEqualityChecking": false,
-                "id": "eg5207d"
+                "id": "espe0p"
             }
         ]
     },
