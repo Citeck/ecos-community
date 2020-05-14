@@ -9,16 +9,23 @@ function onProcessStart() {
     if (document.properties['contracts:agreementNumber'] == null || document.properties['contracts:agreementNumber'] == ' ') {
         if (document.type == "{http://www.citeck.ru/model/contracts/1.0}agreement") {
             var numberTemplate = search.findNode("workspace://SpacesStore/agreement-number-template");
+            var propertyName = "contracts:barcode";
         } else {
             var numberTemplate = search.findNode("workspace://SpacesStore/supAgreement-number-template");
+            var propertyName = "idocs:barcode";
         }
         var registrationNumber = enumeration.getNumber(numberTemplate, document);
         document.properties['contracts:agreementNumber'] = registrationNumber;
     } else {
+        if (document.type == "{http://www.citeck.ru/model/contracts/1.0}agreement"){
+            var propertyName = "contracts:barcode";
+        } else {
+            var propertyName = "idocs:barcode";
+        }
         var registrationNumber = document.properties['contracts:agreementNumber'];
     }
 
-    document.properties['contracts:barcode'] = registrationNumber;
+    document.properties[propertyName] = registrationNumber;
     document.save();
 }
 
