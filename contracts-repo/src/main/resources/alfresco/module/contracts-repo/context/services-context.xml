@@ -75,6 +75,7 @@
         <property name="mapping">
             <map>
                 <entry key="contracts-cat-doctype-contract" value="contracts:barcode"/>
+                <entry key="supplementary-agreement" value="contracts:barcode"/>
             </map>
         </property>
     </bean>
