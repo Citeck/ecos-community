@@ -4560,7 +4560,7 @@
                             "agreementCurrency": "contracts:agreementCurrency?id",
                             "contractWith": "contracts:contractWith",
                             "currency": "payments:currency?id",
-                            "type": "_type",
+                            "type": "type",
                             "agreementLegalEntity": "contracts:agreementLegalEntity?id",
                             "legalEntity": "idocs:legalEntity"
                         },
