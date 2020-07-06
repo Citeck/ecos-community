@@ -119,10 +119,6 @@ var confirmUtils = {
                 confirmUtils.notifyOnCancelDecision();
 
                 var status = (document.assocs["icase:caseStatusAssoc"] || [])[0];
-                if (caseStatusService.getStatus(document) == STATUS_APPROVAL){
-                     var strategy = confirmUtils.cancelStrategyByStatus["approval"];
-                     if (strategy.fn) strategy.fn();
-                }
                 var strategy = confirmUtils.cancelStrategyByStatus[status.properties['cm:name']];
                 if (strategy.fn) strategy.fn();
             }
@@ -138,10 +134,6 @@ var confirmUtils = {
         }
         var status = (document.assocs["icase:caseStatusAssoc"] || [])[0];
         if (status) {
-            var lastDecisionStatus = lastDecision.properties['wfcp:resultOutcome'];
-            if (caseStatusService.getStatus(document) == STATUS_APPROVAL && lastDecisionStatus == "Confirm"){
-                return true;
-            }
             var strategy = this.cancelStrategyByStatus[status.properties['cm:name']];
             return strategy && (!strategy.condition || strategy.condition());
         }
