@@ -938,7 +938,7 @@
                                                 "name": "disable_on",
                                                 "trigger": {
                                                     "type": "javascript",
-                                                    "javascript": "if (data.paymentsBasis && data.paymentsBasis.agreementLegalEntity !== null) {\r\n    result = true;\r\n} else if (data.paymentsBasis && data.paymentsBasis.legalEntity !== null) {\r\n    result = true;\r\n} else {\r\n    result = false;\r\n}"
+                                                    "javascript": "const {paymentsBasis} = data || {};\r\nconst {agreementLegalEntity} = paymentsBasis || null;\r\nif (agreementLegalEntity == null){\r\n  result = false;\r\n} else if (paymentsBasis && agreementLegalEntity !== null) {\r\n    result = true;\r\n} "
                                                 },
                                                 "actions": [
                                                     {
@@ -1666,7 +1666,7 @@
                                                 "name": "disabled_on",
                                                 "trigger": {
                                                     "type": "javascript",
-                                                    "javascript": "if (data.paymentsBasis && data.paymentsBasis.contractor !== null) {\r\n    result = true;\r\n} else {\r\n    result = false;\r\n}"
+                                                    "javascript": "const {paymentsBasis} = data || {};\r\nconst {contractor} = paymentsBasis || null;\r\nif (contractor == null){\r\n  result = false;\r\n} else if (paymentsBasis && contractor !== null) {\r\n    result = true;\r\n} "
                                                 },
                                                 "actions": [
                                                     {
