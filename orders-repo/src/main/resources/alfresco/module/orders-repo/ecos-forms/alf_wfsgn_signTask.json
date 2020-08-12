@@ -10,7 +10,16 @@
   "customModule": null,
   "typeRef": "",
   "width": "default",
-  "i18n": {},
+  "i18n": {
+    "en": {
+      "Declined": "Declined",
+      "Signed": "Signed"
+    },
+    "ru": {
+      "Declined": "Отклонить",
+      "Signed": "Подписать"
+    }
+  },
   "definition": {
     "components": [
       {
