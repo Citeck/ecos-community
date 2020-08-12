@@ -4,7 +4,7 @@
 
     <groupId>ru.citeck.ecos.community</groupId>
     <artifactId>ecos-community</artifactId>
-    <version>3.21.0-SNAPSHOT</version>
+    <version>3.22.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>ecos-community</name>
