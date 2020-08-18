@@ -88,26 +88,21 @@
                                         "alwaysEnabled": false,
                                         "components": [
                                             {
-                                                "conditional": {
-                                                    "show": "true",
-                                                    "json": "",
-                                                    "eq": "workspace://SpacesStore/contracts-cat-closing-doc-other",
-                                                    "when": "tk_kind"
-                                                },
-                                                "type": "textarea",
-                                                "customConditional": "",
-                                                "inputFormat": "plain",
+                                                "label": "Name",
                                                 "autoExpand": false,
                                                 "isUploadEnabled": false,
-                                                "tags": [],
-                                                "input": true,
-                                                "alwaysEnabled": false,
+                                                "showWordCount": false,
                                                 "showCharCount": false,
-                                                "key": "cm_name",
+                                                "clearOnHide": false,
+                                                "tableView": true,
+                                                "alwaysEnabled": false,
+                                                "inputFormat": "plain",
+                                                "triggerChangeWhenCalculate": false,
+                                                "encrypted": false,
                                                 "validate": {
+                                                    "required": true,
                                                     "customMessage": "",
                                                     "json": "",
-                                                    "required": true,
                                                     "custom": "",
                                                     "customPrivate": false,
                                                     "minLength": "",
@@ -116,16 +111,23 @@
                                                     "maxWords": "",
                                                     "pattern": ""
                                                 },
-                                                "tableView": true,
-                                                "label": "Name",
-                                                "rows": 1,
-                                                "showWordCount": false,
-                                                "encrypted": false,
-                                                "attributes": {},
-                                                "logic": [],
+                                                "key": "cm_name",
                                                 "properties": {
                                                     "attribute": "cm:name"
                                                 },
+                                                "conditional": {
+                                                    "show": "true",
+                                                    "when": "tk_kind",
+                                                    "eq": "workspace://SpacesStore/contracts-cat-closing-doc-other",
+                                                    "json": ""
+                                                },
+                                                "customConditional": "",
+                                                "logic": [],
+                                                "attributes": {},
+                                                "rows": 1,
+                                                "type": "textarea",
+                                                "tags": [],
+                                                "input": true,
                                                 "placeholder": "",
                                                 "prefix": "",
                                                 "customClass": "",
@@ -136,7 +138,6 @@
                                                 "unique": false,
                                                 "persistent": true,
                                                 "hidden": false,
-                                                "clearOnHide": true,
                                                 "dataGridLabel": false,
                                                 "labelPosition": "top",
                                                 "labelWidth": 30,
@@ -165,7 +166,7 @@
                                                 "inputMask": "",
                                                 "wysiwyg": false,
                                                 "editor": "",
-                                                "id": "e6n9o2k"
+                                                "id": "e9kc49s"
                                             },
                                             {
                                                 "conditional": {
@@ -331,7 +332,9 @@
                                                                 "hideDeleteRowButton": false,
                                                                 "isFullScreenWidthModal": false,
                                                                 "isSelectedValueAsText": false,
-                                                                "id": "exqnoga"
+                                                                "sortAttribute": "sys:node-dbid",
+                                                                "sortAscending": "asc",
+                                                                "id": "e8utuv"
                                                             }
                                                         ],
                                                         "classes": "",
@@ -387,7 +390,7 @@
                                                             "when": null,
                                                             "eq": ""
                                                         },
-                                                        "id": "ejev25"
+                                                        "id": "eesa8ub"
                                                     },
                                                     {
                                                         "components": [
@@ -556,7 +559,9 @@
                                                                 "hideDeleteRowButton": false,
                                                                 "isFullScreenWidthModal": false,
                                                                 "isSelectedValueAsText": false,
-                                                                "id": "eg2bdfl"
+                                                                "sortAttribute": "sys:node-dbid",
+                                                                "sortAscending": "asc",
+                                                                "id": "elbw3wu"
                                                             }
                                                         ],
                                                         "classes": "",
@@ -612,7 +617,7 @@
                                                             "when": null,
                                                             "eq": ""
                                                         },
-                                                        "id": "en1owfn"
+                                                        "id": "eurbb9"
                                                     }
                                                 ],
                                                 "key": "columns7",
@@ -660,7 +665,7 @@
                                                 "inlineColumns": false,
                                                 "autoAdjust": false,
                                                 "hideOnChildrenHidden": false,
-                                                "id": "e7jezy"
+                                                "id": "e9tib8f"
                                             },
                                             {
                                                 "conditional": {
@@ -770,7 +775,9 @@
                                                                 "hideDeleteRowButton": false,
                                                                 "isFullScreenWidthModal": false,
                                                                 "isSelectedValueAsText": false,
-                                                                "id": "e3akiw"
+                                                                "sortAttribute": "sys:node-dbid",
+                                                                "sortAscending": "asc",
+                                                                "id": "eof5sy"
                                                             }
                                                         ],
                                                         "classes": "",
@@ -826,7 +833,7 @@
                                                             "when": null,
                                                             "eq": ""
                                                         },
-                                                        "id": "e7ou3ml"
+                                                        "id": "edqtcfu"
                                                     },
                                                     {
                                                         "components": [
@@ -898,7 +905,7 @@
                                                                 "excludeAuthoritiesByType": "",
                                                                 "modalTitle": "",
                                                                 "isSelectedValueAsText": false,
-                                                                "id": "epiw3i"
+                                                                "id": "e3g38no"
                                                             }
                                                         ],
                                                         "classes": "",
@@ -954,7 +961,7 @@
                                                             "when": null,
                                                             "eq": ""
                                                         },
-                                                        "id": "e97bkfu"
+                                                        "id": "e0albjn"
                                                     }
                                                 ],
                                                 "key": "columns9",
@@ -1002,7 +1009,7 @@
                                                 "inlineColumns": false,
                                                 "autoAdjust": false,
                                                 "hideOnChildrenHidden": false,
-                                                "id": "elf4udu"
+                                                "id": "ep68crm"
                                             },
                                             {
                                                 "conditional": {
@@ -1165,7 +1172,9 @@
                                                                 "hideDeleteRowButton": false,
                                                                 "isFullScreenWidthModal": false,
                                                                 "isSelectedValueAsText": false,
-                                                                "id": "epl30k"
+                                                                "sortAttribute": "sys:node-dbid",
+                                                                "sortAscending": "asc",
+                                                                "id": "e702vni"
                                                             }
                                                         ],
                                                         "classes": "",
@@ -1221,7 +1230,7 @@
                                                             "when": null,
                                                             "eq": ""
                                                         },
-                                                        "id": "e284gz"
+                                                        "id": "e5xba8"
                                                     },
                                                     {
                                                         "components": [
@@ -1371,7 +1380,9 @@
                                                                 "hideDeleteRowButton": false,
                                                                 "isFullScreenWidthModal": false,
                                                                 "isSelectedValueAsText": false,
-                                                                "id": "eapkedd"
+                                                                "sortAttribute": "sys:node-dbid",
+                                                                "sortAscending": "asc",
+                                                                "id": "ey5m7qn"
                                                             }
                                                         ],
                                                         "classes": "",
@@ -1427,7 +1438,7 @@
                                                             "when": null,
                                                             "eq": ""
                                                         },
-                                                        "id": "e0fyaad"
+                                                        "id": "e92lfo"
                                                     }
                                                 ],
                                                 "key": "columns10",
@@ -1475,7 +1486,7 @@
                                                 "inlineColumns": false,
                                                 "autoAdjust": false,
                                                 "hideOnChildrenHidden": false,
-                                                "id": "ey8gce"
+                                                "id": "epo6lt9"
                                             },
                                             {
                                                 "conditional": {
@@ -1575,7 +1586,7 @@
                                                                 "searchThreshold": 0.3,
                                                                 "fuseOptions": {},
                                                                 "customOptions": {},
-                                                                "id": "ei974es"
+                                                                "id": "ejydd8"
                                                             }
                                                         ],
                                                         "classes": "",
@@ -1631,7 +1642,7 @@
                                                             "when": null,
                                                             "eq": ""
                                                         },
-                                                        "id": "eu74wli"
+                                                        "id": "em0uya7"
                                                     },
                                                     {
                                                         "components": [
@@ -1684,26 +1695,26 @@
                                                                         "resources": {
                                                                             "en": {
                                                                                 "translation": {
-                                                                                    "complete": "Сохранение прошло успешно",
-                                                                                    "error": "Пожалуйста, исправьте следующие ошибки перед отправкой:",
-                                                                                    "required": "Поле {{field}} не может быть пустым",
-                                                                                    "pattern": "{{field}} не совпадает с паттерном {{pattern}}",
-                                                                                    "minLength": "{{field}} должен быть длиннее чем {{length}} символов.",
-                                                                                    "maxLength": "{{field}} должен быть короче чем {{length}} символов.",
+                                                                                    "complete": "Submission Complete",
+                                                                                    "error": "Please fix the following errors before submitting.",
+                                                                                    "required": "{{field}} is required",
+                                                                                    "pattern": "{{field}} does not match the pattern {{pattern}}",
+                                                                                    "minLength": "{{field}} must be longer than {{length}} characters.",
+                                                                                    "maxLength": "{{field}} must be shorter than {{length}} characters.",
                                                                                     "minWords": "{{field}} must have more than {{length}} words.",
                                                                                     "maxWords": "{{field}} must have less than {{length}} words.",
-                                                                                    "min": "{{field}} не может быть меньше чем {{min}}.",
-                                                                                    "max": "{{field}} не может быть больше чем {{max}}.",
+                                                                                    "min": "{{field}} cannot be less than {{min}}.",
+                                                                                    "max": "{{field}} cannot be greater than {{max}}.",
                                                                                     "minSelectedCount": "You must select at least {{minCount}} items to continue.",
                                                                                     "maxSelectedCount": "You can only select up to {{maxCount}} items to continue.",
                                                                                     "maxDate": "{{field}} should not contain date after {{- maxDate}}",
                                                                                     "minDate": "{{field}} should not contain date before {{- minDate}}",
-                                                                                    "invalid_email": "{{field}} некорректный email.",
+                                                                                    "invalid_email": "{{field}} must be a valid email.",
                                                                                     "invalid_url": "{{field}} must be a valid url.",
-                                                                                    "invalid_regex": "{{field}} не соответствует паттерну {{regex}}.",
-                                                                                    "invalid_date": "{{field}} некорректная дата.",
+                                                                                    "invalid_regex": "{{field}} does not match the pattern {{regex}}.",
+                                                                                    "invalid_date": "{{field}} is not a valid date.",
                                                                                     "invalid_day": "{{field}} is not a valid day.",
-                                                                                    "mask": "{{field}} не совпадает с маской.",
+                                                                                    "mask": "{{field}} does not match the mask.",
                                                                                     "stripe": "{{stripe}}",
                                                                                     "month": "Month",
                                                                                     "day": "Day",
@@ -1720,16 +1731,10 @@
                                                                                     "october": "October",
                                                                                     "november": "November",
                                                                                     "december": "December",
-                                                                                    "next": "Далее",
-                                                                                    "previous": "Назад",
+                                                                                    "next": "Next",
+                                                                                    "previous": "Previous",
                                                                                     "cancel": "Cancel",
-                                                                                    "submit": "Submit Form",
-                                                                                    "or": "или",
-                                                                                    "browse": "выбрать",
-                                                                                    "File Name": "Имя файла",
-                                                                                    "Type": "Тип",
-                                                                                    "Drop files to attach, or": "Перетащите файлы для прикрепления, или",
-                                                                                    "Size": "Размер"
+                                                                                    "submit": "Submit Form"
                                                                                 }
                                                                             },
                                                                             "ru": {
@@ -1753,7 +1758,32 @@
                                                                                     "Type": "Тип",
                                                                                     "required": "Поле {{field}} не может быть пустым",
                                                                                     "Drop files to attach, or": "Перетащите файлы для прикрепления, или",
-                                                                                    "Size": "Размер"
+                                                                                    "Size": "Размер",
+                                                                                    "contracts:closingDocumentSigner": "Подписант",
+                                                                                    "idocs:legalEntity": "Юридическое лицо",
+                                                                                    "contracts:contractor": "Контрагент",
+                                                                                    "contracts:closingDocumentDate": "Дата документа",
+                                                                                    "contracts:closingDocumentNumber": "Номер документа",
+                                                                                    "Generate": "Генерировать",
+                                                                                    "contracts:closingDocumentCurrency": "Валюта",
+                                                                                    "cm:content": "Содержимое",
+                                                                                    "currencyList": "currencyList",
+                                                                                    "caseStatus": "caseStatus",
+                                                                                    "docTypeList": "docTypeList",
+                                                                                    "closingDocuments": "closingDocuments",
+                                                                                    "DocumentData": "DocumentData",
+                                                                                    "Document-base": "Документ-основание",
+                                                                                    "Invoice": "Счет",
+                                                                                    "Original Location": "Местонахождение оригинала",
+                                                                                    "Document type": "Вид документа",
+                                                                                    "Generate from template": "Сгенерировать из шаблона",
+                                                                                    "Cancel": "Отменить",
+                                                                                    "Save": "Сохранить",
+                                                                                    "Create": "Создать",
+                                                                                    "Name": "Название",
+                                                                                    "Basic": "Основные",
+                                                                                    "Finance": "Финансы",
+                                                                                    "Content": "Содержание"
                                                                                 }
                                                                             }
                                                                         }
@@ -1818,7 +1848,7 @@
                                                                     "mousewheel": true,
                                                                     "arrowkeys": true
                                                                 },
-                                                                "id": "eyw891"
+                                                                "id": "ebg6ys"
                                                             }
                                                         ],
                                                         "classes": "",
@@ -1874,7 +1904,7 @@
                                                             "when": null,
                                                             "eq": ""
                                                         },
-                                                        "id": "erhqb9i"
+                                                        "id": "er8v7vq"
                                                     }
                                                 ],
                                                 "key": "columns",
@@ -1922,7 +1952,7 @@
                                                 "inlineColumns": false,
                                                 "autoAdjust": false,
                                                 "hideOnChildrenHidden": false,
-                                                "id": "e0u0ykr"
+                                                "id": "eyqhnxe"
                                             },
                                             {
                                                 "conditional": {
@@ -1940,32 +1970,19 @@
                                                     {
                                                         "components": [
                                                             {
-                                                                "allowMultipleMasks": false,
-                                                                "conditional": {
-                                                                    "show": "",
-                                                                    "json": "",
-                                                                    "when": "",
-                                                                    "eq": ""
-                                                                },
-                                                                "defaultValue": "",
-                                                                "type": "textfield",
-                                                                "customConditional": "",
-                                                                "inputFormat": "plain",
-                                                                "tags": [],
-                                                                "input": true,
-                                                                "alwaysEnabled": false,
+                                                                "label": "contracts:closingDocumentNumber",
+                                                                "showWordCount": false,
                                                                 "showCharCount": false,
-                                                                "widget": {
-                                                                    "type": "",
-                                                                    "format": "yyyy-MM-dd hh:mm a",
-                                                                    "dateFormat": "yyyy-MM-dd hh:mm a",
-                                                                    "saveAs": "text"
-                                                                },
-                                                                "key": "contracts_closingDocumentNumber",
+                                                                "tableView": true,
+                                                                "alwaysEnabled": false,
+                                                                "defaultValue": "",
+                                                                "inputFormat": "plain",
+                                                                "triggerChangeWhenCalculate": false,
+                                                                "encrypted": false,
                                                                 "validate": {
+                                                                    "required": true,
                                                                     "customMessage": "",
                                                                     "json": "",
-                                                                    "required": true,
                                                                     "custom": "",
                                                                     "customPrivate": false,
                                                                     "minLength": "",
@@ -1974,11 +1991,17 @@
                                                                     "maxWords": "",
                                                                     "pattern": ""
                                                                 },
-                                                                "tableView": true,
-                                                                "label": "contracts:closingDocumentNumber",
-                                                                "showWordCount": false,
-                                                                "encrypted": false,
-                                                                "attributes": {},
+                                                                "key": "contracts_closingDocumentNumber",
+                                                                "properties": {
+                                                                    "attribute": "contracts:closingDocumentNumber"
+                                                                },
+                                                                "conditional": {
+                                                                    "show": "",
+                                                                    "when": "",
+                                                                    "json": "",
+                                                                    "eq": ""
+                                                                },
+                                                                "customConditional": "",
                                                                 "logic": [
                                                                     {
                                                                         "name": "generateEvent",
@@ -1994,7 +2017,7 @@
                                                                             {
                                                                                 "name": "set_value",
                                                                                 "type": "value",
-                                                                                "value": "value = data.closingDocuments.totalCount +1;"
+                                                                                "value": "//value = data.closingDocuments.totalCount +1;\nvalue = \"-\";"
                                                                             },
                                                                             {
                                                                                 "name": "set_required",
@@ -2019,8 +2042,16 @@
                                                                         ]
                                                                     }
                                                                 ],
-                                                                "properties": {
-                                                                    "attribute": "contracts:closingDocumentNumber"
+                                                                "attributes": {},
+                                                                "type": "textfield",
+                                                                "allowMultipleMasks": false,
+                                                                "tags": [],
+                                                                "input": true,
+                                                                "widget": {
+                                                                    "type": "",
+                                                                    "format": "yyyy-MM-dd hh:mm a",
+                                                                    "dateFormat": "yyyy-MM-dd hh:mm a",
+                                                                    "saveAs": "text"
                                                                 },
                                                                 "placeholder": "",
                                                                 "prefix": "",
@@ -2053,7 +2084,7 @@
                                                                 "mask": false,
                                                                 "inputType": "text",
                                                                 "inputMask": "",
-                                                                "id": "ewlfzy8"
+                                                                "id": "ewlmuf"
                                                             }
                                                         ],
                                                         "classes": "",
@@ -2109,7 +2140,7 @@
                                                             "when": null,
                                                             "eq": ""
                                                         },
-                                                        "id": "ejmzoif"
+                                                        "id": "eijqjvq"
                                                     },
                                                     {
                                                         "components": [
@@ -2174,7 +2205,7 @@
                                                                 "inputType": "checkbox",
                                                                 "value": "",
                                                                 "name": "",
-                                                                "id": "e4qncs"
+                                                                "id": "e0escbp"
                                                             }
                                                         ],
                                                         "classes": "d-flex justify-content-start align-items-center",
@@ -2230,7 +2261,7 @@
                                                             "when": null,
                                                             "eq": ""
                                                         },
-                                                        "id": "efikamk"
+                                                        "id": "e87slr9"
                                                     }
                                                 ],
                                                 "key": "columns3",
@@ -2278,7 +2309,7 @@
                                                 "inlineColumns": false,
                                                 "autoAdjust": false,
                                                 "hideOnChildrenHidden": false,
-                                                "id": "eooaod"
+                                                "id": "e11i7r"
                                             }
                                         ],
                                         "title": "Basic",
@@ -2331,7 +2362,7 @@
                                         "theme": "default",
                                         "breadcrumb": "default",
                                         "lazyLoad": false,
-                                        "id": "ebbevnf"
+                                        "id": "e8gp32"
                                     }
                                 ],
                                 "classes": "",
@@ -2387,7 +2418,7 @@
                                     "when": null,
                                     "eq": ""
                                 },
-                                "id": "e8hz3id"
+                                "id": "expu6w8"
                             },
                             {
                                 "components": [
@@ -2513,7 +2544,7 @@
                                                 "searchThreshold": 0.3,
                                                 "fuseOptions": {},
                                                 "customOptions": {},
-                                                "id": "e6zlrer"
+                                                "id": "exvc58k"
                                             }
                                         ],
                                         "title": "Finance",
@@ -2566,7 +2597,7 @@
                                         "theme": "default",
                                         "breadcrumb": "default",
                                         "lazyLoad": false,
-                                        "id": "eyf5c0c"
+                                        "id": "e26e6cb"
                                     },
                                     {
                                         "conditional": {
@@ -2645,7 +2676,7 @@
                                                 "inputType": "checkbox",
                                                 "value": "",
                                                 "name": "",
-                                                "id": "e0snjgc"
+                                                "id": "ex337t3"
                                             },
                                             {
                                                 "conditional": {
@@ -2729,7 +2760,8 @@
                                                 "defaultOverlayHeight": 200,
                                                 "onFileClick": "openDashboard",
                                                 "displayElementsJS": {},
-                                                "id": "evltvo2"
+                                                "valueDisplayName": {},
+                                                "id": "e5qh10h"
                                             }
                                         ],
                                         "title": "Content",
@@ -2782,7 +2814,7 @@
                                         "theme": "default",
                                         "breadcrumb": "default",
                                         "lazyLoad": false,
-                                        "id": "e2ykiqo"
+                                        "id": "ewg0g05"
                                     }
                                 ],
                                 "classes": "",
@@ -2838,7 +2870,7 @@
                                     "when": null,
                                     "eq": ""
                                 },
-                                "id": "evkc7m"
+                                "id": "eexdwm4"
                             }
                         ],
                         "key": "columns5",
@@ -2886,7 +2918,7 @@
                         "inlineColumns": false,
                         "autoAdjust": false,
                         "hideOnChildrenHidden": false,
-                        "id": "ekbxyli"
+                        "id": "edl94u7"
                     },
                     {
                         "conditional": {
@@ -2962,7 +2994,7 @@
                         "mask": false,
                         "inputType": "text",
                         "inputMask": "",
-                        "id": "e7hxr2"
+                        "id": "ey37gf6"
                     }
                 ],
                 "key": "panel2",
@@ -3015,7 +3047,7 @@
                 "theme": "default",
                 "breadcrumb": "default",
                 "lazyLoad": false,
-                "id": "e3fvqds"
+                "id": "eyqdogo"
             },
             {
                 "conditional": {
@@ -3063,6 +3095,7 @@
                                                 "isSingle": false
                                             },
                                             "type": "recordsQuery",
+                                            "forceLoad": false,
                                             "ajax": {
                                                 "method": "GET",
                                                 "url": "",
@@ -3136,7 +3169,8 @@
                                         "mask": false,
                                         "inputType": "asyncData",
                                         "executionCondition": "",
-                                        "id": "e3zwd1"
+                                        "ignoreValuesEqualityChecking": false,
+                                        "id": "eyn1ygs"
                                     }
                                 ],
                                 "classes": "",
@@ -3192,7 +3226,7 @@
                                     "when": null,
                                     "eq": ""
                                 },
-                                "id": "e5xhioi"
+                                "id": "euyh01m"
                             },
                             {
                                 "components": [
@@ -3210,6 +3244,7 @@
                                                 "asyncData": "function getCaseStatus(recordId, attemptsNumber, period = 2000) {\r\n    return new Promise(function(resolve, reject) {\r\n        (function attempt(attemptsLeft) {\r\n        \twindow.Citeck.Records.get(data).load('icase:caseStatusAssoc.cm:name', true).then(status => {\r\n        \t\tif (status !== null) {\r\n        \t\t\treturn resolve(status);\r\n        \t\t}\r\n        \t\tif (attemptsLeft < 1) {\r\n        \t\t\treturn resolve(null);\r\n        \t\t}\r\n        \t\t\r\n        \t\tsetTimeout(attempt.bind(null, attemptsLeft - 1), period);\r\n        \t}).catch(reject);\r\n        })(attemptsNumber);\r\n    });\r\n}\r\n\r\nconst isViewMode = instance.options.readOnly && instance.options.viewAsHtml;\r\nconst formMode = instance.options.formMode;\r\n\r\nif (!isViewMode && formMode === 'EDIT') {\r\n  value = getCaseStatus(data, 10); \r\n} else {\r\n  value = 'status is null';\r\n}"
                                             },
                                             "type": "custom",
+                                            "forceLoad": false,
                                             "ajax": {
                                                 "method": "GET",
                                                 "url": "",
@@ -3284,7 +3319,8 @@
                                         "inputType": "asyncData",
                                         "eventName": "",
                                         "executionCondition": "",
-                                        "id": "ecgc3gk"
+                                        "ignoreValuesEqualityChecking": false,
+                                        "id": "ernecx"
                                     }
                                 ],
                                 "classes": "",
@@ -3340,7 +3376,7 @@
                                     "when": null,
                                     "eq": ""
                                 },
-                                "id": "egghruu"
+                                "id": "ekqses4"
                             },
                             {
                                 "components": [
@@ -3361,6 +3397,7 @@
                                                 "isSingle": false
                                             },
                                             "type": "recordsQuery",
+                                            "forceLoad": false,
                                             "ajax": {
                                                 "method": "GET",
                                                 "url": "",
@@ -3434,7 +3471,8 @@
                                         "mask": false,
                                         "inputType": "asyncData",
                                         "executionCondition": "",
-                                        "id": "ewpedh9"
+                                        "ignoreValuesEqualityChecking": false,
+                                        "id": "erlfavf"
                                     }
                                 ],
                                 "classes": "",
@@ -3490,7 +3528,7 @@
                                     "when": null,
                                     "eq": ""
                                 },
-                                "id": "eaxldyl"
+                                "id": "e35n4wr"
                             },
                             {
                                 "components": [
@@ -3511,6 +3549,7 @@
                                                 "isSingle": false
                                             },
                                             "type": "recordsQuery",
+                                            "forceLoad": false,
                                             "ajax": {
                                                 "method": "GET",
                                                 "url": "",
@@ -3584,7 +3623,8 @@
                                         "inputType": "asyncData",
                                         "eventName": "",
                                         "executionCondition": "",
-                                        "id": "e4tv5zq"
+                                        "ignoreValuesEqualityChecking": false,
+                                        "id": "ewhw3a1"
                                     }
                                 ],
                                 "classes": "",
@@ -3640,7 +3680,7 @@
                                     "when": null,
                                     "eq": ""
                                 },
-                                "id": "ecifhqm"
+                                "id": "ebrheblk"
                             },
                             {
                                 "components": [],
@@ -3697,7 +3737,7 @@
                                     "when": null,
                                     "eq": ""
                                 },
-                                "id": "eh2eh9"
+                                "id": "eaqy39j"
                             },
                             {
                                 "components": [
@@ -3724,6 +3764,7 @@
                                                 "id": "{{data.contracts_closingDocumentAgreement}}"
                                             },
                                             "type": "record",
+                                            "forceLoad": false,
                                             "ajax": {
                                                 "method": "GET",
                                                 "url": "",
@@ -3798,7 +3839,8 @@
                                         "mask": false,
                                         "inputType": "asyncData",
                                         "executionCondition": "",
-                                        "id": "e9c3mdj"
+                                        "ignoreValuesEqualityChecking": false,
+                                        "id": "edchyt"
                                     }
                                 ],
                                 "classes": "",
@@ -3854,7 +3896,7 @@
                                     "when": null,
                                     "eq": ""
                                 },
-                                "id": "e2iy2eb"
+                                "id": "e7bu4a"
                             }
                         ],
                         "key": "columns6",
@@ -3902,7 +3944,7 @@
                         "inlineColumns": false,
                         "autoAdjust": false,
                         "hideOnChildrenHidden": false,
-                        "id": "e7y3hc"
+                        "id": "eyrsbds"
                     }
                 ],
                 "hidden": true,
@@ -3955,7 +3997,7 @@
                 "theme": "default",
                 "breadcrumb": "default",
                 "lazyLoad": false,
-                "id": "ejfl9cq"
+                "id": "eevlw07"
             },
             {
                 "conditional": {
@@ -4029,7 +4071,7 @@
                             "when": null,
                             "eq": ""
                         },
-                        "id": "e13dzh"
+                        "id": "ejn4r2c"
                     },
                     {
                         "type": "column",
@@ -4108,7 +4150,7 @@
                                 "rightIcon": "",
                                 "disableOnInvalid": false,
                                 "theme": "default",
-                                "id": "emng2y6"
+                                "id": "ekz9cwi"
                             }
                         ],
                         "classes": "",
@@ -4162,22 +4204,30 @@
                             "when": null,
                             "eq": ""
                         },
-                        "id": "eabuhir"
+                        "id": "euv5ap"
                     },
                     {
                         "components": [
                             {
-                                "label": "Save",
-                                "removeIndents": true,
-                                "action": "saveState",
-                                "theme": "primary",
-                                "shortcut": "",
-                                "block": true,
+                                "conditional": {
+                                    "show": "",
+                                    "json": "",
+                                    "when": "",
+                                    "eq": ""
+                                },
+                                "type": "button",
                                 "disableOnInvalid": true,
-                                "mask": false,
-                                "tableView": true,
+                                "block": true,
+                                "state": "draft",
+                                "customConditional": "",
+                                "tags": [],
+                                "input": true,
                                 "alwaysEnabled": false,
-                                "encrypted": false,
+                                "removeIndents": true,
+                                "shortcut": "",
+                                "theme": "primary",
+                                "key": "submit",
+                                "mask": false,
                                 "validate": {
                                     "customMessage": "",
                                     "json": "",
@@ -4185,21 +4235,12 @@
                                     "custom": "",
                                     "customPrivate": false
                                 },
-                                "key": "submit",
-                                "properties": {},
-                                "conditional": {
-                                    "show": "",
-                                    "when": "",
-                                    "json": "",
-                                    "eq": ""
-                                },
-                                "customConditional": "",
-                                "logic": [],
+                                "tableView": true,
+                                "label": "Save",
+                                "encrypted": false,
                                 "attributes": {},
-                                "type": "button",
-                                "tags": [],
-                                "input": true,
-                                "showValidations": true,
+                                "logic": [],
+                                "properties": {},
                                 "placeholder": "",
                                 "prefix": "",
                                 "customClass": "",
@@ -4233,7 +4274,8 @@
                                 "size": "md",
                                 "leftIcon": "",
                                 "rightIcon": "",
-                                "id": "e277dva"
+                                "action": "submit",
+                                "id": "eqtbqd6"
                             }
                         ],
                         "classes": "",
@@ -4289,7 +4331,7 @@
                             "when": null,
                             "eq": ""
                         },
-                        "id": "eb3fkde"
+                        "id": "e8tsyl"
                     },
                     {
                         "components": [],
@@ -4346,7 +4388,7 @@
                             "when": null,
                             "eq": ""
                         },
-                        "id": "evyxrp"
+                        "id": "ef4s2ek"
                     }
                 ],
                 "key": "columns2",
@@ -4394,7 +4436,7 @@
                 "inlineColumns": false,
                 "autoAdjust": false,
                 "hideOnChildrenHidden": false,
-                "id": "e5pze79"
+                "id": "eo71i71"
             }
         ],
         "display": "form"

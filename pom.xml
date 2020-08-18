@@ -4,7 +4,7 @@
 
     <groupId>ru.citeck.ecos.community</groupId>
     <artifactId>ecos-community</artifactId>
-    <version>3.20.0-SNAPSHOT</version>
+    <version>3.22.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>ecos-community</name>
@@ -65,8 +65,8 @@
         <default.locale>en</default.locale>
         <yuicompressor.compress.skip>false</yuicompressor.compress.skip>
 
-        <ecos.flowable.version>1.5.0</ecos.flowable.version>
-        <ecos.core.version>3.25.0-SNAPSHOT</ecos.core.version>
+        <ecos.flowable.version>2.0.1</ecos.flowable.version>
+        <ecos.core.version>3.28.0-SNAPSHOT</ecos.core.version>
 
         <web.compression.skip>false</web.compression.skip>
 
@@ -319,7 +319,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.16.20</version>
+            <version>1.16.22</version>
             <scope>provided</scope>
         </dependency>
 
@@ -534,6 +534,20 @@
                             <nonFilteredFileExtension>jsx</nonFilteredFileExtension>
                         </nonFilteredFileExtensions>
                     </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>3.0.1</version>
+                    <executions>
+                        <execution>
+                            <id>attach-sources</id>
+                            <goals>
+                                <goal>jar</goal>
+                            </goals>
+                        </execution>
+                    </executions>
                 </plugin>
 
                 <plugin>
