@@ -390,7 +390,7 @@
                 "properties": {
                   "attribute": "cm:content"
                 },
-                "customConditional": "const {tk_kind = \"\"} = data || null;\nshow = tk_kind.includes(\"workspace\");\n",
+                "customConditional": "const {tk_kind = \"\"} = data || null;\nshow = tk_kind.includes(\"workspace\") && !dms_updateContent;",
                 "type": "file",
                 "input": true
               }
