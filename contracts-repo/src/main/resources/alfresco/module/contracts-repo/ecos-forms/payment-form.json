@@ -654,32 +654,32 @@
                 "input": false,
                 "components": [
                   {
+                    "label": "payments:currency",
+                    "clearOnHide": false,
+                    "dataSrc": "custom",
                     "data": {
                       "custom": "for (var i in data.currencyList.records) {\n        values.push({label: data.currencyList.records[i].key,value: data.currencyList.records[i].id})\n  }\n"
                     },
-                    "defaultValue": "workspace://SpacesStore/currency-rur",
-                    "type": "ecosSelect",
-                    "refreshEventName": "currencyListEvent",
-                    "clearOnHide": false,
                     "refreshOnEvent": true,
-                    "input": true,
-                    "customDefaultValue": "if (data.paymentsBasis && data.paymentsBasis.agreementCurrency && data.paymentsBasis.agreementCurrency !== null) {\r\n    value = data.paymentsBasis.agreementCurrency;\r\n} else if (data.paymentsBasis && data.paymentsBasis.currency && data.paymentsBasis.currency !== null) {\r\n    value = data.paymentsBasis.currency;\t\r\n} else {\r\n\tvalue = 'workspace://SpacesStore/currency-rur';\r\n}",
+                    "refreshEventName": "currencyListEvent",
+                    "defaultValue": "workspace://SpacesStore/currency-rur",
                     "refreshOn": [
                       "payments_basis"
                     ],
-                    "key": "payments_currency",
-                    "dataSrc": "custom",
+                    "calculateValue": "const{paymentsBasis = \"\"} = data || null;\r\nconst{agreementCurrency = \"\"} = paymentsBasis || null;\r\nconst{currency = \"\"} = paymentsBasis || null;\r\nif (agreementCurrency !== null) {\r\n    value = agreementCurrency;\r\n} else if (paymentsBasis && currency !== null) {\r\n    value = currency;\r\n} else {\r\n\tvalue = 'workspace://SpacesStore/currency-rur';\r\n}",
                     "validate": {
                       "required": true
                     },
-                    "clearOnRefresh": true,
-                    "label": "payments:currency",
+                    "key": "payments_currency",
+                    "properties": {
+                      "attribute": "payments:currency"
+                    },
                     "logic": [
                       {
                         "name": "disabled_on",
                         "trigger": {
                           "type": "javascript",
-                          "javascript": "if (data.paymentsBasis && data.paymentsBasis.agreementCurrency !== null) {\r\n    result = true;\r\n} else if (data.paymentsBasis && data.paymentsBasis.currency !== null) {\r\n    result = true;\r\n} else {\r\n    result = false;\r\n}"
+                          "javascript": "const{paymentsBasis = \"\"} = data || null;\r\nconst{agreementCurrency = \"\"} = paymentsBasis || null;\r\nconst{currency = \"\"} = paymentsBasis || null;\r\nif (paymentsBasis && agreementCurrency !== null) {\r\n    result = true;\r\n} else if (paymentsBasis && currency !== null) {\r\n    result = true;\r\n} else {\r\n    result = false;\r\n}\r\n"
                         },
                         "actions": [
                           {
@@ -695,9 +695,8 @@
                         ]
                       }
                     ],
-                    "properties": {
-                      "attribute": "payments:currency"
-                    }
+                    "type": "ecosSelect",
+                    "input": true
                   },
                   {
                     "type": "checkbox",
@@ -1136,7 +1135,8 @@
         "label": "invariants:isDraft",
         "properties": {
           "attribute": "invariants:isDraft"
-        }
+        },
+        "defaultValue": null
       },
       {
         "update": {
