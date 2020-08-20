@@ -110,6 +110,20 @@
 		</property>
 	</bean>
 
+	<bean id="productsAndServices.paymentDraftTitleBehaviour" parent="TitleGenerationBehaviour">
+		<property name="className" value="pas:pasEntityCopied" />
+		<property name="titleMLTemplate">
+			<map>
+				<entry key="ru_RU">
+					<value><![CDATA[Продукт/услуга]]></value>
+				</entry>
+				<entry key="en_US">
+					<value><![CDATA[Product/Service]]></value>
+				</entry>
+			</map>
+		</property>
+	</bean>
+
 	<bean id="contracts.paymentPeriodNamingBehaviour" parent="AutoNameBehaviour">
 		<property name="className" value="payments:period" />
 		<property name="nameTemplate">
@@ -125,6 +139,15 @@
 		<property name="appendExtension" value="false" />
 		<property name="order" value="40"/>
 	</bean>
+
+<!--	<bean id="productsAndServices.closingDocumentNamingBehaviour" parent="AutoNameBehaviour">-->
+<!--		<property name="className" value="pas:pasEntity"/>-->
+<!--		<property name="nameTemplate">-->
+<!--            <value><![CDATA[Products and Services]]></value>-->
+<!--		</property>-->
+<!--		<property name="appendExtension" value="false" />-->
+<!--		<property name="order" value="40"/>-->
+<!--	</bean>-->
 
 	<bean id="contracts.closingDocumentTitleBehaviour" parent="TitleGenerationBehaviour">
 		<property name="className" value="contracts:closingDocument"/>
