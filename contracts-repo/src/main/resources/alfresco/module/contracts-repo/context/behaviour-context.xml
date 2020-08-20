@@ -140,15 +140,6 @@
 		<property name="order" value="40"/>
 	</bean>
 
-<!--	<bean id="productsAndServices.closingDocumentNamingBehaviour" parent="AutoNameBehaviour">-->
-<!--		<property name="className" value="pas:pasEntity"/>-->
-<!--		<property name="nameTemplate">-->
-<!--            <value><![CDATA[Products and Services]]></value>-->
-<!--		</property>-->
-<!--		<property name="appendExtension" value="false" />-->
-<!--		<property name="order" value="40"/>-->
-<!--	</bean>-->
-
 	<bean id="contracts.closingDocumentTitleBehaviour" parent="TitleGenerationBehaviour">
 		<property name="className" value="contracts:closingDocument"/>
 		<property name="titleMLTemplate">
