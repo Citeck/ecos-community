@@ -667,6 +667,7 @@
                       "payments_basis"
                     ],
                     "calculateValue": "const{paymentsBasis = \"\"} = data || null;\r\nconst{agreementCurrency = \"\"} = paymentsBasis || null;\r\nconst{currency = \"\"} = paymentsBasis || null;\r\nif (agreementCurrency !== null) {\r\n    value = agreementCurrency;\r\n} else if (paymentsBasis && currency !== null) {\r\n    value = currency;\r\n} else {\r\n\tvalue = 'workspace://SpacesStore/currency-rur';\r\n}",
+                    "allowCalculateOverride": true,
                     "validate": {
                       "required": true
                     },
