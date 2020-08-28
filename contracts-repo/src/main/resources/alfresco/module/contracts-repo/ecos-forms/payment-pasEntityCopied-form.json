@@ -31,11 +31,11 @@
           {
             "components": [
               {
-                "label": "pas:title",
+                "label": "cm:title",
                 "defaultValue": "",
-                "key": "pas_title",
+                "key": "cm_title",
                 "properties": {
-                  "attribute": "pas:title"
+                  "attribute": "cm:title"
                 },
                 "rows": 2,
                 "type": "textarea",
