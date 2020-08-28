@@ -66,7 +66,7 @@
         <yuicompressor.compress.skip>false</yuicompressor.compress.skip>
 
         <ecos.flowable.version>2.0.1</ecos.flowable.version>
-        <ecos.core.version>3.27.5</ecos.core.version>
+        <ecos.core.version>3.27.6</ecos.core.version>
 
         <web.compression.skip>false</web.compression.skip>
 
