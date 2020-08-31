@@ -968,7 +968,7 @@
                       "custom": {
                         "columns": [
                           {
-                            "name": "pas:title",
+                            "name": "cm:title",
                             "formatter": "",
                             "setAttributesManually": false
                           },
