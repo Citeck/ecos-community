@@ -1,1922 +1,410 @@
 {
-    "id": "4335bb18-5259-4f9a-b16e-9d2e8371045d",
-    "formKey": "alf_pas:pasEntityCopied",
-    "title": {
-        "en": "pasEntityCopied"
+  "id": "4335bb18-5259-4f9a-b16e-9d2e8371045d",
+  "formKey": "alf_pas:pasEntityCopied",
+  "title": {
+    "en": "pasEntityCopied"
+  },
+  "description": {
+    "en": ""
+  },
+  "customModule": null,
+  "typeRef": "",
+  "width": "default",
+  "i18n": {
+    "ru": {
+      "Save": "Сохранить",
+      "Cancel": "Отмена",
+      "product": "Продукт",
+      "service": "Услуга",
+      "pas:title": "Описание"
     },
-    "description": {
-        "en": ""
-    },
-    "customModule": null,
-    "typeRef": "",
-    "width": "default",
-    "i18n": {
-        "ru": {
-            "Save": "Сохранить",
-            "Cancel": "Отмена",
-            "product": "Продукт",
-            "service": "Услуга"
-        },
-        "en": {
-            "Save": "Save",
-            "Cancel": "Cancel",
-            "product": "Product",
-            "service": "Service"
-        }
-    },
-    "definition": {
-        "components": [
-            {
-                "label": "Columns",
-                "columns": [
-                    {
-                        "components": [
-                            {
-                                "label": "cm:title",
-                                "autoExpand": false,
-                                "isUploadEnabled": false,
-                                "showWordCount": false,
-                                "showCharCount": false,
-                                "tableView": true,
-                                "alwaysEnabled": false,
-                                "defaultValue": "",
-                                "inputFormat": "plain",
-                                "encrypted": false,
-                                "validate": {
-                                    "customMessage": "",
-                                    "json": "",
-                                    "required": false,
-                                    "custom": "",
-                                    "customPrivate": false,
-                                    "minLength": "",
-                                    "maxLength": "",
-                                    "minWords": "",
-                                    "maxWords": "",
-                                    "pattern": ""
-                                },
-                                "key": "cm_title",
-                                "properties": {
-                                    "attribute": "cm:title"
-                                },
-                                "conditional": {
-                                    "show": "",
-                                    "when": "",
-                                    "json": "",
-                                    "eq": ""
-                                },
-                                "customConditional": "",
-                                "logic": [],
-                                "attributes": {},
-                                "rows": 2,
-                                "type": "textarea",
-                                "input": true,
-                                "tags": [],
-                                "placeholder": "",
-                                "prefix": "",
-                                "customClass": "",
-                                "suffix": "",
-                                "multiple": false,
-                                "protected": false,
-                                "unique": false,
-                                "persistent": true,
-                                "hidden": false,
-                                "clearOnHide": true,
-                                "dataGridLabel": false,
-                                "labelPosition": "top",
-                                "labelWidth": 30,
-                                "labelMargin": 3,
-                                "description": "",
-                                "errorLabel": "",
-                                "tooltip": "",
-                                "hideLabel": false,
-                                "tabindex": "",
-                                "disabled": false,
-                                "autofocus": false,
-                                "dbIndex": false,
-                                "customDefaultValue": "",
-                                "calculateValue": "",
-                                "allowCalculateOverride": false,
-                                "widget": {
-                                    "format": "yyyy-MM-dd hh:mm a",
-                                    "dateFormat": "yyyy-MM-dd hh:mm a",
-                                    "saveAs": "text"
-                                },
-                                "refreshOn": "",
-                                "clearOnRefresh": false,
-                                "validateOn": "change",
-                                "mask": false,
-                                "inputType": "text",
-                                "inputMask": "",
-                                "wysiwyg": false,
-                                "editor": "",
-                                "id": "e9ohgp"
-                            }
-                        ],
-                        "width": 6,
-                        "offset": 0,
-                        "push": 0,
-                        "pull": 0,
-                        "type": "column",
-                        "input": false,
-                        "hideOnChildrenHidden": false,
-                        "key": "column",
-                        "tableView": true,
-                        "label": "Column",
-                        "xs": 0,
-                        "sm": 12,
-                        "md": 6,
-                        "lg": 0,
-                        "xl": 0,
-                        "classes": "",
-                        "index": 0,
-                        "placeholder": "",
-                        "prefix": "",
-                        "customClass": "",
-                        "suffix": "",
-                        "multiple": false,
-                        "defaultValue": null,
-                        "protected": false,
-                        "unique": false,
-                        "persistent": true,
-                        "hidden": false,
-                        "clearOnHide": true,
-                        "dataGridLabel": false,
-                        "labelPosition": "top",
-                        "labelWidth": 30,
-                        "labelMargin": 3,
-                        "description": "",
-                        "errorLabel": "",
-                        "tooltip": "",
-                        "hideLabel": false,
-                        "tabindex": "",
-                        "disabled": false,
-                        "autofocus": false,
-                        "dbIndex": false,
-                        "customDefaultValue": "",
-                        "calculateValue": "",
-                        "allowCalculateOverride": false,
-                        "widget": null,
-                        "refreshOn": "",
-                        "clearOnRefresh": false,
-                        "validateOn": "change",
-                        "validate": {
-                            "required": false,
-                            "custom": "",
-                            "customPrivate": false
-                        },
-                        "conditional": {
-                            "show": null,
-                            "when": null,
-                            "eq": ""
-                        },
-                        "id": "etrghih"
-                    },
-                    {
-                        "components": [
-                            {
-                                "label": "cm:description",
-                                "autoExpand": false,
-                                "isUploadEnabled": false,
-                                "showWordCount": false,
-                                "showCharCount": false,
-                                "tableView": true,
-                                "alwaysEnabled": false,
-                                "defaultValue": "",
-                                "inputFormat": "plain",
-                                "encrypted": false,
-                                "validate": {
-                                    "customMessage": "",
-                                    "json": "",
-                                    "required": false,
-                                    "custom": "",
-                                    "customPrivate": false,
-                                    "minLength": "",
-                                    "maxLength": "",
-                                    "minWords": "",
-                                    "maxWords": "",
-                                    "pattern": ""
-                                },
-                                "key": "cm_description",
-                                "properties": {
-                                    "attribute": "cm:description"
-                                },
-                                "conditional": {
-                                    "show": "",
-                                    "when": "",
-                                    "json": "",
-                                    "eq": ""
-                                },
-                                "customConditional": "",
-                                "logic": [],
-                                "attributes": {},
-                                "rows": 2,
-                                "type": "textarea",
-                                "input": true,
-                                "tags": [],
-                                "placeholder": "",
-                                "prefix": "",
-                                "customClass": "",
-                                "suffix": "",
-                                "multiple": false,
-                                "protected": false,
-                                "unique": false,
-                                "persistent": true,
-                                "hidden": false,
-                                "clearOnHide": true,
-                                "dataGridLabel": false,
-                                "labelPosition": "top",
-                                "labelWidth": 30,
-                                "labelMargin": 3,
-                                "description": "",
-                                "errorLabel": "",
-                                "tooltip": "",
-                                "hideLabel": false,
-                                "tabindex": "",
-                                "disabled": false,
-                                "autofocus": false,
-                                "dbIndex": false,
-                                "customDefaultValue": "",
-                                "calculateValue": "",
-                                "allowCalculateOverride": false,
-                                "widget": {
-                                    "format": "yyyy-MM-dd hh:mm a",
-                                    "dateFormat": "yyyy-MM-dd hh:mm a",
-                                    "saveAs": "text"
-                                },
-                                "refreshOn": "",
-                                "clearOnRefresh": false,
-                                "validateOn": "change",
-                                "mask": false,
-                                "inputType": "text",
-                                "inputMask": "",
-                                "wysiwyg": false,
-                                "editor": "",
-                                "id": "e70gdp"
-                            }
-                        ],
-                        "width": 6,
-                        "offset": 0,
-                        "push": 0,
-                        "pull": 0,
-                        "type": "column",
-                        "input": false,
-                        "hideOnChildrenHidden": false,
-                        "key": "column",
-                        "tableView": true,
-                        "label": "Column",
-                        "xs": 0,
-                        "sm": 12,
-                        "md": 6,
-                        "lg": 0,
-                        "xl": 0,
-                        "classes": "",
-                        "index": 1,
-                        "placeholder": "",
-                        "prefix": "",
-                        "customClass": "",
-                        "suffix": "",
-                        "multiple": false,
-                        "defaultValue": null,
-                        "protected": false,
-                        "unique": false,
-                        "persistent": true,
-                        "hidden": false,
-                        "clearOnHide": true,
-                        "dataGridLabel": false,
-                        "labelPosition": "top",
-                        "labelWidth": 30,
-                        "labelMargin": 3,
-                        "description": "",
-                        "errorLabel": "",
-                        "tooltip": "",
-                        "hideLabel": false,
-                        "tabindex": "",
-                        "disabled": false,
-                        "autofocus": false,
-                        "dbIndex": false,
-                        "customDefaultValue": "",
-                        "calculateValue": "",
-                        "allowCalculateOverride": false,
-                        "widget": null,
-                        "refreshOn": "",
-                        "clearOnRefresh": false,
-                        "validateOn": "change",
-                        "validate": {
-                            "required": false,
-                            "custom": "",
-                            "customPrivate": false
-                        },
-                        "conditional": {
-                            "show": null,
-                            "when": null,
-                            "eq": ""
-                        },
-                        "id": "e05yz6"
-                    }
-                ],
-                "mask": false,
-                "tableView": false,
-                "alwaysEnabled": false,
-                "key": "columns2",
-                "properties": {},
-                "conditional": {
-                    "json": "",
-                    "show": "",
-                    "when": "",
-                    "eq": ""
+    "en": {
+      "Save": "Save",
+      "Cancel": "Cancel",
+      "product": "Product",
+      "service": "Service"
+    }
+  },
+  "definition": {
+    "components": [
+      {
+        "columns": [
+          {
+            "components": [
+              {
+                "label": "cm:title",
+                "defaultValue": "",
+                "key": "cm_title",
+                "properties": {
+                  "attribute": "cm:title"
                 },
-                "customConditional": "",
-                "logic": [],
-                "attributes": {},
-                "type": "columns",
-                "input": false,
-                "tags": [],
-                "placeholder": "",
-                "prefix": "",
-                "customClass": "",
-                "suffix": "",
-                "multiple": false,
-                "defaultValue": null,
-                "protected": false,
-                "unique": false,
-                "persistent": false,
-                "hidden": false,
-                "clearOnHide": false,
-                "dataGridLabel": false,
-                "labelPosition": "top",
-                "labelWidth": 30,
-                "labelMargin": 3,
-                "description": "",
-                "errorLabel": "",
-                "tooltip": "",
-                "hideLabel": false,
-                "tabindex": "",
-                "disabled": false,
-                "autofocus": false,
-                "dbIndex": false,
-                "customDefaultValue": "",
-                "calculateValue": "",
-                "allowCalculateOverride": false,
-                "widget": null,
-                "refreshOn": "",
-                "clearOnRefresh": false,
-                "validateOn": "change",
-                "validate": {
-                    "required": false,
-                    "custom": "",
-                    "customPrivate": false
-                },
-                "inlineColumns": false,
-                "autoAdjust": false,
-                "hideOnChildrenHidden": false,
-                "id": "emlvwai"
-            },
-            {
-                "conditional": {
-                    "json": "",
-                    "show": "",
-                    "when": "",
-                    "eq": ""
-                },
-                "customConditional": "",
-                "logic": [],
-                "input": true,
-                "key": "horizontalLine2",
-                "tableView": true,
-                "label": "Horizontal Line",
-                "type": "horizontalLine",
-                "placeholder": "",
-                "prefix": "",
-                "customClass": "",
-                "suffix": "",
-                "multiple": false,
-                "defaultValue": null,
-                "protected": false,
-                "unique": false,
-                "persistent": true,
-                "hidden": false,
-                "clearOnHide": true,
-                "dataGridLabel": false,
-                "labelPosition": "top",
-                "labelWidth": 30,
-                "labelMargin": 3,
-                "description": "",
-                "errorLabel": "",
-                "tooltip": "",
-                "hideLabel": false,
-                "tabindex": "",
-                "disabled": false,
-                "autofocus": false,
-                "dbIndex": false,
-                "customDefaultValue": "",
-                "calculateValue": "",
-                "allowCalculateOverride": false,
-                "widget": null,
-                "refreshOn": "",
-                "clearOnRefresh": false,
-                "validateOn": "change",
-                "validate": {
-                    "required": false,
-                    "custom": "",
-                    "customPrivate": false
-                },
-                "mask": false,
-                "inputType": "horizontalLine",
-                "useNegativeIndents": true,
-                "addVerticalIndents": false,
-                "id": "etanio"
-            },
-            {
-                "label": "Columns",
-                "columns": [
-                    {
-                        "components": [
-                            {
-                                "label": "pas:type",
-                                "mask": false,
-                                "tableView": true,
-                                "alwaysEnabled": false,
-                                "data": {
-                                    "url": "/citeck/ecos/records/query",
-                                    "headers": [
-                                        {
-                                            "key": "",
-                                            "value": ""
-                                        }
-                                    ],
-                                    "values": [],
-                                    "json": "",
-                                    "resource": "",
-                                    "custom": ""
-                                },
-                                "lazyLoad": false,
-                                "selectValues": "",
-                                "disableLimit": false,
-                                "sort": "",
-                                "refreshOnEvent": false,
-                                "selectThreshold": 0.3,
-                                "defaultValue": "product",
-                                "refreshOn": [],
-                                "encrypted": false,
-                                "validate": {
-                                    "required": true,
-                                    "customMessage": "",
-                                    "json": "",
-                                    "custom": "",
-                                    "customPrivate": false
-                                },
-                                "key": "pas_type",
-                                "properties": {
-                                    "attribute": "pas:type"
-                                },
-                                "conditional": {
-                                    "show": "",
-                                    "when": "",
-                                    "json": "",
-                                    "eq": ""
-                                },
-                                "customConditional": "",
-                                "logic": [],
-                                "attributes": {},
-                                "type": "ecosSelect",
-                                "input": true,
-                                "tags": [],
-                                "placeholder": "",
-                                "prefix": "",
-                                "customClass": "",
-                                "suffix": "",
-                                "multiple": false,
-                                "protected": false,
-                                "unique": false,
-                                "persistent": true,
-                                "hidden": false,
-                                "clearOnHide": true,
-                                "dataGridLabel": false,
-                                "labelPosition": "top",
-                                "labelWidth": 30,
-                                "labelMargin": 3,
-                                "description": "",
-                                "errorLabel": "",
-                                "tooltip": "",
-                                "hideLabel": false,
-                                "tabindex": "",
-                                "disabled": false,
-                                "autofocus": false,
-                                "dbIndex": false,
-                                "customDefaultValue": "",
-                                "calculateValue": "",
-                                "allowCalculateOverride": false,
-                                "widget": null,
-                                "clearOnRefresh": false,
-                                "validateOn": "change",
-                                "limit": 100,
-                                "dataSrc": "url",
-                                "valueProperty": "value",
-                                "filter": "",
-                                "searchEnabled": true,
-                                "searchField": "",
-                                "minSearch": 0,
-                                "readOnlyValue": false,
-                                "authenticate": false,
-                                "template": "<span>{{ item.label }}</span>",
-                                "selectFields": "",
-                                "searchThreshold": 0.3,
-                                "fuseOptions": {},
-                                "customOptions": {},
-                                "refreshEventName": "",
-                                "id": "eil6iip"
-                            }
-                        ],
-                        "width": 6,
-                        "offset": 0,
-                        "push": 0,
-                        "pull": 0,
-                        "type": "column",
-                        "input": false,
-                        "hideOnChildrenHidden": false,
-                        "key": "column",
-                        "tableView": true,
-                        "label": "Column",
-                        "xs": 0,
-                        "sm": 12,
-                        "md": 6,
-                        "lg": 0,
-                        "xl": 0,
-                        "classes": "",
-                        "index": 0,
-                        "placeholder": "",
-                        "prefix": "",
-                        "customClass": "",
-                        "suffix": "",
-                        "multiple": false,
-                        "defaultValue": null,
-                        "protected": false,
-                        "unique": false,
-                        "persistent": true,
-                        "hidden": false,
-                        "clearOnHide": true,
-                        "dataGridLabel": false,
-                        "labelPosition": "top",
-                        "labelWidth": 30,
-                        "labelMargin": 3,
-                        "description": "",
-                        "errorLabel": "",
-                        "tooltip": "",
-                        "hideLabel": false,
-                        "tabindex": "",
-                        "disabled": false,
-                        "autofocus": false,
-                        "dbIndex": false,
-                        "customDefaultValue": "",
-                        "calculateValue": "",
-                        "allowCalculateOverride": false,
-                        "widget": null,
-                        "refreshOn": "",
-                        "clearOnRefresh": false,
-                        "validateOn": "change",
-                        "validate": {
-                            "required": false,
-                            "custom": "",
-                            "customPrivate": false
-                        },
-                        "conditional": {
-                            "show": null,
-                            "when": null,
-                            "eq": ""
-                        },
-                        "id": "ec5zq79"
-                    },
-                    {
-                        "components": [
-                            {
-                                "label": "pas:quantity",
-                                "mask": false,
-                                "tableView": true,
-                                "alwaysEnabled": false,
-                                "delimiter": false,
-                                "requireDecimal": false,
-                                "encrypted": false,
-                                "validate": {
-                                    "required": true,
-                                    "customMessage": "",
-                                    "json": "",
-                                    "min": 0,
-                                    "custom": "",
-                                    "customPrivate": false,
-                                    "max": "",
-                                    "step": "any",
-                                    "integer": ""
-                                },
-                                "key": "pas_quantity",
-                                "properties": {
-                                    "attribute": "pas:quantity"
-                                },
-                                "conditional": {
-                                    "show": "",
-                                    "when": "",
-                                    "json": "",
-                                    "eq": ""
-                                },
-                                "customConditional": "",
-                                "logic": [],
-                                "attributes": {},
-                                "type": "number",
-                                "input": true,
-                                "tags": [],
-                                "defaultValue": 1,
-                                "placeholder": "",
-                                "prefix": "",
-                                "customClass": "",
-                                "suffix": "",
-                                "multiple": false,
-                                "protected": false,
-                                "unique": false,
-                                "persistent": true,
-                                "hidden": false,
-                                "clearOnHide": true,
-                                "dataGridLabel": false,
-                                "labelPosition": "top",
-                                "labelWidth": 30,
-                                "labelMargin": 3,
-                                "description": "",
-                                "errorLabel": "",
-                                "tooltip": "",
-                                "hideLabel": false,
-                                "tabindex": "",
-                                "disabled": false,
-                                "autofocus": false,
-                                "dbIndex": false,
-                                "customDefaultValue": "",
-                                "calculateValue": "",
-                                "allowCalculateOverride": false,
-                                "widget": null,
-                                "refreshOn": "",
-                                "clearOnRefresh": false,
-                                "validateOn": "change",
-                                "id": "etefili"
-                            }
-                        ],
-                        "width": 6,
-                        "offset": 0,
-                        "push": 0,
-                        "pull": 0,
-                        "type": "column",
-                        "input": false,
-                        "hideOnChildrenHidden": false,
-                        "key": "column",
-                        "tableView": true,
-                        "label": "Column",
-                        "xs": 0,
-                        "sm": 12,
-                        "md": 6,
-                        "lg": 0,
-                        "xl": 0,
-                        "classes": "",
-                        "index": 1,
-                        "placeholder": "",
-                        "prefix": "",
-                        "customClass": "",
-                        "suffix": "",
-                        "multiple": false,
-                        "defaultValue": null,
-                        "protected": false,
-                        "unique": false,
-                        "persistent": true,
-                        "hidden": false,
-                        "clearOnHide": true,
-                        "dataGridLabel": false,
-                        "labelPosition": "top",
-                        "labelWidth": 30,
-                        "labelMargin": 3,
-                        "description": "",
-                        "errorLabel": "",
-                        "tooltip": "",
-                        "hideLabel": false,
-                        "tabindex": "",
-                        "disabled": false,
-                        "autofocus": false,
-                        "dbIndex": false,
-                        "customDefaultValue": "",
-                        "calculateValue": "",
-                        "allowCalculateOverride": false,
-                        "widget": null,
-                        "refreshOn": "",
-                        "clearOnRefresh": false,
-                        "validateOn": "change",
-                        "validate": {
-                            "required": false,
-                            "custom": "",
-                            "customPrivate": false
-                        },
-                        "conditional": {
-                            "show": null,
-                            "when": null,
-                            "eq": ""
-                        },
-                        "id": "e24jpie"
-                    },
-                    {
-                        "xs": 0,
-                        "sm": 12,
-                        "md": 6,
-                        "lg": 0,
-                        "xl": 0,
-                        "classes": "",
-                        "type": "column",
-                        "input": false,
-                        "hideOnChildrenHidden": false,
-                        "key": "column",
-                        "tableView": true,
-                        "label": "Column",
-                        "components": [
-                            {
-                                "label": "pas:pricePerUnit",
-                                "mask": false,
-                                "tableView": true,
-                                "alwaysEnabled": false,
-                                "delimiter": false,
-                                "requireDecimal": false,
-                                "encrypted": false,
-                                "validate": {
-                                    "required": true,
-                                    "customMessage": "",
-                                    "json": "",
-                                    "custom": "",
-                                    "customPrivate": false,
-                                    "min": "",
-                                    "max": "",
-                                    "step": "any",
-                                    "integer": ""
-                                },
-                                "key": "pas_pricePerUnit",
-                                "properties": {
-                                    "attribute": "pas:pricePerUnit"
-                                },
-                                "conditional": {
-                                    "show": "",
-                                    "when": "",
-                                    "json": "",
-                                    "eq": ""
-                                },
-                                "customConditional": "",
-                                "logic": [],
-                                "attributes": {},
-                                "type": "number",
-                                "input": true,
-                                "tags": [],
-                                "placeholder": "",
-                                "prefix": "",
-                                "customClass": "",
-                                "suffix": "",
-                                "multiple": false,
-                                "defaultValue": null,
-                                "protected": false,
-                                "unique": false,
-                                "persistent": true,
-                                "hidden": false,
-                                "clearOnHide": true,
-                                "dataGridLabel": false,
-                                "labelPosition": "top",
-                                "labelWidth": 30,
-                                "labelMargin": 3,
-                                "description": "",
-                                "errorLabel": "",
-                                "tooltip": "",
-                                "hideLabel": false,
-                                "tabindex": "",
-                                "disabled": false,
-                                "autofocus": false,
-                                "dbIndex": false,
-                                "customDefaultValue": "",
-                                "calculateValue": "",
-                                "allowCalculateOverride": false,
-                                "widget": null,
-                                "refreshOn": "",
-                                "clearOnRefresh": false,
-                                "validateOn": "change",
-                                "id": "e1hw5jg"
-                            }
-                        ],
-                        "index": 2,
-                        "placeholder": "",
-                        "prefix": "",
-                        "customClass": "",
-                        "suffix": "",
-                        "multiple": false,
-                        "defaultValue": null,
-                        "protected": false,
-                        "unique": false,
-                        "persistent": true,
-                        "hidden": false,
-                        "clearOnHide": true,
-                        "dataGridLabel": false,
-                        "labelPosition": "top",
-                        "labelWidth": 30,
-                        "labelMargin": 3,
-                        "description": "",
-                        "errorLabel": "",
-                        "tooltip": "",
-                        "hideLabel": false,
-                        "tabindex": "",
-                        "disabled": false,
-                        "autofocus": false,
-                        "dbIndex": false,
-                        "customDefaultValue": "",
-                        "calculateValue": "",
-                        "allowCalculateOverride": false,
-                        "widget": null,
-                        "refreshOn": "",
-                        "clearOnRefresh": false,
-                        "validateOn": "change",
-                        "validate": {
-                            "required": false,
-                            "custom": "",
-                            "customPrivate": false
-                        },
-                        "conditional": {
-                            "show": null,
-                            "when": null,
-                            "eq": ""
-                        },
-                        "id": "eemb3xq"
-                    },
-                    {
-                        "xs": 0,
-                        "sm": 12,
-                        "md": 6,
-                        "lg": 0,
-                        "xl": 0,
-                        "classes": "",
-                        "type": "column",
-                        "input": false,
-                        "hideOnChildrenHidden": false,
-                        "key": "column",
-                        "tableView": true,
-                        "label": "Column",
-                        "components": [
-                            {
-                                "label": "pas:total",
-                                "mask": false,
-                                "disabled": true,
-                                "tableView": true,
-                                "alwaysEnabled": false,
-                                "delimiter": false,
-                                "requireDecimal": false,
-                                "calculateValue": "if (!!data.pas_pricePerUnit && !!data.pas_quantity) {\r\n\tvalue = data.pas_pricePerUnit * data.pas_quantity;\r\n}",
-                                "allowCalculateOverride": true,
-                                "encrypted": false,
-                                "validate": {
-                                    "required": true,
-                                    "customMessage": "",
-                                    "json": "",
-                                    "min": 0,
-                                    "custom": "",
-                                    "customPrivate": false,
-                                    "max": "",
-                                    "step": "any",
-                                    "integer": ""
-                                },
-                                "key": "pas_total",
-                                "properties": {
-                                    "attribute": "pas:total"
-                                },
-                                "conditional": {
-                                    "show": "",
-                                    "when": "",
-                                    "json": "",
-                                    "eq": ""
-                                },
-                                "customConditional": "",
-                                "logic": [],
-                                "attributes": {},
-                                "decimalLimit": 2,
-                                "type": "number",
-                                "input": true,
-                                "tags": [],
-                                "placeholder": "",
-                                "prefix": "",
-                                "customClass": "",
-                                "suffix": "",
-                                "multiple": false,
-                                "defaultValue": null,
-                                "protected": false,
-                                "unique": false,
-                                "persistent": true,
-                                "hidden": false,
-                                "clearOnHide": true,
-                                "dataGridLabel": false,
-                                "labelPosition": "top",
-                                "labelWidth": 30,
-                                "labelMargin": 3,
-                                "description": "",
-                                "errorLabel": "",
-                                "tooltip": "",
-                                "hideLabel": false,
-                                "tabindex": "",
-                                "autofocus": false,
-                                "dbIndex": false,
-                                "customDefaultValue": "",
-                                "widget": null,
-                                "refreshOn": "",
-                                "clearOnRefresh": false,
-                                "validateOn": "change",
-                                "id": "e94eqrv"
-                            }
-                        ],
-                        "index": 3,
-                        "placeholder": "",
-                        "prefix": "",
-                        "customClass": "",
-                        "suffix": "",
-                        "multiple": false,
-                        "defaultValue": null,
-                        "protected": false,
-                        "unique": false,
-                        "persistent": true,
-                        "hidden": false,
-                        "clearOnHide": true,
-                        "dataGridLabel": false,
-                        "labelPosition": "top",
-                        "labelWidth": 30,
-                        "labelMargin": 3,
-                        "description": "",
-                        "errorLabel": "",
-                        "tooltip": "",
-                        "hideLabel": false,
-                        "tabindex": "",
-                        "disabled": false,
-                        "autofocus": false,
-                        "dbIndex": false,
-                        "customDefaultValue": "",
-                        "calculateValue": "",
-                        "allowCalculateOverride": false,
-                        "widget": null,
-                        "refreshOn": "",
-                        "clearOnRefresh": false,
-                        "validateOn": "change",
-                        "validate": {
-                            "required": false,
-                            "custom": "",
-                            "customPrivate": false
-                        },
-                        "conditional": {
-                            "show": null,
-                            "when": null,
-                            "eq": ""
-                        },
-                        "id": "eeqba1"
-                    },
-                    {
-                        "xs": 0,
-                        "sm": 12,
-                        "md": 6,
-                        "lg": 0,
-                        "xl": 0,
-                        "classes": "",
-                        "type": "column",
-                        "input": false,
-                        "hideOnChildrenHidden": false,
-                        "key": "column",
-                        "tableView": true,
-                        "label": "Column",
-                        "components": [
-                            {
-                                "label": "pas:entityUnit",
-                                "mask": false,
-                                "tableView": true,
-                                "alwaysEnabled": false,
-                                "dataSrc": "custom",
-                                "data": {
-                                    "url": "/citeck/ecos/records/query",
-                                    "custom": "const {unit = {}} = data || {};\nconst {records = []} = unit || {};\n\n\nfor (var i in records) {\n    values.push({label: records[i].unitShortName,value: records[i].id})\n}",
-                                    "values": [],
-                                    "json": "",
-                                    "resource": ""
-                                },
-                                "refreshOnEvent": false,
-                                "selectThreshold": 0.3,
-                                "defaultValue": "",
-                                "refreshOn": [
-                                    "unit"
-                                ],
-                                "encrypted": false,
-                                "validate": {
-                                    "required": true,
-                                    "customMessage": "",
-                                    "json": "",
-                                    "custom": "",
-                                    "customPrivate": false
-                                },
-                                "key": "pas_entityUnit",
-                                "properties": {
-                                    "attribute": "pas:entityUnit"
-                                },
-                                "conditional": {
-                                    "show": "",
-                                    "when": "",
-                                    "json": "",
-                                    "eq": ""
-                                },
-                                "customConditional": "",
-                                "logic": [],
-                                "attributes": {},
-                                "type": "ecosSelect",
-                                "input": true,
-                                "tags": [],
-                                "placeholder": "",
-                                "prefix": "",
-                                "customClass": "",
-                                "suffix": "",
-                                "multiple": false,
-                                "protected": false,
-                                "unique": false,
-                                "persistent": true,
-                                "hidden": false,
-                                "clearOnHide": true,
-                                "dataGridLabel": false,
-                                "labelPosition": "top",
-                                "labelWidth": 30,
-                                "labelMargin": 3,
-                                "description": "",
-                                "errorLabel": "",
-                                "tooltip": "",
-                                "hideLabel": false,
-                                "tabindex": "",
-                                "disabled": false,
-                                "autofocus": false,
-                                "dbIndex": false,
-                                "customDefaultValue": "",
-                                "calculateValue": "",
-                                "allowCalculateOverride": false,
-                                "widget": null,
-                                "clearOnRefresh": false,
-                                "validateOn": "change",
-                                "limit": 100,
-                                "valueProperty": "value",
-                                "filter": "",
-                                "searchEnabled": true,
-                                "searchField": "",
-                                "minSearch": 0,
-                                "readOnlyValue": false,
-                                "authenticate": false,
-                                "template": "<span>{{ item.label }}</span>",
-                                "selectFields": "",
-                                "searchThreshold": 0.3,
-                                "fuseOptions": {},
-                                "customOptions": {},
-                                "refreshEventName": "",
-                                "id": "e9qfka"
-                            }
-                        ],
-                        "index": 4,
-                        "placeholder": "",
-                        "prefix": "",
-                        "customClass": "",
-                        "suffix": "",
-                        "multiple": false,
-                        "defaultValue": null,
-                        "protected": false,
-                        "unique": false,
-                        "persistent": true,
-                        "hidden": false,
-                        "clearOnHide": true,
-                        "dataGridLabel": false,
-                        "labelPosition": "top",
-                        "labelWidth": 30,
-                        "labelMargin": 3,
-                        "description": "",
-                        "errorLabel": "",
-                        "tooltip": "",
-                        "hideLabel": false,
-                        "tabindex": "",
-                        "disabled": false,
-                        "autofocus": false,
-                        "dbIndex": false,
-                        "customDefaultValue": "",
-                        "calculateValue": "",
-                        "allowCalculateOverride": false,
-                        "widget": null,
-                        "refreshOn": "",
-                        "clearOnRefresh": false,
-                        "validateOn": "change",
-                        "validate": {
-                            "required": false,
-                            "custom": "",
-                            "customPrivate": false
-                        },
-                        "conditional": {
-                            "show": null,
-                            "when": null,
-                            "eq": ""
-                        },
-                        "id": "euovte5"
-                    },
-                    {
-                        "xs": 0,
-                        "sm": 12,
-                        "md": 6,
-                        "lg": 0,
-                        "xl": 0,
-                        "classes": "",
-                        "type": "column",
-                        "input": false,
-                        "hideOnChildrenHidden": false,
-                        "key": "column",
-                        "tableView": true,
-                        "label": "Column",
-                        "components": [
-                            {
-                                "label": "pas:currency",
-                                "clearOnHide": false,
-                                "mask": false,
-                                "disabled": true,
-                                "tableView": true,
-                                "alwaysEnabled": false,
-                                "dataSrc": "custom",
-                                "data": {
-                                    "url": "/citeck/ecos/records/query",
-                                    "custom": "const {currencyList = {}} = data  || {};\nconst {records = []} = currencyList || {};\nfor (var i in records) {\n        values.push({label: records[i].title, value: records[i].id})\n}\n",
-                                    "values": [],
-                                    "json": "",
-                                    "resource": ""
-                                },
-                                "refreshOnEvent": true,
-                                "refreshEventName": "currencyListEvent",
-                                "searchEnabled": false,
-                                "selectThreshold": 0.3,
-                                "defaultValue": "",
-                                "refreshOn": [
-                                    "pas_pricePerUnit",
-                                    "currencyList"
-                                ],
-                                "customDefaultValue": "",
-                                "calculateValue": "const {parentForm = {}} = instance.options || {};\nconst {idocs_currencyDocument = '' } = parentForm.data || {};\nconst {payments_currency = '' } = parentForm.data || {};\n\nif (idocs_currencyDocument != '') {\n    value = idocs_currencyDocument;\n} else if (payments_currency != '') {\n  value = payments_currency;\n}\n\n",
-                                "allowCalculateOverride": true,
-                                "encrypted": false,
-                                "validate": {
-                                    "customMessage": "",
-                                    "json": "",
-                                    "required": false,
-                                    "custom": "",
-                                    "customPrivate": false
-                                },
-                                "key": "pas_currency",
-                                "properties": {
-                                    "attribute": "pas:currency"
-                                },
-                                "conditional": {
-                                    "show": "",
-                                    "when": "",
-                                    "json": "",
-                                    "eq": ""
-                                },
-                                "customConditional": "",
-                                "logic": [],
-                                "attributes": {},
-                                "type": "ecosSelect",
-                                "input": true,
-                                "tags": [],
-                                "placeholder": "",
-                                "prefix": "",
-                                "customClass": "",
-                                "suffix": "",
-                                "multiple": false,
-                                "protected": false,
-                                "unique": false,
-                                "persistent": true,
-                                "hidden": false,
-                                "dataGridLabel": false,
-                                "labelPosition": "top",
-                                "labelWidth": 30,
-                                "labelMargin": 3,
-                                "description": "",
-                                "errorLabel": "",
-                                "tooltip": "",
-                                "hideLabel": false,
-                                "tabindex": "",
-                                "autofocus": false,
-                                "dbIndex": false,
-                                "widget": null,
-                                "clearOnRefresh": false,
-                                "validateOn": "change",
-                                "limit": 100,
-                                "valueProperty": "value",
-                                "filter": "",
-                                "searchField": "",
-                                "minSearch": 0,
-                                "readOnlyValue": false,
-                                "authenticate": false,
-                                "template": "<span>{{ item.label }}</span>",
-                                "selectFields": "",
-                                "searchThreshold": 0.3,
-                                "fuseOptions": {},
-                                "customOptions": {},
-                                "id": "eikaojn"
-                            }
-                        ],
-                        "index": 5,
-                        "placeholder": "",
-                        "prefix": "",
-                        "customClass": "",
-                        "suffix": "",
-                        "multiple": false,
-                        "defaultValue": null,
-                        "protected": false,
-                        "unique": false,
-                        "persistent": true,
-                        "hidden": false,
-                        "clearOnHide": true,
-                        "dataGridLabel": false,
-                        "labelPosition": "top",
-                        "labelWidth": 30,
-                        "labelMargin": 3,
-                        "description": "",
-                        "errorLabel": "",
-                        "tooltip": "",
-                        "hideLabel": false,
-                        "tabindex": "",
-                        "disabled": false,
-                        "autofocus": false,
-                        "dbIndex": false,
-                        "customDefaultValue": "",
-                        "calculateValue": "",
-                        "allowCalculateOverride": false,
-                        "widget": null,
-                        "refreshOn": "",
-                        "clearOnRefresh": false,
-                        "validateOn": "change",
-                        "validate": {
-                            "required": false,
-                            "custom": "",
-                            "customPrivate": false
-                        },
-                        "conditional": {
-                            "show": null,
-                            "when": null,
-                            "eq": ""
-                        },
-                        "id": "evwv0lh"
-                    }
-                ],
-                "mask": false,
-                "tableView": false,
-                "alwaysEnabled": false,
-                "key": "columns3",
-                "properties": {},
-                "conditional": {
-                    "json": "",
-                    "show": "",
-                    "when": "",
-                    "eq": ""
-                },
-                "customConditional": "",
-                "logic": [],
-                "attributes": {},
-                "type": "columns",
-                "input": false,
-                "tags": [],
-                "placeholder": "",
-                "prefix": "",
-                "customClass": "",
-                "suffix": "",
-                "multiple": false,
-                "defaultValue": null,
-                "protected": false,
-                "unique": false,
-                "persistent": false,
-                "hidden": false,
-                "clearOnHide": false,
-                "dataGridLabel": false,
-                "labelPosition": "top",
-                "labelWidth": 30,
-                "labelMargin": 3,
-                "description": "",
-                "errorLabel": "",
-                "tooltip": "",
-                "hideLabel": false,
-                "tabindex": "",
-                "disabled": false,
-                "autofocus": false,
-                "dbIndex": false,
-                "customDefaultValue": "",
-                "calculateValue": "",
-                "allowCalculateOverride": false,
-                "widget": null,
-                "refreshOn": "",
-                "clearOnRefresh": false,
-                "validateOn": "change",
-                "validate": {
-                    "required": false,
-                    "custom": "",
-                    "customPrivate": false
-                },
-                "inlineColumns": false,
-                "autoAdjust": false,
-                "hideOnChildrenHidden": false,
-                "id": "e1ds01u"
-            },
-            {
-                "label": "Columns",
-                "hideLabel": true,
-                "columns": [
-                    {
-                        "components": [
-                            {
-                                "label": "currencyList",
-                                "source": {
-                                    "type": "recordsQuery",
-                                    "recordsQuery": {
-                                        "attributes": {
-                                            "title": "cm:title"
-                                        },
-                                        "query": "var value = {\r\n  query: 'TYPE:\"idocs:currency\"',\r\n  language: 'fts-alfresco'\r\n}",
-                                        "isSingle": false
-                                    },
-                                    "ajax": {
-                                        "method": "GET",
-                                        "url": "",
-                                        "data": "",
-                                        "mapping": ""
-                                    },
-                                    "record": {
-                                        "id": "",
-                                        "attributes": {}
-                                    },
-                                    "recordsArray": {
-                                        "id": "",
-                                        "attributes": {}
-                                    },
-                                    "recordsScript": {
-                                        "script": "",
-                                        "attributes": {}
-                                    },
-                                    "custom": {
-                                        "syncData": {},
-                                        "asyncData": {}
-                                    }
-                                },
-                                "update": {
-                                    "type": "any-change",
-                                    "event": "",
-                                    "rate": 100,
-                                    "force": false
-                                },
-                                "refreshOn": [],
-                                "triggerEventOnChange": true,
-                                "key": "currencyList",
-                                "type": "asyncData",
-                                "input": true,
-                                "tableView": true,
-                                "tags": [],
-                                "eventName": "currencyListEvent",
-                                "placeholder": "",
-                                "prefix": "",
-                                "customClass": "",
-                                "suffix": "",
-                                "multiple": false,
-                                "defaultValue": null,
-                                "protected": false,
-                                "unique": false,
-                                "persistent": true,
-                                "hidden": false,
-                                "clearOnHide": true,
-                                "dataGridLabel": false,
-                                "labelPosition": "top",
-                                "labelWidth": 30,
-                                "labelMargin": 3,
-                                "description": "",
-                                "errorLabel": "",
-                                "tooltip": "",
-                                "hideLabel": false,
-                                "tabindex": "",
-                                "disabled": false,
-                                "autofocus": false,
-                                "dbIndex": false,
-                                "customDefaultValue": "",
-                                "calculateValue": "",
-                                "allowCalculateOverride": false,
-                                "widget": null,
-                                "clearOnRefresh": false,
-                                "validateOn": "change",
-                                "validate": {
-                                    "required": false,
-                                    "custom": "",
-                                    "customPrivate": false
-                                },
-                                "conditional": {
-                                    "show": null,
-                                    "when": null,
-                                    "eq": ""
-                                },
-                                "mask": false,
-                                "inputType": "asyncData",
-                                "executionCondition": "",
-                                "id": "emtc7ed"
-                            },
-                            {
-                                "label": "unit",
-                                "source": {
-                                    "type": "recordsQuery",
-                                    "recordsQuery": {
-                                        "attributes": {
-                                            "title": "cm:title",
-                                            "unitShortName": "pas:unitShortName"
-                                        },
-                                        "query": "var value = {\r\n  query: 'TYPE:\"pas:unit\"',\r\n  language: 'fts-alfresco'\r\n}",
-                                        "isSingle": false
-                                    },
-                                    "ajax": {
-                                        "method": "GET",
-                                        "url": "",
-                                        "data": "",
-                                        "mapping": ""
-                                    },
-                                    "record": {
-                                        "id": "",
-                                        "attributes": {}
-                                    },
-                                    "recordsArray": {
-                                        "id": "",
-                                        "attributes": {}
-                                    },
-                                    "recordsScript": {
-                                        "script": "",
-                                        "attributes": {}
-                                    },
-                                    "custom": {
-                                        "syncData": {},
-                                        "asyncData": {}
-                                    }
-                                },
-                                "update": {
-                                    "type": "any-change",
-                                    "event": "",
-                                    "rate": 100,
-                                    "force": false
-                                },
-                                "refreshOn": [],
-                                "triggerEventOnChange": false,
-                                "key": "unit",
-                                "type": "asyncData",
-                                "input": true,
-                                "tableView": true,
-                                "tags": [],
-                                "placeholder": "",
-                                "prefix": "",
-                                "customClass": "",
-                                "suffix": "",
-                                "multiple": false,
-                                "defaultValue": null,
-                                "protected": false,
-                                "unique": false,
-                                "persistent": true,
-                                "hidden": false,
-                                "clearOnHide": true,
-                                "dataGridLabel": false,
-                                "labelPosition": "top",
-                                "labelWidth": 30,
-                                "labelMargin": 3,
-                                "description": "",
-                                "errorLabel": "",
-                                "tooltip": "",
-                                "hideLabel": false,
-                                "tabindex": "",
-                                "disabled": false,
-                                "autofocus": false,
-                                "dbIndex": false,
-                                "customDefaultValue": "",
-                                "calculateValue": "",
-                                "allowCalculateOverride": false,
-                                "widget": null,
-                                "clearOnRefresh": false,
-                                "validateOn": "change",
-                                "validate": {
-                                    "required": false,
-                                    "custom": "",
-                                    "customPrivate": false
-                                },
-                                "conditional": {
-                                    "show": null,
-                                    "when": null,
-                                    "eq": ""
-                                },
-                                "mask": false,
-                                "inputType": "asyncData",
-                                "eventName": "",
-                                "executionCondition": "",
-                                "id": "e5zn1jm"
-                            }
-                        ],
-                        "width": 3,
-                        "offset": 0,
-                        "push": 0,
-                        "pull": 0,
-                        "type": "column",
-                        "hideOnChildrenHidden": false,
-                        "input": false,
-                        "key": "column1",
-                        "tableView": true,
-                        "label": "",
-                        "xs": 0,
-                        "sm": 12,
-                        "md": 6,
-                        "lg": 0,
-                        "xl": 0,
-                        "classes": "",
-                        "index": 0,
-                        "placeholder": "",
-                        "prefix": "",
-                        "customClass": "",
-                        "suffix": "",
-                        "multiple": false,
-                        "defaultValue": null,
-                        "protected": false,
-                        "unique": false,
-                        "persistent": true,
-                        "hidden": false,
-                        "clearOnHide": true,
-                        "dataGridLabel": false,
-                        "labelPosition": "top",
-                        "labelWidth": 30,
-                        "labelMargin": 3,
-                        "description": "",
-                        "errorLabel": "",
-                        "tooltip": "",
-                        "hideLabel": false,
-                        "tabindex": "",
-                        "disabled": false,
-                        "autofocus": false,
-                        "dbIndex": false,
-                        "customDefaultValue": "",
-                        "calculateValue": "",
-                        "allowCalculateOverride": false,
-                        "widget": null,
-                        "refreshOn": "",
-                        "clearOnRefresh": false,
-                        "validateOn": "change",
-                        "validate": {
-                            "required": false,
-                            "custom": "",
-                            "customPrivate": false
-                        },
-                        "conditional": {
-                            "show": null,
-                            "when": null,
-                            "eq": ""
-                        },
-                        "id": "e9pbtic"
-                    },
-                    {
-                        "width": 3,
-                        "offset": 0,
-                        "type": "column",
-                        "hideOnChildrenHidden": false,
-                        "input": false,
-                        "key": "column2",
-                        "tableView": true,
-                        "label": "",
-                        "push": 0,
-                        "pull": 0,
-                        "components": [
-                            {
-                                "label": "Cancel",
-                                "action": "event",
-                                "state": "",
-                                "showValidations": false,
-                                "event": "cancel",
-                                "shortcut": "",
-                                "block": true,
-                                "mask": false,
-                                "tableView": true,
-                                "alwaysEnabled": false,
-                                "type": "button",
-                                "input": true,
-                                "key": "submit2",
-                                "placeholder": "",
-                                "prefix": "",
-                                "customClass": "",
-                                "suffix": "",
-                                "multiple": false,
-                                "defaultValue": null,
-                                "protected": false,
-                                "unique": false,
-                                "persistent": false,
-                                "hidden": false,
-                                "clearOnHide": true,
-                                "dataGridLabel": true,
-                                "labelPosition": "top",
-                                "labelWidth": 30,
-                                "labelMargin": 3,
-                                "description": "",
-                                "errorLabel": "",
-                                "tooltip": "",
-                                "hideLabel": false,
-                                "tabindex": "",
-                                "disabled": false,
-                                "autofocus": false,
-                                "dbIndex": false,
-                                "customDefaultValue": "",
-                                "calculateValue": "",
-                                "allowCalculateOverride": false,
-                                "widget": null,
-                                "refreshOn": "",
-                                "clearOnRefresh": false,
-                                "validateOn": "change",
-                                "validate": {
-                                    "required": false,
-                                    "custom": "",
-                                    "customPrivate": false
-                                },
-                                "conditional": {
-                                    "show": null,
-                                    "when": null,
-                                    "eq": ""
-                                },
-                                "size": "md",
-                                "leftIcon": "",
-                                "rightIcon": "",
-                                "disableOnInvalid": false,
-                                "theme": "default",
-                                "removeIndents": false,
-                                "id": "er18mc"
-                            }
-                        ],
-                        "index": 1,
-                        "placeholder": "",
-                        "prefix": "",
-                        "customClass": "",
-                        "suffix": "",
-                        "multiple": false,
-                        "defaultValue": null,
-                        "protected": false,
-                        "unique": false,
-                        "persistent": true,
-                        "hidden": false,
-                        "clearOnHide": true,
-                        "dataGridLabel": false,
-                        "labelPosition": "top",
-                        "labelWidth": 30,
-                        "labelMargin": 3,
-                        "description": "",
-                        "errorLabel": "",
-                        "tooltip": "",
-                        "hideLabel": false,
-                        "tabindex": "",
-                        "disabled": false,
-                        "autofocus": false,
-                        "dbIndex": false,
-                        "customDefaultValue": "",
-                        "calculateValue": "",
-                        "allowCalculateOverride": false,
-                        "widget": null,
-                        "refreshOn": "",
-                        "clearOnRefresh": false,
-                        "validateOn": "change",
-                        "validate": {
-                            "required": false,
-                            "custom": "",
-                            "customPrivate": false
-                        },
-                        "conditional": {
-                            "show": null,
-                            "when": null,
-                            "eq": ""
-                        },
-                        "id": "evi9uv"
-                    },
-                    {
-                        "components": [
-                            {
-                                "label": "Save",
-                                "state": "",
-                                "theme": "primary",
-                                "shortcut": "",
-                                "block": true,
-                                "disableOnInvalid": true,
-                                "mask": false,
-                                "tableView": true,
-                                "alwaysEnabled": false,
-                                "encrypted": false,
-                                "validate": {
-                                    "customMessage": "",
-                                    "json": "",
-                                    "required": false,
-                                    "custom": "",
-                                    "customPrivate": false
-                                },
-                                "key": "submit",
-                                "properties": {},
-                                "conditional": {
-                                    "show": "",
-                                    "when": "",
-                                    "json": "",
-                                    "eq": ""
-                                },
-                                "customConditional": "",
-                                "logic": [],
-                                "attributes": {},
-                                "type": "button",
-                                "input": true,
-                                "tags": [],
-                                "placeholder": "",
-                                "prefix": "",
-                                "customClass": "",
-                                "suffix": "",
-                                "multiple": false,
-                                "defaultValue": null,
-                                "protected": false,
-                                "unique": false,
-                                "persistent": false,
-                                "hidden": false,
-                                "clearOnHide": true,
-                                "dataGridLabel": true,
-                                "labelPosition": "top",
-                                "labelWidth": 30,
-                                "labelMargin": 3,
-                                "description": "",
-                                "errorLabel": "",
-                                "tooltip": "",
-                                "hideLabel": false,
-                                "tabindex": "",
-                                "disabled": false,
-                                "autofocus": false,
-                                "dbIndex": false,
-                                "customDefaultValue": "",
-                                "calculateValue": "",
-                                "allowCalculateOverride": false,
-                                "widget": null,
-                                "refreshOn": "",
-                                "clearOnRefresh": false,
-                                "validateOn": "change",
-                                "size": "md",
-                                "leftIcon": "",
-                                "rightIcon": "",
-                                "action": "submit",
-                                "removeIndents": false,
-                                "id": "et04ljp"
-                            }
-                        ],
-                        "width": 3,
-                        "offset": 0,
-                        "push": 0,
-                        "pull": 0,
-                        "type": "column",
-                        "hideOnChildrenHidden": false,
-                        "input": false,
-                        "key": "column3",
-                        "tableView": true,
-                        "label": "",
-                        "index": 2,
-                        "placeholder": "",
-                        "prefix": "",
-                        "customClass": "",
-                        "suffix": "",
-                        "multiple": false,
-                        "defaultValue": null,
-                        "protected": false,
-                        "unique": false,
-                        "persistent": true,
-                        "hidden": false,
-                        "clearOnHide": true,
-                        "dataGridLabel": false,
-                        "labelPosition": "top",
-                        "labelWidth": 30,
-                        "labelMargin": 3,
-                        "description": "",
-                        "errorLabel": "",
-                        "tooltip": "",
-                        "hideLabel": false,
-                        "tabindex": "",
-                        "disabled": false,
-                        "autofocus": false,
-                        "dbIndex": false,
-                        "customDefaultValue": "",
-                        "calculateValue": "",
-                        "allowCalculateOverride": false,
-                        "widget": null,
-                        "refreshOn": "",
-                        "clearOnRefresh": false,
-                        "validateOn": "change",
-                        "validate": {
-                            "required": false,
-                            "custom": "",
-                            "customPrivate": false
-                        },
-                        "conditional": {
-                            "show": null,
-                            "when": null,
-                            "eq": ""
-                        },
-                        "id": "e4jjxuo"
-                    },
-                    {
-                        "width": 3,
-                        "type": "column",
-                        "hideOnChildrenHidden": false,
-                        "input": false,
-                        "key": "column4",
-                        "tableView": true,
-                        "label": "",
-                        "offset": 0,
-                        "push": 0,
-                        "pull": 0,
-                        "components": [],
-                        "index": 3,
-                        "placeholder": "",
-                        "prefix": "",
-                        "customClass": "",
-                        "suffix": "",
-                        "multiple": false,
-                        "defaultValue": null,
-                        "protected": false,
-                        "unique": false,
-                        "persistent": true,
-                        "hidden": false,
-                        "clearOnHide": true,
-                        "dataGridLabel": false,
-                        "labelPosition": "top",
-                        "labelWidth": 30,
-                        "labelMargin": 3,
-                        "description": "",
-                        "errorLabel": "",
-                        "tooltip": "",
-                        "hideLabel": false,
-                        "tabindex": "",
-                        "disabled": false,
-                        "autofocus": false,
-                        "dbIndex": false,
-                        "customDefaultValue": "",
-                        "calculateValue": "",
-                        "allowCalculateOverride": false,
-                        "widget": null,
-                        "refreshOn": "",
-                        "clearOnRefresh": false,
-                        "validateOn": "change",
-                        "validate": {
-                            "required": false,
-                            "custom": "",
-                            "customPrivate": false
-                        },
-                        "conditional": {
-                            "show": null,
-                            "when": null,
-                            "eq": ""
-                        },
-                        "id": "eszu3xo"
-                    }
-                ],
-                "autoAdjust": true,
-                "mask": false,
-                "tableView": false,
-                "alwaysEnabled": false,
-                "type": "columns",
-                "input": false,
-                "key": "columns",
-                "placeholder": "",
-                "prefix": "",
-                "customClass": "",
-                "suffix": "",
-                "multiple": false,
-                "defaultValue": null,
-                "protected": false,
-                "unique": false,
-                "persistent": false,
-                "hidden": false,
-                "clearOnHide": false,
-                "dataGridLabel": false,
-                "labelPosition": "top",
-                "labelWidth": 30,
-                "labelMargin": 3,
-                "description": "",
-                "errorLabel": "",
-                "tooltip": "",
-                "tabindex": "",
-                "disabled": false,
-                "autofocus": false,
-                "dbIndex": false,
-                "customDefaultValue": "",
-                "calculateValue": "",
-                "allowCalculateOverride": false,
-                "widget": null,
-                "refreshOn": "",
-                "clearOnRefresh": false,
-                "validateOn": "change",
-                "validate": {
-                    "required": false,
-                    "custom": "",
-                    "customPrivate": false
-                },
-                "conditional": {
-                    "show": null,
-                    "when": null,
-                    "eq": ""
-                },
-                "inlineColumns": false,
-                "hideOnChildrenHidden": false,
-                "id": "eyckdo"
+                "rows": 2,
+                "type": "textarea",
+                "input": true
+              }
+            ],
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "index": 0,
+            "conditional": {
+              "show": null,
+              "when": null
             }
+          },
+          {
+            "components": [
+              {
+                "label": "cm:description",
+                "defaultValue": "",
+                "key": "cm_description",
+                "properties": {
+                  "attribute": "cm:description"
+                },
+                "rows": 2,
+                "type": "textarea",
+                "input": true
+              }
+            ],
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "index": 1,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          }
         ],
-        "display": "form"
-    },
-    "attributes": {}
+        "key": "columns2",
+        "type": "columns",
+        "input": false
+      },
+      {
+        "input": true,
+        "key": "horizontalLine2",
+        "type": "horizontalLine"
+      },
+      {
+        "columns": [
+          {
+            "components": [
+              {
+                "label": "pas:type",
+                "data": {
+                  "url": "/citeck/ecos/records/query"
+                },
+                "defaultValue": "product",
+                "validate": {
+                  "required": true
+                },
+                "key": "pas_type",
+                "properties": {
+                  "attribute": "pas:type"
+                },
+                "type": "ecosSelect",
+                "input": true
+              }
+            ],
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "index": 0,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "components": [
+              {
+                "label": "pas:quantity",
+                "validate": {
+                  "required": true,
+                  "min": 0
+                },
+                "key": "pas_quantity",
+                "properties": {
+                  "attribute": "pas:quantity"
+                },
+                "type": "number",
+                "input": true,
+                "defaultValue": 1
+              }
+            ],
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "index": 1,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "components": [
+              {
+                "label": "pas:pricePerUnit",
+                "validate": {
+                  "required": true
+                },
+                "key": "pas_pricePerUnit",
+                "properties": {
+                  "attribute": "pas:pricePerUnit"
+                },
+                "type": "number",
+                "input": true
+              }
+            ],
+            "index": 2,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "components": [
+              {
+                "label": "pas:total",
+                "disabled": true,
+                "calculateValue": "if (!!data.pas_pricePerUnit && !!data.pas_quantity) {\r\n\tvalue = data.pas_pricePerUnit * data.pas_quantity;\r\n}",
+                "allowCalculateOverride": true,
+                "validate": {
+                  "required": true,
+                  "min": 0
+                },
+                "key": "pas_total",
+                "properties": {
+                  "attribute": "pas:total"
+                },
+                "decimalLimit": 2,
+                "type": "number",
+                "input": true
+              }
+            ],
+            "index": 3,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "components": [
+              {
+                "label": "pas:entityUnit",
+                "dataSrc": "custom",
+                "data": {
+                  "custom": "const {unit = {}} = data || {};\nconst {records = []} = unit || {};\n\n\nfor (var i in records) {\n    values.push({label: records[i].unitShortName,value: records[i].id})\n}"
+                },
+                "defaultValue": "",
+                "refreshOn": [
+                  "unit"
+                ],
+                "validate": {
+                  "required": true
+                },
+                "key": "pas_entityUnit",
+                "properties": {
+                  "attribute": "pas:entityUnit"
+                },
+                "type": "ecosSelect",
+                "input": true
+              }
+            ],
+            "index": 4,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "components": [
+              {
+                "label": "pas:currency",
+                "clearOnHide": false,
+                "disabled": true,
+                "dataSrc": "custom",
+                "data": {
+                  "custom": "const {currencyList = {}} = data  || {};\nconst {records = []} = currencyList || {};\nfor (var i in records) {\n        values.push({label: records[i].title, value: records[i].id})\n}\n"
+                },
+                "refreshOnEvent": true,
+                "refreshEventName": "currencyListEvent",
+                "searchEnabled": false,
+                "defaultValue": "",
+                "refreshOn": [
+                  "pas_pricePerUnit",
+                  "currencyList"
+                ],
+                "calculateValue": "const {parentForm = {}} = instance.options || {};\nconst {idocs_currencyDocument = '' } = parentForm.data || {};\nconst {payments_currency = '' } = parentForm.data || {};\n\nif (idocs_currencyDocument != '') {\n    value = idocs_currencyDocument;\n} else if (payments_currency != '') {\n  value = payments_currency;\n}\n\n",
+                "allowCalculateOverride": true,
+                "key": "pas_currency",
+                "properties": {
+                  "attribute": "pas:currency"
+                },
+                "type": "ecosSelect",
+                "input": true
+              }
+            ],
+            "index": 5,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          }
+        ],
+        "key": "columns3",
+        "type": "columns",
+        "input": false
+      },
+      {
+        "hideLabel": true,
+        "columns": [
+          {
+            "components": [
+              {
+                "label": "currencyList",
+                "source": {
+                  "type": "recordsQuery",
+                  "recordsQuery": {
+                    "attributes": {
+                      "title": "cm:title"
+                    },
+                    "query": "var value = {\r\n  query: 'TYPE:\"idocs:currency\"',\r\n  language: 'fts-alfresco'\r\n}",
+                    "isSingle": false
+                  },
+                  "forceLoad": false
+                },
+                "update": {
+                  "type": "any-change"
+                },
+                "triggerEventOnChange": true,
+                "key": "currencyList",
+                "type": "asyncData",
+                "input": true,
+                "eventName": "currencyListEvent",
+                "conditional": {
+                  "show": null,
+                  "when": null
+                }
+              },
+              {
+                "label": "unit",
+                "source": {
+                  "type": "recordsQuery",
+                  "recordsQuery": {
+                    "attributes": {
+                      "title": "cm:title",
+                      "unitShortName": "pas:unitShortName"
+                    },
+                    "query": "var value = {\r\n  query: 'TYPE:\"pas:unit\"',\r\n  language: 'fts-alfresco'\r\n}",
+                    "isSingle": false
+                  },
+                  "forceLoad": false
+                },
+                "update": {
+                  "type": "any-change"
+                },
+                "triggerEventOnChange": false,
+                "key": "unit",
+                "type": "asyncData",
+                "input": true,
+                "conditional": {
+                  "show": null,
+                  "when": null
+                }
+              }
+            ],
+            "width": 6,
+            "type": "column",
+            "input": false,
+            "key": "column1",
+            "index": 0,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "width": 6,
+            "type": "column",
+            "input": false,
+            "key": "column2",
+            "components": [
+              {
+                "columns": [
+                  {
+                    "components": [
+                      {
+                        "label": "Cancel",
+                        "action": "event",
+                        "state": "",
+                        "showValidations": false,
+                        "event": "cancel",
+                        "block": true,
+                        "type": "button",
+                        "input": true,
+                        "key": "submit2",
+                        "conditional": {
+                          "show": null,
+                          "when": null
+                        }
+                      }
+                    ],
+                    "type": "column",
+                    "input": false,
+                    "key": "column",
+                    "index": 0
+                  },
+                  {
+                    "index": 1,
+                    "type": "column",
+                    "input": false,
+                    "key": "column",
+                    "components": [
+                      {
+                        "label": "Save",
+                        "state": "",
+                        "theme": "primary",
+                        "block": true,
+                        "disableOnInvalid": true,
+                        "key": "submit",
+                        "type": "button",
+                        "input": true
+                      }
+                    ]
+                  }
+                ],
+                "key": "columns4",
+                "type": "columns",
+                "input": false
+              }
+            ],
+            "index": 1,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          }
+        ],
+        "autoAdjust": true,
+        "key": "columns",
+        "type": "columns",
+        "input": false
+      }
+    ],
+    "display": "form"
+  },
+  "attributes": {}
 }
