@@ -110,20 +110,6 @@
 		</property>
 	</bean>
 
-	<bean id="productsAndServices.paymentDraftTitleBehaviour" parent="TitleGenerationBehaviour">
-		<property name="className" value="pas:pasEntityCopied" />
-		<property name="titleMLTemplate">
-			<map>
-				<entry key="ru_RU">
-					<value><![CDATA[Продукт/услуга]]></value>
-				</entry>
-				<entry key="en_US">
-					<value><![CDATA[Product/Service]]></value>
-				</entry>
-			</map>
-		</property>
-	</bean>
-
 	<bean id="contracts.paymentPeriodNamingBehaviour" parent="AutoNameBehaviour">
 		<property name="className" value="payments:period" />
 		<property name="nameTemplate">
