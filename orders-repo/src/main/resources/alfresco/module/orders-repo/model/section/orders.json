@@ -1,0 +1,11 @@
+{
+  "id": "orders",
+  "name": {
+    "ru": "ОРД",
+    "en": "Orders"
+  },
+  "description": null,
+  "tenant": null,
+  "types": [],
+  "attributes": {}
+}
