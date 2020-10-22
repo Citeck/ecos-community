@@ -1,0 +1,14 @@
+{
+  "id": "orders-messages",
+  "order": 0,
+  "locales": [
+    "en",
+    "ru"
+  ],
+  "messages": {
+    "case.orders.internal.action.send-to-formalization": [
+      "Send for familiarization",
+      "Отправить на ознакомление"
+    ]
+  }
+}
