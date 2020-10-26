@@ -15,7 +15,7 @@
     "aliases": [],
     "actions": [
         "ui/action@send-to-approval",
-        "ui/action@create-perform",
+        "ui/action@document-start-statement",
         "ui/action@delete",
         "ui/action@edit-in-onlyoffice",
         "ui/action@edit",

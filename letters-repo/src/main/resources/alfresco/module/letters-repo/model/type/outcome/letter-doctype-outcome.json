@@ -15,8 +15,7 @@
     "aliases": [],
     "actions": [
         "ui/action@create-income",
-        "ui/action@create-perform",
-        "ui/action@send-income-to-approval",
+        "ui/action@document-start-statement",
         "ui/action@upload-new-version",
         "ui/action@print-pdf",
         "ui/action@edit-in-onlyoffice",
