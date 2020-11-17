@@ -625,25 +625,26 @@
               {
                 "components": [
                   {
-                    "update": {
-                      "type": "any-change"
-                    },
+                    "label": "currencyList",
                     "source": {
+                      "type": "recordsQuery",
                       "recordsQuery": {
-                        "query": "var value = {\r\n  query: 'TYPE:\"idocs:currency\"',\r\n  language: 'fts-alfresco'\r\n}",
                         "attributes": {
                           "key": "cm:title"
                         },
+                        "query": "var value = {\r\n  query: 'TYPE:\"idocs:currency\"',\r\n  language: 'fts-alfresco'\r\n}",
                         "isSingle": false
                       },
-                      "type": "recordsQuery",
                       "forceLoad": false
                     },
-                    "type": "asyncData",
-                    "eventName": "currencyListEvent",
+                    "update": {
+                      "type": "once"
+                    },
                     "triggerEventOnChange": true,
+                    "eventName": "currencyListEvent",
+                    "executionCondition": "const { root } = instance;\nconst { loading } = root;\nvalue = loading === false;",
                     "key": "currencyList",
-                    "label": "currencyList",
+                    "type": "asyncData",
                     "input": true,
                     "conditional": {
                       "show": null,
@@ -703,25 +704,26 @@
               {
                 "components": [
                   {
-                    "update": {
-                      "type": "any-change"
-                    },
+                    "label": "docTypeList",
                     "source": {
+                      "type": "recordsQuery",
                       "recordsQuery": {
-                        "query": "var value = {\n  query: 'PARENT: \"workspace://SpacesStore/contracts-cat-doctype-closing-doc\"',\n  language: 'fts-alfresco'\n}",
                         "attributes": {
                           "key": "cm:title"
                         },
+                        "query": "var value = {\n  query: 'PARENT: \"workspace://SpacesStore/contracts-cat-doctype-closing-doc\"',\n  language: 'fts-alfresco'\n}",
                         "isSingle": false
                       },
-                      "type": "recordsQuery",
                       "forceLoad": false
                     },
-                    "type": "asyncData",
-                    "eventName": "docTypeEvent",
+                    "update": {
+                      "type": "once"
+                    },
                     "triggerEventOnChange": true,
+                    "eventName": "docTypeEvent",
+                    "executionCondition": "const { root } = instance;\nconst { loading } = root;\nvalue = loading === false;",
                     "key": "docTypeList",
-                    "label": "docTypeList",
+                    "type": "asyncData",
                     "input": true,
                     "conditional": {
                       "show": null,
@@ -744,24 +746,24 @@
               {
                 "components": [
                   {
-                    "update": {
-                      "type": "any-change"
-                    },
+                    "label": "closingDocuments",
                     "source": {
+                      "type": "recordsQuery",
                       "recordsQuery": {
-                        "query": "var value = {\n  query: 'TYPE:\"contracts:closingDocument\"',\n  language: 'fts-alfresco'\n}",
                         "attributes": {
                           "key": "cm:title"
                         },
+                        "query": "var value = {\n  query: 'TYPE:\"contracts:closingDocument\"',\n  language: 'fts-alfresco'\n}",
                         "isSingle": false
                       },
-                      "type": "recordsQuery",
                       "forceLoad": false
                     },
-                    "type": "asyncData",
-                    "triggerEventOnChange": false,
+                    "update": {
+                      "type": "once"
+                    },
+                    "executionCondition": "const { root } = instance;\nconst { loading } = root;\nvalue = loading === false;",
                     "key": "closingDocuments",
-                    "label": "closingDocuments",
+                    "type": "asyncData",
                     "input": true,
                     "conditional": {
                       "show": null,
@@ -798,32 +800,33 @@
               {
                 "components": [
                   {
+                    "label": "DocumentData",
+                    "source": {
+                      "type": "record",
+                      "record": {
+                        "id": "{{data.contracts_closingDocumentAgreement}}",
+                        "attributes": {
+                          "contractor": "contracts:contractor?assoc",
+                          "agreementCurrency": "contracts:agreementCurrency?assoc",
+                          "legalEntity": "contracts:agreementLegalEntity?assoc"
+                        }
+                      },
+                      "forceLoad": false
+                    },
+                    "update": {
+                      "type": "once"
+                    },
                     "refreshOn": [
                       {
                         "label": "contracts_closingDocumentAgreement",
                         "value": "contracts_closingDocumentAgreement"
                       }
                     ],
-                    "update": {
-                      "type": "any-change"
-                    },
-                    "source": {
-                      "record": {
-                        "attributes": {
-                          "contractor": "contracts:contractor?assoc",
-                          "agreementCurrency": "contracts:agreementCurrency?assoc",
-                          "legalEntity": "contracts:agreementLegalEntity?assoc"
-                        },
-                        "id": "{{data.contracts_closingDocumentAgreement}}"
-                      },
-                      "type": "record",
-                      "forceLoad": false
-                    },
-                    "type": "asyncData",
-                    "eventName": "DocumentDataEvent",
                     "triggerEventOnChange": true,
+                    "eventName": "DocumentDataEvent",
+                    "executionCondition": "const { root } = instance;\nconst { loading } = root;\nvalue = loading === false;",
                     "key": "DocumentData",
-                    "label": "DocumentData",
+                    "type": "asyncData",
                     "input": true,
                     "conditional": {
                       "show": null,
@@ -860,20 +863,6 @@
             "md": 3,
             "index": 0,
             "input": false,
-            "components": [],
-            "key": "column",
-            "label": "Column",
-            "clearOnHide": true,
-            "conditional": {
-              "show": null,
-              "when": null
-            }
-          },
-          {
-            "type": "column",
-            "md": 3,
-            "index": 1,
-            "input": false,
             "components": [
               {
                 "type": "button",
@@ -897,19 +886,21 @@
             }
           },
           {
-            "components": [
-              {
-                "type": "button",
-                "disableOnInvalid": true,
-                "block": true,
-                "state": "draft",
-                "input": true,
-                "removeIndents": true,
-                "theme": "primary",
-                "key": "submit",
-                "label": "Save"
-              }
-            ],
+            "type": "column",
+            "md": 3,
+            "index": 1,
+            "input": false,
+            "components": [],
+            "key": "column",
+            "label": "Column",
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "components": [],
             "type": "column",
             "md": 3,
             "key": "column",
@@ -923,7 +914,41 @@
             }
           },
           {
-            "components": [],
+            "components": [
+              {
+                "label": "Save",
+                "removeIndents": true,
+                "state": "",
+                "theme": "primary",
+                "block": true,
+                "disableOnInvalid": true,
+                "clearOnHide": false,
+                "key": "submit",
+                "logic": [
+                  {
+                    "name": "Label",
+                    "trigger": {
+                      "type": "javascript",
+                      "javascript": "const { options } = instance || {};\r\nconst { formMode } = options || {};\r\nconst { caseStatus } = data || {};\r\nconst { 'status': statusStr } = data || {};\r\n\r\nconst isDraftStatus = statusStr === \"draft\";\r\nconst isCreateMode = formMode === 'CREATE';\r\n \r\nresult = isDraftStatus || isCreateMode;"
+                    },
+                    "actions": [
+                      {
+                        "name": "Set label",
+                        "type": "property",
+                        "property": {
+                          "label": "Label",
+                          "value": "label",
+                          "type": "string"
+                        },
+                        "text": "Create"
+                      }
+                    ]
+                  }
+                ],
+                "type": "button",
+                "input": true
+              }
+            ],
             "type": "column",
             "md": 3,
             "key": "column",
