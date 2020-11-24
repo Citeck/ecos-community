@@ -895,7 +895,7 @@
           }
         ],
         "key": "columns6",
-        "customConditional": "var isDraftStatus = data.caseStatus === \"draft\";\r\nvar isCreateMode = instance.options.formMode === 'CREATE';\r\n\r\nshow = isDraftStatus || isCreateMode;",
+        "customConditional": "const {caseStatus} = data || {};\nconst {status: caseStatusName} = caseStatus || {};\nconst {options} = instance || {};\nconst {formMode} = options || {};\n\nvar isDraftStatus = caseStatusName === \"draft\";\nvar isCreateMode = formMode === 'CREATE';\n\nshow = isDraftStatus || isCreateMode;",
         "type": "columns",
         "input": false
       },
@@ -983,7 +983,7 @@
           }
         ],
         "key": "columns5",
-        "customConditional": "var isDraftStatus = data.caseStatus === \"draft\";\r\nvar isCreateMode = instance.options.formMode === 'CREATE';\r\n\r\nshow = !isDraftStatus && !isCreateMode;",
+        "customConditional": "const {caseStatus} = data || {};\nconst {status: caseStatusName} = caseStatus || {};\nconst {options} = instance || {};\nconst {formMode} = options || {};\n\nvar isDraftStatus = caseStatusName === \"draft\";\nvar isCreateMode = formMode === 'CREATE';\n\nshow = !isDraftStatus && !isCreateMode;",
         "type": "columns",
         "input": false
       },
@@ -1013,7 +1013,7 @@
                     "value": "contracts_contractor2"
                   }
                 ],
-                "executionCondition": "const {contracts_contractor2: contractor} = data || {};\nconsole.log(contractor);\nvalue = !!contractor; ",
+                "executionCondition": "const {contracts_contractor2: contractor} = data || {};\nvalue = !!contractor; ",
                 "key": "contractorData",
                 "type": "asyncData",
                 "input": true
