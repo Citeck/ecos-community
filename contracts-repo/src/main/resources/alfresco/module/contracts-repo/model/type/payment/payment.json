@@ -1,26 +1,29 @@
 {
-    "id": "contracts-cat-doctype-payment",
-    "name": "Счет",
-    "parent": "emodel/type@user-base",
-    "inheritActions": true,
-    "associations": [
-        {
-            "id": "contracts:closingDocumentPayment",
-            "name": {
-                "ru": "Учетные документы",
-                "en": "Accounting Documents"
-            },
-            "direction": "SOURCE",
-            "target": "emodel/type@user-base"
-        },
-        {
-            "id": "payments:basis",
-            "name": {
-                "ru": "Документ-основание",
-                "en": "Document-base"
-            },
-            "direction": "TARGET",
-            "target": "emodel/type@user-base"
-        }
-    ]
+  "id": "contracts-cat-doctype-payment",
+  "name": "Счет",
+  "parent": "emodel/type@user-base",
+  "inheritActions": true,
+  "actions": [
+    "uiserv/action@document-add-closing-doc-for-invoice"
+  ],
+  "associations": [
+    {
+      "id": "contracts:closingDocumentPayment",
+      "name": {
+        "ru": "Учетные документы",
+        "en": "Accounting Documents"
+      },
+      "direction": "SOURCE",
+      "target": "emodel/type@user-base"
+    },
+    {
+      "id": "payments:basis",
+      "name": {
+        "ru": "Документ-основание",
+        "en": "Document-base"
+      },
+      "direction": "TARGET",
+      "target": "emodel/type@user-base"
+    }
+  ]
 }
