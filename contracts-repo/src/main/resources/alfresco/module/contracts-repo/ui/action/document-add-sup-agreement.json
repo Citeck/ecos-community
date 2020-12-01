@@ -10,7 +10,7 @@
   "config": {
     "recordRef": "dict@contracts:supplementaryAgreement",
     "attributes": {
-      "contracts_mainAgreement": "$.id"
+      "contracts_mainAgreement": "${recordRef}"
     }
   },
   "evaluator": {

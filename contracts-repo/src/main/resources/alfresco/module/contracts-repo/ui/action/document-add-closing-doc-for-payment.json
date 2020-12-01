@@ -10,7 +10,7 @@
   "config": {
     "recordRef": "dict@contracts:closingDocument",
     "attributes": {
-      "contracts_closingDocumentAgreement": "$.id"
+      "contracts_closingDocumentAgreement": "${recordRef}"
     }
   },
   "evaluator": {
