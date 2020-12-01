@@ -10,7 +10,7 @@
   "config": {
     "recordRef": "dict@payments:payment",
     "attributes": {
-      "payments_basis": "$.id"
+      "payments_basis": "${recordRef}"
     }
   },
   "evaluator": {
@@ -58,6 +58,12 @@
                       "active"
                     ]
                   }
+                }
+              },
+              {
+                "type": "has-permission",
+                "config": {
+                  "permission": "Write"
                 }
               }
             ]
