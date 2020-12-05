@@ -50,7 +50,7 @@ timestamps {
       }
       stage('Building an ecos docker image') {
         build job: 'build_ecos_image', parameters: [
-          string(name: 'DOCKER_BUILD_DIR', value: '/docker/centos/ecos'),
+          string(name: 'DOCKER_BUILD_DIR', value: '/docker/centos/ecs'),
           string(name: 'ECOS', value: 'community'),
           string(name: 'ECOS_VERSION', value: "${project_version}"),
           string(name: 'ECOS_CLASSIFIER', value: '5.1.f-com'),
