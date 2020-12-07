@@ -155,7 +155,7 @@ function addUserToSitesWithCollaboratorRole(user) {
 }
 
 function getDataListRootByXpath(xpath) {
-    var dataList = search.xpathSearch(xpath);
+    var dataList = search.selectNodes(xpath);
 
     if (!dataList || dataList.length === 0) {
         throw ("Root node by xpath <" + xpath + "> not found")
