@@ -1,0 +1,17 @@
+{
+  "id": "create-perform-accounting-documents",
+  "key": "create-perform-accounting-documents",
+  "name": {
+    "ru": "Создать поручение",
+    "en": "Create perform"
+  },
+  "type": "create",
+  "icon": "icon-plus",
+  "config": {
+    "recordRef": "workflow@def_activiti$perform",
+    "formId": "uiserv/eform@activiti_perform_form",
+    "attributes": {
+      "cwf_targetItems": "${recordRef}"
+    }
+  }
+}
