@@ -1,26 +1,61 @@
 {
-    "id": "contracts-cat-doctype-closing-doc",
-    "name": "Закрывающий документ",
-    "parent": "emodel/type@user-base",
-    "inheritActions": true,
-    "associations": [
-        {
-            "id": "contracts:closingDocumentAgreement",
-            "name": {
-                "ru": "Документ-основание",
-                "en": "Document-base"
-            },
-            "direction": "TARGET",
-            "target": "emodel/type@user-base"
-        },
-        {
-            "id": "contracts:closingDocumentPayment",
-            "name": {
-                "ru": "Связанные счета",
-                "en": "Associated payments"
-            },
-            "direction": "TARGET",
-            "target": "emodel/type@user-base"
-        }
-    ]
+  "id": "contracts-cat-doctype-closing-doc",
+  "name": {
+    "en": "Закрывающий документ"
+  },
+  "description": {
+    "en": ""
+  },
+  "parentRef": "emodel/type@user-base",
+  "formRef": "",
+  "journalRef": "",
+  "system": false,
+  "inheritActions": true,
+  "inheritForm": false,
+  "dispNameTemplate": {
+    "ru": "",
+    "en": ""
+  },
+  "numTemplateRef": "",
+  "inheritNumTemplate": false,
+  "actions": [
+    "uiserv/action@create-perform-accounting-documents"
+  ],
+  "associations": [
+    {
+      "id": "contracts:closingDocumentAgreement",
+      "name": {
+        "ru": "Документ-основание",
+        "en": "Document-base"
+      },
+      "attribute": "",
+      "target": "emodel/type@user-base",
+      "direction": "TARGET"
+    },
+    {
+      "id": "contracts:closingDocumentPayment",
+      "name": {
+        "ru": "Связанные счета",
+        "en": "Associated payments"
+      },
+      "attribute": "",
+      "target": "emodel/type@user-base",
+      "direction": "TARGET"
+    }
+  ],
+  "createVariants": [
+    {
+      "id": "",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "formRef": "",
+      "recordRef": "",
+      "attributes": {}
+    }
+  ],
+  "attributes": {},
+  "configFormRef": "",
+  "config": {}
 }
