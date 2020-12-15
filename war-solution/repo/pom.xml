@@ -19,143 +19,6 @@
         <version>3.23.0-SNAPSHOT</version>
     </parent>
 
-    <profiles>
-        <profile>
-            <id>javamelody</id>
-            <dependencies>
-                <dependency>
-                    <groupId>net.bull.javamelody</groupId>
-                    <artifactId>alfresco-javamelody-addon</artifactId>
-                    <version>1.75.0</version>
-                    <type>amp</type>
-                </dependency>
-            </dependencies>
-
-            <build>
-                <plugins>
-                    <plugin>
-                        <!--TODO: fix duplicate-->
-                        <artifactId>maven-war-plugin</artifactId>
-                        <version>2.6</version>
-                        <configuration>
-                            <classifier>${ecos.project.classifier}</classifier>
-                            <!--  Here is can control the order of overlay of your (WAR, AMP, etc.) dependencies
-                                | NOTE: At least one WAR dependency must be uncompressed first
-                                | NOTE: In order to have a dependency effectively added to the WAR you need to
-                                | explicitly mention it in the overlay section.
-                                | NOTE: First-win resource strategy is used by the WAR plugin
-                                 -->
-                            <overlays>
-                                <!-- Current project customizations. This is normally empty, since customizations come from the AMPs -->
-                                <overlay/>
-                                <!-- The Alfresco WAR -->
-                                <overlay>
-                                    <groupId>${alfresco.groupId}</groupId>
-                                    <artifactId>${alfresco.platform.artifactId}</artifactId>
-                                    <type>war</type>
-                                    <!-- To allow inclusion of META-INF -->
-                                    <excludes/>
-                                </overlay>
-                                <!-- Add / sort your AMPs here -->
-                                <overlay>
-                                    <groupId>${alfresco.groupId}</groupId>
-                                    <artifactId>alfresco-share-services</artifactId>
-                                    <type>amp</type>
-                                </overlay>
-                                <overlay>
-                                    <groupId>de.fmaul</groupId>
-                                    <artifactId>javascript-console-repo</artifactId>
-                                    <type>amp</type>
-                                </overlay>
-                                <overlay>
-                                    <groupId>net.bull.javamelody</groupId>
-                                    <artifactId>alfresco-javamelody-addon</artifactId>
-                                    <type>amp</type>
-                                </overlay>
-                                <overlay>
-                                    <groupId>${project.groupId}</groupId>
-                                    <artifactId>1st-override-repo</artifactId>
-                                    <type>amp</type>
-                                </overlay>
-                                <overlay>
-                                    <groupId>${project.groupId}</groupId>
-                                    <artifactId>ecos-base-core-repo</artifactId>
-                                    <type>amp</type>
-                                </overlay>
-                                <overlay>
-                                    <groupId>${project.groupId}</groupId>
-                                    <artifactId>journals-repo</artifactId>
-                                    <type>amp</type>
-                                </overlay>
-                                <overlay>
-                                    <groupId>${project.groupId}</groupId>
-                                    <artifactId>ecos-forms-repo</artifactId>
-                                    <type>amp</type>
-                                </overlay>
-                                <overlay>
-                                    <groupId>${project.groupId}</groupId>
-                                    <artifactId>idocs-repo</artifactId>
-                                    <type>amp</type>
-                                </overlay>
-                                <overlay>
-                                    <groupId>${project.groupId}</groupId>
-                                    <artifactId>contracts-repo</artifactId>
-                                    <type>amp</type>
-                                </overlay>
-                                <overlay>
-                                    <groupId>${project.groupId}</groupId>
-                                    <artifactId>letters-repo</artifactId>
-                                    <type>amp</type>
-                                </overlay>
-                                <overlay>
-                                    <groupId>${project.groupId}</groupId>
-                                    <artifactId>meetings-repo</artifactId>
-                                    <type>amp</type>
-                                </overlay>
-                                <overlay>
-                                    <groupId>${project.groupId}</groupId>
-                                    <artifactId>orders-repo</artifactId>
-                                    <type>amp</type>
-                                </overlay>
-                                <overlay>
-                                    <groupId>${project.groupId}</groupId>
-                                    <artifactId>ecos-order-pass-repo</artifactId>
-                                    <type>amp</type>
-                                </overlay>
-                                <overlay>
-                                    <groupId>${project.groupId}</groupId>
-                                    <artifactId>ecos-flowable-repo</artifactId>
-                                    <type>amp</type>
-                                </overlay>
-                                <overlay>
-                                    <groupId>${project.groupId}</groupId>
-                                    <artifactId>ecos-eform-repo</artifactId>
-                                    <type>amp</type>
-                                </overlay>
-
-                                <!-- TODO: remove this dependency before upgrade project to alfresco 5.2 -->
-                                <overlay>
-                                    <groupId>org.alfresco</groupId>
-                                    <artifactId>alfresco-trashcan-cleaner</artifactId>
-                                    <type>amp</type>
-                                </overlay>
-                            </overlays>
-                        </configuration>
-                        <dependencies>
-                            <dependency>
-                                <groupId>org.alfresco.maven.plugin</groupId>
-                                <artifactId>alfresco-maven-plugin</artifactId>
-                                <version>${alfresco.sdk.version}</version>
-                            </dependency>
-                        </dependencies>
-                    </plugin>
-
-                </plugins>
-
-            </build>
-        </profile>
-    </profiles>
-
     <dependencies>
 
         <!-- Original Alfresco WAR
@@ -273,6 +136,13 @@
             <type>amp</type>
         </dependency>
 
+        <dependency>
+            <groupId>net.bull.javamelody</groupId>
+            <artifactId>alfresco-javamelody-addon</artifactId>
+            <version>1.86.0</version>
+            <type>amp</type>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -308,6 +178,11 @@
                         <overlay>
                             <groupId>de.fmaul</groupId>
                             <artifactId>javascript-console-repo</artifactId>
+                            <type>amp</type>
+                        </overlay>
+                        <overlay>
+                            <groupId>net.bull.javamelody</groupId>
+                            <artifactId>alfresco-javamelody-addon</artifactId>
                             <type>amp</type>
                         </overlay>
                         <overlay>
