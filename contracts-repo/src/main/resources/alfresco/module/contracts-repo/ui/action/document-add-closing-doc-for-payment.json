@@ -1,0 +1,75 @@
+{
+  "id": "document-add-closing-doc-for-payment",
+  "key": "document-add-closing-doc-for-payment",
+  "name": {
+    "ru": "Создать учетный документ",
+    "en": "Create accounting document"
+  },
+  "type": "create",
+  "icon": "icon-plus",
+  "config": {
+    "recordRef": "dict@contracts:closingDocument",
+    "attributes": {
+      "contracts_closingDocumentAgreement": "${recordRef}"
+    }
+  },
+  "evaluator": {
+    "type": "group",
+    "config": {
+      "joinBy": "AND",
+      "evaluators": [
+        {
+          "type": "predicate",
+          "inverse": true,
+          "config": {
+            "predicate": {
+              "t": "in",
+              "att": "idocs:documentStatus.cm:name",
+              "val": [
+                "canceled"
+              ]
+            }
+          }
+        },
+        {
+          "type": "group",
+          "config": {
+            "joinBy": "OR",
+            "evaluators": [
+              {
+                "type": "predicate",
+                "config": {
+                  "predicate": {
+                    "t": "in",
+                    "att": "idocs:documentStatus.cm:name",
+                    "val": [
+                      "active"
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "predicate",
+                "config": {
+                  "predicate": {
+                    "t": "in",
+                    "att": "icase:caseStatusAssoc.cm:name",
+                    "val": [
+                      "active"
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "has-permission",
+                "config": {
+                  "permission": "Write"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

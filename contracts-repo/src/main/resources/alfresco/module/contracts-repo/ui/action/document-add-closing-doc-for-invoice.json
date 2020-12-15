@@ -1,0 +1,30 @@
+{
+  "id": "document-add-closing-doc-for-invoice",
+  "key": "document-add-closing-doc-for-invoice",
+  "name": {
+    "ru": "Создать учетный документ",
+    "en": "Create accounting document"
+  },
+  "type": "create",
+  "icon": "icon-plus",
+  "config": {
+    "recordRef": "dict@contracts:closingDocument",
+    "attributes": {
+      "contracts_closingDocumentPayment": "${recordRef}"
+    }
+  },
+  "evaluator": {
+    "type": "group",
+    "config": {
+      "joinBy": "AND",
+      "evaluators": [
+        {
+          "type": "has-permission",
+          "config": {
+            "permission": "Write"
+          }
+        }
+      ]
+    }
+  }
+}
