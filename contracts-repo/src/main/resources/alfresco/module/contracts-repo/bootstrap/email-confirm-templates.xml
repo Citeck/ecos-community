@@ -12,11 +12,9 @@
             <cm:title>Согласование завершено</cm:title>
             <dms:notificationType>complete_workflow</dms:notificationType><!-- complete_workflow -->
             <dms:workflowName>activiti$confirm</dms:workflowName>
-            <!--dms:taskName>wfacf:confirmTask</dms:taskName-->
             <cm:content>contentUrl=classpath:alfresco/module/contracts-repo/bootstrap/explicit/contracts/notification/wf-confirm-email-notification.html.ftl|mimetype=text/plain|encoding=UTF-8</cm:content>
-            <!--dms:sendToAssignee>true</dms:sendToAssignee-->
             <dms:sendToInitiator>true</dms:sendToInitiator>
-            <!--dms:sendToOwner>true</dms:sendToOwner-->
+            <dms:ecosNotificationTemplate>notifications/template@wf-confirm-email-notification-contracts</dms:ecosNotificationTemplate>
         </view:properties>
     </dms:notificationTemplate>
 

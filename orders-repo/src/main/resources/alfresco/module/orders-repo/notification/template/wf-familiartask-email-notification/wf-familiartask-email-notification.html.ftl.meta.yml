@@ -1,0 +1,15 @@
+{
+  "id" : "wf-familiartask-email-notification",
+  "name" : "wf-familiartask-email-notification",
+  "notificationTitle" : {
+    "ru" : "${subject!\"Ознакомление\"}",
+    "en" : "${subject!\"Familiarization\"}"
+  },
+  "model" : {
+    "web_url" : "$web_url?str",
+    "taskId" : "?id",
+    "documents" : "workflow.documents[]{name:.disp, id:.id}",
+    "description" : "bpm_description"
+  },
+  "multiTemplateConfig" : []
+}

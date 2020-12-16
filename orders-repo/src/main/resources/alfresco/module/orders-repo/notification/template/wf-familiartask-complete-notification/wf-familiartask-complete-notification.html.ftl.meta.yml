@@ -1,0 +1,18 @@
+{
+  "id" : "wf-familiartask-complete-notification",
+  "name" : "wf-familiartask-complete-notification",
+  "notificationTitle" : {
+    "ru" : "${subject!\"Ознакомление завершено\"}",
+    "en" : "${subject!\"Familiarization completed\"}"
+  },
+  "model" : {
+    "web_url" : "$web_url?str",
+    "subject" : "$subject?str",
+    "documentName" : "workflow.documents?disp",
+    "documentId" : "workflow.documents?id",
+    "comment" : "bpm_comment",
+    "taskId" : "?id",
+    "editorName" : "$person?disp"
+  },
+  "multiTemplateConfig" : []
+}
