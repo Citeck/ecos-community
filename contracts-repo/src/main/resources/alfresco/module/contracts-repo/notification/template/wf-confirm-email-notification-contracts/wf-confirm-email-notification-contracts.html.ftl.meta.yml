@@ -1,0 +1,17 @@
+{
+  "id" : "wf-confirm-email-notification-contracts",
+  "name" : "wf-confirm-email-notification-contracts",
+  "notificationTitle" : {
+    "ru" : "${subject!\"Согласование завершено\"}",
+    "en" : "${subject!\"Negotiation completed\"}"
+  },
+  "model" : {
+    "web_url" : "$webUrl",
+    "subject" : "$subject?str",
+    "documentType" : "workflow.documents.TYPE?str",
+    "documentId" : "workflow.documents?id",
+    "taskId" : ".id",
+    "documentAgreementNumber" : "workflow.documents.contracts:agreementNumber?str"
+  },
+  "multiTemplateConfig" : []
+}
