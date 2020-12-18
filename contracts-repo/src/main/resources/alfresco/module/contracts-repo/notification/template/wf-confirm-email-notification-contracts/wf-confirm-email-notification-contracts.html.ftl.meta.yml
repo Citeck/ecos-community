@@ -6,7 +6,7 @@
     "en" : "${subject!\"Negotiation completed\"}"
   },
   "model" : {
-    "web_url" : "$web_url?str",
+    "web_url" : "$webUrl",
     "subject" : "$subject?str",
     "documentType" : "workflow.documents.TYPE?str",
     "documentId" : "workflow.documents?id",

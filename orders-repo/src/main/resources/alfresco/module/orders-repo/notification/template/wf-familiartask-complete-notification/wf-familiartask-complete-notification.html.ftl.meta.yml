@@ -6,13 +6,13 @@
     "en" : "${subject!\"Familiarization completed\"}"
   },
   "model" : {
-    "web_url" : "$web_url?str",
+    "web_url" : "$webUrl",
     "subject" : "$subject?str",
     "documentName" : "workflow.documents?disp",
     "documentId" : "workflow.documents?id",
     "comment" : "bpm_comment",
-    "taskId" : "?id",
-    "editorName" : "$person?disp"
+    "taskId" : ".id",
+    "editorName" : "$user?disp"
   },
   "multiTemplateConfig" : []
 }

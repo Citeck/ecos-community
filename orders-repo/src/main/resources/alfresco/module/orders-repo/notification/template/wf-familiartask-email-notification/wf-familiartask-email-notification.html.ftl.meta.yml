@@ -6,8 +6,8 @@
     "en" : "${subject!\"Familiarization\"}"
   },
   "model" : {
-    "web_url" : "$web_url?str",
-    "taskId" : "?id",
+    "web_url" : "$webUrl",
+    "taskId" : ".id",
     "documents" : "workflow.documents[]{name:.disp, id:.id}",
     "description" : "bpm_description"
   },
