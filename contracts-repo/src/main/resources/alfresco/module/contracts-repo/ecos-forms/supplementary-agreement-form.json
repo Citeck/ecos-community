@@ -562,8 +562,7 @@
                                       "attribute": "contracts:agreementAmount"
                                     },
                                     "type": "number",
-                                    "input": true,
-                                    "stringValue": null
+                                    "input": true
                                   }
                                 ],
                                 "type": "column",
@@ -589,8 +588,7 @@
                                       "attribute": "contracts:VAT"
                                     },
                                     "type": "number",
-                                    "input": true,
-                                    "stringValue": null
+                                    "input": true
                                   }
                                 ],
                                 "type": "column",
@@ -698,8 +696,7 @@
                                   "attribute": "idocs:appendixPagesNumber"
                                 },
                                 "type": "number",
-                                "input": true,
-                                "stringValue": null
+                                "input": true
                               }
                             ],
                             "type": "column",
@@ -722,8 +719,7 @@
                                   "attribute": "idocs:pagesNumber"
                                 },
                                 "type": "number",
-                                "input": true,
-                                "stringValue": null
+                                "input": true
                               }
                             ],
                             "type": "column",
@@ -983,7 +979,7 @@
                   "forceLoad": false
                 },
                 "update": {
-                  "type": "any-change"
+                  "type": "once"
                 },
                 "refreshOn": [
                   {
@@ -991,6 +987,7 @@
                     "value": "contracts_mainAgreement"
                   }
                 ],
+                "executionCondition": "const { contracts_mainAgreement } = data || {};\nvalue = !!contracts_mainAgreement;",
                 "key": "_agreementValues",
                 "type": "asyncData",
                 "input": true,
@@ -998,6 +995,17 @@
                   "show": null,
                   "when": null
                 }
+              },
+              {
+                "label": "tk_type",
+                "clearOnHide": false,
+                "customDefaultValue": "value = 'workspace://SpacesStore/contracts-cat-doctype-supp-agreement';",
+                "key": "tk_type",
+                "properties": {
+                  "attribute": "tk:type"
+                },
+                "type": "hidden",
+                "input": true
               }
             ],
             "type": "column",
@@ -1217,95 +1225,6 @@
       {
         "columns": [
           {
-            "components": [],
-            "type": "column",
-            "input": false,
-            "key": "column",
-            "label": "Column",
-            "md": 3,
-            "index": 0,
-            "clearOnHide": true,
-            "conditional": {
-              "show": null,
-              "when": null
-            }
-          },
-          {
-            "components": [
-              {
-                "label": "Cancel",
-                "removeIndents": true,
-                "action": "event",
-                "state": "",
-                "showValidations": false,
-                "event": "cancel",
-                "block": true,
-                "key": "submit3",
-                "type": "button",
-                "input": true
-              }
-            ],
-            "type": "column",
-            "input": false,
-            "key": "column",
-            "label": "Column",
-            "md": 3,
-            "index": 1,
-            "clearOnHide": true,
-            "conditional": {
-              "show": null,
-              "when": null
-            }
-          },
-          {
-            "md": 3,
-            "type": "column",
-            "input": false,
-            "key": "column",
-            "label": "Column",
-            "components": [
-              {
-                "label": "Save",
-                "removeIndents": true,
-                "state": "",
-                "theme": "primary",
-                "block": true,
-                "disableOnInvalid": true,
-                "key": "submit4",
-                "type": "button",
-                "input": true
-              }
-            ],
-            "index": 2,
-            "clearOnHide": true,
-            "conditional": {
-              "show": null,
-              "when": null
-            }
-          },
-          {
-            "md": 3,
-            "type": "column",
-            "input": false,
-            "key": "column",
-            "label": "Column",
-            "components": [],
-            "index": 3,
-            "clearOnHide": true,
-            "conditional": {
-              "show": null,
-              "when": null
-            }
-          }
-        ],
-        "key": "columns9",
-        "customConditional": "var isDraftStatus = data.caseStatus === \"draft\";\r\nvar isCreateMode = instance.options.formMode === 'CREATE';\r\n\r\nshow = !isDraftStatus && !isCreateMode;",
-        "type": "columns",
-        "input": false
-      },
-      {
-        "columns": [
-          {
             "components": [
               {
                 "label": "Cancel",
@@ -1357,11 +1276,10 @@
                 "label": "Save",
                 "removeIndents": true,
                 "state": "draft",
-                "showValidations": false,
-                "event": "",
                 "block": true,
                 "disableOnInvalid": true,
                 "key": "submit5",
+                "customConditional": "var isDraftStatus = data.caseStatus === \"draft\";\r\nvar isCreateMode = instance.options.formMode === 'CREATE';\r\n\r\nshow = isDraftStatus || isCreateMode;",
                 "type": "button",
                 "input": true
               }
@@ -1388,8 +1306,30 @@
                 "block": true,
                 "disableOnInvalid": true,
                 "key": "submit",
+                "logic": [
+                  {
+                    "name": "Label",
+                    "trigger": {
+                      "type": "javascript",
+                      "javascript": "var isDraftStatus = data.caseStatus === \"draft\";\r\nvar isCreateMode = instance.options.formMode === 'CREATE';\r\n\r\nresult = !isDraftStatus && !isCreateMode;"
+                    },
+                    "actions": [
+                      {
+                        "name": "Set label",
+                        "type": "property",
+                        "property": {
+                          "label": "Label",
+                          "value": "label",
+                          "type": "string"
+                        },
+                        "text": "Save"
+                      }
+                    ]
+                  }
+                ],
                 "type": "button",
-                "input": true
+                "input": true,
+                "defaultValue": false
               }
             ],
             "index": 3,
@@ -1401,7 +1341,6 @@
           }
         ],
         "key": "columns10",
-        "customConditional": "var isDraftStatus = data.caseStatus === \"draft\";\r\nvar isCreateMode = instance.options.formMode === 'CREATE';\r\n\r\nshow = isDraftStatus || isCreateMode;",
         "type": "columns",
         "input": false
       }
