@@ -173,17 +173,25 @@ function sendToContractorForESigning() {
         throw (MSG_TRANSLATOR.getMessage("actions.messages.cant-find-link-to-sam-package"));
     }
 
+    var legalEntity = (document.assocs["contracts:agreementLegalEntity"] || [])[0];
+    if (legalEntity == null) {
+        throw (MSG_TRANSLATOR.getMessage("actions.messages.cant-find-link-to-legal-entity"));
+    }
+    var clientBoxId = ediCounterpartyService.getCounterpartyBoxId(legalEntity, "KONTUR");
+    if (clientBoxId == null) {
+        throw (MSG_TRANSLATOR.getMessage("actions.messages.contractors-field-diadocBoxId-is-not-completed"));
+    }
     var contractor = (document.assocs["contracts:contractor"] || [])[0];
     if (!contractor) {
         throw (MSG_TRANSLATOR.getMessage("actions.messages.field-contractor-is-not-completed"));
-    } else if (!contractor.properties["idocs:diadocBoxId"]) {
+    }
+    var inn = contractor.properties["idocs:inn"];
+    var counterpartyBoxId =  ediCounterpartyService.getCounterpartyBoxId(contractor, "KONTUR");
+    if (counterpartyBoxId == null) {
         throw (MSG_TRANSLATOR.getMessage("actions.messages.contractors-field-diadocBoxId-is-not-completed"));
-    } else {
-        var inn = contractor.properties["idocs:inn"];
-        var boxId = contractor.properties["idocs:diadocBoxId"];
-        if (!inn || !boxId || !diadocService.isCounterpartyExists(inn, boxId)) {
-            throw (MSG_TRANSLATOR.getMessage("actions.messages.contractor-not-found-at-diadoc"));
-        }
+    }
+    if (!inn || !counterpartyBoxId || !ecosEdiService.isCounterpartyExists(clientBoxId, inn, "KONTUR")) {
+        throw (MSG_TRANSLATOR.getMessage("actions.messages.contractor-not-found-at-diadoc"));
     }
 
     var caseDocs = document.childAssocs["icase:documents"] || [];
@@ -192,7 +200,12 @@ function sendToContractorForESigning() {
 
     for (var i = 0; i < docPackages.length; i++) {
         if (docPackages[i].typeShort.equals("sam:outboundPackage")) {
-            diadocService.sendPackageToCounterparty(docPackages[i].nodeRef, contractor.nodeRef);
+            var params = {
+                "packageRef": docPackages[i].nodeRef,
+                "clientBoxId": clientBoxId,
+                "counterpartyBoxId": counterpartyBoxId
+            };
+            ecosEdiService.sendPackageToCounterparty(params, "KONTUR");
         }
     }
 
@@ -215,7 +228,7 @@ function sendToContractorForESigning() {
     });
 
     if (inboundDocs.length > 0) {
-        diadocService.signInboundDocs(inboundDocs);
+        ecosEdiService.signDocuments(inboundDocs, "KONTUR");
     }
 }
 
@@ -225,17 +238,25 @@ function sendESignsForInboundPackage() {
         throw (MSG_TRANSLATOR.getMessage("actions.messages.cant-find-link-to-sam-package"));
     }
 
+    var legalEntity = (document.assocs["contracts:agreementLegalEntity"] || [])[0];
+    if (legalEntity == null) {
+        throw (MSG_TRANSLATOR.getMessage("actions.messages.cant-find-link-to-legal-entity"));
+    }
+    var clientBoxId = ediCounterpartyService.getCounterpartyBoxId(legalEntity, "KONTUR");
+    if (clientBoxId == null) {
+        throw (MSG_TRANSLATOR.getMessage("actions.messages.contractors-field-diadocBoxId-is-not-completed"));
+    }
     var contractor = (document.assocs["contracts:contractor"] || [])[0];
     if (!contractor) {
         throw (MSG_TRANSLATOR.getMessage("actions.messages.field-contractor-is-not-completed"));
-    } else if (!contractor.properties["idocs:diadocBoxId"]) {
+    }
+    var inn = contractor.properties["idocs:inn"];
+    var counterpartyBoxId =  ediCounterpartyService.getCounterpartyBoxId(contractor, "KONTUR");
+    if (counterpartyBoxId == null) {
         throw (MSG_TRANSLATOR.getMessage("actions.messages.contractors-field-diadocBoxId-is-not-completed"));
-    } else {
-        var inn = contractor.properties["idocs:inn"];
-        var boxId = contractor.properties["idocs:diadocBoxId"];
-        if (!inn || !boxId || !diadocService.isCounterpartyExists(inn, boxId)) {
-            throw (MSG_TRANSLATOR.getMessage("actions.messages.contractor-not-found-at-diadoc"));
-        }
+    }
+    if (!inn || !counterpartyBoxId || !ecosEdiService.isCounterpartyExists(clientBoxId, inn, "KONTUR")) {
+        throw (MSG_TRANSLATOR.getMessage("actions.messages.contractor-not-found-at-diadoc"));
     }
 
     var caseDocs = document.childAssocs["icase:documents"] || [];
@@ -260,7 +281,7 @@ function sendESignsForInboundPackage() {
     });
 
     if (inboundDocs.length > 0) {
-        diadocService.signInboundDocs(inboundDocs);
+        ecosEdiService.signDocuments(inboundDocs, "KONTUR");
     }
 }
 
@@ -270,17 +291,25 @@ function sendRejectSigns() {
         throw (MSG_TRANSLATOR.getMessage("actions.messages.cant-find-link-to-sam-package"));
     }
 
+    var legalEntity = (document.assocs["contracts:agreementLegalEntity"] || [])[0];
+    if (legalEntity == null) {
+        throw (MSG_TRANSLATOR.getMessage("actions.messages.cant-find-link-to-legal-entity"));
+    }
+    var clientBoxId = ediCounterpartyService.getCounterpartyBoxId(legalEntity, "KONTUR");
+    if (clientBoxId == null) {
+        throw (MSG_TRANSLATOR.getMessage("actions.messages.contractors-field-diadocBoxId-is-not-completed"));
+    }
     var contractor = (document.assocs["contracts:contractor"] || [])[0];
     if (!contractor) {
         throw (MSG_TRANSLATOR.getMessage("actions.messages.field-contractor-is-not-completed"));
-    } else if (!contractor.properties["idocs:diadocBoxId"]) {
+    }
+    var inn = contractor.properties["idocs:inn"];
+    var counterpartyBoxId =  ediCounterpartyService.getCounterpartyBoxId(contractor, "KONTUR");
+    if (counterpartyBoxId == null) {
         throw (MSG_TRANSLATOR.getMessage("actions.messages.contractors-field-diadocBoxId-is-not-completed"));
-    } else {
-        var inn = contractor.properties["idocs:inn"];
-        var boxId = contractor.properties["idocs:diadocBoxId"];
-        if (!inn || !boxId || !diadocService.isCounterpartyExists(inn, boxId)) {
-            throw (MSG_TRANSLATOR.getMessage("actions.messages.contractor-not-found-at-diadoc"));
-        }
+    }
+    if (!inn || !counterpartyBoxId || !ecosEdiService.isCounterpartyExists(clientBoxId, inn, "KONTUR")) {
+        throw (MSG_TRANSLATOR.getMessage("actions.messages.contractor-not-found-at-diadoc"));
     }
 
     var caseDocs = document.childAssocs["icase:documents"] || [];
@@ -305,7 +334,7 @@ function sendRejectSigns() {
     });
 
     if (inboundDocs.length > 0) {
-        diadocService.rejectInboundDocuments(inboundDocs);
+        ecosEdiService.rejectDocuments(inboundDocs, "KONTUR");
     }
 }
 
@@ -319,8 +348,8 @@ function _attachmentFilter(attachment) {
 
 function allDocsAreSigned() {
     var completeStatuses = ["SIGNED"];
-    var caseDocs = getCaseDocs();
-    var result = true;
+    var caseDocs = getCaseDocs(),
+        result = true;
 
     for (var i = 0; i < caseDocs.length; i++) {
         var status = caseDocs[i].properties["sam:packageAttachmentStatus"] || "";
