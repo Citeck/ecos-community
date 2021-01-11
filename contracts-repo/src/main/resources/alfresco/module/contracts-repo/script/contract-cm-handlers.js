@@ -83,15 +83,15 @@ function setEdiWorkflowProperty() {
 
 function doNotSendContractToEdiFlag() {
     var digiSigning = document.properties["contracts:digiSign"],
-    result = false;
+        result = false;
     if (digiSigning) {
         var contractor = document.assocs['contracts:contractor'] != null ? document.assocs['contracts:contractor'][0] : null;
         var contractorDoNotSendContractToEdiFlag;
         if (contractor) {
             contractorDoNotSendContractToEdiFlag  = contractor.properties['idocs:doNotSendContractToEdiFlag'];
             if (contractorDoNotSendContractToEdiFlag) {
-            result = contractorDoNotSendContractToEdiFlag;
-            setEdiWorkflowProperty();
+                result = contractorDoNotSendContractToEdiFlag;
+                setEdiWorkflowProperty();
             }
         }
     }
@@ -240,7 +240,7 @@ function sendESignsForInboundPackage() {
 
     var caseDocs = document.childAssocs["icase:documents"] || [];
     var contentFromInboundPackage = (document.assocs["sam:contentFromInboundPackage"] ||
-            document.assocs["idocs:attachmentRkkCreatedFrom"] || [])[0];
+        document.assocs["idocs:attachmentRkkCreatedFrom"] || [])[0];
 
     var inboundDocs = [];
 

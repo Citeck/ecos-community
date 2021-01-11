@@ -21,7 +21,8 @@
       "Save": "Сохранить",
       "Create": "Создать",
       "rest": "Остаток",
-      "Type of contract": "Вид договора"
+      "Type of contract": "Вид договора",
+      "idocs-contractor-status": "Статус: "
     },
     "en": {
       "Basic": "Basic",
@@ -33,7 +34,8 @@
       "Save": "Save",
       "Create": "Create",
       "rest": "Rest",
-      "Type of contract": "Type of contract"
+      "Type of contract": "Type of contract",
+      "idocs-contractor-status": "Status: "
     }
   },
   "definition": {
@@ -111,6 +113,25 @@
                                 "state": "true"
                               }
                             ]
+                          },
+                          {
+                            "name": "Set description",
+                            "trigger": {
+                              "type": "javascript",
+                              "javascript": "const {contractorData, contracts_contractor2} = data || {};\nconst {statusDisp, id} = contractorData || {};\n\nresult = !!statusDisp && id === contracts_contractor2;"
+                            },
+                            "actions": [
+                              {
+                                "name": "Set",
+                                "type": "property",
+                                "property": {
+                                  "label": "Description",
+                                  "value": "description",
+                                  "type": "string"
+                                },
+                                "text": "__t(idocs-contractor-status){{data.contractorData.statusDisp}}"
+                              }
+                            ]
                           }
                         ],
                         "type": "selectJournal",
@@ -138,8 +159,7 @@
                           "attribute": "contracts:contractWith"
                         },
                         "type": "ecosSelect",
-                        "input": true,
-                        "refreshOn": ""
+                        "input": true
                       },
                       {
                         "useNegativeIndents": false,
@@ -152,7 +172,7 @@
                         "label": "Type of contract",
                         "dataSrc": "custom",
                         "data": {
-                          "custom": "const {docTypeList = {}} = data;\nconst {records = []} = docTypeList;\nfor (var i in records) {\n  values.push({label: records[i].key,value: records[i].id})\n}"
+                          "custom": "const {docTypeList = {}} = data;\nconst {records = []} = docTypeList;\nlet list = [];\nfor (var i in records) {\n  list.push({label: records[i].key,value: records[i].id})\n}\nvalues = list;"
                         },
                         "refreshOnEvent": true,
                         "refreshEventName": "docTypeEvent",
@@ -384,7 +404,7 @@
                         "label": "contracts:agreementCurrency",
                         "dataSrc": "custom",
                         "data": {
-                          "custom": "const {currencyList = {}} = data;\nconst {records = []} = currencyList;\nfor (var i in records) {\n  values.push({label: records[i].key,value: records[i].id})\n}"
+                          "custom": "const {currencyList = {}} = data;\nconst {records = []} = currencyList;\nlet list = [];\nfor (var i in records) {\n  list.push({label: records[i].key,value: records[i].id})\n}\nvalues = list;"
                         },
                         "refreshOnEvent": true,
                         "refreshEventName": "currencyListEvent",
@@ -758,138 +778,13 @@
                         "input": true
                       },
                       {
-                        "label": "docTypeList",
-                        "source": {
-                          "type": "recordsQuery",
-                          "recordsQuery": {
-                            "attributes": {
-                              "key": "cm:title"
-                            },
-                            "query": "var value = {\n  query: 'PARENT: \"workspace://SpacesStore/contracts-cat-doctype-contract\"',\n  language: 'fts-alfresco'\n}",
-                            "isSingle": false
-                          },
-                          "forceLoad": false
-                        },
-                        "update": {
-                          "type": "any-change"
-                        },
-                        "triggerEventOnChange": true,
-                        "key": "docTypeList2",
-                        "type": "asyncData",
-                        "input": true,
-                        "eventName": "docTypeEvent",
-                        "conditional": {
-                          "show": null,
-                          "when": null
-                        }
-                      },
-                      {
                         "useNegativeIndents": false,
                         "customConditional": "show = instance.options.readOnly && instance.options.viewAsHtml",
                         "input": true,
                         "key": "horizontalLine9",
                         "type": "horizontalLine"
-                      },
-                      {
-                        "label": "docTypeList",
-                        "source": {
-                          "type": "recordsQuery",
-                          "recordsQuery": {
-                            "attributes": {
-                              "key": "cm:title"
-                            },
-                            "query": "var value = {\n  query: 'PARENT: \"workspace://SpacesStore/contracts-cat-doctype-contract\"',\n  language: 'fts-alfresco'\n}",
-                            "isSingle": false
-                          },
-                          "forceLoad": false
-                        },
-                        "update": {
-                          "type": "any-change"
-                        },
-                        "triggerEventOnChange": true,
-                        "eventName": "docTypeEvent",
-                        "key": "docTypeList",
-                        "type": "asyncData",
-                        "input": true,
-                        "conditional": {
-                          "show": null,
-                          "when": null
-                        }
                       }
                     ]
-                  },
-                  {
-                    "label": "currencyList",
-                    "source": {
-                      "type": "recordsQuery",
-                      "recordsQuery": {
-                        "attributes": {
-                          "key": "cm:title"
-                        },
-                        "query": "var value = {\r\n  query: 'TYPE:\"idocs:currency\"',\r\n  language: 'fts-alfresco'\r\n}",
-                        "isSingle": false
-                      },
-                      "forceLoad": false
-                    },
-                    "update": {
-                      "type": "any-change"
-                    },
-                    "triggerEventOnChange": true,
-                    "eventName": "currencyListEvent",
-                    "key": "currencyList",
-                    "type": "asyncData",
-                    "input": true,
-                    "conditional": {
-                      "show": null,
-                      "when": null
-                    }
-                  },
-                  {
-                    "label": "caseStatus",
-                    "source": {
-                      "type": "custom",
-                      "custom": {
-                        "syncData": "value = recordId",
-                        "asyncData": "function getCaseStatus(recordId, attemptsNumber, period = 2000) {\r\n    return new Promise(function(resolve, reject) {\r\n        (function attempt(attemptsLeft) {\r\n        \twindow.Citeck.Records.get(data).load('icase:caseStatusAssoc.cm:name', true).then(status => {\r\n        \t\tif (status !== null) {\r\n        \t\t\treturn resolve(status);\r\n        \t\t}\r\n        \t\tif (attemptsLeft < 1) {\r\n        \t\t\treturn resolve(null);\r\n        \t\t}\r\n        \t\t\r\n        \t\tsetTimeout(attempt.bind(null, attemptsLeft - 1), period);\r\n        \t}).catch(reject);\r\n        })(attemptsNumber);\r\n    });\r\n}\r\n\r\nconst isViewMode = instance.options.readOnly && instance.options.viewAsHtml;\r\nconst formMode = instance.options.formMode;\r\n\r\nif (!isViewMode && formMode === 'EDIT') {\r\n  value = getCaseStatus(data, 10); \r\n} else {\r\n  value = 'status is null';\r\n}"
-                      },
-                      "forceLoad": false
-                    },
-                    "update": {
-                      "type": "any-change",
-                      "event": "currencyListEvent"
-                    },
-                    "triggerEventOnChange": false,
-                    "key": "caseStatus",
-                    "type": "asyncData",
-                    "input": true,
-                    "conditional": {
-                      "show": null,
-                      "when": null
-                    }
-                  },
-                  {
-                    "label": "isEntInstalled",
-                    "source": {
-                      "type": "ajax",
-                      "ajax": {
-                        "url": "/citeck/info/is-ent-installed",
-                        "data": "value = {}",
-                        "method": "GET",
-                        "mapping": ""
-                      },
-                      "forceLoad": false
-                    },
-                    "update": {
-                      "type": "any-change"
-                    },
-                    "triggerEventOnChange": false,
-                    "key": "isEntInstalled",
-                    "type": "asyncData",
-                    "input": true,
-                    "conditional": {
-                      "show": null,
-                      "when": null
-                    }
                   }
                 ],
                 "type": "column",
@@ -911,194 +806,378 @@
         ]
       },
       {
-        "hideLabel": true,
-        "key": "container2",
-        "type": "container",
-        "input": true,
-        "components": [
+        "columns": [
           {
-            "columns": [
+            "components": [
               {
-                "components": [
-                  {
-                    "label": "Cancel",
-                    "removeIndents": true,
-                    "action": "event",
-                    "state": "",
-                    "showValidations": false,
-                    "event": "cancel",
-                    "block": true,
-                    "key": "Cancel",
-                    "type": "button",
-                    "input": true
-                  }
-                ],
-                "type": "column",
-                "input": false,
-                "key": "column18",
-                "md": 3,
-                "index": 0,
-                "clearOnHide": true,
-                "conditional": {
-                  "show": null,
-                  "when": null
-                }
-              },
-              {
-                "components": [],
-                "type": "column",
-                "input": false,
-                "key": "column19",
-                "md": 3,
-                "index": 1,
-                "clearOnHide": true,
-                "conditional": {
-                  "show": null,
-                  "when": null
-                }
-              },
-              {
-                "md": 3,
-                "type": "column",
-                "input": false,
-                "key": "column20",
-                "components": [
-                  {
-                    "label": "Save",
-                    "removeIndents": true,
-                    "state": "draft",
-                    "block": true,
-                    "key": "Save",
-                    "type": "button",
-                    "input": true
-                  }
-                ],
-                "index": 2,
-                "clearOnHide": true,
-                "conditional": {
-                  "show": null,
-                  "when": null
-                }
-              },
-              {
-                "md": 3,
-                "type": "column",
-                "input": false,
-                "key": "column21",
-                "components": [
-                  {
-                    "label": "Create",
-                    "removeIndents": true,
-                    "state": "",
-                    "theme": "primary",
-                    "block": true,
-                    "key": "Create",
-                    "type": "button",
-                    "input": true
-                  }
-                ],
-                "index": 3,
-                "clearOnHide": true,
-                "conditional": {
-                  "show": null,
-                  "when": null
-                }
+                "label": "Cancel",
+                "removeIndents": true,
+                "action": "event",
+                "state": "",
+                "showValidations": false,
+                "event": "cancel",
+                "block": true,
+                "key": "Cancel",
+                "type": "button",
+                "input": true
               }
             ],
-            "key": "columns6",
-            "customConditional": "var isDraftStatus = data.caseStatus === \"draft\";\r\nvar isCreateMode = instance.options.formMode === 'CREATE';\r\n\r\nshow = isDraftStatus || isCreateMode;",
-            "type": "columns",
-            "input": false
+            "type": "column",
+            "input": false,
+            "key": "column18",
+            "md": 3,
+            "index": 0,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
           },
           {
-            "columns": [
+            "components": [],
+            "type": "column",
+            "input": false,
+            "key": "column19",
+            "md": 3,
+            "index": 1,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "md": 3,
+            "type": "column",
+            "input": false,
+            "key": "column20",
+            "components": [
               {
-                "components": [],
-                "type": "column",
-                "input": false,
-                "key": "column",
-                "label": "Column",
-                "md": 3,
-                "index": 0,
-                "clearOnHide": true,
-                "conditional": {
-                  "show": null,
-                  "when": null
-                }
-              },
+                "label": "Save",
+                "removeIndents": true,
+                "state": "draft",
+                "block": true,
+                "key": "Save",
+                "type": "button",
+                "input": true
+              }
+            ],
+            "index": 2,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "md": 3,
+            "type": "column",
+            "input": false,
+            "key": "column21",
+            "components": [
               {
-                "components": [
+                "label": "Create",
+                "removeIndents": true,
+                "state": "",
+                "theme": "primary",
+                "block": true,
+                "key": "Create",
+                "type": "button",
+                "input": true
+              }
+            ],
+            "index": 3,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          }
+        ],
+        "key": "columns6",
+        "customConditional": "const {caseStatus} = data || {};\nconst {status: caseStatusName} = caseStatus || {};\nconst {options} = instance || {};\nconst {formMode} = options || {};\n\nvar isDraftStatus = caseStatusName === \"draft\";\nvar isCreateMode = formMode === 'CREATE';\n\nshow = isDraftStatus || isCreateMode;",
+        "type": "columns",
+        "input": false
+      },
+      {
+        "columns": [
+          {
+            "components": [],
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "md": 3,
+            "index": 0,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "components": [
+              {
+                "label": "Cancel",
+                "removeIndents": true,
+                "action": "event",
+                "state": "",
+                "showValidations": false,
+                "event": "cancel",
+                "block": true,
+                "key": "Cancel2",
+                "type": "button",
+                "input": true
+              }
+            ],
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "md": 3,
+            "index": 1,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "md": 3,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "components": [
+              {
+                "label": "Save",
+                "removeIndents": true,
+                "state": "",
+                "theme": "primary",
+                "block": true,
+                "key": "Create2",
+                "type": "button",
+                "input": true
+              }
+            ],
+            "index": 2,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "md": 3,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "components": [],
+            "index": 3,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          }
+        ],
+        "key": "columns5",
+        "customConditional": "const {caseStatus} = data || {};\nconst {status: caseStatusName} = caseStatus || {};\nconst {options} = instance || {};\nconst {formMode} = options || {};\n\nvar isDraftStatus = caseStatusName === \"draft\";\nvar isCreateMode = formMode === 'CREATE';\n\nshow = !isDraftStatus && !isCreateMode;",
+        "type": "columns",
+        "input": false
+      },
+      {
+        "columns": [
+          {
+            "components": [
+              {
+                "label": "Async Data - contractorData",
+                "source": {
+                  "type": "record",
+                  "record": {
+                    "id": "{{data.contracts_contractor2}}",
+                    "attributes": {
+                      "statusDisp": "icase:caseStatusAssoc?disp",
+                      "id": ".id"
+                    }
+                  },
+                  "forceLoad": false
+                },
+                "update": {
+                  "type": "once"
+                },
+                "refreshOn": [
                   {
-                    "label": "Cancel",
-                    "removeIndents": true,
-                    "action": "event",
-                    "state": "",
-                    "showValidations": false,
-                    "event": "cancel",
-                    "block": true,
-                    "key": "Cancel2",
-                    "type": "button",
-                    "input": true
+                    "label": "contracts_contractor2",
+                    "value": "contracts_contractor2"
                   }
                 ],
-                "type": "column",
-                "input": false,
-                "key": "column",
-                "label": "Column",
-                "md": 3,
-                "index": 1,
-                "clearOnHide": true,
+                "executionCondition": "const {contracts_contractor2: contractor} = data || {};\nvalue = !!contractor; ",
+                "key": "contractorData",
+                "type": "asyncData",
+                "input": true
+              }
+            ],
+            "md": 4,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "index": 0
+          },
+          {
+            "md": 4,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "index": 1,
+            "components": [
+              {
+                "label": "caseStatus",
+                "source": {
+                  "type": "record",
+                  "record": {
+                    "id": "{{recordId}}",
+                    "attributes": {
+                      "status": "icase:caseStatusAssoc.cm:name?str"
+                    }
+                  },
+                  "forceLoad": false
+                },
+                "update": {
+                  "type": "once",
+                  "event": "currencyListEvent"
+                },
+                "executionCondition": "const {root} = instance || {};\nconst {loading} = root || {};\nvalue = loading === false;",
+                "key": "caseStatus",
+                "type": "asyncData",
+                "input": true,
                 "conditional": {
                   "show": null,
                   "when": null
                 }
               },
               {
-                "md": 3,
-                "type": "column",
-                "input": false,
-                "key": "column",
-                "label": "Column",
-                "components": [
-                  {
-                    "label": "Save",
-                    "removeIndents": true,
-                    "state": "",
-                    "theme": "primary",
-                    "block": true,
-                    "key": "Create2",
-                    "type": "button",
-                    "input": true
-                  }
-                ],
-                "index": 2,
-                "clearOnHide": true,
-                "conditional": {
-                  "show": null,
-                  "when": null
-                }
-              },
-              {
-                "md": 3,
-                "type": "column",
-                "input": false,
-                "key": "column",
-                "label": "Column",
-                "components": [],
-                "index": 3,
-                "clearOnHide": true,
+                "label": "isEntInstalled",
+                "source": {
+                  "type": "ajax",
+                  "ajax": {
+                    "url": "/citeck/info/is-ent-installed",
+                    "data": "value = {}",
+                    "method": "GET",
+                    "mapping": ""
+                  },
+                  "forceLoad": false
+                },
+                "update": {
+                  "type": "once"
+                },
+                "executionCondition": "const {root} = instance || {};\nconst {loading} = root || {};\nvalue = loading === false;",
+                "key": "isEntInstalled",
+                "type": "asyncData",
+                "input": true,
                 "conditional": {
                   "show": null,
                   "when": null
                 }
               }
-            ],
-            "key": "columns5",
-            "customConditional": "var isDraftStatus = data.caseStatus === \"draft\";\r\nvar isCreateMode = instance.options.formMode === 'CREATE';\r\n\r\nshow = !isDraftStatus && !isCreateMode;",
-            "type": "columns",
-            "input": false
+            ]
+          },
+          {
+            "md": 4,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "index": 2,
+            "components": [
+              {
+                "label": "docTypeList",
+                "source": {
+                  "type": "recordsQuery",
+                  "recordsQuery": {
+                    "attributes": {
+                      "key": "cm:title"
+                    },
+                    "query": "var value = {\n  query: 'PARENT: \"workspace://SpacesStore/contracts-cat-doctype-contract\"',\n  language: 'fts-alfresco'\n}",
+                    "isSingle": false
+                  },
+                  "forceLoad": false
+                },
+                "update": {
+                  "type": "once"
+                },
+                "triggerEventOnChange": true,
+                "eventName": "docTypeEvent",
+                "executionCondition": "const {root} = instance || {};\nconst {loading} = root || {};\nvalue = loading === false;",
+                "key": "docTypeList",
+                "type": "asyncData",
+                "input": true,
+                "conditional": {
+                  "show": null,
+                  "when": null
+                }
+              },
+              {
+                "label": "docTypeList",
+                "source": {
+                  "type": "recordsQuery",
+                  "recordsQuery": {
+                    "attributes": {
+                      "key": "cm:title"
+                    },
+                    "query": "var value = {\n  query: 'PARENT: \"workspace://SpacesStore/contracts-cat-doctype-contract\"',\n  language: 'fts-alfresco'\n}",
+                    "isSingle": false
+                  },
+                  "forceLoad": false
+                },
+                "update": {
+                  "type": "once"
+                },
+                "triggerEventOnChange": true,
+                "eventName": "docTypeEvent",
+                "executionCondition": "const {root} = instance || {};\nconst {loading} = root || {};\nvalue = loading === false;",
+                "key": "docTypeList2",
+                "type": "asyncData",
+                "input": true,
+                "conditional": {
+                  "show": null,
+                  "when": null
+                }
+              },
+              {
+                "label": "currencyList",
+                "source": {
+                  "type": "recordsQuery",
+                  "recordsQuery": {
+                    "attributes": {
+                      "key": "cm:title"
+                    },
+                    "query": "var value = {\r\n  query: 'TYPE:\"idocs:currency\"',\r\n  language: 'fts-alfresco'\r\n}",
+                    "isSingle": false
+                  },
+                  "forceLoad": false
+                },
+                "update": {
+                  "type": "once"
+                },
+                "triggerEventOnChange": true,
+                "eventName": "currencyListEvent",
+                "executionCondition": "const {root} = instance || {};\nconst {loading} = root || {};\nvalue = loading === false;",
+                "key": "currencyList",
+                "type": "asyncData",
+                "input": true,
+                "conditional": {
+                  "show": null,
+                  "when": null
+                }
+              }
+            ]
           }
-        ]
+        ],
+        "hidden": true,
+        "key": "columns2",
+        "type": "columns",
+        "input": false
       }
     ],
     "display": "form"

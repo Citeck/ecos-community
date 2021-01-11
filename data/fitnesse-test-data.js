@@ -24,14 +24,15 @@ var clerksGroup = groups.getGroup("clerks"),
     directorGroup = groups.getGroup("company_director"),
     accountantGroup = groups.getGroup("company_accountant"),
     chiefAccountantGroup = groups.getGroup("company_chief_accountant"),
-    ordersTechnologistGroup = groups.getGroup("orders-technologist");
+    ordersTechnologistGroup = groups.getGroup("orders-technologist"),
+	contractManagerGroup = groups.getGroup("contract-manager");
 
 clerksGroup.addAuthority(clerk.properties["cm:userName"]);
 directorGroup.addAuthority(approver.properties["cm:userName"]);
 accountantGroup.addAuthority(accountant.properties["cm:userName"]);
 chiefAccountantGroup.addAuthority(accountant.properties["cm:userName"]);
 ordersTechnologistGroup.addAuthority(ordtech.properties["cm:userName"]);
-
+contractManagerGroup.addAuthority(initiator.properties["cm:userName"]);
 
 //DATA LIST
 const ASSOC_TYPE_CONTAINS = "cm:contains";
@@ -80,6 +81,15 @@ var testCounterparty = counterpartyRoot.createNode(null, COUNTERPARTY_TYPE, {
     "idocs:postAddress": "г. Омск, ул. Нужная 56, оф 5",
     "idocs:inn": "1003244440",
     "idocs:CEOname": "Журавлёв Вальтер Макарович"
+}, ASSOC_TYPE_CONTAINS);
+
+var steelCounterparty = counterpartyRoot.createNode(null, COUNTERPARTY_TYPE, {
+    "idocs:fullOrganizationName": "ООО Стальпром ",
+    "idocs:contractorKind": "individual",
+    "idocs:juridicalAddress": "г. Новосибирск, ул. Ленина 23",
+    "idocs:postAddress": "г. Новосибирск, ул. Ленина 23",
+    "idocs:inn": "4233244411",
+    "idocs:CEOname": "Ионов Степан Сергеевич"
 }, ASSOC_TYPE_CONTAINS);
 
 //BUDGET ITEMS
@@ -145,7 +155,7 @@ function addUserToSitesWithCollaboratorRole(user) {
 }
 
 function getDataListRootByXpath(xpath) {
-    var dataList = search.xpathSearch(xpath);
+    var dataList = search.selectNodes(xpath);
 
     if (!dataList || dataList.length === 0) {
         throw ("Root node by xpath <" + xpath + "> not found")
