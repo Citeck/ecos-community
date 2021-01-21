@@ -82,6 +82,17 @@
         <property name="bootstrapScript" value="alfresco/module/contracts-repo/bootstrap/scripts/contracts-routes.js"/>
     </bean>
 
+    <bean id="contracts.module-components.supp-agreement-confirm-routes1" parent="contracts.import-scripts.3-2-1">
+        <property name="dependsOn">
+            <list>
+                <ref bean="contracts.module-component.doctype-categories1"/>
+            </list>
+        </property>
+        <property name="name" value="supp-agreement-confirm-routes" />
+        <property name="description" value="Base Supplementary Agreement Case Confirmation Route" />
+        <property name="bootstrapScript" value="alfresco/module/contracts-repo/bootstrap/scripts/supp-agreement-routes.js"/>
+    </bean>
+
     <bean id="contracts.notification-templates" parent="contracts.import-spaces.3-2-1" depends-on="contracts.modelBootstrap">
         <property name="name" value="notification-template" />
         <property name="description" value="Contracts email templates" />
