@@ -34,7 +34,7 @@ function createRoute() {
     var route = routeFolder.createNode(routeName, "route:route", routeProps);
     if (!!route) {
         var stageProps = [];
-        var stageName = "GROUP_company_director";
+        var stageName = "GROUP_company_director, GROUP_company_accountant";
         stageProps["route:dueDateExpr"] = "8/h";
         stageProps["cm:position"] = "1";
         var routeStage = route.createNode(stageName, "route:stage", stageProps, "route:stages");
@@ -45,6 +45,20 @@ function createRoute() {
             routeParticipant = routeStage.createNode(participantName, "route:participant", participantProps, "route:participants");
 
             var groupCEO = search.selectNodes("/sys:system/sys:authorities/cm:GROUP_company_director");
+
+            if (!!groupCEO && groupCEO.length > 0) {
+                routeParticipant.createAssociation(groupCEO[0], "route:authority");
+
+                route.properties["route:precedence"] = groupCEO[0].nodeRef + "_" + stageProps["route:dueDateExpr"];
+                route.save();
+            }
+
+            var participantProps = [];
+            var participantName = "GROUP_company_accountant";
+            participantProps["cm:position"] = "2";
+            routeParticipant = routeStage.createNode(participantName, "route:participant", participantProps, "route:participants");
+
+            var groupCEO = search.selectNodes("/sys:system/sys:authorities/cm:GROUP_company_accountant");
 
             if (!!groupCEO && groupCEO.length > 0) {
                 routeParticipant.createAssociation(groupCEO[0], "route:authority");
