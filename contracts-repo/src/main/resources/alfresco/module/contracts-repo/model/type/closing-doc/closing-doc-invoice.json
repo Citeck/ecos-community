@@ -1,6 +1,0 @@
-{
-    "id": "contracts-cat-doctype-closing-doc/contracts-cat-closing-doc-invoice",
-    "name": "Закрывающий документ. Счет",
-    "parent": "emodel/type@contracts-cat-doctype-closing-doc",
-    "inheritActions": true
-}

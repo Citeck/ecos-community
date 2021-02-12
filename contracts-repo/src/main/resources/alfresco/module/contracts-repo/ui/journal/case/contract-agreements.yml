@@ -1,0 +1,45 @@
+
+id: contract-agreements
+label: { ru: Договоры, en: Contracts }
+
+actions:
+  - uiserv/action@edit
+  - uiserv/action@view-dashboard
+  - uiserv/action@view-dashboard-in-background
+
+predicate:
+  t: and
+  val:
+    - { t: eq, att: _type, val: ''}
+    - { t: eq, att: TYPE, val: contracts:agreement }
+
+columns:
+
+  - name: cm:created
+  - name: idocs:legalFormCountry
+  - name: cm:title
+  - name: icase:caseStatusAssoc
+  - name: contracts:agreementLegalEntity
+  - name: contracts:contractor
+  - name: contracts:agreementSubject
+  - name: contracts:agreementAmount
+  - name: contracts:agreementCurrency
+  - name: contracts:agreementDate
+  - name: contracts:duration
+
+  - name: idocs:summary
+    visible: false
+  - name: cm:name
+    visible: false
+  - name: contracts:agreementNumber
+    visible: false
+  - name: idocs:pagesNumber
+    visible: false
+  - name: idocs:appendixPagesNumber
+    visible: false
+  - name: idocs:signatory
+    visible: false
+  - name: idocs:performer
+    visible: false
+  - name: idocs:note
+    visible: false

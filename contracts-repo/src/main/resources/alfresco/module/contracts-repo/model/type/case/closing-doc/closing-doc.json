@@ -1,22 +1,14 @@
 {
   "id": "contracts-cat-doctype-closing-doc",
   "name": {
-    "en": "Закрывающий документ"
+    "en": "Closing document",
+    "ru": "Закрывающий документ"
   },
-  "description": {
-    "en": ""
-  },
-  "parentRef": "emodel/type@user-base",
-  "formRef": "",
-  "journalRef": "",
-  "system": false,
+  "parentRef": "emodel/type@case",
+  "formRef": "uiserv/eform@closing-document-form",
+  "journalRef": "uiserv/journal@contracts-closing-document",
   "inheritActions": true,
   "inheritForm": false,
-  "dispNameTemplate": {
-    "ru": "",
-    "en": ""
-  },
-  "numTemplateRef": "",
   "inheritNumTemplate": false,
   "actions": [
     "uiserv/action@create-perform-accounting-documents"
@@ -45,14 +37,11 @@
   ],
   "createVariants": [
     {
-      "id": "",
-      "name": {
-        "ru": "",
-        "en": ""
-      },
-      "formRef": "",
-      "recordRef": "",
-      "attributes": {}
+      "id": "create",
+      "attributes": {
+        "TYPE": "contracts:closingDocument",
+        "_parent": "/app:company_home/st:sites/cm:contracts/cm:documentLibrary/cm:closing-documents"
+      }
     }
   ],
   "attributes": {},

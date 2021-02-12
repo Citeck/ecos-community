@@ -1,0 +1,13 @@
+
+id: original-location
+
+name: { ru: Местонахождение оригинала, en: Original Location }
+
+parentRef: emodel/type@data-list
+journalRef: uiserv/journal@original-location
+
+createVariants:
+  - id: create
+    attributes:
+      TYPE: contracts:originalLocation
+      _parent: /app:company_home/st:sites/cm:contracts/cm:dataLists/cm:original-location

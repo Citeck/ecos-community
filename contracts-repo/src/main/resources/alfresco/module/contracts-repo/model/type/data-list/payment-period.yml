@@ -1,0 +1,13 @@
+
+id: payment-period
+
+name: { ru: Период оплаты, en: Payment Period }
+
+parentRef: emodel/type@data-list
+journalRef: uiserv/journal@payment-periods
+
+createVariants:
+  - id: create
+    attributes:
+      TYPE: payments:period
+      _parent: /app:company_home/st:sites/cm:contracts/cm:dataLists/cm:payment-periods

@@ -1,0 +1,48 @@
+
+id: payments
+label: { ru: Счета, en: Payments }
+
+actions:
+  - uiserv/action@edit
+  - uiserv/action@view-dashboard
+  - uiserv/action@view-dashboard-in-background
+
+predicate:
+  t: and
+  val:
+    - { t: eq, att: _type, val: ''}
+    - { t: eq, att: TYPE, val: payments:payment }
+
+columns:
+
+  - name: cm:created
+  - name: cm:title
+  - name: idocs:documentStatus
+  - name: payments:basis
+  - name: payments:budgetItem
+  - name: payments:paymentFor
+  - name: payments:payer
+  - name: payments:beneficiary
+  - name: payments:paymentDate
+  - name: payments:plannedPaymentDate
+  - name: payments:period
+  - name: payments:currency
+  - name: payments:paymentAmount
+  - name: payments:paymentVAT
+
+  - name: payments:paymentArrangement
+    visible: false
+  - name: payments:paymentPurpose
+    visible: false
+  - name: payments:beneficiaryType
+    visible: false
+  - name: cm:name
+    visible: false
+  - name: payments:beneficiaryAccount
+    visible: false
+  - name: payments:billDate
+    visible: false
+  - name: payments:overexpenditure
+    visible: false
+  - name: payments:paymentComment
+    visible: false

@@ -1,0 +1,22 @@
+
+id: original-location
+name: { ru: Местонахождение оригинала, en: Original Location }
+
+actions:
+  - uiserv/action@edit
+
+predicate:
+  t: and
+  val:
+    - { t: eq, att: _type, val: ''}
+    - { t: eq, att: TYPE, val: contracts:originalLocation }
+
+columns:
+
+  - name: contracts:subjectCode
+  - name: contracts:subjectName
+
+  - name: tk:type
+    visible: false
+  - name: cm:created
+    visible: false

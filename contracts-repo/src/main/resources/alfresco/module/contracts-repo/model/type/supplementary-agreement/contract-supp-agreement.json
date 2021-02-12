@@ -1,6 +1,0 @@
-{
-    "id": "contracts-cat-doctype-supp-agreement",
-    "name": "Доп.соглашение",
-    "parent": "emodel/type@user-base",
-    "inheritActions": true
-}

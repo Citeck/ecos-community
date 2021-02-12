@@ -1,0 +1,13 @@
+
+id: closing-document-type
+
+name: { ru: Тип первичных документов, en: Accounting Document Type }
+
+parentRef: emodel/type@data-list
+journalRef: uiserv/journal@closing-document-type
+
+createVariants:
+  - id: create
+    attributes:
+      TYPE: contracts:documentType
+      _parent: /app:company_home/st:sites/cm:contracts/cm:dataLists/cm:closing-document-type

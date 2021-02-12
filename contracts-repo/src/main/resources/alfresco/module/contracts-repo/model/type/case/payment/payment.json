@@ -1,10 +1,24 @@
 {
   "id": "contracts-cat-doctype-payment",
-  "name": "Счет",
-  "parent": "emodel/type@user-base",
+  "name": {
+    "en": "Payment",
+    "ru": "Счет"
+  },
+  "parentRef": "emodel/type@case",
+  "journalRef": "uiserv/journal@payments",
+  "formRef": "uiserv/eform@payment-form",
   "inheritActions": true,
   "actions": [
     "uiserv/action@document-add-closing-doc-for-invoice"
+  ],
+  "createVariants": [
+    {
+      "id": "create",
+      "attributes": {
+        "TYPE": "payments:payment",
+        "_parent": "/app:company_home/st:sites/cm:contracts/cm:documentLibrary/cm:payments"
+      }
+    }
   ],
   "associations": [
     {

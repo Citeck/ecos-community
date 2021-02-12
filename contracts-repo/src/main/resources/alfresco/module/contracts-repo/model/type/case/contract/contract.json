@@ -1,13 +1,27 @@
 {
   "id": "contracts-cat-doctype-contract",
-  "name": "Договор",
-  "parent": "emodel/type@user-base",
+  "name": {
+    "ru": "Договор",
+    "en": "Contract"
+  },
+  "parentRef": "emodel/type@case",
+  "formRef": "uiserv/eform@agreement-form",
+  "journalRef": "uiserv/journal@contract-agreements",
   "inheritActions": true,
   "actions": [
     "uiserv/action@pdf-content-with-barcode",
     "uiserv/action@document-add-closing-doc-for-payment",
     "uiserv/action@document-add-payment-for-approved",
     "uiserv/action@document-add-sup-agreement"
+  ],
+  "createVariants": [
+    {
+      "id": "create",
+      "attributes": {
+        "TYPE": "contracts:agreement",
+        "_parent": "/app:company_home/st:sites/cm:contracts/cm:documentLibrary/cm:contracts"
+      }
+    }
   ],
   "associations": [
     {

@@ -1,0 +1,22 @@
+
+id: contract-subjects
+label: { ru: Предметы договоров, en: Subjects of Contracts }
+
+actions:
+  - uiserv/action@edit
+
+predicate:
+  t: and
+  val:
+    - { t: eq, att: _type, val: ''}
+    - { t: eq, att: TYPE, val: contracts:subject }
+
+columns:
+
+  - name: contracts:subjectCode
+  - name: contracts:subjectName
+
+  - name: cm:created
+    visible: false
+  - name: cm:taggable
+    visible: false

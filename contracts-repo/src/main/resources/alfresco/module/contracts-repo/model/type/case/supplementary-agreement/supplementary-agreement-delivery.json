@@ -1,0 +1,9 @@
+{
+  "id": "supplementary-agreement/contracts-cat-contract-delivery",
+  "name": {
+    "ru": "Доп.соглашение: Доставка",
+    "en": "Supplementary agreement: Delivery"
+  },
+  "parent": "emodel/type@supplementary-agreement",
+  "inheritActions": true
+}

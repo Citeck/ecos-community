@@ -1,0 +1,19 @@
+
+id: closing-document-type
+name: { ru: Тип первичных документов, en: Accounting Document Type }
+
+actions:
+  - uiserv/action@edit
+
+predicate:
+  t: and
+  val:
+    - { t: eq, att: _type, val: ''}
+    - { t: eq, att: TYPE, val: contracts:documentType }
+
+columns:
+
+  - name: cm:name
+
+  - name: cm:created
+    visible: false

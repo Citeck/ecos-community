@@ -1,0 +1,23 @@
+
+id: payment-periods
+label: { ru: Периоды оплаты, en: Payment Periods }
+
+actions:
+  - uiserv/action@edit
+
+predicate:
+  t: and
+  val:
+    - { t: eq, att: _type, val: ''}
+    - { t: eq, att: TYPE, val: payments:period }
+
+columns:
+
+  - name: cm:name
+  - name: payments:periodStart
+  - name: payments:periodEnd
+
+  - name: cm:created
+    visible: false
+  - name: cm:taggable
+    visible: false

@@ -1,0 +1,17 @@
+{
+  "id": "contracts-cat-doctype-supp-agreement",
+  "name": "Доп.соглашение",
+  "parentRef": "emodel/type@case",
+  "journalRef": "uiserv/journal@contracts-supplementary-agreement",
+  "formRef": "uiserv/eform@contracts-supplementary-agreement",
+  "inheritActions": true,
+  "createVariants": [
+    {
+      "id": "create",
+      "attributes": {
+        "TYPE": "contracts:supplementaryAgreement",
+        "_parent": "/app:company_home/st:sites/cm:contracts/cm:documentLibrary/cm:supplementary-agreements"
+      }
+    }
+  ]
+}

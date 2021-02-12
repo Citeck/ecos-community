@@ -1,0 +1,38 @@
+
+id: contracts-closing-document
+label: { ru: Первичные учетные документы, en: Accounting Documents }
+
+actions:
+  - uiserv/action@edit
+  - uiserv/action@view-dashboard
+  - uiserv/action@view-dashboard-in-background
+
+predicate:
+  t: and
+  val:
+    - { t: eq, att: _type, val: ''}
+    - { t: eq, att: TYPE, val: contracts:closingDocument }
+
+columns:
+
+  - name: cm:created
+  - name: cm:title
+  - name: idocs:documentStatus
+  - name: contracts:closingDocumentNumber
+  - name: tk:kind
+  - name: idocs:legalEntity
+  - name: contracts:closingDocumentPayment
+  - name: idocs:contractor
+
+  - name: cm:name
+    visible: false
+  - name: contracts:closingDocumentDate"/>
+    visible: false
+  - name: contracts:closingDocumentSigner
+    visible: false
+  - name: contracts:closingDocumentSentToAccountDep"/>
+    visible: false
+  - name: contracts:closingDocumentReceiveAccountDepDate"/>
+    visible: false
+  - name: contracts:closingDocumentAgreement
+    visible: false

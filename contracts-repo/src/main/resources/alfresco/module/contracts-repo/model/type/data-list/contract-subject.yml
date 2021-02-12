@@ -1,0 +1,14 @@
+
+id: contract-subject
+
+name: { ru: Конфигурация, en: Config }
+
+parentRef: emodel/type@data-list
+formRef: uiserv/eform@contracts-subject-form
+journalRef: uiserv/journal@contract-subjects
+
+createVariants:
+  - id: create
+    attributes:
+      TYPE: contracts:subject
+      _parent: /app:company_home/st:sites/cm:contracts/cm:dataLists/cm:subjects
