@@ -4,7 +4,7 @@ var suppType = "workspace://SpacesStore/contracts-cat-doctype-supp-agreement";
 try {
     var typeNode = search.findNode(suppType);
     if (typeNode == null) {
-        throw "Contract type is not exists: " + suppType;
+        throw "Supplementary agreement type is not exists: " + suppType;
     }
     var suppTypeRef = typeNode.nodeRef;
     if (!!routeFolder) {
@@ -33,39 +33,31 @@ function createRoute() {
     routeProps["tk:appliesToType"] = suppTypeRef;
     var route = routeFolder.createNode(routeName, "route:route", routeProps);
     if (!!route) {
-        var stageProps = [];
-        var stageName = "GROUP_company_director, GROUP_company_accountant";
-        stageProps["route:dueDateExpr"] = "8/h";
-        stageProps["cm:position"] = "1";
-        var routeStage = route.createNode(stageName, "route:stage", stageProps, "route:stages");
-        if (!!routeStage) {
-            var participantProps = [];
-            var participantName = "GROUP_company_director";
-            participantProps["cm:position"] = "1";
-            routeParticipant = routeStage.createNode(participantName, "route:participant", participantProps, "route:participants");
+        var routeStageNames = ["GROUP_company_director","GROUP_company_accountant"];
+        var stagePositionIdx = 1;
+        routeStageNames.forEach(function(stageName) {
+            var stageProps = [];
+            stageProps["route:dueDateExpr"] = "8/h";
+            stageProps["cm:position"] = stagePositionIdx;
+            stagePositionIdx++;
+            var routeStage = route.createNode(stageName, "route:stage", stageProps, "route:stages");
+            if (!!routeStage) {
+                var participantProps = [];
+                var participantName = stageName;
+                participantProps["cm:position"] = "1";
+                routeParticipant = routeStage.createNode(participantName, "route:participant", participantProps, "route:participants");
 
-            var groupCEO = search.selectNodes("/sys:system/sys:authorities/cm:GROUP_company_director");
+                var participantPath = "/sys:system/sys:authorities/cm:" + participantName;
 
-            if (!!groupCEO && groupCEO.length > 0) {
-                routeParticipant.createAssociation(groupCEO[0], "route:authority");
+                var participantGroup = search.selectNodes(participantPath);
 
-                route.properties["route:precedence"] = groupCEO[0].nodeRef + "_" + stageProps["route:dueDateExpr"];
-                route.save();
+                if (!!participantGroup && participantGroup.length > 0) {
+                    routeParticipant.createAssociation(participantGroup[0], "route:authority");
+
+                    route.properties["route:precedence"] = participantGroup[0].nodeRef + "_" + stageProps["route:dueDateExpr"];
+                    route.save();
+                }
             }
-
-            var participantProps = [];
-            var participantName = "GROUP_company_accountant";
-            participantProps["cm:position"] = "2";
-            routeParticipant = routeStage.createNode(participantName, "route:participant", participantProps, "route:participants");
-
-            var groupCEO = search.selectNodes("/sys:system/sys:authorities/cm:GROUP_company_accountant");
-
-            if (!!groupCEO && groupCEO.length > 0) {
-                routeParticipant.createAssociation(groupCEO[0], "route:authority");
-
-                route.properties["route:precedence"] = groupCEO[0].nodeRef + "_" + stageProps["route:dueDateExpr"];
-                route.save();
-            }
-        }
+        });
     }
 }

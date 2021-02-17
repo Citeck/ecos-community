@@ -86,6 +86,7 @@
         <property name="dependsOn">
             <list>
                 <ref bean="contracts.module-component.doctype-categories1"/>
+                <ref bean="idocs.orgstructBootstrap"/>
             </list>
         </property>
         <property name="name" value="supp-agreement-routes" />
