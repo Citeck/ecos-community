@@ -1,10 +1,29 @@
 {
   "id": "contracts-cat-doctype-payment",
-  "name": "Счет",
-  "parent": "emodel/type@user-base",
-  "inheritActions": true,
+  "name": {
+    "en": "Счет"
+  },
+  "description": {
+    "en": ""
+  },
+  "parentRef": "emodel/type@user-base",
+  "formRef": "",
+  "journalRef": "",
+  "system": false,
+  "inheritActions": false,
+  "inheritForm": false,
+  "dispNameTemplate": {
+    "en": ""
+  },
+  "numTemplateRef": "",
+  "inheritNumTemplate": false,
   "actions": [
-    "uiserv/action@document-add-closing-doc-for-invoice"
+    "uiserv/action@content-download",
+    "uiserv/action@edit",
+    "uiserv/action@print",
+    "uiserv/action@upload-new-version",
+    "uiserv/action@document-add-closing-doc-for-invoice",
+    "uiserv/action@send-to-approval-invoice"
   ],
   "associations": [
     {
@@ -13,8 +32,9 @@
         "ru": "Учетные документы",
         "en": "Accounting Documents"
       },
-      "direction": "SOURCE",
-      "target": "emodel/type@user-base"
+      "attribute": "",
+      "target": "emodel/type@user-base",
+      "direction": "SOURCE"
     },
     {
       "id": "payments:basis",
@@ -22,8 +42,34 @@
         "ru": "Документ-основание",
         "en": "Document-base"
       },
-      "direction": "TARGET",
-      "target": "emodel/type@user-base"
+      "attribute": "",
+      "target": "emodel/type@user-base",
+      "direction": "TARGET"
     }
-  ]
+  ],
+  "createVariants": [
+    {
+      "id": "",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "formRef": "",
+      "recordRef": "",
+      "attributes": {}
+    }
+  ],
+  "attributes": {},
+  "configFormRef": "",
+  "config": {},
+  "model": {
+    "roles": [],
+    "statuses": [],
+    "attributes": []
+  },
+  "docLib": {
+    "enabled": false,
+    "dirTypeRef": "",
+    "fileTypeRefs": []
+  }
 }
