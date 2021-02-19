@@ -1,9 +1,0 @@
-{
-  "id": "supplementary-agreement/contracts-cat-contract-services",
-  "name": {
-    "ru": "Доп.соглашение: Услуги",
-    "en": "Supplementary agreement: Services"
-  },
-  "parent": "emodel/type@supplementary-agreement",
-  "inheritActions": true
-}

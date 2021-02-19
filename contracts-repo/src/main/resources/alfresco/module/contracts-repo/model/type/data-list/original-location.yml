@@ -6,7 +6,6 @@ name: { ru: Местонахождение оригинала, en: Original Loca
 parentRef: emodel/type@data-list
 journalRef: uiserv/journal@original-location
 
-createVariants:
-  - id: create
-    attributes:
-      TYPE: contracts:originalLocation
+properties:
+  alfType: contracts:originalLocation
+  alfRoot: /app:company_home/st:sites/cm:contracts/cm:dataLists/cm:original-location

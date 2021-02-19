@@ -1,0 +1,34 @@
+id: orders-internal
+label: { ru: ОРД, en: Internal documents }
+
+actions:
+  - uiserv/action@edit
+  - uiserv/action@view-dashboard
+  - uiserv/action@view-dashboard-in-background
+
+predicate:
+  t: and
+  val:
+    - { t: eq, att: _type, val: ''}
+    - { t: eq, att: TYPE, val: orders:internal }
+
+columns:
+
+  - { name: cm:created, visible: false }
+  - { name: tk:kind }
+  - { name: icase:caseStatusAssoc }
+  - { name: orders:branch }
+  - { name: orders:header }
+  - { name: idocs:summary, visible: false }
+  - { name: orders:fingerboard, visible: false }
+  - { name: orders:projectNumber }
+  - { name: orders:creationDate, visible: false }
+  - { name: idocs:registrationNumber }
+  - { name: idocs:registrationDate }
+  - { name: idocs:registrator, visible: false }
+  - { name: idocs:signatory, visible: false }
+  - { name: idocs:initiator, visible: false }
+  - { name: orders:fileCode }
+  - { name: orders:expirationDate, visible: false }
+  - { name: orders:appendixNumber, visible: false }
+  - { name: orders:placeOfOriginal, visible: false }

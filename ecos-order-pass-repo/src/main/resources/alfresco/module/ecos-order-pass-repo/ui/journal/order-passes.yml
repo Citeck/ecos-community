@@ -1,0 +1,18 @@
+---
+id: order-passes
+label: { ru: Пропуска, en: Order Passes }
+
+actions:
+  - uiserv/action@edit
+  - uiserv/action@view-dashboard
+  - uiserv/action@view-dashboard-in-background
+
+columns:
+
+  - name: cm:created
+  - name: idocs:registrationNumber
+  - name: idocs:registrationDate
+  - name: op:visitorFullName
+  - name: op:visitorOrganization
+  - name: op:visitingDate
+  - name: icase:caseStatusAssoc

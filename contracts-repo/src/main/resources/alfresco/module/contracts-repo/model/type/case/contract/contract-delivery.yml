@@ -1,0 +1,8 @@
+{
+  "id": "contracts-cat-doctype-contract/contracts-cat-contract-delivery",
+  "name": {
+    "en": "Договор доставки"
+  },
+  "parentRef": "emodel/type@contracts-cat-doctype-contract",
+  "defaultCreateVariant": false
+}

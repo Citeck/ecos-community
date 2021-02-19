@@ -1,0 +1,35 @@
+---
+id: contracts-cat-doctype-payment
+
+name:
+  en: Payment
+  ru: Счет
+
+parentRef: emodel/type@case
+journalRef: uiserv/journal@payments
+formRef: uiserv/eform@payment-form
+
+actions:
+  - uiserv/action@document-add-closing-doc-for-invoice
+
+properties:
+  alfNode: payments:payment
+  alfRoot: /app:company_home/st:sites/cm:contracts/cm:documentLibrary/cm:payments
+
+associations:
+
+  - id: contracts:closingDocumentPayment
+    name:
+      ru: Учетные документы
+      en: Accounting Documents
+
+    direction: SOURCE
+    target: emodel/type@user-base
+
+  - id: payments:basis
+    name:
+      ru: Документ-основание
+      en: Document-base
+
+    direction: TARGET
+    target: emodel/type@user-base

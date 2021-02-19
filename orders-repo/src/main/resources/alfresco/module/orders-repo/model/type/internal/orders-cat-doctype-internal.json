@@ -1,28 +1,23 @@
 {
-    "id": "orders-cat-doctype-internal",
-    "name": {
-        "en": "Внутренний"
-    },
-    "description": {
-        "en": ""
-    },
-    "parent": "emodel/type@user-base",
-    "form": "",
-    "journal": "",
-    "system": false,
-    "dashboardType": null,
-    "inheritActions": true,
-    "aliases": [],
-    "actions": [
-        "ui/action@send-to-approval",
-        "ui/action@document-start-statement",
-        "ui/action@delete",
-        "ui/action@edit-in-onlyoffice",
-        "ui/action@edit",
-        "ui/action@print-pdf",
-        "ui/action@upload-new-version"
-    ],
-    "associations": [],
-    "createVariants": [],
-    "attributes": {}
+  "id": "orders-cat-doctype-internal",
+  "name": {
+    "ru": "Внутренний",
+    "en": "Internal"
+  },
+  "parent": "emodel/type@case",
+  "formRef": "uiserv/eform@orders_internal",
+  "journalRef": "uiserv/journal@orders-internal",
+  "actions": [
+    "ui/action@send-to-approval",
+    "ui/action@document-start-statement",
+    "ui/action@delete",
+    "ui/action@edit-in-onlyoffice",
+    "ui/action@edit",
+    "ui/action@print-pdf",
+    "ui/action@upload-new-version"
+  ],
+  "properties": {
+    "alfType": "orders:internal",
+    "alfRoot": "/app:company_home/st:sites/cm:orders/cm:documentLibrary/cm:documents/cm:internals"
+  }
 }

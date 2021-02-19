@@ -5,12 +5,6 @@ label: { ru: Предметы договоров, en: Subjects of Contracts }
 actions:
   - uiserv/action@edit
 
-predicate:
-  t: and
-  val:
-    - { t: eq, att: _type, val: ''}
-    - { t: eq, att: TYPE, val: contracts:subject }
-
 columns:
 
   - name: contracts:subjectCode

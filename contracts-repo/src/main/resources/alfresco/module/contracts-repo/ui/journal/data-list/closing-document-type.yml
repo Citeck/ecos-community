@@ -5,12 +5,6 @@ name: { ru: Тип первичных документов, en: Accounting Docum
 actions:
   - uiserv/action@edit
 
-predicate:
-  t: and
-  val:
-    - { t: eq, att: _type, val: ''}
-    - { t: eq, att: TYPE, val: contracts:documentType }
-
 columns:
 
   - name: cm:name

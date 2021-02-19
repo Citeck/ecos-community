@@ -1,6 +1,0 @@
-{
-  "id": "contracts-cat-doctype-closing-doc/contracts-cat-closing-doc-delivery",
-  "name": "Закрывающий документ. Доставка",
-  "parent": "emodel/type@contracts-cat-doctype-closing-doc",
-  "inheritActions": true
-}

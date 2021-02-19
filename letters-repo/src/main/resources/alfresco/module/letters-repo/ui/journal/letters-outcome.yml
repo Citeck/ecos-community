@@ -1,0 +1,25 @@
+
+id: letters-outcome
+label: { ru: Исходящие, en: Outgoing }
+
+actions:
+  - uiserv/action@edit
+  - uiserv/action@view-dashboard
+  - uiserv/action@view-dashboard-in-background
+
+columns:
+
+  - name: cm:created
+  - name: idocs:documentStatus
+  - name: idocs:registrationNumber
+  - name: idocs:registrationDate
+  - name: letters:outcomeNomenclature
+  - name: tk:kind
+  - name: letters:deliveryMethod
+  - name: letters:addressee
+  - name: idocs:performer
+  - name: idocs:signatory
+  - name: idocs:summary
+  - name: idocs:note
+  - name: idocs:pagesNumber
+  - name: idocs:appendixPagesNumber

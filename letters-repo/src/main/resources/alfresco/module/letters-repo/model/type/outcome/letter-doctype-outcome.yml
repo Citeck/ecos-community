@@ -1,0 +1,22 @@
+{
+  "id": "letter-doctype-outcome",
+  "name": {
+    "en": "Исходящие"
+  },
+  "parentRef": "emodel/type@case",
+  "journalRef": "uiserv/journal@letters-outcome",
+  "actions": [
+    "ui/action@create-income",
+    "ui/action@document-start-statement",
+    "ui/action@upload-new-version",
+    "ui/action@print-pdf",
+    "ui/action@edit-in-onlyoffice",
+    "ui/action@content-download",
+    "ui/action@delete",
+    "ui/action@edit"
+  ],
+  "properties": {
+    "alfType": "letters:outcome",
+    "alfRoot": "/app:company_home/st:sites/cm:letters/cm:documentLibrary/cm:outcome"
+  }
+}

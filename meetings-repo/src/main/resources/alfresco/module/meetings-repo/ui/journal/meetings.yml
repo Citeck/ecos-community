@@ -1,0 +1,18 @@
+
+id: meetings
+label: { ru: Совещания, en: Meetings }
+
+actions:
+  - uiserv/action@edit
+  - uiserv/action@view-dashboard
+  - uiserv/action@view-dashboard-in-background
+
+columns:
+
+  - name: cm:created
+  - name: meet:meetingNumber
+  - name: idocs:documentStatus
+  - name: meet:initiator
+  - name: meet:when
+  - name: meet:subject
+  - name: meet:where

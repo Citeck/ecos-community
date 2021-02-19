@@ -1,0 +1,12 @@
+{
+  "id": "meet-answeredQuestion",
+  "name": {
+    "ru": "Решения",
+    "en": "Answered questions"
+  },
+  "formRef": "uiserv/eform@meet_answeredQuestion",
+  "parentRef": "emodel/type@data-list",
+  "properties": {
+    "alfType": "meet:answeredQuestion"
+  }
+}

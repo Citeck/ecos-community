@@ -1,6 +1,0 @@
-{
-    "id": "letter-doctype-income/letter-doctype-income-b",
-    "name": "Письмо из надзорных органов",
-    "parent": "emodel/type@letter-doctype-income",
-    "inheritActions": true
-}

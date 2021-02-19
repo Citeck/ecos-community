@@ -1,6 +1,0 @@
-{
-    "id": "letter-doctype-income/letter-doctype-income-c",
-    "name": "Разное",
-    "parent": "emodel/type@letter-doctype-income",
-    "inheritActions": true
-}

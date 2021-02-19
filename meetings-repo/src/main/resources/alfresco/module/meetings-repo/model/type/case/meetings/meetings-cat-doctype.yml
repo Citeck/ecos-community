@@ -1,0 +1,13 @@
+{
+  "id": "meetings-cat-doctype",
+  "name": {
+    "ru": "Совещание",
+    "en": "Meeting"
+  },
+  "formRef": "uiserv/eform@meetings_meeting",
+  "parentRef": "emodel/type@case",
+  "journalRef": "uiserv/journal@meetings",
+  "properties": {
+    "alfType": "meet:meeting"
+  }
+}

@@ -1,6 +1,6 @@
 {
-    "id": "orders-cat-doctype-internal/orders-cat-internal-dismissal",
-    "name": "Приказ на увольнение",
-    "parent": "emodel/type@orders-cat-doctype-internal",
-    "inheritActions": true
+  "id": "orders-cat-doctype-internal/orders-cat-internal-dismissal",
+  "name": "Приказ на увольнение",
+  "parent": "emodel/type@orders-cat-doctype-internal",
+  "defaultCreateVariant": false
 }

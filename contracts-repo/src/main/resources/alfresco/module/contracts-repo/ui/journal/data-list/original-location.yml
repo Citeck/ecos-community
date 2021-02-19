@@ -5,12 +5,6 @@ name: { ru: Местонахождение оригинала, en: Original Loca
 actions:
   - uiserv/action@edit
 
-predicate:
-  t: and
-  val:
-    - { t: eq, att: _type, val: ''}
-    - { t: eq, att: TYPE, val: contracts:originalLocation }
-
 columns:
 
   - name: contracts:subjectCode

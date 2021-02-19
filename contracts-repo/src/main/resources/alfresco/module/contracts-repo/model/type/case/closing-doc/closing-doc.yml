@@ -1,0 +1,39 @@
+{
+  "id": "contracts-cat-doctype-closing-doc",
+  "name": {
+    "en": "Closing document",
+    "ru": "Закрывающий документ"
+  },
+  "parentRef": "emodel/type@case",
+  "formRef": "uiserv/eform@closing-document-form",
+  "journalRef": "uiserv/journal@contracts-closing-document",
+  "actions": [
+    "uiserv/action@create-perform-accounting-documents"
+  ],
+  "associations": [
+    {
+      "id": "contracts:closingDocumentAgreement",
+      "name": {
+        "ru": "Документ-основание",
+        "en": "Document-base"
+      },
+      "attribute": "",
+      "target": "emodel/type@user-base",
+      "direction": "TARGET"
+    },
+    {
+      "id": "contracts:closingDocumentPayment",
+      "name": {
+        "ru": "Связанные счета",
+        "en": "Associated payments"
+      },
+      "attribute": "",
+      "target": "emodel/type@user-base",
+      "direction": "TARGET"
+    }
+  ],
+  "properties": {
+    "alfType": "contracts:closingDocument",
+    "alfRoot": "/app:company_home/st:sites/cm:contracts/cm:documentLibrary/cm:closing-documents"
+  }
+}

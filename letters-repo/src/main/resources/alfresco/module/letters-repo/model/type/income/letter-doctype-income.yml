@@ -1,0 +1,23 @@
+{
+  "id": "letter-doctype-income",
+  "name": {
+    "en": "Входящие"
+  },
+  "parentRef": "emodel/type@case",
+  "journalRef": "uiserv/journal@letters-income",
+  "actions": [
+    "ui/action@create-outcome",
+    "ui/action@document-start-statement",
+    "ui/action@document-start-confirm",
+    "ui/action@upload-new-version",
+    "ui/action@print-pdf",
+    "ui/action@edit-in-onlyoffice",
+    "ui/action@content-download",
+    "ui/action@delete",
+    "ui/action@edit"
+  ],
+  "properties": {
+    "alfType": "letters:income",
+    "alfRoot": "/app:company_home/st:sites/cm:letters/cm:documentLibrary/cm:income"
+  }
+}

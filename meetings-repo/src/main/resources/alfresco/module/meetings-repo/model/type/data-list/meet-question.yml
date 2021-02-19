@@ -1,0 +1,12 @@
+{
+  "id": "meet-question",
+  "name": {
+    "ru": "Вопрос встречи",
+    "en": "Meet question"
+  },
+  "formRef": "uiserv/eform@meet_question",
+  "parentRef": "emodel/type@data-list",
+  "properties": {
+    "alfType": "meet:question"
+  }
+}

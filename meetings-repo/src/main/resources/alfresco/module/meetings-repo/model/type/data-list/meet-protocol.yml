@@ -1,0 +1,12 @@
+{
+  "id": "meet-protocol",
+  "name": {
+    "ru": "Протокол встречи",
+    "en": "Meet protocol"
+  },
+  "formRef": "uiserv/eform@meet_protocol",
+  "parentRef": "emodel/type@data-list",
+  "properties": {
+    "alfType": "meet:protocol"
+  }
+}

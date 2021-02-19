@@ -1,0 +1,19 @@
+{
+  "id": "supplementary-agreement",
+  "name": {
+    "ru": "Доп.соглашение",
+    "en": "Supplementary agreement"
+  },
+  "parentRef": "emodel/type@contracts-cat-doctype-contract",
+  "associations": [
+    {
+      "id": "contracts:mainAgreement",
+      "name": {
+        "ru": "Связь с договором",
+        "en": "Relationship to the contract"
+      },
+      "direction": "TARGET",
+      "target": "emodel/type@user-base"
+    }
+  ]
+}
