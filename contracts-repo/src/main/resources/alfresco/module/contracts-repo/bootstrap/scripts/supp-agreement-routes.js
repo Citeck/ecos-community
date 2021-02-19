@@ -38,6 +38,8 @@ function createRoute() {
         routeStageNames.forEach(function(stageName) {
             var stageProps = [];
             stageProps["route:dueDateExpr"] = "8/h";
+            stageProps["route:dueDateTime"] = 8;
+            stageProps["route:dueDateTimeUnit"] = "h";
             stageProps["cm:position"] = stagePositionIdx;
             stagePositionIdx++;
             var routeStage = route.createNode(stageName, "route:stage", stageProps, "route:stages");
