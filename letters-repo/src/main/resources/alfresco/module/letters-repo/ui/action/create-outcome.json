@@ -1,18 +1,18 @@
 {
-    "id": "create-outcome",
-    "key": "create.outcome",
-    "name": {
-        "ru": "Создать исходящий",
-        "en": "Create outcome"
-    },
-    "type": "create",
-    "icon": "icon-plus",
-    "config": {
-        "recordRef" : "dict@letters:outcome",
-        "attributes": {
-            "letters_income": "$.id",
-            "inner_form": "true",
-            "_parent": "/app:company_home/st:sites/cm:letters/cm:documentLibrary/cm:income"
-        }
+  "id": "create-outcome",
+  "key": "create.outcome",
+  "name": {
+    "ru": "Создать исходящий",
+    "en": "Create outcome"
+  },
+  "type": "create",
+  "icon": "icon-plus",
+  "config": {
+    "recordRef": "alfresco/@",
+    "attributes": {
+      "_type": "emodel/type@letter-doctype-outcome",
+      "letters_income": "$.id",
+      "inner_form": "true"
     }
+  }
 }
