@@ -80,4 +80,18 @@
         </property>
     </bean>
 
+    <bean class="ru.citeck.ecos.node.etype.EcosTypeRootRegistrar">
+        <property name="typeRoots">
+            <map>
+                <entry key="contracts-cat-doctype-closing-doc" value="/app:company_home/st:sites/cm:contracts/cm:documentLibrary/cm:closing-documents" />
+                <entry key="contracts-cat-doctype-contract" value="/app:company_home/st:sites/cm:contracts/cm:documentLibrary/cm:contracts" />
+                <entry key="contracts-cat-doctype-supp-agreement" value="/app:company_home/st:sites/cm:contracts/cm:documentLibrary/cm:supplementary-agreements" />
+                <entry key="closing-document-type" value="/app:company_home/st:sites/cm:contracts/cm:dataLists/cm:closing-document-type" />
+                <entry key="contract-subject" value="/app:company_home/st:sites/cm:contracts/cm:dataLists/cm:subjects" />
+                <entry key="original-location" value="/app:company_home/st:sites/cm:contracts/cm:dataLists/cm:original-location" />
+                <entry key="payment-period" value="/app:company_home/st:sites/cm:contracts/cm:dataLists/cm:payment-periods" />
+            </map>
+        </property>
+    </bean>
+
 </beans>

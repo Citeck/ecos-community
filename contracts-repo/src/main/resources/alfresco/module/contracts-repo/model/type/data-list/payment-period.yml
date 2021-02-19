@@ -10,4 +10,3 @@ createVariants:
   - id: create
     attributes:
       TYPE: payments:period
-      _parent: /app:company_home/st:sites/cm:contracts/cm:dataLists/cm:payment-periods

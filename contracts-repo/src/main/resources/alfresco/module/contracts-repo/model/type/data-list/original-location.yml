@@ -10,4 +10,3 @@ createVariants:
   - id: create
     attributes:
       TYPE: contracts:originalLocation
-      _parent: /app:company_home/st:sites/cm:contracts/cm:dataLists/cm:original-location

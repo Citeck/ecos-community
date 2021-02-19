@@ -15,8 +15,7 @@
     {
       "id": "create",
       "attributes": {
-        "TYPE": "payments:payment",
-        "_parent": "/app:company_home/st:sites/cm:contracts/cm:documentLibrary/cm:payments"
+        "TYPE": "payments:payment"
       }
     }
   ],

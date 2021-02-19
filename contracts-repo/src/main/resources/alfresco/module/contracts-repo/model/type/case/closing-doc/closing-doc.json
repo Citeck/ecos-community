@@ -39,8 +39,7 @@
     {
       "id": "create",
       "attributes": {
-        "TYPE": "contracts:closingDocument",
-        "_parent": "/app:company_home/st:sites/cm:contracts/cm:documentLibrary/cm:closing-documents"
+        "TYPE": "contracts:closingDocument"
       }
     }
   ],

@@ -10,4 +10,3 @@ createVariants:
   - id: create
     attributes:
       TYPE: contracts:documentType
-      _parent: /app:company_home/st:sites/cm:contracts/cm:dataLists/cm:closing-document-type

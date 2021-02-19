@@ -9,8 +9,7 @@
     {
       "id": "create",
       "attributes": {
-        "TYPE": "contracts:supplementaryAgreement",
-        "_parent": "/app:company_home/st:sites/cm:contracts/cm:documentLibrary/cm:supplementary-agreements"
+        "TYPE": "contracts:supplementaryAgreement"
       }
     }
   ]

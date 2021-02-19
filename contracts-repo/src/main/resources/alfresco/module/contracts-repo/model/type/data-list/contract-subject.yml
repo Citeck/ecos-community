@@ -11,4 +11,3 @@ createVariants:
   - id: create
     attributes:
       TYPE: contracts:subject
-      _parent: /app:company_home/st:sites/cm:contracts/cm:dataLists/cm:subjects

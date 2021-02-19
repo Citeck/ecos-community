@@ -18,8 +18,7 @@
     {
       "id": "create",
       "attributes": {
-        "TYPE": "contracts:agreement",
-        "_parent": "/app:company_home/st:sites/cm:contracts/cm:documentLibrary/cm:contracts"
+        "TYPE": "contracts:agreement"
       }
     }
   ],
