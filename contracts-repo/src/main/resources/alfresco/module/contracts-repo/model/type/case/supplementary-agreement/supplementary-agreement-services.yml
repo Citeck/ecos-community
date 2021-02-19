@@ -1,10 +1,10 @@
 ---
-id: supplementary-agreement/contracts-cat-contract-services
+id: contracts-cat-doctype-supp-agreement/contracts-cat-contract-services
 
 name:
   ru: 'Доп.соглашение: Услуги'
   en: 'Supplementary agreement: Services'
 
-parentRef: emodel/type@supplementary-agreement
+parentRef: emodel/type@contracts-cat-doctype-supp-agreement
 
 defaultCreateVariant: false

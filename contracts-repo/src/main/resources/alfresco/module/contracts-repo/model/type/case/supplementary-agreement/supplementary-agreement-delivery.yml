@@ -1,9 +1,10 @@
 ---
-id: supplementary-agreement/contracts-cat-contract-delivery
+id: contracts-cat-doctype-supp-agreement/contracts-cat-contract-delivery
+
 name:
   ru: 'Доп.соглашение: Доставка'
   en: 'Supplementary agreement: Delivery'
 
-parentRef: emodel/type@supplementary-agreement
+parentRef: emodel/type@contracts-cat-doctype-supp-agreement
 
 defaultCreateVariant: false

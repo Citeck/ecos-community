@@ -1,0 +1,24 @@
+---
+id: contracts-cat-doctype-supp-agreement
+
+name:
+  en: Add'l agreement
+  ru: Доп.соглашение
+
+parentRef: emodel/type@case
+journalRef: uiserv/journal@contracts-supplementary-agreement
+formRef: uiserv/eform@contracts-supplementary-agreement
+
+properties:
+  alfType: contracts:supplementaryAgreement
+  alfRoot: /app:company_home/st:sites/cm:contracts/cm:documentLibrary/cm:supplementary-agreements
+
+associations:
+
+  - id: contracts:mainAgreement
+    name:
+      ru: Связь с договором
+      en: Relationship to the contract
+
+    direction: TARGET
+    target: emodel/type@user-base

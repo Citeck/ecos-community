@@ -1,10 +1,10 @@
 ---
-id: supplementary-agreement/contracts-cat-contract-rent
+id: contracts-cat-doctype-supp-agreement/contracts-cat-contract-rent
 
 name:
   ru: 'Доп.соглашение: Аренда'
   en: 'Supplementary agreement: Rent'
 
-parentRef: emodel/type@supplementary-agreement
+parentRef: emodel/type@contracts-cat-doctype-supp-agreement
 
 defaultCreateVariant: false
