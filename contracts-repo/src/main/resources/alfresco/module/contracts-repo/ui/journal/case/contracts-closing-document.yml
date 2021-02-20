@@ -20,13 +20,13 @@ columns:
 
   - name: cm:name
     visible: false
-  - name: contracts:closingDocumentDate"/>
+  - name: contracts:closingDocumentDate
     visible: false
   - name: contracts:closingDocumentSigner
     visible: false
-  - name: contracts:closingDocumentSentToAccountDep"/>
+  - name: contracts:closingDocumentSentToAccountDep
     visible: false
-  - name: contracts:closingDocumentReceiveAccountDepDate"/>
+  - name: contracts:closingDocumentReceiveAccountDepDate
     visible: false
   - name: contracts:closingDocumentAgreement
     visible: false
