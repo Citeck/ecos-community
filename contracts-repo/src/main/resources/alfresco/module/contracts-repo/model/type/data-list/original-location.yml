@@ -3,7 +3,7 @@ id: original-location
 
 name: { ru: Местонахождение оригинала, en: Original Location }
 
-formRef: uiserv/eform@contracts_original_location_form
+formRef: uiserv/form@contracts_original_location_form
 parentRef: emodel/type@data-list
 journalRef: uiserv/journal@original-location
 

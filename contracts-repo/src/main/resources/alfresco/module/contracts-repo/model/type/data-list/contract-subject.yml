@@ -4,7 +4,7 @@ id: contract-subject
 name: { ru: Конфигурация, en: Config }
 
 parentRef: emodel/type@data-list
-formRef: uiserv/eform@contracts-subject-form
+formRef: uiserv/form@contracts-subject-form
 journalRef: uiserv/journal@contract-subjects
 
 properties:

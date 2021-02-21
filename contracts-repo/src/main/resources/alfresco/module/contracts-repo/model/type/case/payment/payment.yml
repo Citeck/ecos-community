@@ -7,7 +7,7 @@ name:
 
 parentRef: emodel/type@case
 journalRef: uiserv/journal@payments
-formRef: uiserv/eform@payment-form
+formRef: uiserv/form@payment-form
 
 actions:
   - uiserv/action@document-add-closing-doc-for-invoice

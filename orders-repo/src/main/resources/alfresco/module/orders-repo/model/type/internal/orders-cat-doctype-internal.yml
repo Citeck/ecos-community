@@ -5,7 +5,7 @@ name:
   en: Internal
 
 parentRef: emodel/type@case
-formRef: uiserv/eform@orders_internal
+formRef: uiserv/form@orders_internal
 journalRef: uiserv/journal@orders-internal
 
 actions:

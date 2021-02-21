@@ -9,7 +9,7 @@
   "icon": "icon-plus",
   "config": {
     "recordRef": "workflow@def_activiti$perform",
-    "formId": "uiserv/eform@activiti_perform_form",
+    "formId": "uiserv/form@activiti_perform_form",
     "attributes": {
       "cwf_targetItems": "${recordRef}"
     }

@@ -4,7 +4,7 @@ name:
   ru: Совещание
   en: Meeting
 
-formRef: uiserv/eform@meetings_meeting
+formRef: uiserv/form@meetings_meeting
 parentRef: emodel/type@case
 journalRef: uiserv/journal@meetings
 

@@ -5,7 +5,7 @@
     "en": "Contract"
   },
   "parentRef": "emodel/type@case",
-  "formRef": "uiserv/eform@agreement-form",
+  "formRef": "uiserv/form@agreement-form",
   "journalRef": "uiserv/journal@contract-agreements",
   "actions": [
     "uiserv/action@pdf-content-with-barcode",

@@ -4,7 +4,7 @@
     "ru": "Повестка",
     "en": "Agenda"
   },
-  "formRef": "uiserv/eform@meet_agenda",
+  "formRef": "uiserv/form@meet_agenda",
   "parentRef": "emodel/type@data-list",
   "properties": {
     "alfType": "meet:agenda"

@@ -5,7 +5,7 @@
     "ru": "Закрывающий документ"
   },
   "parentRef": "emodel/type@case",
-  "formRef": "uiserv/eform@closing-document-form",
+  "formRef": "uiserv/form@closing-document-form",
   "journalRef": "uiserv/journal@contracts-closing-document",
   "actions": [
     "uiserv/action@create-perform-accounting-documents"
