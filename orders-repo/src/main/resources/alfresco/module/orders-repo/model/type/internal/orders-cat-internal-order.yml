@@ -1,6 +1,5 @@
 {
   "id": "orders-cat-doctype-internal/orders-cat-internal-order",
   "name": "Приказ",
-  "parent": "emodel/type@orders-cat-doctype-internal",
-  "defaultCreateVariant": false
+  "parentRef": "emodel/type@orders-cat-doctype-internal"
 }

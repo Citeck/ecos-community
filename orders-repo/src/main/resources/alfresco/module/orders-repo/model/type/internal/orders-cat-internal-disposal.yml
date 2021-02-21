@@ -1,6 +1,5 @@
 {
   "id": "orders-cat-doctype-internal/orders-cat-internal-disposal",
   "name": "Распоряжение",
-  "parent": "emodel/type@orders-cat-doctype-internal",
-  "defaultCreateVariant": false
+  "parentRef": "emodel/type@orders-cat-doctype-internal"
 }

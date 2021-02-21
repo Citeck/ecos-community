@@ -5,5 +5,3 @@ name:
   en: Other
 
 parentRef: emodel/type@letter-doctype-income
-
-defaultCreateVariant: false

@@ -6,6 +6,7 @@ name:
 
 parentRef: emodel/type@case
 journalRef: uiserv/journal@letters-outcome
+formRef: uiserv/eform@letters_outgoing
 
 actions:
   - uiserv/action@create-income

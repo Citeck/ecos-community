@@ -5,6 +5,7 @@ name:
   en: Входящие
 
 parentRef: emodel/type@case
+formRef: uiserv/eform@letters_incoming
 journalRef: uiserv/journal@letters-income
 
 actions:

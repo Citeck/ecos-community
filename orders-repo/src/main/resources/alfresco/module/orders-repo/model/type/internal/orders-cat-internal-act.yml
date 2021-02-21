@@ -1,6 +1,5 @@
 {
   "id": "orders-cat-doctype-internal/orders-cat-internal-act",
   "name": "Нормативный акт",
-  "parent": "emodel/type@orders-cat-doctype-internal",
-  "defaultCreateVariant": false
+  "parentRef": "emodel/type@orders-cat-doctype-internal"
 }

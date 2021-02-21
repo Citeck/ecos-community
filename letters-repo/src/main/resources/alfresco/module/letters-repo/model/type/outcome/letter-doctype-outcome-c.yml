@@ -5,5 +5,3 @@ name:
   ru: Разное
 
 parentRef: emodel/type@letter-doctype-outcome
-
-defaultCreateVariant: false

@@ -3,6 +3,5 @@
   "name": {
     "en": "Договор аренды"
   },
-  "parentRef": "emodel/type@contracts-cat-doctype-contract",
-  "defaultCreateVariant": false
+  "parentRef": "emodel/type@contracts-cat-doctype-contract"
 }

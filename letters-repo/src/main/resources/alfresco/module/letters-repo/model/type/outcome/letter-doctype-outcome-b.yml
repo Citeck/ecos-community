@@ -5,5 +5,3 @@ name:
   en: Отчетный
 
 parentRef: emodel/type@letter-doctype-outcome
-
-defaultCreateVariant: false

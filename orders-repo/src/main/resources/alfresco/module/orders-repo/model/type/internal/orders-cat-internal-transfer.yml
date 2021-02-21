@@ -1,6 +1,5 @@
 {
   "id": "orders-cat-doctype-internal/orders-cat-internal-transfer",
   "name": "Приказ на перевод",
-  "parent": "emodel/type@orders-cat-doctype-internal",
-  "defaultCreateVariant": false
+  "parentRef": "emodel/type@orders-cat-doctype-internal"
 }

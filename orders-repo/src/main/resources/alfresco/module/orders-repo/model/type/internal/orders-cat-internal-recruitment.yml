@@ -1,6 +1,5 @@
 {
   "id": "orders-cat-doctype-internal/orders-cat-internal-recruitment",
   "name": "Приказ на прием на работу",
-  "parent": "emodel/type@orders-cat-doctype-internal",
-  "defaultCreateVariant": false
+  "parentRef": "emodel/type@orders-cat-doctype-internal"
 }

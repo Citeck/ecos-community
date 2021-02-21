@@ -5,5 +5,3 @@ name:
   en: Бухгалтерский
 
 parentRef: emodel/type@letter-doctype-income
-
-defaultCreateVariant: false

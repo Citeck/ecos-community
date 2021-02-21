@@ -1,0 +1,24 @@
+---
+id: orders-cat-doctype-internal
+name:
+  ru: Внутренний
+  en: Internal
+
+parentRef: emodel/type@case
+formRef: uiserv/eform@orders_internal
+journalRef: uiserv/journal@orders-internal
+
+actions:
+  - uiserv/action@send-to-approval
+  - uiserv/action@document-start-statement
+  - uiserv/action@delete
+  - uiserv/action@edit-in-onlyoffice
+  - uiserv/action@edit
+  - uiserv/action@print-pdf
+  - uiserv/action@upload-new-version
+
+properties:
+  alfType: orders:internal
+  alfRoot: /app:company_home/st:sites/cm:orders/cm:documentLibrary/cm:documents/cm:internals
+
+
