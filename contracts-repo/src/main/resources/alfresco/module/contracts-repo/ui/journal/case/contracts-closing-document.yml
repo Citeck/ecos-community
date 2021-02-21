@@ -1,6 +1,6 @@
 
 id: contracts-closing-document
-label: { ru: Первичные учетные документы, en: Accounting Documents }
+name: { ru: Первичные учетные документы, en: Accounting Documents }
 
 actions:
   - uiserv/action@edit
@@ -9,24 +9,24 @@ actions:
 
 columns:
 
-  - name: cm:created
-  - name: cm:title
-  - name: idocs:documentStatus
-  - name: contracts:closingDocumentNumber
-  - name: tk:kind
-  - name: idocs:legalEntity
-  - name: contracts:closingDocumentPayment
-  - name: idocs:contractor
+  - id: cm:created
+  - id: cm:title
+  - id: idocs:documentStatus
+  - id: contracts:closingDocumentNumber
+  - id: tk:kind
+  - id: idocs:legalEntity
+  - id: contracts:closingDocumentPayment
+  - id: idocs:contractor
 
-  - name: cm:name
+  - id: cm:name
     visible: false
-  - name: contracts:closingDocumentDate
+  - id: contracts:closingDocumentDate
     visible: false
-  - name: contracts:closingDocumentSigner
+  - id: contracts:closingDocumentSigner
     visible: false
-  - name: contracts:closingDocumentSentToAccountDep
+  - id: contracts:closingDocumentSentToAccountDep
     visible: false
-  - name: contracts:closingDocumentReceiveAccountDepDate
+  - id: contracts:closingDocumentReceiveAccountDepDate
     visible: false
-  - name: contracts:closingDocumentAgreement
+  - id: contracts:closingDocumentAgreement
     visible: false

@@ -1,17 +1,17 @@
 
 id: payment-periods
-label: { ru: Периоды оплаты, en: Payment Periods }
+name: { ru: Периоды оплаты, en: Payment Periods }
 
 actions:
   - uiserv/action@edit
 
 columns:
 
-  - name: cm:name
-  - name: payments:periodStart
-  - name: payments:periodEnd
+  - id: cm:name
+  - id: payments:periodStart
+  - id: payments:periodEnd
 
-  - name: cm:created
+  - id: cm:created
     visible: false
-  - name: cm:taggable
+  - id: cm:taggable
     visible: false

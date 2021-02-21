@@ -1,6 +1,6 @@
 
 id: payments
-label: { ru: Счета, en: Payments }
+name: { ru: Счета, en: Payments }
 
 actions:
   - uiserv/action@edit
@@ -9,34 +9,34 @@ actions:
 
 columns:
 
-  - name: cm:created
-  - name: cm:title
-  - name: idocs:documentStatus
-  - name: payments:basis
-  - name: payments:budgetItem
-  - name: payments:paymentFor
-  - name: payments:payer
-  - name: payments:beneficiary
-  - name: payments:paymentDate
-  - name: payments:plannedPaymentDate
-  - name: payments:period
-  - name: payments:currency
-  - name: payments:paymentAmount
-  - name: payments:paymentVAT
+  - id: cm:created
+  - id: cm:title
+  - id: idocs:documentStatus
+  - id: payments:basis
+  - id: payments:budgetItem
+  - id: payments:paymentFor
+  - id: payments:payer
+  - id: payments:beneficiary
+  - id: payments:paymentDate
+  - id: payments:plannedPaymentDate
+  - id: payments:period
+  - id: payments:currency
+  - id: payments:paymentAmount
+  - id: payments:paymentVAT
 
-  - name: payments:paymentArrangement
+  - id: payments:paymentArrangement
     visible: false
-  - name: payments:paymentPurpose
+  - id: payments:paymentPurpose
     visible: false
-  - name: payments:beneficiaryType
+  - id: payments:beneficiaryType
     visible: false
-  - name: cm:name
+  - id: cm:name
     visible: false
-  - name: payments:beneficiaryAccount
+  - id: payments:beneficiaryAccount
     visible: false
-  - name: payments:billDate
+  - id: payments:billDate
     visible: false
-  - name: payments:overexpenditure
+  - id: payments:overexpenditure
     visible: false
-  - name: payments:paymentComment
+  - id: payments:paymentComment
     visible: false

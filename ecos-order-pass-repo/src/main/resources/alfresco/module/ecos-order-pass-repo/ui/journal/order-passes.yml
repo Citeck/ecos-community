@@ -1,6 +1,6 @@
 ---
 id: order-passes
-label: { ru: Пропуска, en: Order Passes }
+name: { ru: Пропуска, en: Order Passes }
 
 actions:
   - uiserv/action@edit
@@ -9,10 +9,10 @@ actions:
 
 columns:
 
-  - name: cm:created
-  - name: idocs:registrationNumber
-  - name: idocs:registrationDate
-  - name: op:visitorFullName
-  - name: op:visitorOrganization
-  - name: op:visitingDate
-  - name: icase:caseStatusAssoc
+  - id: cm:created
+  - id: idocs:registrationNumber
+  - id: idocs:registrationDate
+  - id: op:visitorFullName
+  - id: op:visitorOrganization
+  - id: op:visitingDate
+  - id: icase:caseStatusAssoc

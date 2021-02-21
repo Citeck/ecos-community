@@ -1,5 +1,6 @@
+---
 id: orders-internal
-label: { ru: ОРД, en: Internal documents }
+name: { ru: ОРД, en: Internal documents }
 
 actions:
   - uiserv/action@edit
@@ -14,21 +15,21 @@ predicate:
 
 columns:
 
-  - { name: cm:created, visible: false }
-  - { name: tk:kind }
-  - { name: icase:caseStatusAssoc }
-  - { name: orders:branch }
-  - { name: orders:header }
-  - { name: idocs:summary, visible: false }
-  - { name: orders:fingerboard, visible: false }
-  - { name: orders:projectNumber }
-  - { name: orders:creationDate, visible: false }
-  - { name: idocs:registrationNumber }
-  - { name: idocs:registrationDate }
-  - { name: idocs:registrator, visible: false }
-  - { name: idocs:signatory, visible: false }
-  - { name: idocs:initiator, visible: false }
-  - { name: orders:fileCode }
-  - { name: orders:expirationDate, visible: false }
-  - { name: orders:appendixNumber, visible: false }
-  - { name: orders:placeOfOriginal, visible: false }
+  - { id: cm:created, visible: false }
+  - { id: tk:kind }
+  - { id: icase:caseStatusAssoc }
+  - { id: orders:branch }
+  - { id: orders:header }
+  - { id: idocs:summary, visible: false }
+  - { id: orders:fingerboard, visible: false }
+  - { id: orders:projectNumber }
+  - { id: orders:creationDate, visible: false }
+  - { id: idocs:registrationNumber }
+  - { id: idocs:registrationDate }
+  - { id: idocs:registrator, visible: false }
+  - { id: idocs:signatory, visible: false }
+  - { id: idocs:initiator, visible: false }
+  - { id: orders:fileCode }
+  - { id: orders:expirationDate, visible: false }
+  - { id: orders:appendixNumber, visible: false }
+  - { id: orders:placeOfOriginal, visible: false }

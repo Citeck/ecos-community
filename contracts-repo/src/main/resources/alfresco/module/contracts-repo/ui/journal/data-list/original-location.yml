@@ -7,10 +7,10 @@ actions:
 
 columns:
 
-  - name: contracts:subjectCode
-  - name: contracts:subjectName
+  - id: contracts:subjectCode
+  - id: contracts:subjectName
 
-  - name: tk:type
+  - id: tk:type
     visible: false
-  - name: cm:created
+  - id: cm:created
     visible: false

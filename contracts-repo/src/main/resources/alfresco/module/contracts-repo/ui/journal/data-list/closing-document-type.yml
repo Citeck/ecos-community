@@ -7,7 +7,7 @@ actions:
 
 columns:
 
-  - name: cm:name
+  - id: cm:name
 
-  - name: cm:created
+  - id: cm:created
     visible: false

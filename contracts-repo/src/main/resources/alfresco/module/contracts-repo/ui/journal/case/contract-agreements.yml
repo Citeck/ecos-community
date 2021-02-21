@@ -1,6 +1,6 @@
 
 id: contract-agreements
-label: { ru: Договоры, en: Contracts }
+name: { ru: Договоры, en: Contracts }
 
 actions:
   - uiserv/action@edit
@@ -9,31 +9,31 @@ actions:
 
 columns:
 
-  - name: cm:created
-  - name: idocs:legalFormCountry
-  - name: cm:title
-  - name: icase:caseStatusAssoc
-  - name: contracts:agreementLegalEntity
-  - name: contracts:contractor
-  - name: contracts:agreementSubject
-  - name: contracts:agreementAmount
-  - name: contracts:agreementCurrency
-  - name: contracts:agreementDate
-  - name: contracts:duration
+  - id: cm:created
+  - id: idocs:legalFormCountry
+  - id: cm:title
+  - id: icase:caseStatusAssoc
+  - id: contracts:agreementLegalEntity
+  - id: contracts:contractor
+  - id: contracts:agreementSubject
+  - id: contracts:agreementAmount
+  - id: contracts:agreementCurrency
+  - id: contracts:agreementDate
+  - id: contracts:duration
 
-  - name: idocs:summary
+  - id: idocs:summary
     visible: false
-  - name: cm:name
+  - id: cm:name
     visible: false
-  - name: contracts:agreementNumber
+  - id: contracts:agreementNumber
     visible: false
-  - name: idocs:pagesNumber
+  - id: idocs:pagesNumber
     visible: false
-  - name: idocs:appendixPagesNumber
+  - id: idocs:appendixPagesNumber
     visible: false
-  - name: idocs:signatory
+  - id: idocs:signatory
     visible: false
-  - name: idocs:performer
+  - id: idocs:performer
     visible: false
-  - name: idocs:note
+  - id: idocs:note
     visible: false

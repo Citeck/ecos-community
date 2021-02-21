@@ -1,16 +1,16 @@
 
 id: contract-subjects
-label: { ru: Предметы договоров, en: Subjects of Contracts }
+name: { ru: Предметы договоров, en: Subjects of Contracts }
 
 actions:
   - uiserv/action@edit
 
 columns:
 
-  - name: contracts:subjectCode
-  - name: contracts:subjectName
+  - id: contracts:subjectCode
+  - id: contracts:subjectName
 
-  - name: cm:created
+  - id: cm:created
     visible: false
-  - name: cm:taggable
+  - id: cm:taggable
     visible: false

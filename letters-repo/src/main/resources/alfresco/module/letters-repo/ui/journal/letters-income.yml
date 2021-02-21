@@ -1,6 +1,6 @@
 
 id: letters-income
-label: { ru: Входящие, en: Incoming }
+name: { ru: Входящие, en: Incoming }
 
 actions:
   - uiserv/action@edit
@@ -9,18 +9,18 @@ actions:
 
 columns:
 
-  - name: cm:created
-  - name: idocs:documentStatus
-  - name: idocs:registrationDate
-  - name: idocs:registrationNumber
-  - name: letters:nomenclature
-  - name: tk:kind
-  - name: letters:deliveryMethod
-  - name: letters:reporterOrganization
-  - name: letters:letterWriter
-  - name: letters:subdivision
-  - name: letters:receiver
-  - name: idocs:summary
-  - name: idocs:note
-  - name: idocs:pagesNumber
-  - name: idocs:appendixPagesNumber
+  - id: cm:created
+  - id: idocs:documentStatus
+  - id: idocs:registrationDate
+  - id: idocs:registrationNumber
+  - id: letters:nomenclature
+  - id: tk:kind
+  - id: letters:deliveryMethod
+  - id: letters:reporterOrganization
+  - id: letters:letterWriter
+  - id: letters:subdivision
+  - id: letters:receiver
+  - id: idocs:summary
+  - id: idocs:note
+  - id: idocs:pagesNumber
+  - id: idocs:appendixPagesNumber
