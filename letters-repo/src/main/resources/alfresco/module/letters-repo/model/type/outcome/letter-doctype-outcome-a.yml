@@ -1,5 +1,9 @@
-{
-  "id": "letter-doctype-outcome/letter-doctype-outcome-a",
-  "name": "Бухгалтерский",
-  "parent": "emodel/type@letter-doctype-outcome"
-}
+---
+id: letter-doctype-outcome/letter-doctype-outcome-a
+name:
+  ru: Бухгалтерский
+  en: Бухгалтерский
+
+parentRef: emodel/type@letter-doctype-outcome
+
+defaultCreateVariant: false

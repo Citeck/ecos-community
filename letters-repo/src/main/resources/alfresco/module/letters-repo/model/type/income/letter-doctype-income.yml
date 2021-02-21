@@ -1,23 +1,25 @@
-{
-  "id": "letter-doctype-income",
-  "name": {
-    "en": "Входящие"
-  },
-  "parentRef": "emodel/type@case",
-  "journalRef": "uiserv/journal@letters-income",
-  "actions": [
-    "ui/action@create-outcome",
-    "ui/action@document-start-statement",
-    "ui/action@document-start-confirm",
-    "ui/action@upload-new-version",
-    "ui/action@print-pdf",
-    "ui/action@edit-in-onlyoffice",
-    "ui/action@content-download",
-    "ui/action@delete",
-    "ui/action@edit"
-  ],
-  "properties": {
-    "alfType": "letters:income",
-    "alfRoot": "/app:company_home/st:sites/cm:letters/cm:documentLibrary/cm:income"
-  }
-}
+---
+id: letter-doctype-income
+name:
+  ru: Входящие
+  en: Входящие
+
+parentRef: emodel/type@case
+journalRef: uiserv/journal@letters-income
+
+actions:
+  - uiserv/action@create-outcome
+  - uiserv/action@document-start-statement
+  - uiserv/action@document-start-confirm
+  - uiserv/action@upload-new-version
+  - uiserv/action@print-pdf
+  - uiserv/action@edit-in-onlyoffice
+  - uiserv/action@content-download
+  - uiserv/action@delete
+  - uiserv/action@edit
+
+properties:
+  alfType: letters:income
+  alfRoot: /app:company_home/st:sites/cm:letters/cm:documentLibrary/cm:income
+
+
