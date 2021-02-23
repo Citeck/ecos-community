@@ -13,7 +13,7 @@ actions:
   - uiserv/action@document-add-closing-doc-for-invoice
 
 properties:
-  alfNode: payments:payment
+  alfType: payments:payment
   alfRoot: /app:company_home/st:sites/cm:contracts/cm:documentLibrary/cm:payments
 
 associations:
