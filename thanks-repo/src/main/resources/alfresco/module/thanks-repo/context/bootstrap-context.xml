@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+    <bean id="thanks.import-spaces" abstract="true" class="org.alfresco.repo.module.ImporterModuleComponent" parent="module.baseComponent">
+        <property name="moduleId" value="thanks-repo" />
+        <property name="importer" ref="spacesBootstrap"/>
+    </bean>
+
+    <bean id="thanks.import-scripts" abstract="true" class="ru.citeck.ecos.repo.module.ScriptImporterModuleComponent" parent="module.baseComponent">
+        <property name="moduleId" value="thanks-repo" />
+        <property name="scriptService" ref="ScriptService"/>
+        <property name="scriptEngine" value="javascript"/>
+    </bean>
+
+    <bean id="thanks.dictionaryBootstrap" parent="dictionaryModelBootstrap"
+          depends-on="dictionaryBootstrap,ecos-base-core.dictionaryBootstrap">
+        <property name="models">
+            <list>
+                <value>alfresco/module/thanks-repo/model/thanksModel.xml</value>
+            </list>
+        </property>
+        <property name="labels">
+            <list>
+                <value>alfresco/module/thanks-repo/messages/thanks</value>
+            </list>
+        </property>
+    </bean>
+
+</beans>

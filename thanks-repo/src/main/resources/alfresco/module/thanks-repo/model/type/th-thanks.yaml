@@ -1,0 +1,27 @@
+id: th-thanks
+
+name:
+  ru: Спасибо
+  en: Thanks
+
+dispNameTemplate:
+  en: ${th:author?disp!"Empty"} - ${th:recipient?disp!"Empty"} - ${cm:created|fmt("dd.MM.yyyy")!"Empty"}
+  ru: ${th:author?disp!"Пусто"} - ${th:recipient?disp!"Пусто"} - ${cm:created|fmt("dd.MM.yyyy")!"Пусто"}
+
+#parentRef: emodel/type@data-list
+parentRef: emodel/type@base
+formRef: uiserv/eform@th-thanks
+journalRef: uiserv/journal@th-thanks
+
+inheritActions: false
+inheritForm: true
+inheritNumTemplate: false
+
+createVariants:
+  -   id: 'create'
+      name:
+        ru: 'Создать'
+        en: 'Create'
+      formRef: ''
+      recordRef: 'dict@th:thanksType'
+      attributes: {}
