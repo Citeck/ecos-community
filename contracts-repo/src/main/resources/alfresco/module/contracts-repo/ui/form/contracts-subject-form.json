@@ -545,7 +545,7 @@
           "json": "",
           "eq": ""
         },
-        "customConditional": "console.log(data.caseStatus);\r\nconsole.log(instance.options.formMode);\r\n\r\nvar isDraftStatus = false;\r\nif (data.caseStatus) {\r\n  isDraftStatus = data.caseStatus.status === \"draft\";\r\n}\r\nvar isCreateMode = instance.options.formMode === 'CREATE';\r\nshow = isDraftStatus || isCreateMode;",
+        "customConditional": "var isDraftStatus = false;\r\nif (data.caseStatus) {\r\n  isDraftStatus = data.caseStatus.status === \"draft\";\r\n}\r\nvar isCreateMode = instance.options.formMode === 'CREATE';\r\nshow = isDraftStatus || isCreateMode;",
         "logic": [],
         "attributes": {},
         "type": "columns",

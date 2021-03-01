@@ -4,9 +4,7 @@
   "title": {
     "en": "Payment form"
   },
-  "description": {
-    "en": ""
-  },
+  "description": {},
   "customModule": null,
   "typeRef": "",
   "width": "default",
@@ -53,1292 +51,1216 @@
   "definition": {
     "components": [
       {
+        "label": {
+          "ru": "Panel"
+        },
+        "scrollableContent": true,
+        "key": "panel3",
         "type": "panel",
         "input": false,
         "components": [
           {
-            "type": "columns",
+            "type": "panel",
             "input": false,
-            "columns": [
+            "components": [
               {
-                "type": "column",
-                "md": 4,
-                "offset": 0,
-                "index": 0,
-                "clearOnHide": false,
-                "push": 0,
+                "type": "columns",
                 "input": false,
-                "components": [
+                "columns": [
                   {
-                    "defaultValue": "",
-                    "type": "selectJournal",
-                    "clearOnHide": false,
-                    "input": true,
-                    "hideCreateButton": true,
-                    "journalId": "contract-agreements",
-                    "key": "payments_basis",
-                    "label": "payments:basis",
-                    "isSelectedValueAsLink": false,
-                    "properties": {
-                      "attribute": "payments:basis"
-                    },
-                    "presetFilterPredicatesJs": null
-                  }
-                ],
-                "key": "column1",
-                "hideOnChildrenHidden": true,
-                "label": "",
-                "pull": 0,
-                "width": 6,
-                "conditional": {
-                  "show": null,
-                  "when": null
-                }
-              },
-              {
-                "type": "column",
-                "md": 4,
-                "offset": 0,
-                "index": 1,
-                "clearOnHide": false,
-                "push": 0,
-                "input": false,
-                "components": [
+                    "type": "column",
+                    "md": 4,
+                    "index": 0,
+                    "input": false,
+                    "components": [
+                      {
+                        "type": "selectJournal",
+                        "clearOnHide": false,
+                        "input": true,
+                        "hideCreateButton": true,
+                        "journalId": "contract-agreements",
+                        "key": "payments_basis",
+                        "label": "payments:basis",
+                        "isSelectedValueAsLink": false,
+                        "properties": {
+                          "attribute": "payments:basis"
+                        },
+                        "presetFilterPredicatesJs": null
+                      }
+                    ],
+                    "key": "column1",
+                    "hideOnChildrenHidden": true,
+                    "conditional": {
+                      "show": null,
+                      "when": null
+                    }
+                  },
                   {
-                    "defaultValue": "",
-                    "type": "selectJournal",
-                    "clearOnHide": false,
-                    "input": true,
-                    "journalId": "budget-items",
-                    "key": "payments_budgetItem",
-                    "label": "Budget item",
-                    "isSelectedValueAsLink": false,
-                    "properties": {
-                      "attribute": "payments:budgetItem"
-                    },
-                    "presetFilterPredicatesJs": null
-                  }
-                ],
-                "key": "column2",
-                "hideOnChildrenHidden": true,
-                "label": "",
-                "pull": 0,
-                "width": 6,
-                "conditional": {
-                  "show": null,
-                  "when": null
-                }
-              },
-              {
-                "components": [
+                    "type": "column",
+                    "md": 4,
+                    "index": 1,
+                    "input": false,
+                    "components": [
+                      {
+                        "type": "selectJournal",
+                        "clearOnHide": false,
+                        "input": true,
+                        "journalId": "budget-items",
+                        "key": "payments_budgetItem",
+                        "label": "Budget item",
+                        "isSelectedValueAsLink": false,
+                        "properties": {
+                          "attribute": "payments:budgetItem"
+                        },
+                        "presetFilterPredicatesJs": null
+                      }
+                    ],
+                    "key": "column2",
+                    "hideOnChildrenHidden": true,
+                    "conditional": {
+                      "show": null,
+                      "when": null
+                    }
+                  },
                   {
-                    "data": {
-                      "custom": "values = [\r\n{label:'Заказчика', value:'client'},\r\n{label:'Исполнителя', value:'performer'}\r\n]"
-                    },
-                    "defaultValue": "",
-                    "type": "ecosSelect",
-                    "calculateValue": "if (data.paymentsBasis && data.paymentsBasis.contractWith) {\r\n    if (data.paymentsBasis.contractWith == 'Исполнителем') {\r\n        value = 'performer';\r\n    }\r\n    if (data.paymentsBasis.contractWith == 'Заказчиком') {\r\n        value = 'client';\r\n    }\r\n}",
-                    "clearOnHide": false,
-                    "input": true,
-                    "refreshOn": "payments_basis",
-                    "key": "payments_paymentFor",
-                    "dataSrc": "custom",
-                    "validate": {
-                      "required": true
-                    },
-                    "allowCalculateOverride": true,
-                    "label": "payments:paymentFor",
-                    "properties": {
-                      "attribute": "payments:paymentFor"
+                    "components": [
+                      {
+                        "label": "payments:paymentFor",
+                        "clearOnHide": false,
+                        "dataSrc": "custom",
+                        "data": {
+                          "custom": "values = [\r\n{label:'Заказчика', value:'client'},\r\n{label:'Исполнителя', value:'performer'}\r\n]"
+                        },
+                        "defaultValue": "",
+                        "refreshOn": [
+                          "paymentsBasis"
+                        ],
+                        "calculateValue": "const {paymentsBasis = {}} = data;\r\nconst {contractWith = \"\"} = paymentsBasis;\r\n\r\nif (paymentsBasis && contractWith) {\r\n    if (contractWith == 'Исполнителем') {\r\n        value = 'performer';\r\n    }\r\n    if (contractWith == 'Заказчиком') {\r\n        value = 'client';\r\n    }\r\n}",
+                        "allowCalculateOverride": true,
+                        "validate": {
+                          "required": true
+                        },
+                        "key": "payments_paymentFor",
+                        "properties": {
+                          "attribute": "payments:paymentFor"
+                        },
+                        "type": "ecosSelect",
+                        "input": true
+                      }
+                    ],
+                    "type": "column",
+                    "md": 4,
+                    "key": "column3",
+                    "hideOnChildrenHidden": true,
+                    "index": 2,
+                    "input": false,
+                    "conditional": {
+                      "show": null,
+                      "when": null
                     }
                   }
                 ],
-                "type": "column",
-                "md": 4,
-                "key": "column3",
-                "hideOnChildrenHidden": true,
-                "index": 2,
-                "clearOnHide": false,
-                "label": "",
-                "input": false,
-                "conditional": {
-                  "show": null,
-                  "when": null
-                }
-              }
-            ],
-            "key": "columns2",
-            "hideOnChildrenHidden": true
-          },
-          {
-            "type": "horizontalLine",
-            "key": "horizontalLine2",
-            "clearOnHide": false,
-            "input": true
-          },
-          {
-            "defaultValue": "",
-            "type": "textarea",
-            "clearOnHide": false,
-            "input": true,
-            "key": "payments_paymentPurpose",
-            "label": "payments:paymentPurpose",
-            "rows": 2,
-            "properties": {
-              "attribute": "payments:paymentPurpose"
-            }
-          },
-          {
-            "type": "horizontalLine",
-            "key": "horizontalLine4",
-            "clearOnHide": false,
-            "input": true
-          },
-          {
-            "type": "columns",
-            "input": false,
-            "columns": [
+                "key": "columns2",
+                "hideOnChildrenHidden": true
+              },
               {
-                "type": "column",
-                "md": 4,
-                "offset": 0,
-                "index": 0,
+                "type": "horizontalLine",
+                "key": "horizontalLine2",
                 "clearOnHide": false,
-                "push": 0,
+                "input": true
+              },
+              {
+                "defaultValue": "",
+                "type": "textarea",
+                "clearOnHide": false,
+                "input": true,
+                "key": "payments_paymentPurpose",
+                "label": "payments:paymentPurpose",
+                "rows": 2,
+                "properties": {
+                  "attribute": "payments:paymentPurpose"
+                }
+              },
+              {
+                "type": "horizontalLine",
+                "key": "horizontalLine4",
+                "clearOnHide": false,
+                "input": true
+              },
+              {
+                "type": "columns",
                 "input": false,
-                "components": [
+                "columns": [
                   {
-                    "defaultValue": "",
-                    "type": "selectJournal",
-                    "clearOnHide": false,
-                    "input": true,
-                    "customDefaultValue": "if (data.paymentsBasis) {\r\n    if ((data.paymentsBasis.type == \"contracts:agreement\" || data.paymentsBasis.type == \"contracts:supplementaryAgreement\") && data.paymentsBasis.agreementLegalEntity)  {\r\n        value = data.paymentsBasis.agreementLegalEntity;\r\n    } else if (data.paymentsBasis.type == \"contracts:closingDocument\" && data.paymentsBasis.legalEntity) {\r\n        value = data.paymentsBasis.legalEntity;  \r\n    }\r\n}",
-                    "refreshOn": "payments_basis",
-                    "computed": {
-                      "valueDisplayName": "disp = value.load('idocs:fullOrganizationName')"
-                    },
-                    "journalId": "legal-entities",
-                    "key": "payments_payer",
-                    "validate": {
-                      "required": true
-                    },
-                    "clearOnRefresh": true,
-                    "label": "payments:payer",
-                    "isSelectedValueAsLink": false,
-                    "logic": [
+                    "type": "column",
+                    "md": 4,
+                    "index": 0,
+                    "input": false,
+                    "components": [
                       {
-                        "name": "disable_on",
-                        "trigger": {
-                          "type": "javascript",
-                          "javascript": "const {paymentsBasis} = data || {};\r\nconst {agreementLegalEntity} = paymentsBasis || null;\r\nif (agreementLegalEntity == null){\r\n  result = false;\r\n} else if (paymentsBasis && agreementLegalEntity !== null) {\r\n    result = true;\r\n} "
+                        "label": "payments:payer",
+                        "clearOnHide": false,
+                        "journalId": "legal-entities",
+                        "computed": {
+                          "valueDisplayName": "disp = value.load('idocs:fullOrganizationName')"
                         },
-                        "actions": [
+                        "refreshOn": "payments_basis",
+                        "clearOnRefresh": true,
+                        "customDefaultValue": "const {paymentsBasis = {}} = data;\r\nconst {type = \"\",\r\n       agreementLegalEntity = \"\",\r\n       legalEntity = \"\"\r\n} = paymentsBasis;\r\nif (paymentsBasis) {\r\n    if ((type == \"contracts:agreement\" || type == \"contracts:supplementaryAgreement\") && agreementLegalEntity)  {\r\n        value = agreementLegalEntity;\r\n    } else if (type == \"contracts:closingDocument\" && legalEntity) {\r\n        value = legalEntity;  \r\n    }\r\n}",
+                        "validate": {
+                          "required": true
+                        },
+                        "key": "payments_payer",
+                        "properties": {
+                          "attribute": "payments:payer"
+                        },
+                        "logic": [
                           {
                             "name": "disable_on",
-                            "property": {
-                              "label": "Disabled",
-                              "type": "boolean",
-                              "value": "disabled"
+                            "trigger": {
+                              "type": "javascript",
+                              "javascript": "const {paymentsBasis = {}} = data || {};\r\nconst {agreementLegalEntity = null} = paymentsBasis || {};\r\nif (agreementLegalEntity == null){\r\n  result = false;\r\n} else if (paymentsBasis && agreementLegalEntity !== null) {\r\n    result = true;\r\n} "
                             },
-                            "state": "true",
-                            "type": "property"
-                          }
-                        ]
-                      }
-                    ],
-                    "properties": {
-                      "attribute": "payments:payer"
-                    },
-                    "presetFilterPredicatesJs": null
-                  }
-                ],
-                "key": "column",
-                "pull": 0,
-                "width": 6,
-                "conditional": {
-                  "show": null,
-                  "when": null
-                }
-              },
-              {
-                "type": "column",
-                "md": 4,
-                "offset": 0,
-                "index": 1,
-                "clearOnHide": false,
-                "push": 0,
-                "input": false,
-                "components": [
-                  {
-                    "data": {
-                      "url": "/citeck/ecos/records/query"
-                    },
-                    "defaultValue": "",
-                    "type": "ecosSelect",
-                    "clearOnHide": false,
-                    "input": true,
-                    "customDefaultValue": "value = 'cashless';",
-                    "key": "payments_paymentArrangement",
-                    "label": "payments:paymentArrangement",
-                    "properties": {
-                      "attribute": "payments:paymentArrangement"
-                    }
-                  }
-                ],
-                "key": "column",
-                "pull": 0,
-                "width": 6,
-                "conditional": {
-                  "show": null,
-                  "when": null
-                }
-              },
-              {
-                "components": [
-                  {
-                    "label": "payments:paymentNumber",
-                    "defaultValue": "",
-                    "validate": {
-                      "required": true
-                    },
-                    "key": "payments_paymentNumber",
-                    "properties": {
-                      "attribute": "payments:paymentNumber"
-                    },
-                    "logic": [
-                      {
-                        "name": "generate_on",
-                        "trigger": {
-                          "simple": {
-                            "show": true,
-                            "eq": "true",
-                            "when": "Generate"
-                          },
-                          "type": "simple"
-                        },
-                        "actions": [
-                          {
-                            "name": "disable_on",
-                            "property": {
-                              "label": "Disabled",
-                              "type": "boolean",
-                              "value": "disabled"
-                            },
-                            "state": "true",
-                            "type": "property"
-                          },
-                          {
-                            "name": "required_off",
-                            "property": {
-                              "label": "Required",
-                              "type": "boolean",
-                              "value": "validate.required"
-                            },
-                            "state": "false",
-                            "type": "property"
-                          },
-                          {
-                            "name": "value_gen",
-                            "type": "value",
-                            "value": "if (instance.options.formMode === 'CREATE') {\n  value = '-';\n}"
-                          }
-                        ]
-                      },
-                      {
-                        "name": "generate_off",
-                        "trigger": {
-                          "simple": {
-                            "show": true,
-                            "eq": "false",
-                            "when": "Generate"
-                          },
-                          "type": "simple"
-                        },
-                        "actions": []
-                      }
-                    ],
-                    "type": "textfield",
-                    "input": true
-                  },
-                  {
-                    "label": "Generate",
-                    "defaultValue": true,
-                    "key": "Generate",
-                    "customConditional": "show = instance.options.formMode === 'CREATE'",
-                    "type": "checkbox",
-                    "input": true
-                  }
-                ],
-                "type": "column",
-                "md": 4,
-                "key": "column",
-                "index": 2,
-                "clearOnHide": false,
-                "input": false,
-                "conditional": {
-                  "show": null,
-                  "when": null
-                }
-              }
-            ],
-            "key": "columns3"
-          },
-          {
-            "type": "horizontalLine",
-            "key": "horizontalLine3",
-            "clearOnHide": false,
-            "input": true
-          },
-          {
-            "type": "columns",
-            "input": false,
-            "columns": [
-              {
-                "type": "column",
-                "md": 4,
-                "offset": 0,
-                "index": 0,
-                "clearOnHide": false,
-                "push": 0,
-                "input": false,
-                "components": [
-                  {
-                    "defaultValue": "",
-                    "type": "selectJournal",
-                    "clearOnHide": false,
-                    "input": true,
-                    "customDefaultValue": "if (data.paymentsBasis && data.paymentsBasis.contractor !== null) {\r\n    value = data.paymentsBasis.contractor; \r\n}",
-                    "refreshOn": "payments_basis",
-                    "journalId": "idocs-contractor",
-                    "key": "payments_beneficiary",
-                    "validate": {
-                      "required": true
-                    },
-                    "clearOnRefresh": true,
-                    "label": "payments:beneficiary",
-                    "isSelectedValueAsLink": false,
-                    "logic": [
-                      {
-                        "name": "disabled_on",
-                        "trigger": {
-                          "type": "javascript",
-                          "javascript": "const {paymentsBasis} = data || {};\r\nconst {contractor} = paymentsBasis || null;\r\nif (contractor == null){\r\n  result = false;\r\n} else if (paymentsBasis && contractor !== null) {\r\n    result = true;\r\n} "
-                        },
-                        "actions": [
-                          {
-                            "name": "disabled_on",
-                            "property": {
-                              "label": "Disabled",
-                              "type": "boolean",
-                              "value": "disabled"
-                            },
-                            "state": "true",
-                            "type": "property"
-                          }
-                        ]
-                      }
-                    ],
-                    "properties": {
-                      "attribute": "payments:beneficiary"
-                    },
-                    "presetFilterPredicatesJs": null
-                  }
-                ],
-                "key": "column",
-                "pull": 0,
-                "width": 6,
-                "conditional": {
-                  "show": null,
-                  "when": null
-                }
-              },
-              {
-                "type": "column",
-                "md": 4,
-                "offset": 0,
-                "index": 1,
-                "clearOnHide": false,
-                "push": 0,
-                "input": false,
-                "components": [
-                  {
-                    "data": {
-                      "url": "/citeck/ecos/records/query"
-                    },
-                    "defaultValue": "",
-                    "type": "ecosSelect",
-                    "clearOnHide": false,
-                    "input": true,
-                    "customDefaultValue": "value = 'resident';",
-                    "key": "payments_beneficiaryType",
-                    "label": "payments:beneficiaryType",
-                    "properties": {
-                      "attribute": "payments:beneficiaryType"
-                    },
-                    "refreshOn": ""
-                  }
-                ],
-                "key": "column",
-                "pull": 0,
-                "width": 6,
-                "conditional": {
-                  "show": null,
-                  "when": null
-                }
-              },
-              {
-                "components": [],
-                "type": "column",
-                "md": 4,
-                "key": "column",
-                "index": 2,
-                "clearOnHide": false,
-                "input": false,
-                "conditional": {
-                  "show": null,
-                  "when": null
-                }
-              }
-            ],
-            "key": "columns29"
-          }
-        ],
-        "title": "Main",
-        "key": "panel2"
-      },
-      {
-        "type": "panel",
-        "input": false,
-        "components": [
-          {
-            "type": "columns",
-            "input": false,
-            "columns": [
-              {
-                "type": "column",
-                "md": 4,
-                "offset": 0,
-                "index": 0,
-                "clearOnHide": false,
-                "push": 0,
-                "input": false,
-                "components": [
-                  {
-                    "defaultValue": "",
-                    "type": "datetime",
-                    "suffix": true,
-                    "format": "dd-MM-yyyy",
-                    "enableTime": false,
-                    "datePicker": {
-                      "minDate": "",
-                      "maxDate": ""
-                    },
-                    "clearOnHide": false,
-                    "input": true,
-                    "timePicker": {
-                      "showMeridian": false
-                    },
-                    "customDefaultValue": "value = moment();",
-                    "key": "payments_billDate",
-                    "allowCalculateOverride": true,
-                    "label": "payments:billDate",
-                    "properties": {
-                      "attribute": "payments:billDate"
-                    }
-                  }
-                ],
-                "key": "column",
-                "pull": 0,
-                "width": 6,
-                "conditional": {
-                  "show": null,
-                  "when": null
-                }
-              },
-              {
-                "type": "column",
-                "md": 4,
-                "offset": 0,
-                "index": 1,
-                "clearOnHide": false,
-                "push": 0,
-                "input": false,
-                "components": [
-                  {
-                    "defaultValue": "",
-                    "type": "datetime",
-                    "suffix": true,
-                    "calculateValue": "var nextDay = moment (data.payments_billDate);\r\nvar amtDay = 5;\r\nwhile (amtDay > 0) {\r\n    nextDay.set({\r\n        'day': nextDay.get('day') + 1          \r\n    });\r\n    if (nextDay.get('day') === 0 || nextDay.get('day') === 6) {\r\n        //do nothing\r\n    } else {\r\n        amtDay--;\r\n    }\r\n}\r\nvalue = nextDay;",
-                    "format": "dd-MM-yyyy",
-                    "datePicker": {
-                      "minDate": "",
-                      "maxDate": ""
-                    },
-                    "clearOnHide": false,
-                    "input": true,
-                    "refreshOn": "payments_billDate",
-                    "key": "payments_plannedPaymentDate",
-                    "allowCalculateOverride": true,
-                    "label": "payments:plannedPaymentDate",
-                    "properties": {
-                      "attribute": "payments:plannedPaymentDate"
-                    }
-                  }
-                ],
-                "key": "column",
-                "pull": 0,
-                "width": 6,
-                "conditional": {
-                  "show": null,
-                  "when": null
-                }
-              },
-              {
-                "components": [
-                  {
-                    "data": {
-                      "custom": "for (var i in data.period.records) {\n    values.push({label: data.period.records[i].name,value: data.period.records[i].id})\n}"
-                    },
-                    "defaultValue": "",
-                    "type": "ecosSelect",
-                    "calculateValue": "value = data.payments_period",
-                    "refreshEventName": "periodEvent",
-                    "clearOnHide": false,
-                    "refreshOnEvent": true,
-                    "input": true,
-                    "key": "payments_period",
-                    "dataSrc": "custom",
-                    "allowCalculateOverride": true,
-                    "label": "payments:period",
-                    "properties": {
-                      "attribute": "payments:period"
-                    }
-                  }
-                ],
-                "type": "column",
-                "md": 4,
-                "key": "column",
-                "index": 2,
-                "clearOnHide": false,
-                "input": false,
-                "conditional": {
-                  "show": null,
-                  "when": null
-                }
-              }
-            ],
-            "key": "columns25"
-          }
-        ],
-        "title": "Date",
-        "payments_period": "",
-        "payments_plannedPaymentDate": "2019-07-31T15:08:45+03:00",
-        "key": "panel5",
-        "payments_billDate": "2019-07-24T15:08:45+03:00"
-      },
-      {
-        "type": "panel",
-        "input": false,
-        "components": [
-          {
-            "type": "columns",
-            "input": false,
-            "columns": [
-              {
-                "type": "column",
-                "md": 4,
-                "offset": 0,
-                "index": 0,
-                "clearOnHide": false,
-                "push": 0,
-                "input": false,
-                "components": [
-                  {
-                    "label": "payments:currency",
-                    "clearOnHide": false,
-                    "dataSrc": "custom",
-                    "data": {
-                      "custom": "for (var i in data.currencyList.records) {\n        values.push({label: data.currencyList.records[i].key,value: data.currencyList.records[i].id})\n  }\n"
-                    },
-                    "refreshOnEvent": true,
-                    "refreshEventName": "currencyListEvent",
-                    "defaultValue": "workspace://SpacesStore/currency-rur",
-                    "refreshOn": [
-                      "payments_basis"
-                    ],
-                    "calculateValue": "const{paymentsBasis = \"\"} = data || null;\r\nconst{agreementCurrency = \"\"} = paymentsBasis || null;\r\nconst{currency = \"\"} = paymentsBasis || null;\r\nif (agreementCurrency !== null) {\r\n    value = agreementCurrency;\r\n} else if (paymentsBasis && currency !== null) {\r\n    value = currency;\r\n} else {\r\n\tvalue = 'workspace://SpacesStore/currency-rur';\r\n}",
-                    "allowCalculateOverride": true,
-                    "validate": {
-                      "required": true
-                    },
-                    "key": "payments_currency",
-                    "properties": {
-                      "attribute": "payments:currency"
-                    },
-                    "logic": [
-                      {
-                        "name": "disabled_on",
-                        "trigger": {
-                          "type": "javascript",
-                          "javascript": "const{paymentsBasis = \"\"} = data || null;\r\nconst{agreementCurrency = \"\"} = paymentsBasis || null;\r\nconst{currency = \"\"} = paymentsBasis || null;\r\nif (paymentsBasis && agreementCurrency !== null) {\r\n    result = true;\r\n} else if (paymentsBasis && currency !== null) {\r\n    result = true;\r\n} else {\r\n    result = false;\r\n}\r\n"
-                        },
-                        "actions": [
-                          {
-                            "name": "disabled_on",
-                            "property": {
-                              "label": "Disabled",
-                              "type": "boolean",
-                              "value": "disabled"
-                            },
-                            "state": "true",
-                            "type": "property"
-                          }
-                        ]
-                      }
-                    ],
-                    "type": "ecosSelect",
-                    "input": true
-                  },
-                  {
-                    "type": "checkbox",
-                    "clearOnHide": false,
-                    "input": true,
-                    "key": "payments_overexpenditure",
-                    "label": "payments:overexpenditure",
-                    "properties": {
-                      "attribute": "payments:overexpenditure"
-                    },
-                    "defaultValue": null
-                  }
-                ],
-                "key": "column",
-                "pull": 0,
-                "width": 6,
-                "conditional": {
-                  "show": null,
-                  "when": null
-                }
-              },
-              {
-                "type": "column",
-                "md": 4,
-                "offset": 0,
-                "index": 1,
-                "clearOnHide": false,
-                "push": 0,
-                "input": false,
-                "components": [
-                  {
-                    "defaultValue": 0,
-                    "type": "number",
-                    "calculateValue": "value = 0;\r\nif (instance.options.formMode === 'CREATE' && data.containsProductsAndServices.length > 0) {\r\n    for (var i in data.containsProductsAndServices) {\r\n        value += parseFloat (data.containsProductsAndServices[i].total);\r\n    }\r\n}",
-                    "clearOnHide": false,
-                    "input": true,
-                    "decimalLimit": 2,
-                    "key": "payments_paymentAmount",
-                    "validate": {
-                      "min": 0,
-                      "required": true
-                    },
-                    "allowCalculateOverride": true,
-                    "label": "payments:paymentAmount",
-                    "logic": [
-                      {
-                        "name": "required_off",
-                        "trigger": {
-                          "type": "javascript",
-                          "javascript": "result = data.dms_updateContent ? true : false;"
-                        },
-                        "actions": [
-                          {
-                            "name": "required_off",
-                            "property": {
-                              "label": "Required",
-                              "type": "boolean",
-                              "value": "validate.required"
-                            },
-                            "state": "false",
-                            "type": "property"
-                          }
-                        ]
-                      },
-                      {
-                        "name": "protected_on",
-                        "trigger": {
-                          "type": "javascript",
-                          "javascript": "result = data.dms_updateContent || (instance.options.formMode !== 'CREATE' && data.pas_containsProductsAndServices.length > 0) ? true : false;"
-                        },
-                        "actions": [
-                          {
-                            "name": "protected_on",
-                            "property": {
-                              "label": "Disabled",
-                              "type": "boolean",
-                              "value": "disabled"
-                            },
-                            "state": "true",
-                            "type": "property"
-                          }
-                        ]
-                      }
-                    ],
-                    "properties": {
-                      "attribute": "payments:paymentAmount"
-                    }
-                  }
-                ],
-                "key": "column",
-                "pull": 0,
-                "width": 6,
-                "conditional": {
-                  "show": null,
-                  "when": null
-                }
-              },
-              {
-                "components": [
-                  {
-                    "defaultValue": 0,
-                    "type": "number",
-                    "key": "payments_paymentVAT",
-                    "validate": {
-                      "min": 0,
-                      "required": true
-                    },
-                    "clearOnHide": false,
-                    "label": "payments:paymentVAT",
-                    "input": true,
-                    "properties": {
-                      "attribute": "payments:paymentVAT"
-                    }
-                  }
-                ],
-                "type": "column",
-                "md": 4,
-                "key": "column",
-                "index": 2,
-                "clearOnHide": false,
-                "input": false,
-                "conditional": {
-                  "show": null,
-                  "when": null
-                }
-              },
-              {
-                "components": [],
-                "type": "column",
-                "md": 4,
-                "key": "column",
-                "index": 3,
-                "clearOnHide": false,
-                "input": false,
-                "conditional": {
-                  "show": null,
-                  "when": null
-                }
-              }
-            ],
-            "key": "columns31"
-          }
-        ],
-        "title": "Finance",
-        "payments_paymentVAT": 0,
-        "key": "panel6",
-        "payments_currency": "workspace://SpacesStore/currency-rur"
-      },
-      {
-        "type": "panel",
-        "input": false,
-        "components": [
-          {
-            "type": "columns",
-            "input": false,
-            "columns": [
-              {
-                "type": "column",
-                "offset": 0,
-                "index": 0,
-                "clearOnHide": false,
-                "push": 0,
-                "input": false,
-                "components": [
-                  {
-                    "type": "checkbox",
-                    "customConditional": "show = instance.options.formMode == 'CREATE' ? true : false;",
-                    "clearOnHide": false,
-                    "input": true,
-                    "key": "dms_updateContent",
-                    "label": "dms:updateContent",
-                    "customClass": "mb-md-0",
-                    "properties": {
-                      "attribute": "dms:updateContent"
-                    },
-                    "defaultValue": null
-                  }
-                ],
-                "classes": "d-flex align-items-md-center",
-                "key": "column",
-                "pull": 0,
-                "width": 6,
-                "conditional": {
-                  "show": null,
-                  "when": null
-                }
-              },
-              {
-                "type": "column",
-                "md": 12,
-                "offset": 0,
-                "index": 1,
-                "clearOnHide": false,
-                "push": 0,
-                "input": false,
-                "components": [],
-                "key": "column",
-                "pull": 0,
-                "width": 6,
-                "conditional": {
-                  "show": null,
-                  "when": null
-                }
-              }
-            ],
-            "key": "columns28"
-          },
-          {
-            "type": "columns",
-            "input": false,
-            "columns": [
-              {
-                "type": "column",
-                "md": 12,
-                "offset": 0,
-                "index": 0,
-                "clearOnHide": false,
-                "push": 0,
-                "input": false,
-                "components": [
-                  {
-                    "label": "cm:content",
-                    "clearOnHide": false,
-                    "onFileClick": "download",
-                    "storage": "url",
-                    "url": "/share/proxy/alfresco/eform/file",
-                    "options": "",
-                    "validate": {
-                      "required": true
-                    },
-                    "key": "cm_content",
-                    "properties": {
-                      "attribute": "cm:content"
-                    },
-                    "customConditional": "show = ((instance.options.formMode === 'CREATE' && !data.dms_updateContent) || instance.options.formMode !== 'CREATE') ? true : false;",
-                    "logic": [
-                      {
-                        "name": "required_off",
-                        "trigger": {
-                          "type": "javascript",
-                          "javascript": "var res = ((instance.options.formMode === 'CREATE' && !data.dms_updateContent) || instance.options.formMode !== 'CREATE') ? true : false;\nresult = !res;"
-                        },
-                        "actions": [
-                          {
-                            "name": "required_off",
-                            "property": {
-                              "label": "Required",
-                              "type": "boolean",
-                              "value": "validate.required"
-                            },
-                            "state": "false",
-                            "type": "property"
-                          }
-                        ]
-                      }
-                    ],
-                    "type": "file",
-                    "defaultValue": [],
-                    "input": true
-                  },
-                  {
-                    "label": "pas:containsProductsAndServices",
-                    "multiple": true,
-                    "reorder": false,
-                    "clearOnHide": false,
-                    "eventName": "routeTableUpdate",
-                    "source": {
-                      "type": "custom",
-                      "custom": {
-                        "columns": [
-                          {
-                            "name": "cm:title",
-                            "formatter": "",
-                            "setAttributesManually": false
-                          },
-                          {
-                            "name": "cm:description",
-                            "formatter": "",
-                            "setAttributesManually": false
-                          },
-                          {
-                            "name": "pas:pricePerUnit",
-                            "formatter": "",
-                            "setAttributesManually": false
-                          },
-                          {
-                            "name": "pas:quantity",
-                            "formatter": "",
-                            "setAttributesManually": false
-                          },
-                          {
-                            "name": "pas:entityUnit",
-                            "formatter": "",
-                            "setAttributesManually": false
-                          },
-                          {
-                            "name": "pas:total",
-                            "formatter": "",
-                            "setAttributesManually": false
-                          },
-                          {
-                            "name": "pas:type",
-                            "formatter": "",
-                            "setAttributesManually": false
-                          },
-                          {
-                            "name": "pas:currency",
-                            "formatter": "",
-                            "setAttributesManually": false
+                            "actions": [
+                              {
+                                "name": "disable_on",
+                                "property": {
+                                  "label": "Disabled",
+                                  "type": "boolean",
+                                  "value": "disabled"
+                                },
+                                "state": "true",
+                                "type": "property"
+                              }
+                            ]
                           }
                         ],
-                        "createVariants": [],
-                        "record": null,
-                        "attribute": null
-                      }
-                    },
-                    "triggerEventOnChange": true,
-                    "computed": {
-                      "valueFormKey": ""
-                    },
-                    "defaultValue": [],
-                    "validate": {
-                      "required": true
-                    },
-                    "key": "pas_containsProductsAndServices",
-                    "properties": {
-                      "attribute": "pas:containsProductsAndServices"
-                    },
-                    "customConditional": "show = ((instance.options.formMode !== 'CREATE' && data.pas_containsProductsAndServices.length > 0) || data.dms_updateContent) ? true : false;",
-                    "logic": [
-                      {
-                        "name": "required_off",
-                        "trigger": {
-                          "type": "javascript",
-                          "javascript": "result = !data.dms_updateContent;"
-                        },
-                        "actions": [
-                          {
-                            "name": "required_off",
-                            "property": {
-                              "label": "Required",
-                              "type": "boolean",
-                              "value": "validate.required"
-                            },
-                            "state": "false",
-                            "type": "property"
-                          }
-                        ]
-                      },
-                      {
-                        "name": "disabled_on",
-                        "trigger": {
-                          "type": "javascript",
-                          "javascript": "result = instance.options.formMode !== 'CREATE' ? true : false;"
-                        },
-                        "actions": [
-                          {
-                            "name": "disabled_on",
-                            "type": "property",
-                            "property": {
-                              "label": "Disabled",
-                              "value": "disabled",
-                              "type": "boolean"
-                            },
-                            "state": "true"
-                          }
-                        ]
+                        "type": "selectJournal",
+                        "input": true,
+                        "isSelectedValueAsLink": false
                       }
                     ],
-                    "type": "tableForm",
-                    "_journalId": "alf_term:teReqRoute",
-                    "input": true
+                    "key": "column",
+                    "conditional": {
+                      "show": null,
+                      "when": null
+                    }
+                  },
+                  {
+                    "type": "column",
+                    "md": 4,
+                    "index": 1,
+                    "input": false,
+                    "components": [
+                      {
+                        "data": {
+                          "url": "/citeck/ecos/records/query"
+                        },
+                        "defaultValue": "",
+                        "type": "ecosSelect",
+                        "clearOnHide": false,
+                        "input": true,
+                        "customDefaultValue": "value = 'cashless';",
+                        "key": "payments_paymentArrangement",
+                        "label": "payments:paymentArrangement",
+                        "properties": {
+                          "attribute": "payments:paymentArrangement"
+                        }
+                      }
+                    ],
+                    "key": "column",
+                    "conditional": {
+                      "show": null,
+                      "when": null
+                    }
+                  },
+                  {
+                    "components": [
+                      {
+                        "label": "payments:paymentNumber",
+                        "defaultValue": "",
+                        "validate": {
+                          "required": true
+                        },
+                        "key": "payments_paymentNumber",
+                        "properties": {
+                          "attribute": "payments:paymentNumber"
+                        },
+                        "logic": [
+                          {
+                            "name": "generate_on",
+                            "trigger": {
+                              "simple": {
+                                "show": true,
+                                "eq": "true",
+                                "when": "Generate"
+                              },
+                              "type": "simple"
+                            },
+                            "actions": [
+                              {
+                                "name": "disable_on",
+                                "property": {
+                                  "label": "Disabled",
+                                  "type": "boolean",
+                                  "value": "disabled"
+                                },
+                                "state": "true",
+                                "type": "property"
+                              },
+                              {
+                                "name": "required_off",
+                                "property": {
+                                  "label": "Required",
+                                  "type": "boolean",
+                                  "value": "validate.required"
+                                },
+                                "state": "false",
+                                "type": "property"
+                              },
+                              {
+                                "name": "value_gen",
+                                "type": "value",
+                                "value": "if (instance.options.formMode === 'CREATE') {\n  value = '-';\n}"
+                              }
+                            ]
+                          },
+                          {
+                            "name": "generate_off",
+                            "trigger": {
+                              "simple": {
+                                "show": true,
+                                "eq": "false",
+                                "when": "Generate"
+                              },
+                              "type": "simple"
+                            },
+                            "actions": []
+                          }
+                        ],
+                        "type": "textfield",
+                        "input": true
+                      },
+                      {
+                        "label": "Generate",
+                        "defaultValue": true,
+                        "key": "Generate",
+                        "customConditional": "show = instance.options.formMode === 'CREATE'",
+                        "type": "checkbox",
+                        "input": true
+                      }
+                    ],
+                    "type": "column",
+                    "md": 4,
+                    "key": "column",
+                    "index": 2,
+                    "input": false,
+                    "conditional": {
+                      "show": null,
+                      "when": null
+                    }
                   }
                 ],
-                "key": "column",
-                "pull": 0,
-                "width": 6,
+                "key": "columns3"
+              },
+              {
+                "type": "horizontalLine",
+                "key": "horizontalLine3",
+                "clearOnHide": false,
+                "input": true
+              },
+              {
+                "label": {
+                  "ru": "Columns"
+                },
+                "columns": [
+                  {
+                    "type": "column",
+                    "md": 4,
+                    "index": 0,
+                    "input": false,
+                    "components": [
+                      {
+                        "label": "payments:beneficiary",
+                        "clearOnHide": false,
+                        "journalId": "idocs-contractor",
+                        "refreshOn": "payments_basis",
+                        "clearOnRefresh": true,
+                        "customDefaultValue": "const {paymentsBasis = {}} = data;\r\nconst {contractor = \"\"} = paymentsBasis;\r\n\r\nif (!_.isEmpty(paymentsBasis) && !_.isEmpty(contractor)) {\r\n    value = contractor; \r\n}",
+                        "validate": {
+                          "required": true
+                        },
+                        "key": "payments_beneficiary",
+                        "properties": {
+                          "attribute": "payments:beneficiary"
+                        },
+                        "logic": [
+                          {
+                            "name": "disabled_on",
+                            "trigger": {
+                              "type": "javascript",
+                              "javascript": "const {paymentsBasis} = data || {};\r\nconst {contractor} = paymentsBasis || null;\r\nif (contractor == null){\r\n  result = false;\r\n} else if (paymentsBasis && contractor !== null) {\r\n    result = true;\r\n} "
+                            },
+                            "actions": [
+                              {
+                                "name": "disabled_on",
+                                "property": {
+                                  "label": "Disabled",
+                                  "type": "boolean",
+                                  "value": "disabled"
+                                },
+                                "state": "true",
+                                "type": "property"
+                              }
+                            ]
+                          }
+                        ],
+                        "type": "selectJournal",
+                        "input": true,
+                        "isSelectedValueAsLink": false
+                      }
+                    ],
+                    "key": "column",
+                    "conditional": {
+                      "show": null,
+                      "when": null
+                    }
+                  },
+                  {
+                    "type": "column",
+                    "md": 4,
+                    "index": 1,
+                    "input": false,
+                    "components": [
+                      {
+                        "data": {
+                          "url": "/citeck/ecos/records/query"
+                        },
+                        "defaultValue": "",
+                        "type": "ecosSelect",
+                        "clearOnHide": false,
+                        "input": true,
+                        "customDefaultValue": "value = 'resident';",
+                        "key": "payments_beneficiaryType",
+                        "label": "payments:beneficiaryType",
+                        "properties": {
+                          "attribute": "payments:beneficiaryType"
+                        },
+                        "refreshOn": ""
+                      }
+                    ],
+                    "key": "column",
+                    "conditional": {
+                      "show": null,
+                      "when": null
+                    }
+                  }
+                ],
+                "key": "columns29",
+                "type": "columns",
+                "input": false
+              }
+            ],
+            "title": "Main",
+            "key": "panel2"
+          },
+          {
+            "type": "panel",
+            "input": false,
+            "components": [
+              {
+                "type": "columns",
+                "input": false,
+                "columns": [
+                  {
+                    "type": "column",
+                    "md": 4,
+                    "index": 0,
+                    "input": false,
+                    "components": [
+                      {
+                        "defaultValue": "",
+                        "type": "datetime",
+                        "suffix": true,
+                        "format": "dd-MM-yyyy",
+                        "enableTime": false,
+                        "datePicker": {
+                          "minDate": "",
+                          "maxDate": ""
+                        },
+                        "clearOnHide": false,
+                        "input": true,
+                        "timePicker": {
+                          "showMeridian": false
+                        },
+                        "customDefaultValue": "value = moment();",
+                        "key": "payments_billDate",
+                        "allowCalculateOverride": true,
+                        "label": "payments:billDate",
+                        "properties": {
+                          "attribute": "payments:billDate"
+                        }
+                      }
+                    ],
+                    "key": "column",
+                    "conditional": {
+                      "show": null,
+                      "when": null
+                    }
+                  },
+                  {
+                    "type": "column",
+                    "md": 4,
+                    "index": 1,
+                    "input": false,
+                    "components": [
+                      {
+                        "label": "payments:plannedPaymentDate",
+                        "format": "dd-MM-yyyy",
+                        "clearOnHide": false,
+                        "datePicker": {
+                          "minDate": "",
+                          "maxDate": ""
+                        },
+                        "defaultValue": "",
+                        "refreshOn": "payments_billDate",
+                        "calculateValue": "const {payments_billDate = \"\"} = data;\r\nvar nextDay = moment (payments_billDate);\r\nvar amtDay = 5;\r\nwhile (amtDay > 0) {\r\n    nextDay.set({\r\n        'day': nextDay.get('day') + 1          \r\n    });\r\n    if (nextDay.get('day') === 0 || nextDay.get('day') === 6) {\r\n        //do nothing\r\n    } else {\r\n        amtDay--;\r\n    }\r\n}\r\nvalue = nextDay;",
+                        "allowCalculateOverride": true,
+                        "key": "payments_plannedPaymentDate",
+                        "properties": {
+                          "attribute": "payments:plannedPaymentDate"
+                        },
+                        "type": "datetime",
+                        "suffix": true,
+                        "input": true
+                      }
+                    ],
+                    "key": "column",
+                    "conditional": {
+                      "show": null,
+                      "when": null
+                    }
+                  },
+                  {
+                    "components": [
+                      {
+                        "label": "payments:period",
+                        "clearOnHide": false,
+                        "dataSrc": "custom",
+                        "data": {
+                          "custom": "const {period = {}} = data;\nconst {records = []} = period;\n\nfor (var i in records) {\n    values.push({label: records[i].name,value: records[i].id})\n}"
+                        },
+                        "defaultValue": "",
+                        "refreshOn": [
+                          "period"
+                        ],
+                        "calculateValue": "const {payments_period = \"\"} = data;\n\nvalue = payments_period",
+                        "allowCalculateOverride": true,
+                        "key": "payments_period",
+                        "properties": {
+                          "attribute": "payments:period"
+                        },
+                        "type": "ecosSelect",
+                        "input": true
+                      }
+                    ],
+                    "type": "column",
+                    "md": 4,
+                    "key": "column",
+                    "index": 2,
+                    "input": false,
+                    "conditional": {
+                      "show": null,
+                      "when": null
+                    }
+                  }
+                ],
+                "key": "columns25"
+              }
+            ],
+            "title": "Date",
+            "payments_period": "",
+            "payments_plannedPaymentDate": "2019-07-31T15:08:45+03:00",
+            "key": "panel5",
+            "payments_billDate": "2019-07-24T15:08:45+03:00"
+          },
+          {
+            "type": "panel",
+            "input": false,
+            "components": [
+              {
+                "label": {
+                  "ru": "Columns"
+                },
+                "columns": [
+                  {
+                    "type": "column",
+                    "md": 4,
+                    "index": 0,
+                    "input": false,
+                    "components": [
+                      {
+                        "label": "payments:currency",
+                        "clearOnHide": false,
+                        "dataSrc": "custom",
+                        "data": {
+                          "custom": "const {currencyList = {}} = data;\nconst {records = []} = currencyList;\n\nfor (var i in records) {\n    values.push({label: records[i].label ,value: records[i].id})\n}\n"
+                        },
+                        "refreshOnEvent": true,
+                        "refreshEventName": "currencyListEvent",
+                        "defaultValue": "workspace://SpacesStore/currency-rur",
+                        "refreshOn": [
+                          "paymentsBasis",
+                          "currencyList"
+                        ],
+                        "calculateValue": "const{paymentsBasis = {}} = data || null;\r\nconst{agreementCurrency = \"\"} = paymentsBasis || null;\r\nconst{currency = \"\"} = paymentsBasis || null;\r\nif (!_.isEmpty(agreementCurrency)) {\r\n    value = agreementCurrency;\r\n} else if (!_.isEmpty(paymentsBasis) && !_.isEmpty(currency)) {\r\n    value = currency;\r\n} else {\r\n\tvalue = 'workspace://SpacesStore/currency-rur';\r\n}",
+                        "allowCalculateOverride": true,
+                        "validate": {
+                          "required": true
+                        },
+                        "key": "payments_currency",
+                        "properties": {
+                          "attribute": "payments:currency"
+                        },
+                        "logic": [
+                          {
+                            "name": "disabled_on",
+                            "trigger": {
+                              "type": "javascript",
+                              "javascript": "const{paymentsBasis = \"\"} = data || null;\r\nconst{agreementCurrency = \"\"} = paymentsBasis || null;\r\nconst{currency = \"\"} = paymentsBasis || null;\r\nif (paymentsBasis && agreementCurrency !== null) {\r\n    result = true;\r\n} else if (paymentsBasis && currency !== null) {\r\n    result = true;\r\n} else {\r\n    result = false;\r\n}\r\n"
+                            },
+                            "actions": [
+                              {
+                                "name": "disabled_on",
+                                "property": {
+                                  "label": "Disabled",
+                                  "type": "boolean",
+                                  "value": "disabled"
+                                },
+                                "state": "true",
+                                "type": "property"
+                              }
+                            ]
+                          }
+                        ],
+                        "type": "ecosSelect",
+                        "input": true
+                      },
+                      {
+                        "type": "checkbox",
+                        "clearOnHide": false,
+                        "input": true,
+                        "key": "payments_overexpenditure",
+                        "label": "payments:overexpenditure",
+                        "properties": {
+                          "attribute": "payments:overexpenditure"
+                        }
+                      }
+                    ],
+                    "key": "column",
+                    "conditional": {
+                      "show": null,
+                      "when": null
+                    }
+                  },
+                  {
+                    "type": "column",
+                    "md": 4,
+                    "index": 1,
+                    "input": false,
+                    "components": [
+                      {
+                        "label": "payments:paymentAmount",
+                        "clearOnHide": false,
+                        "isBigNumber": false,
+                        "delimiterValue": "",
+                        "defaultValue": 0,
+                        "calculateValue": "const {options = {}} = instance;\r\nconst {formMode = \"\"} = options;\r\nconst {containsProductsAndServices = []} = data;\r\n\r\nvalue = 0;\r\n\r\n\r\nif (formMode === 'CREATE' && containsProductsAndServices.length > 0) {\r\n    for (var i in containsProductsAndServices) {\r\n      let {total = 0} = containsProductsAndServices[i];\r\n        value += parseFloat (total);\r\n    }\r\n}",
+                        "allowCalculateOverride": true,
+                        "validate": {
+                          "required": true,
+                          "min": 0
+                        },
+                        "key": "payments_paymentAmount",
+                        "properties": {
+                          "attribute": "payments:paymentAmount"
+                        },
+                        "logic": [
+                          {
+                            "name": "required_off",
+                            "trigger": {
+                              "type": "javascript",
+                              "javascript": "const {dms_updateContent = false} = data;\n\nresult = dms_updateContent ? true : false;"
+                            },
+                            "actions": [
+                              {
+                                "name": "required_off",
+                                "property": {
+                                  "label": "Required",
+                                  "type": "boolean",
+                                  "value": "validate.required"
+                                },
+                                "state": "false",
+                                "type": "property"
+                              }
+                            ]
+                          },
+                          {
+                            "name": "protected_on",
+                            "trigger": {
+                              "type": "javascript",
+                              "javascript": "const {dms_updateContent = false,\n    pas_containsProductsAndServices = []\n} = data;\nconst {options = {}} = instance;\nconst {formMode = \"\"} = options;\nresult = dms_updateContent || (formMode !== 'CREATE' && pas_containsProductsAndServices.length > 0) ? true : false;"
+                            },
+                            "actions": [
+                              {
+                                "name": "protected_on",
+                                "property": {
+                                  "label": "Disabled",
+                                  "type": "boolean",
+                                  "value": "disabled"
+                                },
+                                "state": "true",
+                                "type": "property"
+                              }
+                            ]
+                          }
+                        ],
+                        "decimalLimit": 2,
+                        "type": "number",
+                        "input": true,
+                        "stringValue": 0
+                      }
+                    ],
+                    "key": "column",
+                    "conditional": {
+                      "show": null,
+                      "when": null
+                    }
+                  },
+                  {
+                    "components": [
+                      {
+                        "defaultValue": 0,
+                        "type": "number",
+                        "key": "payments_paymentVAT",
+                        "validate": {
+                          "min": 0,
+                          "required": true
+                        },
+                        "clearOnHide": false,
+                        "label": "payments:paymentVAT",
+                        "input": true,
+                        "properties": {
+                          "attribute": "payments:paymentVAT"
+                        },
+                        "stringValue": 0
+                      }
+                    ],
+                    "type": "column",
+                    "md": 4,
+                    "key": "column",
+                    "index": 2,
+                    "input": false,
+                    "conditional": {
+                      "show": null,
+                      "when": null
+                    }
+                  }
+                ],
+                "key": "columns31",
+                "type": "columns",
+                "input": false
+              }
+            ],
+            "title": "Finance",
+            "payments_paymentVAT": 0,
+            "key": "panel6",
+            "payments_currency": "workspace://SpacesStore/currency-rur"
+          },
+          {
+            "type": "panel",
+            "input": false,
+            "components": [
+              {
+                "label": {
+                  "ru": "Columns"
+                },
+                "columns": [
+                  {
+                    "type": "column",
+                    "index": 0,
+                    "input": false,
+                    "components": [
+                      {
+                        "type": "checkbox",
+                        "customConditional": "show = instance.options.formMode == 'CREATE' ? true : false;",
+                        "clearOnHide": false,
+                        "input": true,
+                        "key": "dms_updateContent",
+                        "label": "dms:updateContent",
+                        "customClass": "mb-md-0",
+                        "properties": {
+                          "attribute": "dms:updateContent"
+                        }
+                      }
+                    ],
+                    "classes": "d-flex align-items-md-center",
+                    "key": "column",
+                    "conditional": {
+                      "show": null,
+                      "when": null
+                    }
+                  }
+                ],
+                "key": "columns28",
+                "type": "columns",
+                "input": false
+              },
+              {
+                "label": {
+                  "ru": "Columns"
+                },
+                "columns": [
+                  {
+                    "type": "column",
+                    "md": 12,
+                    "index": 0,
+                    "input": false,
+                    "components": [
+                      {
+                        "label": "cm:content",
+                        "clearOnHide": false,
+                        "onFileClick": "download",
+                        "storage": "url",
+                        "url": "/share/proxy/alfresco/eform/file",
+                        "options": "",
+                        "validate": {
+                          "required": true
+                        },
+                        "key": "cm_content",
+                        "properties": {
+                          "attribute": "cm:content"
+                        },
+                        "customConditional": "show = ((instance.options.formMode === 'CREATE' && !data.dms_updateContent) || instance.options.formMode !== 'CREATE') ? true : false;",
+                        "logic": [
+                          {
+                            "name": "required_off",
+                            "trigger": {
+                              "type": "javascript",
+                              "javascript": "var res = ((instance.options.formMode === 'CREATE' && !data.dms_updateContent) || instance.options.formMode !== 'CREATE') ? true : false;\nresult = !res;"
+                            },
+                            "actions": [
+                              {
+                                "name": "required_off",
+                                "property": {
+                                  "label": "Required",
+                                  "type": "boolean",
+                                  "value": "validate.required"
+                                },
+                                "state": "false",
+                                "type": "property"
+                              }
+                            ]
+                          }
+                        ],
+                        "type": "file",
+                        "defaultValue": [],
+                        "input": true
+                      },
+                      {
+                        "label": "pas:containsProductsAndServices",
+                        "multiple": true,
+                        "reorder": false,
+                        "clearOnHide": false,
+                        "eventName": "routeTableUpdate",
+                        "source": {
+                          "type": "custom",
+                          "custom": {
+                            "columns": [
+                              {
+                                "name": "cm:title",
+                                "formatter": "",
+                                "setAttributesManually": false
+                              },
+                              {
+                                "name": "cm:description",
+                                "formatter": "",
+                                "setAttributesManually": false
+                              },
+                              {
+                                "name": "pas:pricePerUnit",
+                                "formatter": "",
+                                "setAttributesManually": false
+                              },
+                              {
+                                "name": "pas:quantity",
+                                "formatter": "",
+                                "setAttributesManually": false
+                              },
+                              {
+                                "name": "pas:entityUnit",
+                                "formatter": "",
+                                "setAttributesManually": false
+                              },
+                              {
+                                "name": "pas:total",
+                                "formatter": "",
+                                "setAttributesManually": false
+                              },
+                              {
+                                "name": "pas:type",
+                                "formatter": "",
+                                "setAttributesManually": false
+                              },
+                              {
+                                "name": "pas:currency",
+                                "formatter": "",
+                                "setAttributesManually": false
+                              }
+                            ],
+                            "createVariants": [],
+                            "record": null,
+                            "attribute": null
+                          }
+                        },
+                        "triggerEventOnChange": true,
+                        "validate": {
+                          "required": true
+                        },
+                        "key": "pas_containsProductsAndServices",
+                        "properties": {
+                          "attribute": "pas:containsProductsAndServices"
+                        },
+                        "customConditional": "const {pas_containsProductsAndServices = [],\n       dms_updateContent = false\n} = data;\nshow = (instance.options.formMode !== 'CREATE' && pas_containsProductsAndServices.length > 0) || dms_updateContent;",
+                        "logic": [
+                          {
+                            "name": "required_off",
+                            "trigger": {
+                              "type": "javascript",
+                              "javascript": "result = !data.dms_updateContent;"
+                            },
+                            "actions": [
+                              {
+                                "name": "required_off",
+                                "property": {
+                                  "label": "Required",
+                                  "type": "boolean",
+                                  "value": "validate.required"
+                                },
+                                "state": "false",
+                                "type": "property"
+                              }
+                            ]
+                          },
+                          {
+                            "name": "disableLogic",
+                            "trigger": {
+                              "type": "javascript",
+                              "javascript": "result = instance.options.formMode != 'CREATE';"
+                            },
+                            "actions": [
+                              {
+                                "name": "disable",
+                                "type": "property",
+                                "property": {
+                                  "label": "Disabled",
+                                  "value": "disabled",
+                                  "type": "boolean"
+                                },
+                                "state": "true"
+                              }
+                            ]
+                          }
+                        ],
+                        "type": "tableForm",
+                        "_journalId": "alf_term:teReqRoute",
+                        "input": true
+                      }
+                    ],
+                    "key": "column",
+                    "conditional": {
+                      "show": null,
+                      "when": null
+                    }
+                  }
+                ],
+                "key": "columns30",
+                "type": "columns",
+                "input": false
+              },
+              {
+                "defaultValue": "",
+                "type": "textarea",
+                "clearOnHide": false,
+                "input": true,
+                "customDefaultValue": "if (data.copiedFromData && data.copiedFromData.comment) {\n  value = data.copiedFromData.comment;\n}",
+                "key": "payments_paymentComment",
+                "label": "payments:paymentComment",
+                "rows": 2,
+                "properties": {
+                  "attribute": "payments:paymentComment"
+                }
+              }
+            ],
+            "title": "Other",
+            "key": "panel"
+          }
+        ]
+      },
+      {
+        "label": {
+          "ru": "Columns"
+        },
+        "columns": [
+          {
+            "components": [
+              {
+                "label": "period",
+                "source": {
+                  "type": "recordsQuery",
+                  "recordsQuery": {
+                    "attributes": {
+                      "name": "cm:name"
+                    },
+                    "query": "var value = {\r\n  query: 'TYPE:\"payments:period\"',\r\n  language: 'fts-alfresco'\r\n}",
+                    "isSingle": false
+                  },
+                  "forceLoad": false
+                },
+                "update": {
+                  "type": "once"
+                },
+                "key": "period",
+                "type": "asyncData",
+                "clearOnHide": false,
+                "input": true,
                 "conditional": {
                   "show": null,
                   "when": null
                 }
               },
               {
-                "type": "column",
-                "md": 12,
-                "offset": 0,
-                "index": 1,
+                "label": "currencyList",
+                "source": {
+                  "type": "recordsQuery",
+                  "recordsQuery": {
+                    "attributes": {
+                      "label": "cm:title"
+                    },
+                    "query": "var value = {\r\n  query: 'TYPE:\"idocs:currency\"',\r\n  language: 'fts-alfresco'\r\n}",
+                    "isSingle": false
+                  },
+                  "forceLoad": false
+                },
+                "update": {
+                  "type": "once"
+                },
+                "ignoreValuesEqualityChecking": true,
+                "key": "currencyList",
+                "type": "asyncData",
                 "clearOnHide": false,
-                "push": 0,
-                "input": false,
-                "components": [],
-                "key": "column",
-                "pull": 0,
-                "width": 6,
+                "input": true,
+                "conditional": {
+                  "show": null,
+                  "when": null
+                }
+              },
+              {
+                "label": "legalEntities",
+                "source": {
+                  "type": "recordsQuery",
+                  "recordsQuery": {
+                    "attributes": {
+                      "engName": "idocs:engOrganizationName",
+                      "key": "cm:name"
+                    },
+                    "query": "var value = {\r\n  query: 'TYPE:\"idocs:legalEntity\"',\r\n  language: 'fts-alfresco'\r\n}",
+                    "isSingle": false
+                  },
+                  "forceLoad": false
+                },
+                "update": {
+                  "type": "once"
+                },
+                "triggerEventOnChange": true,
+                "eventName": "legalEntitiesEvent",
+                "key": "legalEntities",
+                "type": "asyncData",
+                "clearOnHide": false,
+                "input": true,
+                "conditional": {
+                  "show": null,
+                  "when": null
+                }
+              },
+              {
+                "label": "payment",
+                "source": {
+                  "type": "recordsQuery",
+                  "recordsQuery": {
+                    "attributes": {
+                      "key": "cm:title"
+                    },
+                    "query": "var value = {\r\n  query: 'TYPE:\"payments:payment\"',\r\n  language: 'fts-alfresco'\r\n}",
+                    "isSingle": false
+                  },
+                  "forceLoad": false
+                },
+                "update": {
+                  "type": "once"
+                },
+                "key": "payment",
+                "type": "asyncData",
+                "clearOnHide": false,
+                "input": true,
                 "conditional": {
                   "show": null,
                   "when": null
                 }
               }
             ],
-            "key": "columns30"
+            "md": 4,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "index": 0
           },
           {
-            "defaultValue": "",
-            "type": "textarea",
-            "clearOnHide": false,
-            "input": true,
-            "customDefaultValue": "if (data.copiedFromData && data.copiedFromData.comment) {\n  value = data.copiedFromData.comment;\n}",
-            "key": "payments_paymentComment",
-            "label": "payments:paymentComment",
-            "rows": 2,
-            "properties": {
-              "attribute": "payments:paymentComment"
-            }
-          }
-        ],
-        "title": "Other",
-        "key": "panel"
-      },
-      {
-        "hidden": true,
-        "type": "hidden",
-        "key": "isCreateMode",
-        "clearOnHide": false,
-        "label": "isCreateMode",
-        "input": true,
-        "customDefaultValue": "const {options = {}} = instance || {};\nconst {formMode = 'CREATE'} = options || {};\nvalue = formMode === 'CREATE';"
-      },
-      {
-        "type": "checkbox",
-        "clearOnHide": false,
-        "input": true,
-        "hidden": true,
-        "disabled": true,
-        "key": "invariants_isDraft",
-        "label": "invariants:isDraft",
-        "properties": {
-          "attribute": "invariants:isDraft"
-        },
-        "defaultValue": null
-      },
-      {
-        "update": {
-          "type": "any-change",
-          "event": "routeTableUpdate"
-        },
-        "source": {
-          "record": {
-            "attributes": {
-              "contractor": "contracts:contractor?id",
-              "agreementCurrency": "contracts:agreementCurrency?id",
-              "contractWith": "contracts:contractWith",
-              "currency": "payments:currency?id",
-              "type": "type",
-              "agreementLegalEntity": "contracts:agreementLegalEntity?id",
-              "legalEntity": "idocs:legalEntity"
-            },
-            "id": "{{data.payments_basis}}"
+            "md": 4,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "index": 1,
+            "components": [
+              {
+                "label": "containsProductsAndServices",
+                "source": {
+                  "type": "recordsArray",
+                  "recordsArray": {
+                    "attributes": {
+                      "total": "pas:total",
+                      "entityUnit": "pas:entityUnit"
+                    },
+                    "id": "{{data.pas_containsProductsAndServices}}"
+                  },
+                  "forceLoad": false
+                },
+                "update": {
+                  "type": "event",
+                  "event": "routeTableUpdate",
+                  "force": true
+                },
+                "refreshOn": [
+                  {
+                    "label": "pas_containsProductsAndServices",
+                    "value": "pas_containsProductsAndServices"
+                  }
+                ],
+                "key": "containsProductsAndServices",
+                "type": "asyncData",
+                "clearOnHide": false,
+                "input": true,
+                "conditional": {
+                  "show": null,
+                  "when": null
+                }
+              },
+              {
+                "label": "paymentsBasis",
+                "source": {
+                  "type": "record",
+                  "record": {
+                    "id": "{{data.payments_basis}}",
+                    "attributes": {
+                      "contractor": "contracts:contractor?id",
+                      "agreementCurrency": "contracts:agreementCurrency?id",
+                      "contractWith": "contracts:contractWith",
+                      "currency": "payments:currency?id",
+                      "type": "type",
+                      "agreementLegalEntity": "contracts:agreementLegalEntity?id",
+                      "legalEntity": "idocs:legalEntity"
+                    }
+                  },
+                  "forceLoad": false
+                },
+                "update": {
+                  "type": "once",
+                  "event": "routeTableUpdate"
+                },
+                "refreshOn": [
+                  {
+                    "label": "payments_basis",
+                    "value": "payments_basis"
+                  }
+                ],
+                "key": "paymentsBasis",
+                "type": "asyncData",
+                "clearOnHide": false,
+                "input": true,
+                "conditional": {
+                  "show": null,
+                  "when": null
+                }
+              },
+              {
+                "label": "payer",
+                "source": {
+                  "type": "record",
+                  "record": {
+                    "id": "{{data.payments_payer}}",
+                    "attributes": {
+                      "fullOrganizationName": "idocs:fullOrganizationName"
+                    }
+                  },
+                  "forceLoad": false
+                },
+                "update": {
+                  "type": "once",
+                  "event": "routeTableUpdate"
+                },
+                "refreshOn": [
+                  {
+                    "label": "payments_payer",
+                    "value": "payments_payer"
+                  }
+                ],
+                "key": "payer",
+                "type": "asyncData",
+                "clearOnHide": false,
+                "input": true,
+                "conditional": {
+                  "show": null,
+                  "when": null
+                }
+              }
+            ]
           },
-          "type": "record",
-          "forceLoad": false
-        },
-        "type": "asyncData",
-        "eventName": "paymentsBasisEvent",
-        "triggerEventOnChange": true,
-        "key": "paymentsBasis",
-        "clearOnHide": false,
-        "label": "paymentsBasis",
-        "input": true,
-        "conditional": {
-          "show": null,
-          "when": null
-        }
-      },
-      {
-        "update": {
-          "type": "any-change"
-        },
-        "source": {
-          "recordsQuery": {
-            "query": "var value = {\r\n  query: 'TYPE:\"payments:period\"',\r\n  language: 'fts-alfresco'\r\n}",
-            "attributes": {
-              "name": "cm:name"
-            },
-            "isSingle": false
-          },
-          "type": "recordsQuery",
-          "forceLoad": false
-        },
-        "type": "asyncData",
-        "eventName": "periodEvent",
-        "triggerEventOnChange": true,
-        "key": "period",
-        "clearOnHide": false,
-        "label": "period",
-        "input": true,
-        "conditional": {
-          "show": null,
-          "when": null
-        }
-      },
-      {
-        "refreshOn": [
           {
-            "label": "pas_containsProductsAndServices",
-            "value": "pas_containsProductsAndServices"
+            "md": 4,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "index": 2,
+            "components": [
+              {
+                "label": "invariants:isDraft",
+                "labelPosition": "left-left",
+                "clearOnHide": false,
+                "hidden": true,
+                "key": "invariants_isDraft",
+                "properties": {
+                  "attribute": "invariants:isDraft"
+                },
+                "type": "checkbox",
+                "input": true
+              }
+            ]
           }
         ],
-        "update": {
-          "force": true,
-          "type": "event",
-          "event": "routeTableUpdate"
-        },
-        "source": {
-          "recordsArray": {
-            "attributes": {
-              "total": "pas:total",
-              "entityUnit": "pas:entityUnit"
-            },
-            "id": "{{data.pas_containsProductsAndServices}}"
-          },
-          "type": "recordsArray",
-          "forceLoad": false
-        },
-        "type": "asyncData",
-        "key": "containsProductsAndServices",
-        "clearOnHide": false,
-        "label": "containsProductsAndServices",
-        "input": true,
-        "conditional": {
-          "show": null,
-          "when": null
-        }
-      },
-      {
-        "update": {
-          "type": "any-change",
-          "event": "routeTableUpdate"
-        },
-        "source": {
-          "record": {
-            "attributes": {
-              "fullOrganizationName": "idocs:fullOrganizationName"
-            },
-            "id": "{{data.payments_payer}}"
-          },
-          "type": "record",
-          "forceLoad": false
-        },
-        "type": "asyncData",
-        "triggerEventOnChange": false,
-        "key": "payer",
-        "clearOnHide": false,
-        "label": "payer",
-        "input": true,
-        "conditional": {
-          "show": null,
-          "when": null
-        }
-      },
-      {
-        "refreshOn": "",
-        "update": {
-          "type": "any-change"
-        },
-        "source": {
-          "recordsQuery": {
-            "query": "var value = {\r\n  query: 'TYPE:\"idocs:currency\"',\r\n  language: 'fts-alfresco'\r\n}",
-            "attributes": {
-              "key": "cm:title"
-            },
-            "isSingle": false
-          },
-          "type": "recordsQuery",
-          "forceLoad": false
-        },
-        "type": "asyncData",
-        "eventName": "currencyListEvent",
-        "triggerEventOnChange": true,
-        "key": "currencyList",
-        "clearOnHide": false,
-        "label": "currencyList",
-        "input": true,
-        "conditional": {
-          "show": null,
-          "when": null
-        }
-      },
-      {
-        "update": {
-          "type": "any-change"
-        },
-        "source": {
-          "recordsQuery": {
-            "query": "var value = {\r\n  query: 'TYPE:\"idocs:legalEntity\"',\r\n  language: 'fts-alfresco'\r\n}",
-            "attributes": {
-              "engName": "idocs:engOrganizationName",
-              "key": "cm:name"
-            },
-            "isSingle": false
-          },
-          "type": "recordsQuery",
-          "forceLoad": false
-        },
-        "type": "asyncData",
-        "eventName": "legalEntitiesEvent",
-        "triggerEventOnChange": true,
-        "key": "legalEntities",
-        "clearOnHide": false,
-        "label": "legalEntities",
-        "input": true,
-        "conditional": {
-          "show": null,
-          "when": null
-        }
-      },
-      {
-        "update": {
-          "type": "any-change"
-        },
-        "source": {
-          "recordsQuery": {
-            "query": "var value = {\r\n  query: 'TYPE:\"payments:payment\"',\r\n  language: 'fts-alfresco'\r\n}",
-            "attributes": {
-              "key": "cm:title"
-            },
-            "isSingle": false
-          },
-          "type": "recordsQuery",
-          "forceLoad": false
-        },
-        "type": "asyncData",
-        "triggerEventOnChange": false,
-        "key": "payment",
-        "clearOnHide": false,
-        "label": "payment",
-        "input": true,
-        "conditional": {
-          "show": null,
-          "when": null
-        }
+        "hidden": true,
+        "key": "columns4",
+        "type": "columns",
+        "input": false
       },
       {
         "type": "columns",
@@ -1347,10 +1269,7 @@
           {
             "type": "column",
             "md": 3,
-            "offset": 0,
             "index": 0,
-            "clearOnHide": false,
-            "push": 0,
             "input": false,
             "components": [
               {
@@ -1368,9 +1287,6 @@
               }
             ],
             "key": "column50",
-            "label": "",
-            "pull": 0,
-            "width": 6,
             "conditional": {
               "show": null,
               "when": null
@@ -1379,16 +1295,10 @@
           {
             "type": "column",
             "md": 3,
-            "offset": 0,
             "index": 1,
-            "clearOnHide": false,
-            "push": 0,
             "input": false,
             "components": [],
             "key": "column51",
-            "label": "",
-            "pull": 0,
-            "width": 6,
             "conditional": {
               "show": null,
               "when": null
@@ -1397,24 +1307,22 @@
           {
             "components": [
               {
-                "type": "button",
-                "disableOnInvalid": true,
-                "block": true,
-                "state": "draft",
-                "customConditional": "const {isCreateMode, invariants_isDraft: isDraft} = data || {};\nshow = !!isCreateMode || !!isDraft;",
-                "clearOnHide": false,
-                "input": true,
+                "label": "Save",
                 "removeIndents": true,
+                "state": "draft",
+                "block": true,
+                "disableOnInvalid": true,
+                "clearOnHide": false,
                 "key": "submit4",
-                "label": "Save"
+                "customConditional": "const {options = {}} = instance;\nconst {formMode = \"\"} = options;\n\nconst {invariants_isDraft: isDraft} = data || {};\nshow = formMode == \"CREATE\" || !!isDraft;",
+                "type": "button",
+                "input": true
               }
             ],
             "type": "column",
             "md": 3,
             "key": "column52",
             "index": 2,
-            "clearOnHide": false,
-            "label": "",
             "input": false,
             "conditional": {
               "show": null,
@@ -1424,22 +1332,19 @@
           {
             "components": [
               {
-                "defaultValue": false,
-                "type": "button",
-                "block": true,
-                "state": "",
-                "clearOnHide": false,
-                "input": true,
-                "removeIndents": true,
-                "theme": "primary",
-                "key": "submit",
                 "label": "Create",
+                "removeIndents": true,
+                "state": "",
+                "theme": "primary",
+                "block": true,
+                "clearOnHide": false,
+                "key": "submit",
                 "logic": [
                   {
                     "name": "inProcess",
                     "trigger": {
                       "type": "javascript",
-                      "javascript": "const {isCreateMode, invariants_isDraft: isDraft} = data || {};\nresult = !isCreateMode && !isDraft;"
+                      "javascript": "const {options = {}} = instance;\nconst {formMode = \"\"} = options;\n\nconst {invariants_isDraft: isDraft} = data || {};\n\nresult = formMode != \"CREATE\" && !isDraft;"
                     },
                     "actions": [
                       {
@@ -1454,15 +1359,15 @@
                       }
                     ]
                   }
-                ]
+                ],
+                "type": "button",
+                "input": true
               }
             ],
             "type": "column",
             "md": 3,
             "key": "column53",
             "index": 3,
-            "clearOnHide": false,
-            "label": "",
             "input": false,
             "conditional": {
               "show": null,
