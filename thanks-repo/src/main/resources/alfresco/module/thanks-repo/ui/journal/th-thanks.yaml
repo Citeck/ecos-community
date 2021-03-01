@@ -1,5 +1,5 @@
 id: th-thanks
-label:
+name:
   ru: Спасибо
   en: Thanks
 
@@ -19,48 +19,48 @@ actions: [ ]
 
 editable: false
 columns:
-  - name: th_recipient
-    label:
+  - id: th_recipient
+    name:
       ru: Получатель
       en: Recipient
     attribute: th:recipient
-    type: person
+    type: PERSON
     searchable: true
     sortable: true
     groupable: false
     editable: false
     visible: true
 
-  - name: th_author
-    label:
+  - id: th_author
+    name:
       ru: Автор
       en: Author
     attribute: th:author
-    type: person
+    type: PERSON
     searchable: true
     sortable: true
     groupable: false
     editable: false
     visible: true
 
-  - name: th_date
-    label:
+  - id: th_date
+    name:
       ru: Дата
       en: Date
     attribute: th:date
-    type: datetime
+    type: DATE
     searchable: true
     sortable: true
     groupable: false
     editable: false
     visible: true
 
-  - name: th_commentary
-    label:
+  - id: th_commentary
+    name:
       ru: Комментарий
       en: Commentary
     attribute: th:commentary
-    type: text
+    type: TEXT
     searchable: true
     sortable: true
     groupable: false
