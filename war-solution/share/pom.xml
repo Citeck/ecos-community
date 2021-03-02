@@ -13,7 +13,7 @@
     <parent>
         <groupId>ru.citeck.ecos.community</groupId>
         <artifactId>war-solution</artifactId>
-        <version>3.23.0-SNAPSHOT</version>
+        <version>3.23.0</version>
     </parent>
 
     <dependencies>
