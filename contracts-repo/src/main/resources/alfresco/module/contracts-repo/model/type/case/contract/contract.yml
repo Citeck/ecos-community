@@ -50,3 +50,7 @@ model:
       type: ASSOC
       config:
         typeRef: emodel/type@country-iso3166
+    - id: contracts:contractor
+      type: ASSOC
+      config:
+        typeRef: emodel/type@idocs-contractor
