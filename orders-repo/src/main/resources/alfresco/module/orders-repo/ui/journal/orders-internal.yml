@@ -11,7 +11,11 @@ columns:
 
   - { id: cm:created, visible: false }
   - { id: tk:kind }
-  - { id: icase:caseStatusAssoc }
+  - id: icase:caseStatusAssoc
+    editor:
+      type: journal
+      config:
+        journalId: case-status
   - { id: orders:branch }
   - { id: orders:header }
   - { id: idocs:summary, visible: false }

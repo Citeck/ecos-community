@@ -16,3 +16,7 @@ columns:
   - id: op:visitorOrganization
   - id: op:visitingDate
   - id: icase:caseStatusAssoc
+    editor:
+      type: journal
+      config:
+        journalId: case-status

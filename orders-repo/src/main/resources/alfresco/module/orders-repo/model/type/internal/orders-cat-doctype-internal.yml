@@ -21,4 +21,11 @@ properties:
   alfType: orders:internal
   alfRoot: /app:company_home/st:sites/cm:orders/cm:documentLibrary/cm:documents/cm:internals
 
-
+model:
+  attributes:
+    - id: orders:branch
+      type: AUTHORITY
+    - id: orders:fileCode
+      type: ASSOC
+        config:
+          typeRef: emodel/type@files-nomenclature

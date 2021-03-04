@@ -13,6 +13,10 @@ columns:
   - id: idocs:legalFormCountry
   - id: cm:title
   - id: icase:caseStatusAssoc
+    editor:
+      type: journal
+      config:
+        journalId: case-status
   - id: contracts:agreementLegalEntity
   - id: contracts:contractor
   - id: contracts:agreementSubject

@@ -54,3 +54,16 @@ model:
       type: ASSOC
       config:
         typeRef: emodel/type@idocs-contractor
+    - id: contracts:agreementCurrency
+      type: ASSOC
+      config:
+        typeRef: emodel/type@currency
+    - id: contracts:agreementLegalEntity
+      type: ASSOC
+      config:
+        typeRef: emodel/type@legal-entity
+    - id: contracts:agreementSubject
+      type: ASSOC
+      config:
+        typeRef: emodel/type@contract-subject
+

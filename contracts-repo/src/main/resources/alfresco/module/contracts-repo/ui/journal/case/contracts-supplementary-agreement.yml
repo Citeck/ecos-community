@@ -14,6 +14,10 @@ columns:
   - id: contracts:mainAgreement
   - id: contracts:agreementNumber
   - id: icase:caseStatusAssoc
+    editor:
+      type: journal
+      config:
+        journalId: case-status
   - id: contracts:agreementLegalEntity
   - id: contracts:contractor
   - id: contracts:agreementSubject
