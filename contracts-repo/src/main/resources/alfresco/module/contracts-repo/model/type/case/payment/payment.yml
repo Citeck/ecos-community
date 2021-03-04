@@ -33,3 +33,34 @@ associations:
 
     direction: TARGET
     target: emodel/type@user-base
+
+model:
+  attributes:
+    - id: payments:basis
+      type: ASSOC
+      config:
+        typeRef: emodel/type@idocs-doc
+    - id: payments:beneficiary
+      type: ASSOC
+      config:
+        typeRef: emodel/type@idocs-contractor
+    - id: payments:beneficiaryAccount
+      type: ASSOC
+      config:
+        typeRef: emodel/type@bank-account
+    - id: payments:budgetItem
+      type: ASSOC
+      config:
+        typeRef: emodel/type@budget-item
+    - id: payments:currency
+      type: ASSOC
+      config:
+        typeRef: emodel/type@currency
+    - id: payments:payer
+      type: ASSOC
+      config:
+        typeRef: emodel/type@legal-entity
+    - id: payments:period
+      type: ASSOC
+      config:
+        typeRef: emodel/type@payment-period

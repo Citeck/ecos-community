@@ -22,3 +22,26 @@ associations:
 
     direction: TARGET
     target: emodel/type@user-base
+
+model:
+  attributes:
+    - id: contracts:agreementCurrency
+      type: ASSOC
+      config:
+        typeRef: emodel/type@currency
+    - id: contracts:agreementLegalEntity
+      type: ASSOC
+      config:
+        typeRef: emodel/type@legal-entity
+    - id: contracts:agreementSubject
+      type: ASSOC
+      config:
+        typeRef: emodel/type@contract-subject
+    - id: contracts:contractor
+      type: ASSOC
+      config:
+        typeRef: emodel/type@idocs-contractor
+    - id: contracts:mainAgreement
+      type: ASSOC
+      config:
+        typeRef: emodel/type@contracts-cat-doctype-contract
