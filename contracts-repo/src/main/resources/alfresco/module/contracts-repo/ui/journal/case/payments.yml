@@ -7,6 +7,21 @@ actions:
   - uiserv/action@view-dashboard
   - uiserv/action@view-dashboard-in-background
 
+actionsDef:
+  - name:
+      ru: 'Согласовать выбранные счета'
+      en: 'Approve selected payments'
+    type: server-group-action
+    config:
+      id: complete-document-task
+      title:
+        ru: 'Согласовать выбранные счета'
+        en: 'Approve selected payments'
+      type: selected
+      params:
+        actionId: complete-document-task
+        tasks: '[{"taskId": "confirm-task", "transition": "Confirmed"}]'
+
 columns:
 
   - id: cm:created
