@@ -30,7 +30,7 @@ model:
       config:
         typeRef: emodel/type@idocs-contractor
     - id: letters:subdivision
-        type: AUTHORITY
+      type: AUTHORITY
 
 properties:
   alfType: letters:income
