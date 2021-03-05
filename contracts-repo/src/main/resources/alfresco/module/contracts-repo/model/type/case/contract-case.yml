@@ -1,0 +1,8 @@
+---
+id: contracts-cat-doctype-contract-case
+# Type for connection with case template
+name:
+  ru: Шаблон кейсов Договора
+  en: Template cases Contracts
+
+parentRef: emodel/type@case

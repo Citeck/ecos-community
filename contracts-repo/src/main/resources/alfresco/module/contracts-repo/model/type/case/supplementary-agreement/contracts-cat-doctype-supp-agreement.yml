@@ -5,7 +5,7 @@ name:
   en: Add'l agreement
   ru: Доп.соглашение
 
-parentRef: emodel/type@case
+parentRef: emodel/type@contracts-cat-doctype-contract-case
 journalRef: uiserv/journal@contracts-supplementary-agreement
 formRef: uiserv/form@contracts-supplementary-agreement
 

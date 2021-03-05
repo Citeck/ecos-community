@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <cmmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cmmndi="http://www.omg.org/spec/CMMN/20151109/CMMNDI" xmlns:di="http://www.omg.org/spec/CMMN/20151109/DI" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cmmn="http://www.omg.org/spec/CMMN/20151109/MODEL" xmlns:dc="http://www.omg.org/spec/CMMN/20151109/DC" targetNamespace="http://www.citeck.ru/ecos/case/cmmn/1.0">
-    <cmmn:case xmlns:ns8="http://www.citeck.ru/ecos/case/cmmn/1.0" name="672fba48-51b7-4bec-8298-d0159fe08b87" id="id-1" ns8:elementTypes="case-tasks,supplementary-files,documents,completeness-levels,subcases,events,case-roles" ns8:caseEcosType="workspace-SpacesStore-contracts-cat-doctype-contract">
+    <cmmn:case xmlns:ns8="http://www.citeck.ru/ecos/case/cmmn/1.0" name="672fba48-51b7-4bec-8298-d0159fe08b87" id="id-1" ns8:elementTypes="case-tasks,supplementary-files,documents,completeness-levels,subcases,events,case-roles" ns8:caseEcosType="workspace-SpacesStore-contracts-cat-doctype-contract-case">
         <cmmn:casePlanModel autoComplete="true" name="Case plan model" id="id-12" ns8:completnessLevels="workspace-SpacesStore-cl-counterparty-docs,workspace-SpacesStore-cl-scan-documents">
             <cmmn:planItem definitionRef="id-13" id="id-14">
                 <cmmn:entryCriterion sentryRef="id-21" id="id-22"/>
