@@ -4,7 +4,7 @@ name:
   ru: Договор
   en: Contract
 
-parentRef: emodel/type@case
+parentRef: emodel/type@contracts-cat-doctype-contract-case
 formRef: uiserv/form@agreement-form
 journalRef: uiserv/journal@contract-agreements
 

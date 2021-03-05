@@ -79,7 +79,9 @@
                           {
                             "components": [
                               {
-                                "label": "contracts:agreementLegalEntity",
+                                "label": {
+                                  "ru": "contracts:agreementLegalEntity"
+                                },
                                 "hideEditRowButton": true,
                                 "journalId": "legal-entities",
                                 "validate": {
@@ -95,19 +97,28 @@
                                 },
                                 "logic": [
                                   {
-                                    "name": "update_value",
+                                    "name": "Set value",
                                     "trigger": {
                                       "type": "javascript",
-                                      "javascript": "result = (data._agreementValues && data._agreementValues._legalEntity);"
+                                      "javascript": "const {_agreementValues, contracts_agreementLegalEntity: curVal} = data || {};\nconst {_legalEntity} = _agreementValues || {};\n\nresult = !!_legalEntity && curVal != _legalEntity;"
                                     },
                                     "actions": [
                                       {
-                                        "name": "set_value",
+                                        "name": "Set value",
                                         "type": "value",
-                                        "value": "value = data._agreementValues._legalEntity;"
-                                      },
+                                        "value": "const {_agreementValues} = data || {};\nconst {_legalEntity} = _agreementValues || {};\n\nvalue = _legalEntity;"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "name": "Disable",
+                                    "trigger": {
+                                      "type": "javascript",
+                                      "javascript": "const {_agreementValues} = data || {};\nconst {_legalEntity} = _agreementValues || {};\n\nresult = !!_legalEntity;"
+                                    },
+                                    "actions": [
                                       {
-                                        "name": "disabled_value",
+                                        "name": "Disable",
                                         "type": "property",
                                         "property": {
                                           "label": "Disabled",
@@ -120,8 +131,7 @@
                                   }
                                 ],
                                 "type": "selectJournal",
-                                "input": true,
-                                "presetFilterPredicatesJs": null
+                                "input": true
                               }
                             ],
                             "type": "column",
@@ -138,7 +148,9 @@
                           {
                             "components": [
                               {
-                                "label": "contracts:contractor",
+                                "label": {
+                                  "ru": "contracts:contractor"
+                                },
                                 "hideEditRowButton": true,
                                 "journalId": "idocs-contractor",
                                 "validate": {
@@ -154,19 +166,28 @@
                                 },
                                 "logic": [
                                   {
-                                    "name": "update_event",
+                                    "name": "Set value",
                                     "trigger": {
                                       "type": "javascript",
-                                      "javascript": "result = (data._agreementValues && data._agreementValues._contractor);"
+                                      "javascript": "const {_agreementValues, contracts_contractor: curVal} = data || {};\nconst {_contractor} = _agreementValues || {};\n\nresult = !!_contractor && curVal != _contractor;"
                                     },
                                     "actions": [
                                       {
-                                        "name": "set_value",
+                                        "name": "Set value",
                                         "type": "value",
-                                        "value": "value = data._agreementValues._contractor;"
-                                      },
+                                        "value": "const {_agreementValues} = data || {};\nconst {_contractor} = _agreementValues || {};\n\nvalue = _contractor;"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "name": "Disable",
+                                    "trigger": {
+                                      "type": "javascript",
+                                      "javascript": "const {_agreementValues} = data || {};\nconst {_contractor} = data || {_agreementValues};\n\nresult = !!_contractor;"
+                                    },
+                                    "actions": [
                                       {
-                                        "name": "disabled_value",
+                                        "name": "Disable",
                                         "type": "property",
                                         "property": {
                                           "label": "Disabled",
@@ -179,8 +200,7 @@
                                   }
                                 ],
                                 "type": "selectJournal",
-                                "input": true,
-                                "presetFilterPredicatesJs": null
+                                "input": true
                               }
                             ],
                             "type": "column",
@@ -204,7 +224,9 @@
                           {
                             "components": [
                               {
-                                "label": "contracts:agreementSubject",
+                                "label": {
+                                  "ru": "contracts:agreementSubject"
+                                },
                                 "hideEditRowButton": true,
                                 "journalId": "contract-subjects",
                                 "key": "contracts_agreementSubject",
@@ -217,19 +239,28 @@
                                 },
                                 "logic": [
                                   {
-                                    "name": "update_event",
+                                    "name": "Set value",
                                     "trigger": {
                                       "type": "javascript",
-                                      "javascript": "result = (data._agreementValues && data._agreementValues._subject);"
+                                      "javascript": "const {_agreementValues, contracts_agreementSubject: curVal} = data || {};\nconst {_subject} = _agreementValues || {};\n\nresult = !!_subject && curVal !== _subject;"
                                     },
                                     "actions": [
                                       {
                                         "name": "set_value",
                                         "type": "value",
                                         "value": "value = data._agreementValues._subject;"
-                                      },
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "name": "Disable",
+                                    "trigger": {
+                                      "type": "javascript",
+                                      "javascript": "const {_agreementValues} = data || {};\nconst {_subject} = _agreementValues || {};\n\nresult = !!_subject;"
+                                    },
+                                    "actions": [
                                       {
-                                        "name": "disabled_value",
+                                        "name": "Disable",
                                         "type": "property",
                                         "property": {
                                           "label": "Disabled",
@@ -242,8 +273,7 @@
                                   }
                                 ],
                                 "type": "selectJournal",
-                                "input": true,
-                                "presetFilterPredicatesJs": null
+                                "input": true
                               }
                             ],
                             "type": "column",
@@ -260,16 +290,19 @@
                           {
                             "components": [
                               {
-                                "label": "Type of add'l agreement",
+                                "label": {
+                                  "ru": "Type of add'l agreement"
+                                },
                                 "dataSrc": "custom",
                                 "data": {
-                                  "custom": "for (var i in data.docTypeList.records) {\n  values.push({label: data.docTypeList.records[i].key,value: data.docTypeList.records[i].id})\n}"
+                                  "custom": "const {docTypeList, _agreementValues} = data || {};\nconst {childList} = docTypeList || {};\n\nvalues = _.isArray(childList) ? childList : [];"
                                 },
-                                "refreshOnEvent": true,
-                                "refreshEventName": "docTypeEvent",
-                                "key": "tk_kind",
+                                "refreshOn": [
+                                  "docTypeList"
+                                ],
+                                "key": "_type",
                                 "properties": {
-                                  "attribute": "tk:kind"
+                                  "attribute": "_type"
                                 },
                                 "conditional": {
                                   "show": "false",
@@ -277,19 +310,28 @@
                                 },
                                 "logic": [
                                   {
-                                    "name": "update_event",
+                                    "name": "Set value",
                                     "trigger": {
                                       "type": "javascript",
-                                      "javascript": "result = (data._agreementValues && data._agreementValues._kind);"
+                                      "javascript": "const contractType = \"emodel/type@contracts-cat-doctype-contract\";\nconst suppType = \"emodel/type@contracts-cat-doctype-supp-agreement\";\nconst {_agreementValues, docTypeList, _type: curVal} = data || {};\nconst {childList} = docTypeList || {};\nlet {_type} = _agreementValues || {};\n\nresult = false;\nif (!!_type && _type.startsWith(contractType)) {\n  _type = _type.replace(contractType, suppType)\n}\n\nconst findIndex = _.isArray(childList) ? childList.findIndex(item => item === _type) : -1;\nif (findIndex >= 0) {\n  result = curVal != _type;\n}"
                                     },
                                     "actions": [
                                       {
-                                        "name": "set_value",
+                                        "name": "Set value",
                                         "type": "value",
-                                        "value": "value = data._agreementValues._kind;"
-                                      },
+                                        "value": "const contractType = \"emodel/type@contracts-cat-doctype-contract\";\nconst suppType = \"emodel/type@contracts-cat-doctype-supp-agreement\";\nconst {_agreementValues, docTypeList} = data || {};\nconst {childList} = docTypeList || {};\nlet {_type} = _agreementValues || {};\n\nresult = false;\nif (!!_type && _type.startsWith(contractType)) {\n  _type = _type.replace(contractType, suppType)\n}\n\nvalue = _type;"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "name": "Disable",
+                                    "trigger": {
+                                      "type": "javascript",
+                                      "javascript": "const contractType = \"emodel/type@contracts-cat-doctype-contract\";\nconst suppType = \"emodel/type@contracts-cat-doctype-supp-agreement\";\nconst {_agreementValues, docTypeList, _type: curVal} = data || {};\nconst {childList} = docTypeList || {};\nlet {_type} = _agreementValues || {};\n\nresult = false;\nif (!!_type && _type.startsWith(contractType)) {\n  _type = _type.replace(contractType, suppType)\n}\n\nconst findIndex = _.isArray(childList) ? childList.findIndex(item => item === _type) : -1;\nif (findIndex >= 0) {\n  result = true;\n}"
+                                    },
+                                    "actions": [
                                       {
-                                        "name": "disabled_value",
+                                        "name": "Disable",
                                         "type": "property",
                                         "property": {
                                           "label": "Disabled",
@@ -503,14 +545,17 @@
                         "input": false,
                         "components": [
                           {
-                            "label": "contracts:agreementCurrency",
+                            "label": {
+                              "ru": "contracts:agreementCurrency"
+                            },
                             "dataSrc": "custom",
                             "data": {
-                              "custom": "for (var i in data.currencyList.records) {\n  values.push({label: data.currencyList.records[i].key,value: data.currencyList.records[i].id})\n}"
+                              "custom": "const {currencyList} = data || {};\nconst {records} = currencyList || {};\n\nvalues = _.isArray(records) ? records : [];"
                             },
-                            "refreshOnEvent": true,
-                            "refreshEventName": "currencyListEvent",
                             "defaultValue": "",
+                            "refreshOn": [
+                              "currencyList"
+                            ],
                             "customDefaultValue": "if (data.currencyList && data.currencyList.records) {\n  var el = data.currencyList.records.find(x => x.id === 'workspace://SpacesStore/currency-rur');\n  \n  if(el){\n    value = el.id;\n  }\n  \n}",
                             "validate": {
                               "required": true
@@ -521,19 +566,28 @@
                             },
                             "logic": [
                               {
-                                "name": "value_event",
+                                "name": "Set value",
                                 "trigger": {
                                   "type": "javascript",
-                                  "javascript": "result = (data._agreementValues && data._agreementValues._currency);"
+                                  "javascript": "const {_agreementValues, contracts_agreementCurrency: curVal} = data || {};\nconst {_currency} = _agreementValues || {};\n\nresult = !!_currency && curVal !== _currency;"
                                 },
                                 "actions": [
                                   {
                                     "name": "set_value",
                                     "type": "value",
                                     "value": "value = data._agreementValues._currency;"
-                                  },
+                                  }
+                                ]
+                              },
+                              {
+                                "name": "Disable",
+                                "trigger": {
+                                  "type": "javascript",
+                                  "javascript": "const {_agreementValues} = data || {};\nconst {_currency} = _agreementValues || {};\n\nresult = !!_currency;"
+                                },
+                                "actions": [
                                   {
-                                    "name": "disabled_value",
+                                    "name": "Disable",
                                     "type": "property",
                                     "property": {
                                       "label": "Disabled",
@@ -851,8 +905,7 @@
                         },
                         "customConditional": "var isDraftStatus = data.caseStatus === \"draft\";\r\nvar isCreateMode = instance.options.formMode === 'CREATE';\r\n\r\nshow = isDraftStatus || isCreateMode;",
                         "type": "checkbox",
-                        "input": true,
-                        "defaultValue": null
+                        "input": true
                       },
                       {
                         "label": "cm:content",
@@ -973,7 +1026,8 @@
                       "_contractor": "contracts:contractor?assoc",
                       "_subject": "contracts:agreementSubject?assoc",
                       "_kind": "tk:kind?assoc",
-                      "_currency": "contracts:agreementCurrency?assoc"
+                      "_currency": "contracts:agreementCurrency?assoc",
+                      "_type": "_type?id"
                     }
                   },
                   "forceLoad": false
@@ -997,8 +1051,9 @@
                 }
               },
               {
-                "label": "tk_type",
-                "clearOnHide": false,
+                "label": {
+                  "ru": "tk:type"
+                },
                 "customDefaultValue": "value = 'workspace://SpacesStore/contracts-cat-doctype-supp-agreement';",
                 "key": "tk_type",
                 "properties": {
@@ -1025,28 +1080,37 @@
               {
                 "label": "docTypeList",
                 "source": {
-                  "type": "recordsQuery",
-                  "recordsQuery": {
+                  "type": "record",
+                  "record": {
+                    "id": "emodel/type@contracts-cat-doctype-supp-agreement",
                     "attributes": {
-                      "key": "cm:title"
-                    },
-                    "query": "var value = {\n  query: 'PARENT: \"workspace://SpacesStore/contracts-cat-doctype-contract\"',\n  language: 'fts-alfresco'\n}",
-                    "isSingle": false
+                      "childList": "children[]{label:.disp,value:.id}"
+                    }
                   },
                   "forceLoad": false
                 },
                 "update": {
                   "type": "once"
                 },
-                "triggerEventOnChange": true,
                 "key": "docTypeList",
                 "type": "asyncData",
                 "input": true,
-                "eventName": "docTypeEvent",
                 "conditional": {
                   "show": null,
                   "when": null
                 }
+              },
+              {
+                "label": {
+                  "ru": "tk:kind"
+                },
+                "calculateValue": "const {_agreementValues} = data || {};\nlet {_kind} = _agreementValues || {};\nvalue = _kind;",
+                "key": "tk_kind",
+                "properties": {
+                  "attribute": "tk:kind"
+                },
+                "type": "hidden",
+                "input": true
               }
             ],
             "type": "column",
@@ -1075,15 +1139,14 @@
                   "ajax": {
                     "url": "/citeck/info/is-ent-installed",
                     "data": "value = {}",
-                    "mapping": "value = data.isEntInstalled;",
+                    "mapping": "const {isEntInstalled} = data || {};\nvalue = isEntInstalled;",
                     "method": "GET"
                   },
                   "forceLoad": false
                 },
                 "update": {
-                  "type": "any-change"
+                  "type": "once"
                 },
-                "triggerEventOnChange": false,
                 "key": "isEntInstalled",
                 "type": "asyncData",
                 "input": true,
@@ -1122,7 +1185,6 @@
                 "update": {
                   "type": "once"
                 },
-                "triggerEventOnChange": false,
                 "key": "edm",
                 "type": "asyncData",
                 "input": true,
@@ -1152,7 +1214,8 @@
                   "type": "recordsQuery",
                   "recordsQuery": {
                     "attributes": {
-                      "key": "cm:title"
+                      "label": ".disp",
+                      "value": ".id"
                     },
                     "query": "var value = {\r\n  query: 'TYPE:\"idocs:currency\"',\r\n  language: 'fts-alfresco'\r\n}",
                     "isSingle": false
@@ -1160,13 +1223,11 @@
                   "forceLoad": false
                 },
                 "update": {
-                  "type": "any-change"
+                  "type": "once"
                 },
-                "triggerEventOnChange": true,
                 "key": "currencyList",
                 "type": "asyncData",
                 "input": true,
-                "eventName": "currencyListEvent",
                 "conditional": {
                   "show": null,
                   "when": null
@@ -1192,15 +1253,14 @@
                 "source": {
                   "type": "custom",
                   "custom": {
-                    "syncData": "value = recordId",
-                    "asyncData": "function getCaseStatus(recordId, attemptsNumber, period = 2000) {\r\n    return new Promise(function(resolve, reject) {\r\n        (function attempt(attemptsLeft) {\r\n        \twindow.Citeck.Records.get(data).load('icase:caseStatusAssoc.cm:name', true).then(status => {\r\n        \t\tif (status !== null) {\r\n        \t\t\treturn resolve(status);\r\n        \t\t}\r\n        \t\tif (attemptsLeft < 1) {\r\n        \t\t\treturn resolve(null);\r\n        \t\t}\r\n        \t\t\r\n        \t\tsetTimeout(attempt.bind(null, attemptsLeft - 1), period);\r\n        \t}).catch(reject);\r\n        })(attemptsNumber);\r\n    });\r\n}\r\n\r\nconst isViewMode = instance.options.readOnly && instance.options.viewAsHtml;\r\nconst formMode = instance.options.formMode;\r\n\r\nif (!isViewMode && formMode === 'EDIT') {\r\n  value = getCaseStatus(data, 10); \r\n} else {\r\n  value = 'status is null'\r\n}"
+                    "syncData": "value = Citeck.Records.get(recordId).load('icase:caseStatusAssoc.cm:name', true);",
+                    "asyncData": "const {options} = instance || {};\r\nconst {readOnly, viewAsHtml, formMode = 'CREATE'} = options || {};\r\nconst isViewMode = readOnly && viewAsHtml;\r\n\r\nvalue = {};\r\nif (!isViewMode && formMode === 'EDIT') {\r\n  value = data || {};\r\n}"
                   },
                   "forceLoad": false
                 },
                 "update": {
-                  "type": "any-change"
+                  "type": "once"
                 },
-                "triggerEventOnChange": false,
                 "key": "caseStatus",
                 "type": "asyncData",
                 "input": true,
