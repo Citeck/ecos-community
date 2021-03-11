@@ -1,4 +1,3 @@
----
 id: orders-internal
 name: { ru: ОРД, en: Internal documents }
 
@@ -8,7 +7,6 @@ actions:
   - uiserv/action@view-dashboard-in-background
 
 columns:
-
   - { id: cm:created, visible: false }
   - { id: tk:kind }
   - id: icase:caseStatusAssoc

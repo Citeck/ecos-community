@@ -1,4 +1,3 @@
----
 id: payments
 name: { ru: Счета, en: Payments }
 
@@ -23,7 +22,6 @@ actionsDef:
         tasks: '[{"taskId": "confirm-task", "transition": "Confirmed"}]'
 
 columns:
-
   - id: cm:created
   - id: cm:title
   - id: idocs:documentStatus
