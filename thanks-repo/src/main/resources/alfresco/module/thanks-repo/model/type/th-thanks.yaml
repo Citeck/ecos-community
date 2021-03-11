@@ -1,8 +1,5 @@
 id: th-thanks
-
-name:
-  ru: Спасибо
-  en: Thanks
+name: { ru: Спасибо, en: Thanks }
 
 dispNameTemplate:
   en: ${th:author?disp!"Empty"} - ${th:recipient?disp!"Empty"} - ${cm:created|fmt("dd.MM.yyyy")!"Empty"}
@@ -13,8 +10,39 @@ formRef: uiserv/form@th-thanks
 journalRef: uiserv/journal@th-thanks
 
 inheritActions: false
-inheritForm: true
 inheritNumTemplate: false
 
 properties:
   alfType: th:thanksType
+
+model:
+  attributes:
+    - id: th:recipient
+      name: { ru: Получатель, en: Recipient }
+      type: PERSON
+
+    - id: th:author
+      name: { ru: Автор, en: Author }
+      type: PERSON
+
+    - id: th:date
+      name: { ru: Дата, en: Date }
+      type: DATE
+
+    - id: th:commentary
+      name: { ru: Комментарий, en: Commentary }
+      type: TEXT
+
+    - id: mounth
+      name: { ru: Месяц, en: Mounth }
+      computed:
+        type: ATTRIBUTE
+        config: { attribute: 'th:date|fmt("MM")' }
+        storingType: NONE
+
+    - id: year
+      name: { ru: Год, en: Year }
+      computed:
+        type: ATTRIBUTE
+        config: { attribute: 'th:date|fmt("yyyy")' }
+        storingType: NONE

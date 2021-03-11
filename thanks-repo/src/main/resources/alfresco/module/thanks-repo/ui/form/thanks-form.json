@@ -4,9 +4,7 @@
   "title": {
     "en": "Form for saying \"Thank you\""
   },
-  "description": {
-    "en": ""
-  },
+  "description": {},
   "customModule": null,
   "typeRef": "",
   "width": "default",
@@ -14,12 +12,12 @@
     "ru": {
       "th:commentary": "Я хочу сказать \"Спасибо\" за...",
       "Cancel": "Отменить",
-      "Submit": "Отправить"
+      "Save": "Сохранить"
     },
     "en": {
       "th:commentary": "I want to say \"Thank you\" for...",
       "Cancel": "Cancel",
-      "Submit": "Send"
+      "Save": "Save"
     }
   },
   "definition": {
@@ -67,6 +65,9 @@
         "defaultValue": "",
         "calculateValue": "const {options} = instance || {};\nconst {parentFormData} = options || {};\nconst {cm_userName} = parentFormData || {};\n\nvalue = cm_userName || null;",
         "allowCalculateOverride": true,
+        "validate": {
+          "required": true
+        },
         "key": "th_recipient",
         "properties": {
           "attribute": "th:recipient"
@@ -155,6 +156,7 @@
             "key": "column4",
             "components": [
               {
+                "label": "Save",
                 "removeIndents": true,
                 "state": "",
                 "theme": "primary",
