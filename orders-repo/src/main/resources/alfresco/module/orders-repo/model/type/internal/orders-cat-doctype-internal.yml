@@ -1,8 +1,7 @@
----
 id: orders-cat-doctype-internal
 name:
-  ru: Внутренний
-  en: Internal
+  ru: Внутренний документ
+  en: Internal document
 
 parentRef: emodel/type@case
 formRef: uiserv/form@orders_internal
