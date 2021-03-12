@@ -1,4 +1,3 @@
----
 id: contracts-cat-doctype-payment
 
 name:
@@ -10,7 +9,12 @@ journalRef: uiserv/journal@payments
 formRef: uiserv/form@payment-form
 
 actions:
+  - uiserv/action@content-download
+  - uiserv/action@edit
+  - uiserv/action@print
+  - uiserv/action@upload-new-version
   - uiserv/action@document-add-closing-doc-for-invoice
+  - uiserv/action@send-to-approval-invoice
 
 properties:
   alfType: payments:payment
