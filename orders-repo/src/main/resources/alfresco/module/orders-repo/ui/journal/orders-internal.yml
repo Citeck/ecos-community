@@ -1,5 +1,5 @@
 id: orders-internal
-name: { ru: ОРД, en: Internal documents }
+name: { ru: Внутренний, en: Internal documents }
 
 actions:
   - uiserv/action@edit

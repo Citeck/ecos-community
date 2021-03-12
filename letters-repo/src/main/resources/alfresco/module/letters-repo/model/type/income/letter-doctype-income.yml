@@ -1,8 +1,7 @@
----
 id: letter-doctype-income
 name:
-  ru: Входящие
-  en: Входящие
+  ru: Входящий документ
+  en: Incoming document
 
 parentRef: emodel/type@case
 formRef: uiserv/form@letters_incoming
@@ -18,6 +17,11 @@ actions:
   - uiserv/action@content-download
   - uiserv/action@delete
   - uiserv/action@edit
+
+defaultCreateVariant: false
+createVariants:
+  - id: create
+    name: { ru: Входящий, en: Incoming }
 
 model:
   attributes:

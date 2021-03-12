@@ -3,7 +3,7 @@ id: contracts-cat-doctype-supp-agreement
 
 name:
   en: Add'l agreement
-  ru: Доп.соглашение
+  ru: Доп. соглашение
 
 parentRef: emodel/type@contracts-cat-doctype-contract-case
 journalRef: uiserv/journal@contracts-supplementary-agreement
