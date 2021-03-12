@@ -1,0 +1,30 @@
+{
+  "id": "send-to-approval-invoice",
+  "name": {
+    "ru": "Отправить на согласование",
+    "en": "Send to approval"
+  },
+  "type": "open-url",
+  "config": {
+    "recordRef": "",
+    "url": "/share/page/start-specified-workflow?packageItems=${recordRef}&workflowId=activiti$confirm"
+  },
+  "evaluator": {
+    "id": null,
+    "type": "predicate",
+    "inverse": false,
+    "config": {
+      "predicate": {
+        "t" : "or",
+        "val" : [
+          {"t": "contains",
+          "att": "idocs:documentStatus",
+          "val": "Draft"},
+          { "t": "contains",
+            "att": "idocs:documentStatus",
+            "val": "Черновик"}
+        ]
+      }
+    }
+  }
+}
