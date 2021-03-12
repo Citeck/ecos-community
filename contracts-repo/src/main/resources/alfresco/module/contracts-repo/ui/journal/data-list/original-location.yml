@@ -1,12 +1,7 @@
----
 id: original-location
 name: { ru: Местонахождение оригинала, en: Original Location }
 
-actions:
-  - uiserv/action@edit
-
 columns:
-
   - id: contracts:subjectCode
   - id: contracts:subjectName
 

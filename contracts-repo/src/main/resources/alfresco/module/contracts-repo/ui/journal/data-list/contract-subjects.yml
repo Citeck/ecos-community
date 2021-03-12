@@ -1,12 +1,7 @@
----
 id: contract-subjects
 name: { ru: Предметы договоров, en: Subjects of Contracts }
 
-actions:
-  - uiserv/action@edit
-
 columns:
-
   - id: contracts:subjectCode
   - id: contracts:subjectName
 

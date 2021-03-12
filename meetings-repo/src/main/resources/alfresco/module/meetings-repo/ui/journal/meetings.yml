@@ -1,4 +1,3 @@
-
 id: meetings
 name: { ru: Совещания, en: Meetings }
 
@@ -8,7 +7,6 @@ actions:
   - uiserv/action@view-dashboard-in-background
 
 columns:
-
   - id: cm:created
   - id: meet:meetingNumber
   - id: idocs:documentStatus
