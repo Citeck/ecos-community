@@ -1,68 +1,15 @@
 id: th-thanks
 name:
-  ru: Спасибо
-  en: Thanks
+  ru: Благодарности
+  en: Acknowledgments
 
-typeRef: emodel/type@th-thanks
-
-predicate:
-  t: and
-  val:
-    - t: eq
-      att: TYPE
-      val: th:thanksType
-    - t: eq
-      att: _type
-      val: ''
-
-actions: [ ]
+actionsFromType: false
 
 editable: false
 columns:
-  - id: th_recipient
-    name:
-      ru: Получатель
-      en: Recipient
-    attribute: th:recipient
-    type: PERSON
-    searchable: true
-    sortable: true
-    groupable: false
-    editable: false
-    visible: true
-
-  - id: th_author
-    name:
-      ru: Автор
-      en: Author
-    attribute: th:author
-    type: PERSON
-    searchable: true
-    sortable: true
-    groupable: false
-    editable: false
-    visible: true
-
-  - id: th_date
-    name:
-      ru: Дата
-      en: Date
-    attribute: th:date
-    type: DATE
-    searchable: true
-    sortable: true
-    groupable: false
-    editable: false
-    visible: true
-
-  - id: th_commentary
-    name:
-      ru: Комментарий
-      en: Commentary
-    attribute: th:commentary
-    type: TEXT
-    searchable: true
-    sortable: true
-    groupable: false
-    editable: false
-    visible: true
+  - id: th:recipient
+  - id: th:author
+  - id: th:date
+  - id: th:commentary
+  - id: mounth
+  - id: year
