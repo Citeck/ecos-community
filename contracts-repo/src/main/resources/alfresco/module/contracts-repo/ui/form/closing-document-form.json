@@ -71,7 +71,7 @@
                         "conditional": {
                           "show": "true",
                           "when": "tk_kind",
-                          "eq": "workspace://SpacesStore/contracts-cat-closing-doc-other"
+                          "eq": "alfresco/@workspace://SpacesStore/contracts-cat-closing-doc-other"
                         },
                         "rows": 1,
                         "type": "textarea",
@@ -506,8 +506,8 @@
                         "refreshOnEvent": true,
                         "refreshEventName": "currencyListEvent",
                         "defaultValue": "",
-                        "customDefaultValue": "if (data.currencyList && data.currencyList.records) {\n  var el = data.currencyList.records.find(x => x.id === 'workspace://SpacesStore/currency-rur');\n  \n  if(el){\n    value = el.id;\n  }\n  \n}",
-                        "calculateValue": "if (!data.DocumentData.agreementCurrency && data.currencyList && data.currencyList.records) {\n  var el = data.currencyList.records.find(x => x.id === 'workspace://SpacesStore/currency-rur');\n  \n  if(el){\n    value = el.id;\n  }\n  \n}",
+                        "customDefaultValue": "if (data.currencyList && data.currencyList.records) {\n  var el = data.currencyList.records.find(x => x.id === 'alfresco/@workspace://SpacesStore/currency-rur');\n  \n  if(el){\n    value = el.id;\n  }\n  \n}",
+                        "calculateValue": "if (!data.DocumentData.agreementCurrency && data.currencyList && data.currencyList.records) {\n  var el = data.currencyList.records.find(x => x.id === 'alfresco/@workspace://SpacesStore/currency-rur');\n  \n  if(el){\n    value = el.id;\n  }\n  \n}",
                         "allowCalculateOverride": true,
                         "validate": {
                           "required": true
@@ -600,7 +600,7 @@
             "key": "columns5"
           },
           {
-            "defaultValue": "workspace://SpacesStore/contracts-cat-doctype-closing-doc",
+            "defaultValue": "alfresco/@workspace://SpacesStore/contracts-cat-doctype-closing-doc",
             "type": "textfield",
             "input": true,
             "hidden": true,
@@ -711,7 +711,7 @@
                         "attributes": {
                           "key": "cm:title"
                         },
-                        "query": "var value = {\n  query: 'PARENT: \"workspace://SpacesStore/contracts-cat-doctype-closing-doc\"',\n  language: 'fts-alfresco'\n}",
+                        "query": "var value = {\n  query: 'PARENT: \"alfresco/@workspace://SpacesStore/contracts-cat-doctype-closing-doc\"',\n  language: 'fts-alfresco'\n}",
                         "isSingle": false
                       },
                       "forceLoad": false

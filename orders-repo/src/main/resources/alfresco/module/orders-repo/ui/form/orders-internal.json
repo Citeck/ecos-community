@@ -40,7 +40,7 @@
                 "data": {
                   "custom": "for (var i in data.subCategories.records){\n  values.push({label: data.subCategories.records[i].title,value: data.subCategories.records[i].id})\n}\n\n"
                 },
-                "defaultValue": "workspace://SpacesStore/orders-cat-internal-order",
+                "defaultValue": "alfresco/@workspace://SpacesStore/orders-cat-internal-order",
                 "refreshOn": [
                   "subCategories"
                 ],
@@ -304,7 +304,7 @@
                 "properties": {
                   "attribute": "dms:updateContent"
                 },
-                "customConditional": "const {tk_kind = \"\"} = data || {};\nvar order1 = tk_kind == \"workspace://SpacesStore/orders-cat-internal-order\";\nvar order2 = tk_kind == \"workspace://SpacesStore/orders-cat-internal-leave\";\nvar order3 = tk_kind == \"workspace://SpacesStore/orders-cat-internal-transfer\";\nvar order4 = tk_kind == \"workspace://SpacesStore/orders-cat-internal-recruitment\";\nvar order5 = tk_kind == \"workspace://SpacesStore/orders-cat-internal-dismissal\";\nshow = order1 || order2 || order3 || order4 || order5;\n",
+                "customConditional": "const {tk_kind = \"\"} = data || {};\nvar order1 = tk_kind == \"alfresco/@workspace://SpacesStore/orders-cat-internal-order\";\nvar order2 = tk_kind == \"alfresco/@workspace://SpacesStore/orders-cat-internal-leave\";\nvar order3 = tk_kind == \"alfresco/@workspace://SpacesStore/orders-cat-internal-transfer\";\nvar order4 = tk_kind == \"alfresco/@workspace://SpacesStore/orders-cat-internal-recruitment\";\nvar order5 = tk_kind == \"alfresco/@workspace://SpacesStore/orders-cat-internal-dismissal\";\nshow = order1 || order2 || order3 || order4 || order5;\n",
                 "type": "checkbox",
                 "input": true,
                 "defaultValue": null
@@ -507,7 +507,7 @@
             "attributes": {
               "title": "cm:title"
             },
-            "query": "var query = 'PARENT:\"workspace://SpacesStore/orders-cat-doctype-internal\"';\nvar value = {\n  query: query,\n  language: 'fts-alfresco'\n}",
+            "query": "var query = 'PARENT:\"alfresco/@workspace://SpacesStore/orders-cat-doctype-internal\"';\nvar value = {\n  query: query,\n  language: 'fts-alfresco'\n}",
             "isSingle": false
           },
           "forceLoad": false

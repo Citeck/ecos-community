@@ -267,7 +267,7 @@
                 },
                 "refreshOnEvent": true,
                 "selectThreshold": 0.3,
-                "customDefaultValue": "if (data.currencyList && data.currencyList.records) {\n  var el = data.currencyList.records.find(x => x.id === 'workspace://SpacesStore/currency-rur');\n  \n  if(el){\n    value = el.id;\n  }\n  \n}\n",
+                "customDefaultValue": "if (data.currencyList && data.currencyList.records) {\n  var el = data.currencyList.records.find(x => x.id === 'alfresco/@workspace://SpacesStore/currency-rur');\n  \n  if(el){\n    value = el.id;\n  }\n  \n}\n",
                 "encrypted": false,
                 "validate": {
                   "required": true,

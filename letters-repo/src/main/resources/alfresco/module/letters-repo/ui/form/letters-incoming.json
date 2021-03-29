@@ -556,7 +556,7 @@
                     "attributes": {
                       "title": "cm:title"
                     },
-                    "query": "var query = 'PARENT:\"workspace://SpacesStore/letter-doctype-income\"';\nvar value = {\n  query: query,\n  language: 'fts-alfresco'\n}",
+                    "query": "var query = 'PARENT:\"alfresco/@workspace://SpacesStore/letter-doctype-income\"';\nvar value = {\n  query: query,\n  language: 'fts-alfresco'\n}",
                     "isSingle": false
                   },
                   "forceLoad": false

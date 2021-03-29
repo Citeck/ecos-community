@@ -408,8 +408,8 @@
                         },
                         "refreshOnEvent": true,
                         "refreshEventName": "currencyListEvent",
-                        "defaultValue": "workspace://SpacesStore/currency-rur",
-                        "customDefaultValue": "if (data.currencyList && data.currencyList.records) {\n  var el = data.currencyList.records.find(x => x.id === 'workspace://SpacesStore/currency-rur');\n  \n  if(el){\n    value = el.id;\n  }\n  \n}\n",
+                        "defaultValue": "alfresco/@workspace://SpacesStore/currency-rur",
+                        "customDefaultValue": "if (data.currencyList && data.currencyList.records) {\n  var el = data.currencyList.records.find(x => x.id === 'alfresco/@workspace://SpacesStore/currency-rur');\n  \n  if(el){\n    value = el.id;\n  }\n  \n}\n",
                         "validate": {
                           "required": true
                         },
@@ -1098,7 +1098,7 @@
                     "attributes": {
                       "key": "cm:title"
                     },
-                    "query": "var value = {\n  query: 'PARENT: \"workspace://SpacesStore/contracts-cat-doctype-contract\"',\n  language: 'fts-alfresco'\n}",
+                    "query": "var value = {\n  query: 'PARENT: \"alfresco/@workspace://SpacesStore/contracts-cat-doctype-contract\"',\n  language: 'fts-alfresco'\n}",
                     "isSingle": false
                   },
                   "forceLoad": false
@@ -1125,7 +1125,7 @@
                     "attributes": {
                       "key": "cm:title"
                     },
-                    "query": "var value = {\n  query: 'PARENT: \"workspace://SpacesStore/contracts-cat-doctype-contract\"',\n  language: 'fts-alfresco'\n}",
+                    "query": "var value = {\n  query: 'PARENT: \"alfresco/@workspace://SpacesStore/contracts-cat-doctype-contract\"',\n  language: 'fts-alfresco'\n}",
                     "isSingle": false
                   },
                   "forceLoad": false

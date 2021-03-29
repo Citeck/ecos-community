@@ -608,12 +608,12 @@
                         },
                         "refreshOnEvent": true,
                         "refreshEventName": "currencyListEvent",
-                        "defaultValue": "workspace://SpacesStore/currency-rur",
+                        "defaultValue": "alfresco/@workspace://SpacesStore/currency-rur",
                         "refreshOn": [
                           "paymentsBasis",
                           "currencyList"
                         ],
-                        "calculateValue": "const{paymentsBasis = {}} = data || null;\r\nconst{agreementCurrency = \"\"} = paymentsBasis || null;\r\nconst{currency = \"\"} = paymentsBasis || null;\r\nif (!_.isEmpty(agreementCurrency)) {\r\n    value = agreementCurrency;\r\n} else if (!_.isEmpty(paymentsBasis) && !_.isEmpty(currency)) {\r\n    value = currency;\r\n} else {\r\n\tvalue = 'workspace://SpacesStore/currency-rur';\r\n}",
+                        "calculateValue": "const{paymentsBasis = {}} = data || null;\r\nconst{agreementCurrency = \"\"} = paymentsBasis || null;\r\nconst{currency = \"\"} = paymentsBasis || null;\r\nif (!_.isEmpty(agreementCurrency)) {\r\n    value = agreementCurrency;\r\n} else if (!_.isEmpty(paymentsBasis) && !_.isEmpty(currency)) {\r\n    value = currency;\r\n} else {\r\n\tvalue = 'alfresco/@workspace://SpacesStore/currency-rur';\r\n}",
                         "allowCalculateOverride": true,
                         "validate": {
                           "required": true
@@ -775,7 +775,7 @@
             "title": "Finance",
             "payments_paymentVAT": 0,
             "key": "panel6",
-            "payments_currency": "workspace://SpacesStore/currency-rur"
+            "payments_currency": "alfresco/@workspace://SpacesStore/currency-rur"
           },
           {
             "type": "panel",

@@ -556,7 +556,7 @@
                             "refreshOn": [
                               "currencyList"
                             ],
-                            "customDefaultValue": "if (data.currencyList && data.currencyList.records) {\n  var el = data.currencyList.records.find(x => x.id === 'workspace://SpacesStore/currency-rur');\n  \n  if(el){\n    value = el.id;\n  }\n  \n}",
+                            "customDefaultValue": "if (data.currencyList && data.currencyList.records) {\n  var el = data.currencyList.records.find(x => x.id === 'alfresco/@workspace://SpacesStore/currency-rur');\n  \n  if(el){\n    value = el.id;\n  }\n  \n}",
                             "validate": {
                               "required": true
                             },
@@ -1054,7 +1054,7 @@
                 "label": {
                   "ru": "tk:type"
                 },
-                "customDefaultValue": "value = 'workspace://SpacesStore/contracts-cat-doctype-supp-agreement';",
+                "customDefaultValue": "value = 'alfresco/@workspace://SpacesStore/contracts-cat-doctype-supp-agreement';",
                 "key": "tk_type",
                 "properties": {
                   "attribute": "tk:type"
