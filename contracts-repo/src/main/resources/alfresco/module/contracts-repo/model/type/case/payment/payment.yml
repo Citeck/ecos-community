@@ -14,7 +14,8 @@ actions:
   - uiserv/action@print
   - uiserv/action@upload-new-version
   - uiserv/action@document-add-closing-doc-for-invoice
-  - uiserv/action@send-to-approval-invoice
+# this action works from lifecycle
+#  - uiserv/action@send-to-approval-invoice
 
 properties:
   alfType: payments:payment
