@@ -4,9 +4,7 @@
   "title": {
     "en": "Supplementary agreement form"
   },
-  "description": {
-    "en": ""
-  },
+  "description": {},
   "customModule": null,
   "typeRef": "",
   "width": "default",
@@ -313,7 +311,7 @@
                                     "name": "Set value",
                                     "trigger": {
                                       "type": "javascript",
-                                      "javascript": "const contractType = \"emodel/type@contracts-cat-doctype-contract\";\nconst suppType = \"emodel/type@contracts-cat-doctype-supp-agreement\";\nconst {_agreementValues, docTypeList, _type: curVal} = data || {};\nconst {childList} = docTypeList || {};\nlet {_type} = _agreementValues || {};\n\nresult = false;\nif (!!_type && _type.startsWith(contractType)) {\n  _type = _type.replace(contractType, suppType)\n}\n\nconst findIndex = _.isArray(childList) ? childList.findIndex(item => item === _type) : -1;\nif (findIndex >= 0) {\n  result = curVal != _type;\n}"
+                                      "javascript": "const contractType = \"emodel/type@contracts-cat-doctype-contract\";\nconst suppType = \"emodel/type@contracts-cat-doctype-supp-agreement\";\nconst {_agreementValues, docTypeList, _type: curVal} = data || {};\nconst {childList} = docTypeList || {};\nlet {_type} = _agreementValues || {};\n\nresult = false;\nif (!!_type && _type.startsWith(contractType)) {\n  _type = _type.replace(contractType, suppType)\n}\n\nconst findIndex = _.isArray(childList) ? childList.findIndex(item => item.value === _type) : -1;\nif (findIndex >= 0) {\n  result = curVal != _type;\n}"
                                     },
                                     "actions": [
                                       {
@@ -327,7 +325,7 @@
                                     "name": "Disable",
                                     "trigger": {
                                       "type": "javascript",
-                                      "javascript": "const contractType = \"emodel/type@contracts-cat-doctype-contract\";\nconst suppType = \"emodel/type@contracts-cat-doctype-supp-agreement\";\nconst {_agreementValues, docTypeList, _type: curVal} = data || {};\nconst {childList} = docTypeList || {};\nlet {_type} = _agreementValues || {};\n\nresult = false;\nif (!!_type && _type.startsWith(contractType)) {\n  _type = _type.replace(contractType, suppType)\n}\n\nconst findIndex = _.isArray(childList) ? childList.findIndex(item => item === _type) : -1;\nif (findIndex >= 0) {\n  result = true;\n}"
+                                      "javascript": "const contractType = \"emodel/type@contracts-cat-doctype-contract\";\nconst suppType = \"emodel/type@contracts-cat-doctype-supp-agreement\";\nconst {_agreementValues, docTypeList, _type: curVal} = data || {};\nconst {childList} = docTypeList || {};\nlet {_type} = _agreementValues || {};\n\nresult = false;\nif (!!_type && _type.startsWith(contractType)) {\n  _type = _type.replace(contractType, suppType)\n}\n\nconst findIndex = _.isArray(childList) ? childList.findIndex(item => item.value === _type) : -1;\nif (findIndex >= 0) {\n  result = true;\n}"
                                     },
                                     "actions": [
                                       {
