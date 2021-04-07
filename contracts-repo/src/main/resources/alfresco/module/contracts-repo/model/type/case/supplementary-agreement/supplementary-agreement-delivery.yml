@@ -2,7 +2,7 @@
 id: contracts-cat-doctype-supp-agreement/contracts-cat-contract-delivery
 
 name:
-  ru: 'Доп.соглашение: Доставка'
-  en: 'Supplementary agreement: Delivery'
+  ru: 'Доставка'
+  en: 'Delivery'
 
 parentRef: emodel/type@contracts-cat-doctype-supp-agreement
