@@ -2,7 +2,7 @@
 id: contracts-cat-doctype-supp-agreement/contracts-cat-contract-services
 
 name:
-  ru: 'Доп.соглашение: Услуги'
-  en: 'Supplementary agreement: Services'
+  ru: 'Услуги'
+  en: 'Services'
 
 parentRef: emodel/type@contracts-cat-doctype-supp-agreement
