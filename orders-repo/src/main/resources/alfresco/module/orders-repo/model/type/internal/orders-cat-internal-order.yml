@@ -1,5 +1,6 @@
 {
   "id": "orders-cat-doctype-internal/orders-cat-internal-order",
   "name": "Приказ",
-  "parentRef": "emodel/type@orders-cat-doctype-internal"
+  "parentRef": "emodel/type@orders-cat-doctype-internal",
+  "inheritForm": true
 }
