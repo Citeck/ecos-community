@@ -181,7 +181,7 @@
                                     "name": "Disable",
                                     "trigger": {
                                       "type": "javascript",
-                                      "javascript": "const {_agreementValues} = data || {};\nconst {_contractor} = data || {_agreementValues};\n\nresult = !!_contractor;"
+                                      "javascript": "const {_agreementValues} = data || {};\nconst {_contractor} = data._agreementValues || null;\n\nresult = !!_contractor;"
                                     },
                                     "actions": [
                                       {
