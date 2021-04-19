@@ -1,11 +1,10 @@
 {
   "id": "orders_internal",
+  "formKey": "",
   "title": {
     "en": "Orders internal"
   },
-  "description": {
-    "en": ""
-  },
+  "description": {},
   "customModule": null,
   "typeRef": "emodel/type@orders-cat-doctype-internal",
   "width": "default",
@@ -16,7 +15,11 @@
       "orders:registrationNumber_tooltip": "Регистрационный номер задается на этапе Регистрации после подписания ",
       "Save": "Сохранить",
       "Cancel": "Отменить",
-      "Submit": "Создать"
+      "Submit": "Создать",
+      "Order (transfer)": "Приказ на перевод",
+      "Order (leave)": "Приказ на отпуск",
+      "Order (recruitment)": "Приказ на прием на работу",
+      "Order (dismissal)": "Приказ на увольнение"
     },
     "en": {
       "cm:content": "Content",
@@ -24,7 +27,11 @@
       "orders:registrationNumber_tooltip": "Registration number is filled on the Registration stage after document signing",
       "Save": "Save",
       "Cancel": "Cancel",
-      "Submit": "Submit"
+      "Submit": "Submit",
+      "Order (transfer)": "Order (transfer)",
+      "Order (leave)": "Order (leave)",
+      "Order (recruitment)": "Order (recruitment)",
+      "Order (dismissal)": "Order (dismissal)"
     }
   },
   "definition": {
@@ -306,8 +313,7 @@
                 },
                 "customConditional": "const {tk_kind = \"\"} = data || {};\nvar order1 = tk_kind == \"alfresco/@workspace://SpacesStore/orders-cat-internal-order\";\nvar order2 = tk_kind == \"alfresco/@workspace://SpacesStore/orders-cat-internal-leave\";\nvar order3 = tk_kind == \"alfresco/@workspace://SpacesStore/orders-cat-internal-transfer\";\nvar order4 = tk_kind == \"alfresco/@workspace://SpacesStore/orders-cat-internal-recruitment\";\nvar order5 = tk_kind == \"alfresco/@workspace://SpacesStore/orders-cat-internal-dismissal\";\nshow = order1 || order2 || order3 || order4 || order5;\n",
                 "type": "checkbox",
-                "input": true,
-                "defaultValue": null
+                "input": true
               }
             ],
             "type": "column",
