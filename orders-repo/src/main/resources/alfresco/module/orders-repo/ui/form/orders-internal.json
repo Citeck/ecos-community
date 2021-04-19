@@ -41,9 +41,7 @@
           {
             "components": [
               {
-                "label": {
-                  "ru": "tk:kind"
-                },
+                "label": "tk:kind",
                 "clearOnHide": false,
                 "dataSrc": "custom",
                 "data": {
