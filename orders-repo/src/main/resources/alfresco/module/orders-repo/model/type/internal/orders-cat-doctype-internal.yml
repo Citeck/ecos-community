@@ -1,12 +1,12 @@
+---
 id: orders-cat-doctype-internal
 name:
   ru: Внутренний документ
   en: Internal document
-
 parentRef: emodel/type@case
 formRef: uiserv/form@orders_internal
 journalRef: uiserv/journal@orders-internal
-
+inheritForm: false
 actions:
   - uiserv/action@send-to-approval
   - uiserv/action@document-start-statement
@@ -15,12 +15,19 @@ actions:
   - uiserv/action@edit
   - uiserv/action@print-pdf
   - uiserv/action@upload-new-version
-
-properties:
-  alfType: orders:internal
-  alfRoot: /app:company_home/st:sites/cm:orders/cm:documentLibrary/cm:documents/cm:internals
-
+defaultCreateVariant: true
 model:
+  roles:
+  - id: technologist
+    name:
+      ru: Технолог
+    attribute: ''
+    assignees:
+      - GROUP_orders-technologist
+  statuses:
+    - id: active
+      name:
+        ru: Действует
   attributes:
     - id: orders:branch
       type: AUTHORITY
@@ -28,3 +35,6 @@ model:
       type: ASSOC
       config:
         typeRef: emodel/type@files-nomenclature
+properties:
+  alfType: orders:internal
+  alfRoot: /app:company_home/st:sites/cm:orders/cm:documentLibrary/cm:documents/cm:internals
