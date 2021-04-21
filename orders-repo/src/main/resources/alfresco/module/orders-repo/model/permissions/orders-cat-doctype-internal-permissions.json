@@ -1,0 +1,13 @@
+{
+  "id": "orders-cat-doctype-internal",
+  "typeRef": "emodel/type@orders-cat-doctype-internal",
+  "permissions": {
+    "matrix": {
+      "technologist": {
+        "active": "WRITE"
+      }
+    },
+    "rules": []
+  },
+  "attributes": {}
+}
