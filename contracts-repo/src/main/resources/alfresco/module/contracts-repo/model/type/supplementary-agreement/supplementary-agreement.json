@@ -1,20 +1,30 @@
 {
-    "id": "supplementary-agreement",
-    "name": {
-        "ru": "Доп.соглашение",
-        "en": "Supplementary agreement"
-    },
-    "parent": "emodel/type@contracts-cat-doctype-contract",
-    "inheritActions": true,
-    "associations": [
-        {
-            "id": "contracts:mainAgreement",
-            "name": {
-                "ru": "Связь с договором",
-                "en": "Relationship to the contract"
-            },
-            "direction": "TARGET",
-            "target": "emodel/type@user-base"
-        }
-    ]
+  "id": "supplementary-agreement",
+  "name": {
+    "ru": "Доп.соглашение",
+    "en": "Supplementary agreement"
+  },
+  "parent": "emodel/type@contracts-cat-doctype-contract",
+  "inheritActions": false,
+  "actions": [
+    "uiserv/action@upload-new-version",
+    "uiserv/action@edit",
+    "uiserv/action@content-download",
+    "uiserv/action@record-actions",
+    "uiserv/action@edit-in-onlyoffice",
+    "uiserv/action@save-as-case-template",
+    "uiserv/action@print",
+    "uiserv/action@pdf-content-with-barcode"
+  ],
+  "associations": [
+    {
+      "id": "contracts:mainAgreement",
+      "name": {
+        "ru": "Связь с договором",
+        "en": "Relationship to the contract"
+      },
+      "direction": "TARGET",
+      "target": "emodel/type@user-base"
+    }
+  ]
 }

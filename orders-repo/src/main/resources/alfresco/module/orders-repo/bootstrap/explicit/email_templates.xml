@@ -11,6 +11,7 @@
             <dms:taskName>wfgf:familiarizeTask</dms:taskName>
             <cm:content>contentUrl=classpath:alfresco/module/orders-repo/bootstrap/explicit\notification\wf-familiartask-email-notification.html.ftl|mimetype=text/plain|encoding=UTF-8</cm:content>
             <dms:sendToAssignee>true</dms:sendToAssignee>
+            <dms:ecosNotificationTemplate>notifications/template@wf-familiartask-email-notification</dms:ecosNotificationTemplate>
         </view:properties>
     </dms:notificationTemplate>
     <dms:notificationTemplate view:childName="cm:wf-familiartask-email-notification.html.ftl">
@@ -23,6 +24,7 @@
             <dms:taskName>wfgf:familiarizeTask</dms:taskName>
             <cm:content>contentUrl=classpath:alfresco/module/orders-repo/bootstrap/explicit\notification\wf-familiartask-complete-notification.html.ftl|mimetype=text/plain|encoding=UTF-8</cm:content>
             <dms:taskSubscribers>orders_header</dms:taskSubscribers>
+            <dms:ecosNotificationTemplate>notifications/template@wf-familiartask-complete-notification</dms:ecosNotificationTemplate>
         </view:properties>
     </dms:notificationTemplate>
 </view:view>

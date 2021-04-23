@@ -189,8 +189,8 @@
         <option name="createVariantRedirectionMethod">back</option>
         <option name="defaultSortBy">[{id: 'cm:created', order: 'desc'}]</option>
         <headers>
-            <header key="contracts:subjectCode" default="true" />
-            <header key="contracts:subjectName" default="true" />
+            <header key="cm:name" default="true" />
+            <header key="cm:title" default="true" />
             <header key="tk:type" default="false" />
             <header key="cm:created" default="false" />
         </headers>
