@@ -4,7 +4,74 @@
   "permissions": {
     "matrix": {
       "technologist": {
-        "active": "WRITE"
+        "active": "WRITE",
+        "reworking": "WRITE",
+        "draft": "WRITE",
+        "approval": "WRITE",
+        "prepared": "WRITE",
+        "signing": "WRITE",
+        "scanning": "WRITE",
+        "inprogress": "WRITE",
+        "onexecution": "WRITE",
+        "infamiliarization": "WRITE",
+        "cancelled": "WRITE",
+        "EMPTY": "READ"
+      },
+      "initiator": {
+        "active": "READ",
+        "reworking": "WRITE",
+        "draft": "WRITE",
+        "approval": "READ",
+        "prepared": "READ",
+        "signing": "READ",
+        "scanning": "READ",
+        "inprogress": "READ",
+        "onexecution": "READ",
+        "infamiliarization": "READ",
+        "cancelled": "READ",
+        "EMPTY": "READ"
+      },
+      "signer": {
+        "active": "READ",
+        "reworking": "READ",
+        "draft": "READ",
+        "approval": "READ",
+        "prepared": "READ",
+        "signing": "WRITE",
+        "scanning": "READ",
+        "inprogress": "READ",
+        "onexecution": "READ",
+        "infamiliarization": "READ",
+        "cancelled": "READ",
+        "EMPTY": "READ"
+      },
+      "scan-man": {
+        "active": "READ",
+        "reworking": "READ",
+        "draft": "READ",
+        "approval": "READ",
+        "prepared": "READ",
+        "signing": "READ",
+        "scanning": "WRITE",
+        "inprogress": "READ",
+        "onexecution": "READ",
+        "infamiliarization": "READ",
+        "cancelled": "READ",
+        "EMPTY": "READ"
+      },
+      "confirmers": {
+        "active": "READ",
+        "reworking": "READ",
+        "draft": "READ",
+        "approval": "WRITE",
+        "prepared": "READ",
+        "signing": "READ",
+        "scanning": "READ",
+        "inprogress": "READ",
+        "onexecution": "READ",
+        "infamiliarization": "READ",
+        "cancelled": "READ",
+        "EMPTY": "READ"
       }
     },
     "rules": []
