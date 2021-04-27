@@ -2,6 +2,8 @@ id: contract-agreements
 name: { ru: Договоры, en: Contracts }
 
 actions:
+  - uiserv/action@download-zip
+  - uiserv/action@delete
   - uiserv/action@edit
   - uiserv/action@view-dashboard
   - uiserv/action@view-dashboard-in-background

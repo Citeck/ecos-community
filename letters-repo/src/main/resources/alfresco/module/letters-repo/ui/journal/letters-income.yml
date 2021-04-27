@@ -2,6 +2,8 @@ id: letters-income
 name: { ru: Входящие, en: Incoming }
 
 actions:
+  - uiserv/action@download-zip
+  - uiserv/action@delete
   - uiserv/action@edit
   - uiserv/action@view-dashboard
   - uiserv/action@view-dashboard-in-background
