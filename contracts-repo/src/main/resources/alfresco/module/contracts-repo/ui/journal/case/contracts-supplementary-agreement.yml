@@ -2,6 +2,7 @@ id: contracts-supplementary-agreement
 name: { ru: Доп. соглашения, en: Add'l agreements }
 
 actions:
+  - uiserv/action@download-zip
   - uiserv/action@edit
   - uiserv/action@view-dashboard
   - uiserv/action@view-dashboard-in-background

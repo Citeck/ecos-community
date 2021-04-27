@@ -2,6 +2,7 @@ id: order-passes
 name: { ru: Пропуска, en: Order Passes }
 
 actions:
+  - uiserv/action@download-zip
   - uiserv/action@edit
   - uiserv/action@view-dashboard
   - uiserv/action@view-dashboard-in-background

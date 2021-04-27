@@ -2,6 +2,7 @@ id: meetings
 name: { ru: Совещания, en: Meetings }
 
 actions:
+  - uiserv/action@download-zip
   - uiserv/action@edit
   - uiserv/action@view-dashboard
   - uiserv/action@view-dashboard-in-background
