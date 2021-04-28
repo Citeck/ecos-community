@@ -390,7 +390,7 @@
                         "journalId": "idocs-contractor",
                         "refreshOn": "payments_basis",
                         "clearOnRefresh": true,
-                        "customDefaultValue": "const {paymentsBasis = {}} = data || {};\r\nconst {contractor = \"\"} = paymentsBasis;\r\n\r\nif (!_.isEmpty(paymentsBasis) && !_.isEmpty(contractor)) {\r\n    value = contractor; \r\n} else {\r\n  value = null;\r\n}",
+                        "customDefaultValue": "const {paymentsBasis = {}} = data;\r\nconst {contractor = \"\"} = paymentsBasis;\r\n\r\nif (!_.isEmpty(paymentsBasis) && !_.isEmpty(contractor)) {\r\n    value = contractor; \r\n} else {\r\n  value = null;\r\n}",
                         "validate": {
                           "required": true
                         },
