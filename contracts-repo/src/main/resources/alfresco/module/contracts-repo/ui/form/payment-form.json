@@ -199,7 +199,7 @@
                     "components": [
                       {
                         "label": {
-                          "en": "payments:payer"
+                          "ru": "payments:payer"
                         },
                         "clearOnHide": false,
                         "journalId": "legal-entities",
@@ -208,7 +208,7 @@
                         },
                         "refreshOn": "payments_basis",
                         "clearOnRefresh": true,
-                        "customDefaultValue": "const {paymentsBasis = {}} = data;\r\nconst {type = \"\",\r\n       agreementLegalEntity = \"\",\r\n       legalEntity = \"\"\r\n} = paymentsBasis;\r\nif (paymentsBasis) {\r\n    if ((type == \"contracts:agreement\" || type == \"contracts:supplementaryAgreement\") && agreementLegalEntity)  {\r\n        value = agreementLegalEntity;\r\n    } else if (type == \"contracts:closingDocument\" && legalEntity) {\r\n        value = legalEntity;  \r\n    }\r\n} else {\r\n  value = \"\";\r\n}",
+                        "customDefaultValue": "const {paymentsBasis = {}} = data;\r\nconst {type = \"\",\r\n       agreementLegalEntity = \"\",\r\n       legalEntity = \"\"\r\n} = paymentsBasis;\r\n\r\nif (paymentsBasis) {\r\n    if ((type == \"contracts:agreement\" || type == \"contracts:supplementaryAgreement\") && agreementLegalEntity)  {\r\n        value = agreementLegalEntity;\r\n    } else if (type == \"contracts:closingDocument\" && legalEntity) {\r\n        value = legalEntity;  \r\n    }\r\n} \r\n\r\nif (agreementLegalEntity == null && legalEntity == null){\r\n  value = null;\r\n}\r\n",
                         "validate": {
                           "required": true
                         },
@@ -384,13 +384,13 @@
                     "components": [
                       {
                         "label": {
-                          "en": "payments:beneficiary"
+                          "ru": "payments:beneficiary"
                         },
                         "clearOnHide": false,
                         "journalId": "idocs-contractor",
                         "refreshOn": "payments_basis",
                         "clearOnRefresh": true,
-                        "customDefaultValue": "const {paymentsBasis = {}} = data;\r\nconst {contractor = \"\"} = paymentsBasis;\r\n\r\nif (!_.isEmpty(paymentsBasis) && !_.isEmpty(contractor)) {\r\n    value = contractor; \r\n} else {\r\n  value = \"\";\r\n}",
+                        "customDefaultValue": "const {paymentsBasis = {}} = data || {};\r\nconst {contractor = \"\"} = paymentsBasis;\r\n\r\nif (!_.isEmpty(paymentsBasis) && !_.isEmpty(contractor)) {\r\n    value = contractor; \r\n} else {\r\n  value = null;\r\n}",
                         "validate": {
                           "required": true
                         },
@@ -605,7 +605,7 @@
                     "components": [
                       {
                         "label": {
-                          "en": "payments:currency"
+                          "ru": "payments:currency"
                         },
                         "clearOnHide": false,
                         "dataSrc": "custom",
@@ -619,7 +619,7 @@
                           "paymentsBasis",
                           "currencyList"
                         ],
-                        "calculateValue": "const{paymentsBasis = {}} = data || null;\r\nconst{agreementCurrency = \"\"} = paymentsBasis.agreementCurrency || null;\r\nconst{currency = \"\"} = paymentsBasis.currency || null;\r\nif (!_.isEmpty(agreementCurrency)) {\r\n    value = agreementCurrency;\r\n} else if (!_.isEmpty(currency) && !_.isEmpty(paymentsBasis)) {\r\n    value = currency;\r\n} else {\r\n\tvalue = 'alfresco/@workspace://SpacesStore/currency-rur';\r\n}",
+                        "calculateValue": "const{paymentsBasis = {}} = data || null;\r\nconst{agreementCurrency = \"\"} = paymentsBasis || null;\r\nconst{currency = \"\"} = paymentsBasis || null;\r\nif (!_.isEmpty(agreementCurrency)) {\r\n    value = agreementCurrency;\r\n} else if (!_.isEmpty(paymentsBasis) && !_.isEmpty(currency) ) {\r\n    value = currency;\r\n} else {\r\n\tvalue = 'alfresco/@workspace://SpacesStore/currency-rur';\r\n}",
                         "allowCalculateOverride": true,
                         "validate": {
                           "required": true
@@ -633,7 +633,7 @@
                             "name": "disabled_on",
                             "trigger": {
                               "type": "javascript",
-                              "javascript": "const{paymentsBasis = \"\"} = data || null;\r\nconst{agreementCurrency = \"\"} = paymentsBasis.agreementCurrency || null;\r\nconst{currency = \"\"} = paymentsBasis.currency || null;\r\nif (paymentsBasis && agreementCurrency !== null) {\r\n    result = true;\r\n} else if (paymentsBasis && currency !== null) {\r\n    result = true;\r\n} else {\r\n    result = false;\r\n}\r\n"
+                              "javascript": "const{paymentsBasis = \"\"} = data || {};\r\nconst{agreementCurrency = \"\"} = paymentsBasis || null;\r\nconst{currency = \"\"} = paymentsBasis || null;\r\nif (paymentsBasis && agreementCurrency !== null) {\r\n    result = true;\r\n} else if (paymentsBasis && currency !== null) {\r\n    result = true;\r\n} else {\r\n    result = false;\r\n}\r\n"
                             },
                             "actions": [
                               {
