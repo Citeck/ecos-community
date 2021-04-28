@@ -208,7 +208,7 @@
                         },
                         "refreshOn": "payments_basis",
                         "clearOnRefresh": true,
-                        "calculateValue": "const {paymentsBasis = {}} = data;\r\nconst {type = \"\",\r\n       agreementLegalEntity = \"\",\r\n       legalEntity = \"\"\r\n} = paymentsBasis;\r\nif (paymentsBasis) {\r\n    if ((type == \"contracts:agreement\" || type == \"contracts:supplementaryAgreement\") && agreementLegalEntity)  {\r\n        value = agreementLegalEntity;\r\n    } else if (type == \"contracts:closingDocument\" && legalEntity) {\r\n        value = legalEntity;  \r\n    }\r\n}",
+                        "customDefaultValue": "const {paymentsBasis = {}} = data;\r\nconst {type = \"\",\r\n       agreementLegalEntity = \"\",\r\n       legalEntity = \"\"\r\n} = paymentsBasis;\r\n\r\nif (paymentsBasis) {\r\n    if ((type == \"contracts:agreement\" || type == \"contracts:supplementaryAgreement\") && agreementLegalEntity)  {\r\n        value = agreementLegalEntity;\r\n    } else if (type == \"contracts:closingDocument\" && legalEntity) {\r\n        value = legalEntity;  \r\n    }\r\n} \r\n\r\nif (agreementLegalEntity == null && legalEntity == null){\r\n  value = null;\r\n}\r\n",
                         "validate": {
                           "required": true
                         },
@@ -390,7 +390,7 @@
                         "journalId": "idocs-contractor",
                         "refreshOn": "payments_basis",
                         "clearOnRefresh": true,
-                        "calculateValue": "const {paymentsBasis = {}} = data;\r\nconst {contractor = \"\"} = paymentsBasis;\r\n\r\nif (!_.isEmpty(paymentsBasis) && !_.isEmpty(contractor)) {\r\n    value = contractor; \r\n}",
+                        "customDefaultValue": "const {paymentsBasis = {}} = data;\r\nconst {contractor = \"\"} = paymentsBasis;\r\n\r\nif (!_.isEmpty(paymentsBasis) && !_.isEmpty(contractor)) {\r\n    value = contractor; \r\n} else {\r\n  value = null;\r\n}",
                         "validate": {
                           "required": true
                         },
@@ -633,7 +633,7 @@
                             "name": "disabled_on",
                             "trigger": {
                               "type": "javascript",
-                              "javascript": "const{paymentsBasis = \"\"} = data || null;\r\nconst{agreementCurrency = \"\"} = paymentsBasis || null;\r\nconst{currency = \"\"} = paymentsBasis || null;\r\nif (paymentsBasis && agreementCurrency !== null) {\r\n    result = true;\r\n} else if (paymentsBasis && currency !== null) {\r\n    result = true;\r\n} else {\r\n    result = false;\r\n}\r\n"
+                              "javascript": "const{paymentsBasis = \"\"} = data || {};\r\nconst{agreementCurrency = \"\"} = paymentsBasis || null;\r\nconst{currency = \"\"} = paymentsBasis || null;\r\nif (paymentsBasis && agreementCurrency !== null) {\r\n    result = true;\r\n} else if (paymentsBasis && currency !== null) {\r\n    result = true;\r\n} else {\r\n    result = false;\r\n}\r\n"
                             },
                             "actions": [
                               {
