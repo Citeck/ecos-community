@@ -208,7 +208,8 @@
                         },
                         "refreshOn": "payments_basis",
                         "clearOnRefresh": true,
-                        "customDefaultValue": "const {paymentsBasis = {}} = data;\r\nconst {type = \"\",\r\n       agreementLegalEntity = \"\",\r\n       legalEntity = \"\"\r\n} = paymentsBasis;\r\n\r\nif (paymentsBasis) {\r\n    if ((type == \"contracts:agreement\" || type == \"contracts:supplementaryAgreement\") && agreementLegalEntity)  {\r\n        value = agreementLegalEntity;\r\n    } else if (type == \"contracts:closingDocument\" && legalEntity) {\r\n        value = legalEntity;  \r\n    }\r\n} \r\n\r\nif (agreementLegalEntity == null && legalEntity == null){\r\n  value = null;\r\n}\r\n",
+                        "calculateValue": "const {paymentsBasis = {}} = data;\r\nconst {type = \"\",\r\n       agreementLegalEntity = \"\",\r\n       legalEntity = \"\"\r\n} = paymentsBasis;\r\nif (paymentsBasis) {\r\n    if ((type == \"contracts:agreement\" || type == \"contracts:supplementaryAgreement\") && agreementLegalEntity)  {\r\n        value = agreementLegalEntity;\r\n    } else if (type == \"contracts:closingDocument\" && legalEntity) {\r\n        value = legalEntity;  \r\n    }\r\n}",
+                        "allowCalculateOverride": true,
                         "validate": {
                           "required": true
                         },
@@ -233,6 +234,11 @@
                                 },
                                 "state": "true",
                                 "type": "property"
+                              },
+                              {
+                                "name": "set_value",
+                                "type": "value",
+                                "value": "const {paymentsBasis = {}} = data || {};\r\nconst {agreementLegalEntity = null} = paymentsBasis || {};\r\nif (agreementLegalEntity == null){\r\n  value = null;\r\n} else if (paymentsBasis && agreementLegalEntity !== null) {\r\n    value = agreementLegalEntity;\r\n} "
                               }
                             ]
                           }
@@ -390,7 +396,8 @@
                         "journalId": "idocs-contractor",
                         "refreshOn": "payments_basis",
                         "clearOnRefresh": true,
-                        "customDefaultValue": "const {paymentsBasis = {}} = data;\r\nconst {contractor = \"\"} = paymentsBasis;\r\n\r\nif (!_.isEmpty(paymentsBasis) && !_.isEmpty(contractor)) {\r\n    value = contractor; \r\n} else {\r\n  value = null;\r\n}",
+                        "calculateValue": "const {paymentsBasis = {}} = data;\r\nconst {contractor = \"\"} = paymentsBasis;\r\nif (!_.isEmpty(paymentsBasis) && !_.isEmpty(contractor)) {\r\n    value = contractor; \r\n} ",
+                        "allowCalculateOverride": true,
                         "validate": {
                           "required": true
                         },
@@ -415,6 +422,11 @@
                                 },
                                 "state": "true",
                                 "type": "property"
+                              },
+                              {
+                                "name": "set_value",
+                                "type": "value",
+                                "value": "const {paymentsBasis} = data || {};\r\nconst {contractor} = paymentsBasis || null;\r\nif (contractor == null){\r\n  value = \"\";\r\n} else if (paymentsBasis && contractor !== null) {\r\n    value = contractor;\r\n} "
                               }
                             ]
                           }
