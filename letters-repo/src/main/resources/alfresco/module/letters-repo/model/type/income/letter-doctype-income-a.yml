@@ -1,0 +1,7 @@
+---
+id: letter-doctype-income/letter-doctype-income-a
+name:
+  ru: Бухгалтерский
+  en: Бухгалтерский
+
+parentRef: emodel/type@letter-doctype-income

@@ -1,0 +1,11 @@
+id: contract-subjects
+name: { ru: Предметы договоров, en: Subjects of Contracts }
+
+columns:
+  - id: contracts:subjectCode
+  - id: contracts:subjectName
+
+  - id: cm:created
+    visible: false
+  - id: cm:taggable
+    visible: false

@@ -1,0 +1,56 @@
+id: payments
+name: { ru: Счета, en: Payments }
+
+actions:
+  - uiserv/action@download-zip
+  - uiserv/action@edit
+  - uiserv/action@view-dashboard
+  - uiserv/action@view-dashboard-in-background
+
+actionsDef:
+  - name:
+      ru: 'Согласовать выбранные счета'
+      en: 'Approve selected payments'
+    type: server-group-action
+    config:
+      id: complete-document-task
+      title:
+        ru: 'Согласовать выбранные счета'
+        en: 'Approve selected payments'
+      type: selected
+      params:
+        actionId: complete-document-task
+        tasks: '[{"taskId": "confirm-task", "transition": "Confirmed"}]'
+
+columns:
+  - id: cm:created
+  - id: cm:title
+  - id: idocs:documentStatus
+  - id: payments:basis
+  - id: payments:budgetItem
+  - id: payments:paymentFor
+  - id: payments:payer
+  - id: payments:beneficiary
+  - id: payments:paymentDate
+  - id: payments:plannedPaymentDate
+  - id: payments:period
+  - id: payments:currency
+  - id: payments:paymentAmount
+  - id: payments:paymentVAT
+
+  - id: payments:paymentArrangement
+    visible: false
+  - id: payments:paymentPurpose
+    visible: false
+  - id: payments:beneficiaryType
+    visible: false
+  - id: cm:name
+    visible: false
+  - id: payments:beneficiaryAccount
+    visible: false
+  - id: payments:billDate
+    visible: false
+  - id: payments:overexpenditure
+    visible: false
+  - id: payments:paymentComment
+    visible: false

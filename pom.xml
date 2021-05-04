@@ -4,7 +4,7 @@
 
     <groupId>ru.citeck.ecos.community</groupId>
     <artifactId>ecos-community</artifactId>
-    <version>4.1.0</version>
+    <version>4.2.0</version>
     <packaging>pom</packaging>
 
     <name>ecos-community</name>
@@ -66,7 +66,7 @@
         <yuicompressor.compress.skip>false</yuicompressor.compress.skip>
 
         <ecos.flowable.version>3.0.5.1</ecos.flowable.version>
-        <ecos.core.version>4.2.0</ecos.core.version>
+        <ecos.core.version>4.4.0</ecos.core.version>
 
         <web.compression.skip>false</web.compression.skip>
 
@@ -797,6 +797,13 @@
 
                         <moduleDependency>
                             <groupId>${project.groupId}</groupId>
+                            <artifactId>thanks-repo</artifactId>
+                            <version>${project.version}</version>
+                            <type>amp</type>
+                        </moduleDependency>
+
+                        <moduleDependency>
+                            <groupId>${project.groupId}</groupId>
                             <artifactId>ecos-flowable-repo</artifactId>
                             <version>${ecos.core.version}</version>
                             <type>amp</type>
@@ -986,6 +993,7 @@
         <module>orders-repo</module>
         <module>orders-share</module>
         <module>ecos-order-pass-repo</module>
+        <module>thanks-repo</module>
     </modules>
 
     <repositories>

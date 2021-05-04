@@ -1,0 +1,71 @@
+id: contracts-cat-doctype-payment
+
+name:
+  en: Payment
+  ru: Счет
+
+parentRef: emodel/type@case
+journalRef: uiserv/journal@payments
+formRef: uiserv/form@payment-form
+
+actions:
+  - uiserv/action@content-download
+  - uiserv/action@edit
+  - uiserv/action@print
+  - uiserv/action@upload-new-version
+  - uiserv/action@document-add-closing-doc-for-invoice
+# this action works from lifecycle
+#  - uiserv/action@send-to-approval-invoice
+
+properties:
+  alfType: payments:payment
+  alfRoot: /app:company_home/st:sites/cm:contracts/cm:documentLibrary/cm:payments
+
+associations:
+
+  - id: contracts:closingDocumentPayment
+    name:
+      ru: Учетные документы
+      en: Accounting Documents
+
+    direction: SOURCE
+    target: emodel/type@user-base
+
+  - id: payments:basis
+    name:
+      ru: Документ-основание
+      en: Document-base
+
+    direction: TARGET
+    target: emodel/type@user-base
+
+model:
+  attributes:
+    - id: payments:basis
+      type: ASSOC
+      config:
+        typeRef: emodel/type@idocs-doc
+    - id: payments:beneficiary
+      type: ASSOC
+      config:
+        typeRef: emodel/type@idocs-contractor
+    - id: payments:beneficiaryAccount
+      type: ASSOC
+      config:
+        typeRef: emodel/type@bank-account
+    - id: payments:budgetItem
+      type: ASSOC
+      config:
+        typeRef: emodel/type@budget-item
+    - id: payments:currency
+      type: ASSOC
+      config:
+        typeRef: emodel/type@currency
+    - id: payments:payer
+      type: ASSOC
+      config:
+        typeRef: emodel/type@legal-entity
+    - id: payments:period
+      type: ASSOC
+      config:
+        typeRef: emodel/type@payment-period

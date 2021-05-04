@@ -1,0 +1,11 @@
+id: original-location
+name: { ru: Местонахождение оригинала, en: Original Location }
+
+columns:
+  - id: cm:name
+  - id: cm:title
+
+  - id: tk:type
+    visible: false
+  - id: cm:created
+    visible: false

@@ -7,7 +7,7 @@
   "type": "open-url",
   "config": {
     "recordRef": "",
-    "url": "/share/page/start-specified-workflow?packageItems=${recordRef}&workflowId=activiti$confirm"
+    "url": "/share/page/start-specified-workflow?packageItems=${?localId}&workflowId=activiti$confirm"
   },
   "evaluator": {
     "id": null,
@@ -15,14 +15,18 @@
     "inverse": false,
     "config": {
       "predicate": {
-        "t" : "or",
-        "val" : [
-          {"t": "contains",
-          "att": "idocs:documentStatus",
-          "val": "Draft"},
-          { "t": "contains",
+        "t": "or",
+        "val": [
+          {
+            "t": "contains",
             "att": "idocs:documentStatus",
-            "val": "Черновик"}
+            "val": "Draft"
+          },
+          {
+            "t": "contains",
+            "att": "idocs:documentStatus",
+            "val": "Черновик"
+          }
         ]
       }
     }

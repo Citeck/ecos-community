@@ -1,0 +1,1186 @@
+{
+  "id": "agreement-form",
+  "formKey": "alf_contracts:agreement",
+  "title": {
+    "en": "Contracts agreement form"
+  },
+  "description": {
+    "en": ""
+  },
+  "customModule": null,
+  "typeRef": "",
+  "width": "default",
+  "i18n": {
+    "ru": {
+      "Basic": "Основные",
+      "Generate": "Сгенерировать",
+      "Finance": "Финансы",
+      "Content": "Содержание",
+      "Additionally": "Дополнительно",
+      "Cancel": "Отмена",
+      "Save": "Сохранить",
+      "Create": "Создать",
+      "rest": "Остаток",
+      "Type of contract": "Вид договора",
+      "idocs-contractor-status": "Статус: "
+    },
+    "en": {
+      "Basic": "Basic",
+      "Generate": "Generate",
+      "Finance": "Finance",
+      "Content": "Content",
+      "Additionally": "Additionally",
+      "Cancel": "Cancel",
+      "Save": "Save",
+      "Create": "Create",
+      "rest": "Rest",
+      "Type of contract": "Type of contract",
+      "idocs-contractor-status": "Status: "
+    }
+  },
+  "definition": {
+    "components": [
+      {
+        "scrollableContent": true,
+        "key": "panel2",
+        "type": "panel",
+        "input": false,
+        "components": [
+          {
+            "columns": [
+              {
+                "components": [
+                  {
+                    "title": "Basic",
+                    "key": "Basic",
+                    "type": "panel",
+                    "input": false,
+                    "components": [
+                      {
+                        "label": "contracts:agreementLegalEntity",
+                        "journalId": "legal-entities",
+                        "refreshOn": "title",
+                        "validate": {
+                          "required": true
+                        },
+                        "key": "contracts_agreementLegalEntity2",
+                        "properties": {
+                          "attribute": "contracts:agreementLegalEntity",
+                          "dummy": "dummy"
+                        },
+                        "type": "selectJournal",
+                        "input": true,
+                        "row": "0-0",
+                        "defaultValue": null,
+                        "presetFilterPredicatesJs": null
+                      },
+                      {
+                        "useNegativeIndents": false,
+                        "customConditional": "show = instance.options.readOnly && instance.options.viewAsHtml",
+                        "input": true,
+                        "key": "horizontalLine",
+                        "type": "horizontalLine"
+                      },
+                      {
+                        "label": "contracts:contractor",
+                        "journalId": "idocs-contractor",
+                        "calculateValue": "const { fromIncomePackageTask = {} } = data || {};\r\nconst { urkk_counterparty } = fromIncomePackageTask || {};\r\nif (!!urkk_counterparty) {\r\n\treturn urkk_counterparty;\r\n}",
+                        "allowCalculateOverride": true,
+                        "validate": {
+                          "required": true
+                        },
+                        "key": "contracts_contractor2",
+                        "properties": {
+                          "attribute": "contracts:contractor",
+                          "dummy": "dummy"
+                        },
+                        "logic": [
+                          {
+                            "name": "DisableLogic",
+                            "trigger": {
+                              "type": "javascript",
+                              "javascript": "const { fromIncomePackageTask = {} } = data || {};\r\nconst { urkk_counterparty = \"\"} = fromIncomePackageTask || {};\r\nresult = urkk_counterparty ? true : false;"
+                            },
+                            "actions": [
+                              {
+                                "name": "disable",
+                                "type": "property",
+                                "property": {
+                                  "label": "Disabled",
+                                  "value": "disabled",
+                                  "type": "boolean"
+                                },
+                                "state": "true"
+                              }
+                            ]
+                          },
+                          {
+                            "name": "Set description",
+                            "trigger": {
+                              "type": "javascript",
+                              "javascript": "const {contractorData, contracts_contractor2} = data || {};\nconst {statusDisp, id} = contractorData || {};\n\nresult = !!statusDisp && id === contracts_contractor2;"
+                            },
+                            "actions": [
+                              {
+                                "name": "Set",
+                                "type": "property",
+                                "property": {
+                                  "label": "Description",
+                                  "value": "description",
+                                  "type": "string"
+                                },
+                                "text": "__t(idocs-contractor-status){{data.contractorData.statusDisp}}"
+                              }
+                            ]
+                          }
+                        ],
+                        "type": "selectJournal",
+                        "input": true,
+                        "row": "0-1"
+                      },
+                      {
+                        "useNegativeIndents": false,
+                        "customConditional": "show = instance.options.readOnly && instance.options.viewAsHtml",
+                        "input": true,
+                        "key": "horizontalLine2",
+                        "type": "horizontalLine"
+                      },
+                      {
+                        "label": "contracts:contractWith",
+                        "data": {
+                          "url": "/citeck/ecos/records/query"
+                        },
+                        "defaultValue": "performer",
+                        "validate": {
+                          "required": true
+                        },
+                        "key": "contracts_contractWith",
+                        "properties": {
+                          "attribute": "contracts:contractWith"
+                        },
+                        "type": "ecosSelect",
+                        "input": true
+                      },
+                      {
+                        "useNegativeIndents": false,
+                        "customConditional": "show = instance.options.readOnly && instance.options.viewAsHtml",
+                        "input": true,
+                        "key": "horizontalLine3",
+                        "type": "horizontalLine"
+                      },
+                      {
+                        "label": "Type of contract",
+                        "dataSrc": "custom",
+                        "data": {
+                          "custom": "const {docTypeList = {}} = data;\nconst {records = []} = docTypeList;\nlet list = [];\nfor (var i in records) {\n  list.push({label: records[i].key,value: records[i].id})\n}\nvalues = list;"
+                        },
+                        "refreshOnEvent": true,
+                        "refreshEventName": "docTypeEvent",
+                        "defaultValue": "",
+                        "validate": {
+                          "required": true
+                        },
+                        "key": "tk_kind",
+                        "properties": {
+                          "attribute": "tk:kind"
+                        },
+                        "type": "ecosSelect",
+                        "input": true
+                      },
+                      {
+                        "useNegativeIndents": false,
+                        "customConditional": "show = instance.options.readOnly && instance.options.viewAsHtml",
+                        "input": true,
+                        "key": "horizontalLine4",
+                        "type": "horizontalLine"
+                      },
+                      {
+                        "label": "contracts:agreementSubject",
+                        "journalId": "contract-subjects",
+                        "refreshOn": "title",
+                        "key": "contracts_agreementSubject",
+                        "properties": {
+                          "attribute": "contracts:agreementSubject",
+                          "dummy": "dummy"
+                        },
+                        "type": "selectJournal",
+                        "input": true,
+                        "row": "0-0",
+                        "defaultValue": null,
+                        "presetFilterPredicatesJs": null
+                      },
+                      {
+                        "useNegativeIndents": false,
+                        "customConditional": "show = instance.options.readOnly && instance.options.viewAsHtml",
+                        "input": true,
+                        "key": "horizontalLine5",
+                        "type": "horizontalLine"
+                      },
+                      {
+                        "columns": [
+                          {
+                            "components": [
+                              {
+                                "label": "contracts:agreementNumber",
+                                "defaultValue": "",
+                                "validate": {
+                                  "required": true
+                                },
+                                "key": "contracts_agreementNumber",
+                                "properties": {
+                                  "attribute": "contracts:agreementNumber"
+                                },
+                                "logic": [
+                                  {
+                                    "name": "generate_event",
+                                    "trigger": {
+                                      "type": "simple",
+                                      "simple": {
+                                        "show": true,
+                                        "when": "Generate",
+                                        "eq": "true"
+                                      }
+                                    },
+                                    "actions": [
+                                      {
+                                        "name": "set_disabled_on",
+                                        "type": "property",
+                                        "property": {
+                                          "label": "Disabled",
+                                          "value": "disabled",
+                                          "type": "boolean"
+                                        },
+                                        "state": "true"
+                                      },
+                                      {
+                                        "name": "set_value",
+                                        "type": "value",
+                                        "value": "if (instance.options.formMode === 'CREATE') {\n  value = '-';\n}"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "name": "not_generate_event",
+                                    "trigger": {
+                                      "type": "simple",
+                                      "simple": {
+                                        "show": true,
+                                        "when": "Generate",
+                                        "eq": "false"
+                                      }
+                                    },
+                                    "actions": [
+                                      {
+                                        "name": "set_value",
+                                        "type": "value",
+                                        "value": "if (instance.options.formMode === 'CREATE') {\n  if ('-' == value) value = '';\n}"
+                                      }
+                                    ]
+                                  }
+                                ],
+                                "type": "textfield",
+                                "input": true
+                              }
+                            ],
+                            "type": "column",
+                            "input": false,
+                            "key": "column",
+                            "label": "Column",
+                            "index": 0,
+                            "clearOnHide": true,
+                            "conditional": {
+                              "show": null,
+                              "when": null
+                            }
+                          },
+                          {
+                            "components": [
+                              {
+                                "label": "Generate",
+                                "defaultValue": true,
+                                "key": "Generate",
+                                "customConditional": "show = instance.options.formMode === 'CREATE'",
+                                "type": "checkbox",
+                                "input": true
+                              }
+                            ],
+                            "type": "column",
+                            "input": false,
+                            "key": "column",
+                            "label": "Column",
+                            "classes": "d-flex justify-content-start align-items-center",
+                            "index": 1,
+                            "clearOnHide": true,
+                            "conditional": {
+                              "show": null,
+                              "when": null
+                            }
+                          }
+                        ],
+                        "key": "columns3",
+                        "type": "columns",
+                        "input": false
+                      },
+                      {
+                        "columns": [
+                          {
+                            "components": [
+                              {
+                                "label": "contracts:agreementDate",
+                                "format": "dd.MM.yyyy",
+                                "datePicker": {
+                                  "minDate": "",
+                                  "maxDate": ""
+                                },
+                                "enableTime": false,
+                                "defaultDate": "moment()",
+                                "defaultValue": "",
+                                "key": "contracts_agreementDate",
+                                "properties": {
+                                  "attribute": "contracts:agreementDate"
+                                },
+                                "type": "datetime",
+                                "input": true,
+                                "suffix": true
+                              }
+                            ],
+                            "type": "column",
+                            "input": false,
+                            "key": "column",
+                            "label": "Column",
+                            "index": 0,
+                            "clearOnHide": true,
+                            "conditional": {
+                              "show": null,
+                              "when": null
+                            }
+                          },
+                          {
+                            "components": [
+                              {
+                                "label": "contracts:duration",
+                                "format": "dd.MM.yyyy",
+                                "datePicker": {
+                                  "minDate": "",
+                                  "maxDate": ""
+                                },
+                                "enableTime": false,
+                                "defaultDate": "moment().add(1, 'year');",
+                                "defaultValue": "",
+                                "key": "contracts_duration",
+                                "properties": {
+                                  "attribute": "contracts:duration"
+                                },
+                                "type": "datetime",
+                                "input": true,
+                                "suffix": true
+                              }
+                            ],
+                            "type": "column",
+                            "input": false,
+                            "key": "column",
+                            "label": "Column",
+                            "index": 1,
+                            "clearOnHide": true,
+                            "conditional": {
+                              "show": null,
+                              "when": null
+                            }
+                          }
+                        ],
+                        "key": "columns11",
+                        "type": "columns",
+                        "input": false
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Finance",
+                    "key": "Finance",
+                    "type": "panel",
+                    "input": false,
+                    "components": [
+                      {
+                        "label": "contracts:agreementCurrency",
+                        "dataSrc": "custom",
+                        "data": {
+                          "custom": "const {currencyList = {}} = data;\nconst {records = []} = currencyList;\nlet list = [];\nfor (var i in records) {\n  list.push({label: records[i].key,value: records[i].id})\n}\nvalues = list;"
+                        },
+                        "refreshOnEvent": true,
+                        "refreshEventName": "currencyListEvent",
+                        "defaultValue": "alfresco/@workspace://SpacesStore/currency-rur",
+                        "customDefaultValue": "if (data.currencyList && data.currencyList.records) {\n  var el = data.currencyList.records.find(x => x.id === 'alfresco/@workspace://SpacesStore/currency-rur');\n  \n  if(el){\n    value = el.id;\n  }\n  \n}\n",
+                        "validate": {
+                          "required": true
+                        },
+                        "key": "contracts_agreementCurrency",
+                        "properties": {
+                          "attribute": "contracts:agreementCurrency",
+                          "dummy": "dummy"
+                        },
+                        "type": "ecosSelect",
+                        "input": true
+                      },
+                      {
+                        "useNegativeIndents": false,
+                        "customConditional": "show = instance.options.readOnly && instance.options.viewAsHtml",
+                        "input": true,
+                        "key": "horizontalLine6",
+                        "type": "horizontalLine"
+                      },
+                      {
+                        "columns": [
+                          {
+                            "components": [
+                              {
+                                "label": "contracts:agreementAmount",
+                                "validate": {
+                                  "custom": "valid = (input > 0) || !input ? true : (instance.options.language == 'ru') ? 'Это поле должно содержать положительное число' : 'This field may contain only a positive number';"
+                                },
+                                "key": "contracts_agreementAmount",
+                                "properties": {
+                                  "attribute": "contracts:agreementAmount"
+                                },
+                                "type": "number",
+                                "input": true
+                              }
+                            ],
+                            "type": "column",
+                            "input": false,
+                            "key": "column",
+                            "label": "Column",
+                            "index": 0,
+                            "clearOnHide": true,
+                            "conditional": {
+                              "show": null,
+                              "when": null
+                            }
+                          },
+                          {
+                            "components": [
+                              {
+                                "label": "contracts:VAT",
+                                "validate": {
+                                  "custom": "valid = (input > 0) || !input ? true : (instance.options.language == 'ru') ? 'Это поле должно содержать положительное число' : 'This field may contain only a positive number';"
+                                },
+                                "key": "contracts_VAT",
+                                "properties": {
+                                  "attribute": "contracts:VAT"
+                                },
+                                "type": "number",
+                                "input": true
+                              }
+                            ],
+                            "type": "column",
+                            "input": false,
+                            "key": "column",
+                            "label": "Column",
+                            "index": 1,
+                            "clearOnHide": true,
+                            "conditional": {
+                              "show": null,
+                              "when": null
+                            }
+                          }
+                        ],
+                        "key": "columns4",
+                        "type": "columns",
+                        "input": false
+                      },
+                      {
+                        "useNegativeIndents": false,
+                        "customConditional": "show = instance.options.readOnly && instance.options.viewAsHtml",
+                        "input": true,
+                        "key": "horizontalLine7",
+                        "type": "horizontalLine"
+                      },
+                      {
+                        "label": "payments:payments",
+                        "multiple": true,
+                        "reorder": false,
+                        "source": {
+                          "type": "custom",
+                          "custom": {
+                            "columns": [
+                              {
+                                "name": "payments:typePayment"
+                              },
+                              {
+                                "name": "payments:plannedPaymentDate"
+                              },
+                              {
+                                "name": "payments:currency"
+                              },
+                              {
+                                "name": "payments:paymentAmount"
+                              },
+                              {
+                                "name": "payments:paymentVAT"
+                              }
+                            ],
+                            "createVariants": [],
+                            "record": null,
+                            "attribute": null
+                          }
+                        },
+                        "key": "payments_payments",
+                        "properties": {
+                          "attribute": "payments:payments"
+                        },
+                        "type": "tableForm",
+                        "input": true,
+                        "_journalId": null,
+                        "computed": {
+                          "valueFormKey": null
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "type": "column",
+                "input": false,
+                "key": "column",
+                "label": "Column",
+                "index": 0,
+                "clearOnHide": true,
+                "conditional": {
+                  "show": null,
+                  "when": null
+                }
+              },
+              {
+                "components": [
+                  {
+                    "title": "Content",
+                    "key": "Content",
+                    "type": "panel",
+                    "input": false,
+                    "components": [
+                      {
+                        "label": "idocs:summary",
+                        "defaultValue": "",
+                        "key": "idocs_summary",
+                        "properties": {
+                          "attribute": "idocs:summary"
+                        },
+                        "rows": 2,
+                        "type": "textarea",
+                        "input": true
+                      },
+                      {
+                        "label": "dms:updateContent",
+                        "labelPosition": "left-left",
+                        "key": "dms_updateContent",
+                        "properties": {
+                          "attribute": "dms:updateContent"
+                        },
+                        "customConditional": "const isCreate = instance.options.formMode === 'CREATE';\nconst { fromIncomePackageTask = {} } = data || {};\nconst { isContentFile = false} = fromIncomePackageTask || {};\nlet isFileExist = Object.getOwnPropertyNames(fromIncomePackageTask).length > 0;\nif (isFileExist) {\n  show = isCreate && !isContentFile;\n} else {\n  show = isCreate;\n}\n",
+                        "type": "checkbox",
+                        "input": true,
+                        "defaultValue": null
+                      },
+                      {
+                        "useNegativeIndents": false,
+                        "customConditional": "show = instance.options.readOnly && instance.options.viewAsHtml",
+                        "input": true,
+                        "key": "horizontalLine13",
+                        "type": "horizontalLine"
+                      },
+                      {
+                        "label": "cm:content",
+                        "onFileClick": "download",
+                        "storage": "url",
+                        "url": " /share/proxy/alfresco/eform/file",
+                        "options": "",
+                        "calculateValue": "({ cm_content: value } = data || {});\r\nconst { fromIncomePackageTask = {} } = data || {};\r\nconst { cm_content } = fromIncomePackageTask || {};\r\nif (!!cm_content) {\r\n\treturn cm_content;\r\n}",
+                        "allowCalculateOverride": true,
+                        "validate": {
+                          "required": true
+                        },
+                        "key": "cm_content",
+                        "properties": {
+                          "attribute": "cm:content"
+                        },
+                        "customConditional": "show = instance.options.formMode != 'CREATE' || (!data.dms_updateContent && instance.options.formMode === 'CREATE');",
+                        "logic": [
+                          {
+                            "name": "DisableLogic",
+                            "trigger": {
+                              "type": "javascript",
+                              "javascript": "const { fromIncomePackageTask = {} } = data || {};\r\nconst { isContentFile = false} = fromIncomePackageTask || {};\r\nlet isFileExist = Object.getOwnPropertyNames(fromIncomePackageTask).length > 0;\r\nresult = isFileExist && isContentFile;"
+                            },
+                            "actions": [
+                              {
+                                "name": "setDisabled",
+                                "type": "property",
+                                "property": {
+                                  "label": "Disabled",
+                                  "value": "disabled",
+                                  "type": "boolean"
+                                },
+                                "state": "true"
+                              }
+                            ]
+                          }
+                        ],
+                        "type": "file",
+                        "input": true,
+                        "defaultValue": []
+                      },
+                      {
+                        "label": "idocs:note",
+                        "defaultValue": "",
+                        "key": "idocs_note",
+                        "properties": {
+                          "attribute": "idocs:note"
+                        },
+                        "rows": 1,
+                        "type": "textarea",
+                        "input": true
+                      },
+                      {
+                        "useNegativeIndents": false,
+                        "customConditional": "show = instance.options.readOnly && instance.options.viewAsHtml",
+                        "input": true,
+                        "key": "horizontalLine12",
+                        "type": "horizontalLine"
+                      },
+                      {
+                        "label": "icase:documents",
+                        "multiple": true,
+                        "reorder": false,
+                        "storage": "url",
+                        "url": " /share/proxy/alfresco/eform/file",
+                        "options": "",
+                        "calculateValue": "({ icase_documents: value } = data || {});\r\nconst { fromIncomePackageTask = {} } = data || {};\r\nconst { icase_documents } = fromIncomePackageTask || {};\r\nif (!!icase_documents) {\r\n\treturn icase_documents;\r\n}",
+                        "key": "icase_documents",
+                        "properties": {
+                          "attribute": "icase:documents"
+                        },
+                        "logic": [
+                          {
+                            "name": "DisableLogic",
+                            "trigger": {
+                              "type": "javascript",
+                              "javascript": "const { fromIncomePackageTask = {} } = data || {};\r\nconst { isContentFile = false} = fromIncomePackageTask || {};\r\nlet isFileExist = Object.getOwnPropertyNames(fromIncomePackageTask).length > 0;\r\nresult = isFileExist && !isContentFile;"
+                            },
+                            "actions": [
+                              {
+                                "name": "setDisable",
+                                "type": "property",
+                                "property": {
+                                  "label": "Disabled",
+                                  "value": "disabled",
+                                  "type": "boolean"
+                                },
+                                "state": "true"
+                              }
+                            ]
+                          }
+                        ],
+                        "type": "file",
+                        "defaultValue": [],
+                        "input": true
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Additionally",
+                    "key": "Additionally",
+                    "type": "panel",
+                    "input": false,
+                    "components": [
+                      {
+                        "label": "idocs:signatory",
+                        "allowedAuthorityType": "USER",
+                        "allUsersGroup": "all",
+                        "validate": {
+                          "required": true
+                        },
+                        "key": "idocs_signatory",
+                        "properties": {
+                          "attribute": "idocs:signatory"
+                        },
+                        "type": "selectOrgstruct",
+                        "input": true
+                      },
+                      {
+                        "useNegativeIndents": false,
+                        "customConditional": "show = instance.options.readOnly && instance.options.viewAsHtml",
+                        "input": true,
+                        "key": "horizontalLine8",
+                        "type": "horizontalLine"
+                      },
+                      {
+                        "label": "contracts:digiSign",
+                        "disabled": true,
+                        "key": "contracts_digiSign",
+                        "properties": {
+                          "attribute": "contracts:digiSign"
+                        },
+                        "logic": [
+                          {
+                            "name": "enableEvent",
+                            "trigger": {
+                              "type": "javascript",
+                              "javascript": "result = data.isEntInstalled.isEntInstalled == 'true';"
+                            },
+                            "actions": [
+                              {
+                                "name": "enable",
+                                "type": "property",
+                                "property": {
+                                  "label": "Disabled",
+                                  "value": "disabled",
+                                  "type": "boolean"
+                                },
+                                "state": "false"
+                              }
+                            ]
+                          }
+                        ],
+                        "type": "checkbox",
+                        "input": true
+                      },
+                      {
+                        "useNegativeIndents": false,
+                        "customConditional": "show = instance.options.readOnly && instance.options.viewAsHtml",
+                        "input": true,
+                        "key": "horizontalLine11",
+                        "type": "horizontalLine"
+                      },
+                      {
+                        "label": "idocs:performer",
+                        "allowedAuthorityType": "USER",
+                        "allUsersGroup": "all",
+                        "key": "idocs_performer",
+                        "properties": {
+                          "attribute": "idocs:performer"
+                        },
+                        "type": "selectOrgstruct",
+                        "input": true
+                      },
+                      {
+                        "customConditional": "show = instance.options.readOnly && instance.options.viewAsHtml",
+                        "input": true,
+                        "key": "horizontalLine10",
+                        "type": "horizontalLine"
+                      },
+                      {
+                        "label": "idocs:supervisor",
+                        "allowedAuthorityType": "USER",
+                        "allUsersGroup": "all",
+                        "key": "idocs_supervisor",
+                        "properties": {
+                          "attribute": "idocs:supervisor"
+                        },
+                        "type": "selectOrgstruct",
+                        "input": true
+                      },
+                      {
+                        "useNegativeIndents": false,
+                        "customConditional": "show = instance.options.readOnly && instance.options.viewAsHtml",
+                        "input": true,
+                        "key": "horizontalLine9",
+                        "type": "horizontalLine"
+                      }
+                    ]
+                  }
+                ],
+                "type": "column",
+                "input": false,
+                "key": "column",
+                "label": "Column",
+                "index": 1,
+                "clearOnHide": true,
+                "conditional": {
+                  "show": null,
+                  "when": null
+                }
+              }
+            ],
+            "key": "columns10",
+            "type": "columns",
+            "input": false
+          }
+        ]
+      },
+      {
+        "columns": [
+          {
+            "components": [
+              {
+                "label": "Cancel",
+                "removeIndents": true,
+                "action": "event",
+                "state": "",
+                "showValidations": false,
+                "event": "cancel",
+                "block": true,
+                "key": "Cancel",
+                "type": "button",
+                "input": true
+              }
+            ],
+            "type": "column",
+            "input": false,
+            "key": "column18",
+            "md": 3,
+            "index": 0,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "components": [],
+            "type": "column",
+            "input": false,
+            "key": "column19",
+            "md": 3,
+            "index": 1,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "md": 3,
+            "type": "column",
+            "input": false,
+            "key": "column20",
+            "components": [
+              {
+                "label": "Save",
+                "removeIndents": true,
+                "state": "draft",
+                "block": true,
+                "key": "Save",
+                "type": "button",
+                "input": true
+              }
+            ],
+            "index": 2,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "md": 3,
+            "type": "column",
+            "input": false,
+            "key": "column21",
+            "components": [
+              {
+                "label": "Create",
+                "removeIndents": true,
+                "state": "",
+                "theme": "primary",
+                "block": true,
+                "key": "Create",
+                "type": "button",
+                "input": true
+              }
+            ],
+            "index": 3,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          }
+        ],
+        "key": "columns6",
+        "customConditional": "const {caseStatus} = data || {};\nconst {status: caseStatusName} = caseStatus || {};\nconst {options} = instance || {};\nconst {formMode} = options || {};\n\nvar isDraftStatus = caseStatusName === \"draft\";\nvar isCreateMode = formMode === 'CREATE';\n\nshow = isDraftStatus || isCreateMode;",
+        "type": "columns",
+        "input": false
+      },
+      {
+        "columns": [
+          {
+            "components": [],
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "md": 3,
+            "index": 0,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "components": [
+              {
+                "label": "Cancel",
+                "removeIndents": true,
+                "action": "event",
+                "state": "",
+                "showValidations": false,
+                "event": "cancel",
+                "block": true,
+                "key": "Cancel2",
+                "type": "button",
+                "input": true
+              }
+            ],
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "md": 3,
+            "index": 1,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "md": 3,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "components": [
+              {
+                "label": "Save",
+                "removeIndents": true,
+                "state": "",
+                "theme": "primary",
+                "block": true,
+                "key": "Create2",
+                "type": "button",
+                "input": true
+              }
+            ],
+            "index": 2,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "md": 3,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "components": [],
+            "index": 3,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          }
+        ],
+        "key": "columns5",
+        "customConditional": "const {caseStatus} = data || {};\nconst {status: caseStatusName} = caseStatus || {};\nconst {options} = instance || {};\nconst {formMode} = options || {};\n\nvar isDraftStatus = caseStatusName === \"draft\";\nvar isCreateMode = formMode === 'CREATE';\n\nshow = !isDraftStatus && !isCreateMode;",
+        "type": "columns",
+        "input": false
+      },
+      {
+        "columns": [
+          {
+            "components": [
+              {
+                "label": "Async Data - contractorData",
+                "source": {
+                  "type": "record",
+                  "record": {
+                    "id": "{{data.contracts_contractor2}}",
+                    "attributes": {
+                      "statusDisp": "icase:caseStatusAssoc?disp",
+                      "id": ".id"
+                    }
+                  },
+                  "forceLoad": false
+                },
+                "update": {
+                  "type": "once"
+                },
+                "refreshOn": [
+                  {
+                    "label": "contracts_contractor2",
+                    "value": "contracts_contractor2"
+                  }
+                ],
+                "executionCondition": "const {contracts_contractor2: contractor} = data || {};\nvalue = !!contractor; ",
+                "key": "contractorData",
+                "type": "asyncData",
+                "input": true
+              }
+            ],
+            "md": 4,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "index": 0
+          },
+          {
+            "md": 4,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "index": 1,
+            "components": [
+              {
+                "label": "caseStatus",
+                "source": {
+                  "type": "record",
+                  "record": {
+                    "id": "{{recordId}}",
+                    "attributes": {
+                      "status": "icase:caseStatusAssoc.cm:name?str"
+                    }
+                  },
+                  "forceLoad": false
+                },
+                "update": {
+                  "type": "once",
+                  "event": "currencyListEvent"
+                },
+                "executionCondition": "const {root} = instance || {};\nconst {loading} = root || {};\nvalue = loading === false;",
+                "key": "caseStatus",
+                "type": "asyncData",
+                "input": true,
+                "conditional": {
+                  "show": null,
+                  "when": null
+                }
+              },
+              {
+                "label": "isEntInstalled",
+                "source": {
+                  "type": "ajax",
+                  "ajax": {
+                    "url": "/citeck/info/is-ent-installed",
+                    "data": "value = {}",
+                    "method": "GET",
+                    "mapping": ""
+                  },
+                  "forceLoad": false
+                },
+                "update": {
+                  "type": "once"
+                },
+                "executionCondition": "const {root} = instance || {};\nconst {loading} = root || {};\nvalue = loading === false;",
+                "key": "isEntInstalled",
+                "type": "asyncData",
+                "input": true,
+                "conditional": {
+                  "show": null,
+                  "when": null
+                }
+              }
+            ]
+          },
+          {
+            "md": 4,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "index": 2,
+            "components": [
+              {
+                "label": "docTypeList",
+                "source": {
+                  "type": "recordsQuery",
+                  "recordsQuery": {
+                    "attributes": {
+                      "key": "cm:title"
+                    },
+                    "query": "var value = {\n  query: 'PARENT: \"alfresco/@workspace://SpacesStore/contracts-cat-doctype-contract\"',\n  language: 'fts-alfresco'\n}",
+                    "isSingle": false
+                  },
+                  "forceLoad": false
+                },
+                "update": {
+                  "type": "once"
+                },
+                "triggerEventOnChange": true,
+                "eventName": "docTypeEvent",
+                "executionCondition": "const {root} = instance || {};\nconst {loading} = root || {};\nvalue = loading === false;",
+                "key": "docTypeList",
+                "type": "asyncData",
+                "input": true,
+                "conditional": {
+                  "show": null,
+                  "when": null
+                }
+              },
+              {
+                "label": "docTypeList",
+                "source": {
+                  "type": "recordsQuery",
+                  "recordsQuery": {
+                    "attributes": {
+                      "key": "cm:title"
+                    },
+                    "query": "var value = {\n  query: 'PARENT: \"alfresco/@workspace://SpacesStore/contracts-cat-doctype-contract\"',\n  language: 'fts-alfresco'\n}",
+                    "isSingle": false
+                  },
+                  "forceLoad": false
+                },
+                "update": {
+                  "type": "once"
+                },
+                "triggerEventOnChange": true,
+                "eventName": "docTypeEvent",
+                "executionCondition": "const {root} = instance || {};\nconst {loading} = root || {};\nvalue = loading === false;",
+                "key": "docTypeList2",
+                "type": "asyncData",
+                "input": true,
+                "conditional": {
+                  "show": null,
+                  "when": null
+                }
+              },
+              {
+                "label": "currencyList",
+                "source": {
+                  "type": "recordsQuery",
+                  "recordsQuery": {
+                    "attributes": {
+                      "key": "cm:title"
+                    },
+                    "query": "var value = {\r\n  query: 'TYPE:\"idocs:currency\"',\r\n  language: 'fts-alfresco'\r\n}",
+                    "isSingle": false
+                  },
+                  "forceLoad": false
+                },
+                "update": {
+                  "type": "once"
+                },
+                "triggerEventOnChange": true,
+                "eventName": "currencyListEvent",
+                "executionCondition": "const {root} = instance || {};\nconst {loading} = root || {};\nvalue = loading === false;",
+                "key": "currencyList",
+                "type": "asyncData",
+                "input": true,
+                "conditional": {
+                  "show": null,
+                  "when": null
+                }
+              }
+            ]
+          }
+        ],
+        "hidden": true,
+        "key": "columns2",
+        "type": "columns",
+        "input": false
+      }
+    ],
+    "display": "form"
+  },
+  "attributes": {}
+}

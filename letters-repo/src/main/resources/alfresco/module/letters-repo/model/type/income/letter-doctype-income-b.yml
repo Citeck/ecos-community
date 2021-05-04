@@ -1,0 +1,7 @@
+---
+id: letter-doctype-income/letter-doctype-income-b
+name:
+  ru: Письмо из надзорных органов
+  en: Письмо из надзорных органов
+
+parentRef: emodel/type@letter-doctype-income

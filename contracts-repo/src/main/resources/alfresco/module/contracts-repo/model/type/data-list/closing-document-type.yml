@@ -1,0 +1,11 @@
+
+id: closing-document-type
+
+name: { ru: Тип первичных документов, en: Accounting Document Type }
+
+parentRef: emodel/type@data-list
+journalRef: uiserv/journal@closing-document-type
+
+properties:
+  alfType: contracts:documentType
+  alfRoot: /app:company_home/st:sites/cm:contracts/cm:dataLists/cm:closing-document-type

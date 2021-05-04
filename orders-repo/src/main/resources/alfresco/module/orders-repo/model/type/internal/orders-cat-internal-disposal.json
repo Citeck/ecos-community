@@ -1,6 +1,0 @@
-{
-    "id": "orders-cat-doctype-internal/orders-cat-internal-disposal",
-    "name": "Распоряжение",
-    "parent": "emodel/type@orders-cat-doctype-internal",
-    "inheritActions": true
-}

@@ -1,0 +1,7 @@
+---
+id: letter-doctype-outcome/letter-doctype-outcome-c
+name:
+  en: Разное
+  ru: Разное
+
+parentRef: emodel/type@letter-doctype-outcome

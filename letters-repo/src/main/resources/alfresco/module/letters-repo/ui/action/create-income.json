@@ -1,18 +1,18 @@
 {
-    "id": "create-income",
-    "key": "create.income",
-    "name": {
-        "ru": "Создать входящий",
-        "en": "Create income"
-    },
-    "type": "create",
-    "icon": "icon-plus",
-    "config": {
-        "recordRef" : "dict@letters:income",
-        "attributes": {
-            "letters_outcome": "$.id",
-            "inner_form": "true",
-            "_parent": "/app:company_home/st:sites/cm:letters/cm:documentLibrary/cm:outcome"
-        }
+  "id": "create-income",
+  "key": "create.income",
+  "name": {
+    "ru": "Создать входящий",
+    "en": "Create income"
+  },
+  "type": "create",
+  "icon": "icon-plus",
+  "config": {
+    "recordRef": "alfresco/@",
+    "attributes": {
+      "_type": "emodel/type@letter-doctype-income",
+      "letters_outcome": "$.id",
+      "inner_form": "true"
     }
+  }
 }

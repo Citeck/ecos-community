@@ -1,0 +1,188 @@
+{
+  "id": "th-thanks",
+  "formKey": "alf_th:thanksType",
+  "title": {
+    "en": "Form for saying \"Thank you\""
+  },
+  "description": {},
+  "customModule": null,
+  "typeRef": "",
+  "width": "default",
+  "i18n": {
+    "ru": {
+      "th:commentary": "Я хочу сказать \"Спасибо\" за...",
+      "Cancel": "Отменить",
+      "Save": "Сохранить"
+    },
+    "en": {
+      "th:commentary": "I want to say \"Thank you\" for...",
+      "Cancel": "Cancel",
+      "Save": "Save"
+    }
+  },
+  "definition": {
+    "display": "form",
+    "components": [
+      {
+        "label": "th:author",
+        "clearOnHide": false,
+        "hidden": true,
+        "allowedAuthorityType": "USER",
+        "currentUserByDefault": true,
+        "defaultValue": "",
+        "key": "th_author",
+        "properties": {
+          "attribute": "th:author"
+        },
+        "type": "selectOrgstruct",
+        "allUsersGroup": "all",
+        "input": true
+      },
+      {
+        "label": "th:date",
+        "clearOnHide": false,
+        "hidden": true,
+        "tableView": false,
+        "alwaysEnabled": true,
+        "datePicker": {
+          "minDate": "",
+          "maxDate": ""
+        },
+        "defaultDate": "moment()",
+        "defaultValue": "2021-02-17T09:33:13+07:00",
+        "key": "th_date",
+        "properties": {
+          "attribute": "th:date"
+        },
+        "type": "datetime",
+        "input": true,
+        "suffix": true
+      },
+      {
+        "label": "th:recipient",
+        "clearOnHide": false,
+        "allowedAuthorityType": "USER",
+        "defaultValue": "",
+        "calculateValue": "const {options} = instance || {};\nconst {parentFormData} = options || {};\nconst {cm_userName} = parentFormData || {};\n\nvalue = cm_userName || null;",
+        "allowCalculateOverride": true,
+        "validate": {
+          "required": true
+        },
+        "key": "th_recipient",
+        "properties": {
+          "attribute": "th:recipient"
+        },
+        "customConditional": "const {options} = instance || {};\nconst {parentFormData} = options || {};\nconst {cm_userName} = parentFormData || {};\n\nshow = !cm_userName;",
+        "type": "selectOrgstruct",
+        "allUsersGroup": "all",
+        "input": true
+      },
+      {
+        "label": "th:commentary",
+        "defaultValue": "",
+        "validate": {
+          "required": true
+        },
+        "key": "th_commentary",
+        "properties": {
+          "attribute": "th:commentary"
+        },
+        "type": "textarea",
+        "input": true
+      },
+      {
+        "hideLabel": true,
+        "columns": [
+          {
+            "components": [
+              {
+                "label": "Cancel",
+                "removeIndents": true,
+                "action": "event",
+                "state": "",
+                "showValidations": false,
+                "event": "cancel",
+                "block": true,
+                "clearOnHide": false,
+                "key": "submit2",
+                "type": "button",
+                "input": true
+              }
+            ],
+            "width": 3,
+            "type": "column",
+            "input": false,
+            "key": "column1",
+            "index": 0,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            },
+            "md": 3
+          },
+          {
+            "width": 3,
+            "type": "column",
+            "input": false,
+            "key": "column2",
+            "components": [],
+            "index": 1,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            },
+            "md": 3
+          },
+          {
+            "components": [],
+            "width": 3,
+            "type": "column",
+            "input": false,
+            "key": "column3",
+            "index": 2,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            },
+            "md": 3
+          },
+          {
+            "width": 3,
+            "type": "column",
+            "input": false,
+            "key": "column4",
+            "components": [
+              {
+                "label": "Save",
+                "removeIndents": true,
+                "state": "",
+                "theme": "primary",
+                "block": true,
+                "disableOnInvalid": true,
+                "clearOnHide": false,
+                "key": "submit",
+                "type": "button",
+                "input": true
+              }
+            ],
+            "index": 3,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            },
+            "md": 3
+          }
+        ],
+        "autoAdjust": true,
+        "key": "columns",
+        "type": "columns",
+        "input": false
+      }
+    ]
+  },
+  "attributes": {}
+}

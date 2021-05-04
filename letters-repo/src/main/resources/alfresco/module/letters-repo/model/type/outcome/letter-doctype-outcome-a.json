@@ -1,6 +1,0 @@
-{
-    "id": "letter-doctype-outcome/letter-doctype-outcome-a",
-    "name": "Бухгалтерский",
-    "parent": "emodel/type@letter-doctype-outcome",
-    "inheritActions": true
-}

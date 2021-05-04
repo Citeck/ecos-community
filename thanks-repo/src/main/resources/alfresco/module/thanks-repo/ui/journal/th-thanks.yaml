@@ -1,0 +1,15 @@
+id: th-thanks
+name:
+  ru: Благодарности
+  en: Acknowledgments
+
+actionsFromType: false
+
+editable: false
+columns:
+  - id: th:recipient
+  - id: th:author
+  - id: th:date
+  - id: th:commentary
+  - id: mounth
+  - id: year

@@ -1,0 +1,54 @@
+id: contracts-cat-doctype-supp-agreement
+name:
+  en: Supplementary agreement
+  ru: Доп. соглашение
+
+parentRef: emodel/type@contracts-cat-doctype-contract-case
+journalRef: uiserv/journal@contracts-supplementary-agreement
+formRef: uiserv/form@contracts-supplementary-agreement
+
+inheritActions: false
+actions:
+  - uiserv/action@upload-new-version
+  - uiserv/action@edit
+  - uiserv/action@content-download
+  - uiserv/action@record-actions
+  - uiserv/action@edit-in-onlyoffice
+  - uiserv/action@save-as-case-template
+  - uiserv/action@print
+  - uiserv/action@pdf-content-with-barcode
+
+properties:
+  alfType: contracts:supplementaryAgreement
+  alfRoot: /app:company_home/st:sites/cm:contracts/cm:documentLibrary/cm:supplementary-agreements
+
+associations:
+  - id: contracts:mainAgreement
+    name:
+      ru: Связь с договором
+      en: Relationship to the contract
+    direction: TARGET
+    target: emodel/type@user-base
+
+model:
+  attributes:
+    - id: contracts:agreementCurrency
+      type: ASSOC
+      config:
+        typeRef: emodel/type@currency
+    - id: contracts:agreementLegalEntity
+      type: ASSOC
+      config:
+        typeRef: emodel/type@legal-entity
+    - id: contracts:agreementSubject
+      type: ASSOC
+      config:
+        typeRef: emodel/type@contract-subject
+    - id: contracts:contractor
+      type: ASSOC
+      config:
+        typeRef: emodel/type@idocs-contractor
+    - id: contracts:mainAgreement
+      type: ASSOC
+      config:
+        typeRef: emodel/type@contracts-cat-doctype-contract

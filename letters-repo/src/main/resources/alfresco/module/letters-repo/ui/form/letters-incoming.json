@@ -1,0 +1,772 @@
+{
+  "id": "letters_incoming",
+  "formKey": "alf_letters:income",
+  "title": {
+    "en": "Incoming"
+  },
+  "description": {
+    "en": ""
+  },
+  "customModule": null,
+  "typeRef": "emodel/type@letter-doctype-income",
+  "width": "default",
+  "i18n": {
+    "ru": {
+      "Accounting": "Бухгалтерский",
+      "Letter from regulatory authorities": "Письмо из надзорных органов",
+      "Miscellaneous": "Разное",
+      "Letter": "Письмо",
+      "Snailmail": "Почта",
+      "Courier": "Курьер",
+      "Fax": "Факс",
+      "Express": "С курьером",
+      "Registered letter": "Заказное письмо",
+      "Registered letter with notification": "Заказное письмо с уведомлением",
+      "Huntsman courier": "Фельдсвязь",
+      "Cancel": "Отменить",
+      "Save": "Сохранить",
+      "Create": "Создать"
+    },
+    "en": {
+      "Accounting": "Accounting",
+      "Letter from regulatory authorities": "Letter from regulatory authorities",
+      "Miscellaneous": "Miscellaneous",
+      "Letter": "Letter",
+      "Snailmail": "Snailmail",
+      "Courier": "Courier",
+      "Fax": "Fax",
+      "Express": "Express",
+      "Registered letter": "Registered letter",
+      "Registered letter with notification": "Registered letter with notification",
+      "Huntsman courier": "Huntsman courier",
+      "Cancel": "Cancel",
+      "Save": "Save",
+      "Create": "Create"
+    }
+  },
+  "definition": {
+    "components": [
+      {
+        "columns": [
+          {
+            "components": [
+              {
+                "label": "tk:kind",
+                "dataSrc": "custom",
+                "data": {
+                  "custom": "for (var i in data.subCategories.records){\n  values.push({label: data.subCategories.records[i].title,value: data.subCategories.records[i].id})\n}"
+                },
+                "defaultValue": "",
+                "refreshOn": [
+                  "subCategories"
+                ],
+                "validate": {
+                  "required": true
+                },
+                "key": "tk_kind",
+                "properties": {
+                  "attribute": "tk:kind"
+                },
+                "type": "ecosSelect",
+                "input": true
+              }
+            ],
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "index": 0,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "index": 1,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "components": [
+              {
+                "label": "letters:deliveryMethod",
+                "dataSrc": "values",
+                "data": {
+                  "values": [
+                    {
+                      "label": "Snailmail",
+                      "value": "snailmail"
+                    },
+                    {
+                      "label": "Courier",
+                      "value": "courier"
+                    },
+                    {
+                      "label": "Fax",
+                      "value": "fax"
+                    },
+                    {
+                      "label": "Express",
+                      "value": "express"
+                    },
+                    {
+                      "label": "Registered letter",
+                      "value": "registeredLetter"
+                    },
+                    {
+                      "label": "Registered letter with notification",
+                      "value": "registeredLetterWithNotification"
+                    },
+                    {
+                      "label": "Huntsman courier",
+                      "value": "huntsmanCourier"
+                    }
+                  ]
+                },
+                "defaultValue": "",
+                "key": "letters_deliveryMethod",
+                "properties": {
+                  "attribute": "letters:deliveryMethod"
+                },
+                "type": "ecosSelect",
+                "input": true
+              }
+            ],
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          }
+        ],
+        "key": "columns2",
+        "type": "columns",
+        "input": false
+      },
+      {
+        "columns": [
+          {
+            "components": [
+              {
+                "label": "letters:outcome",
+                "journalId": "letters-outcome",
+                "key": "letters_outcome",
+                "properties": {
+                  "attribute": "letters:outcome"
+                },
+                "logic": [
+                  {
+                    "name": "set_disable",
+                    "trigger": {
+                      "type": "simple",
+                      "simple": {
+                        "show": true,
+                        "when": "inner_form",
+                        "eq": "true"
+                      }
+                    },
+                    "actions": [
+                      {
+                        "name": "disable",
+                        "type": "property",
+                        "property": {
+                          "label": "Disabled",
+                          "value": "disabled",
+                          "type": "boolean"
+                        },
+                        "state": "true"
+                      }
+                    ]
+                  }
+                ],
+                "type": "selectJournal",
+                "input": true
+              }
+            ],
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "index": 0,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "index": 1,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "components": [
+              {
+                "label": "letters:nomenclature",
+                "journalId": "files-nomenclature",
+                "validate": {
+                  "required": true
+                },
+                "key": "letters_nomenclature",
+                "properties": {
+                  "attribute": "letters:nomenclature"
+                },
+                "type": "selectJournal",
+                "input": true
+              }
+            ],
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          }
+        ],
+        "key": "columns3",
+        "type": "columns",
+        "input": false
+      },
+      {
+        "columns": [
+          {
+            "components": [
+              {
+                "label": "letters:reporterOrganization",
+                "journalId": "idocs-contractor",
+                "validate": {
+                  "required": true
+                },
+                "key": "letters_reporterOrganization",
+                "properties": {
+                  "attribute": "letters:reporterOrganization"
+                },
+                "type": "selectJournal",
+                "input": true
+              }
+            ],
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "index": 0,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "index": 1,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "components": [
+              {
+                "label": "letters:letterWriter",
+                "defaultValue": "",
+                "validate": {
+                  "required": true
+                },
+                "key": "letters_letterWriter",
+                "properties": {
+                  "attribute": "letters:letterWriter"
+                },
+                "type": "textfield",
+                "input": true
+              }
+            ],
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          }
+        ],
+        "key": "columns4",
+        "type": "columns",
+        "input": false
+      },
+      {
+        "columns": [
+          {
+            "components": [
+              {
+                "label": "letters:subdivision",
+                "allowedAuthorityType": "GROUP",
+                "defaultValue": "",
+                "validate": {
+                  "required": true
+                },
+                "key": "letters_subdivision",
+                "properties": {
+                  "attribute": "letters:subdivision"
+                },
+                "type": "selectOrgstruct",
+                "input": true
+              }
+            ],
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "index": 0,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "index": 1,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "components": [
+              {
+                "label": "letters:receiver",
+                "defaultValue": "",
+                "validate": {
+                  "required": true
+                },
+                "key": "letters_receiver",
+                "properties": {
+                  "attribute": "letters:receiver"
+                },
+                "type": "textfield",
+                "input": true
+              }
+            ],
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          }
+        ],
+        "key": "columns6",
+        "type": "columns",
+        "input": false
+      },
+      {
+        "columns": [
+          {
+            "components": [
+              {
+                "label": "idocs:summary",
+                "defaultValue": "",
+                "key": "idocs_summary",
+                "properties": {
+                  "attribute": "idocs:summary"
+                },
+                "rows": 1,
+                "type": "textarea",
+                "input": true
+              }
+            ],
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "index": 0,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "index": 1,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "components": [
+              {
+                "label": "idocs:note",
+                "defaultValue": "",
+                "key": "idocs_note",
+                "properties": {
+                  "attribute": "idocs:note"
+                },
+                "rows": 1,
+                "type": "textarea",
+                "input": true
+              }
+            ],
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          }
+        ],
+        "key": "columns10",
+        "type": "columns",
+        "input": false
+      },
+      {
+        "columns": [
+          {
+            "components": [
+              {
+                "label": "idocs:pagesNumber",
+                "key": "idocs_pagesNumber",
+                "properties": {
+                  "attribute": "idocs:pagesNumber"
+                },
+                "defaultValue": "",
+                "type": "number",
+                "input": true
+              }
+            ],
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "index": 0,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "index": 1,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "components": [
+              {
+                "label": "idocs:appendixPagesNumber",
+                "key": "idocs_appendixPagesNumber",
+                "properties": {
+                  "attribute": "idocs:appendixPagesNumber"
+                },
+                "defaultValue": "",
+                "type": "number",
+                "input": true
+              }
+            ],
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          }
+        ],
+        "key": "columns8",
+        "type": "columns",
+        "input": false
+      },
+      {
+        "columns": [
+          {
+            "components": [
+              {
+                "label": "letters:originalLocation",
+                "defaultValue": "",
+                "key": "letters_originalLocation",
+                "properties": {
+                  "attribute": "letters:originalLocation"
+                },
+                "type": "textfield",
+                "input": true
+              }
+            ],
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "index": 0,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "index": 1,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "components": [
+              {
+                "label": "letters:copiesCount",
+                "key": "letters_copiesCount",
+                "properties": {
+                  "attribute": "letters:copiesCount"
+                },
+                "defaultValue": "",
+                "type": "number",
+                "input": true
+              }
+            ],
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          }
+        ],
+        "key": "columns7",
+        "type": "columns",
+        "input": false
+      },
+      {
+        "columns": [
+          {
+            "components": [
+              {
+                "label": "cm:content",
+                "onFileClick": "download",
+                "storage": "url",
+                "validate": {
+                  "required": true
+                },
+                "key": "cm_content",
+                "properties": {
+                  "attribute": "cm:content"
+                },
+                "type": "file",
+                "input": true,
+                "url": "/share/proxy/alfresco/eform/file",
+                "options": ""
+              },
+              {
+                "label": "inner:form",
+                "hidden": true,
+                "defaultValue": "",
+                "key": "inner_form",
+                "properties": {
+                  "attribute": "inner:form"
+                },
+                "type": "textfield",
+                "input": true
+              },
+              {
+                "label": "subCategories",
+                "source": {
+                  "type": "recordsQuery",
+                  "recordsQuery": {
+                    "attributes": {
+                      "title": "cm:title"
+                    },
+                    "query": "var query = 'PARENT:\"alfresco/@workspace://SpacesStore/letter-doctype-income\"';\nvar value = {\n  query: query,\n  language: 'fts-alfresco'\n}",
+                    "isSingle": false
+                  },
+                  "forceLoad": false
+                },
+                "update": {
+                  "type": "any-change"
+                },
+                "key": "subCategories",
+                "type": "asyncData",
+                "input": true,
+                "conditional": {
+                  "show": null,
+                  "when": null
+                }
+              }
+            ],
+            "md": 12,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "index": 0,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          }
+        ],
+        "key": "columns5",
+        "type": "columns",
+        "input": false
+      },
+      {
+        "columns": [
+          {
+            "components": [
+              {
+                "label": "Cancel",
+                "removeIndents": true,
+                "action": "event",
+                "state": "",
+                "showValidations": false,
+                "event": "cancel",
+                "block": true,
+                "key": "submit",
+                "type": "button",
+                "input": true
+              }
+            ],
+            "md": 3,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "index": 0,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "md": 3,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "index": 1,
+            "components": [],
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "md": 3,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "index": 2,
+            "components": [],
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "md": 3,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "index": 3,
+            "components": [
+              {
+                "label": "Save",
+                "removeIndents": true,
+                "state": "",
+                "theme": "primary",
+                "block": true,
+                "key": "submit3",
+                "type": "button",
+                "input": true
+              }
+            ],
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          }
+        ],
+        "key": "columns9",
+        "customConditional": "var isDraftStatus = data.caseStatus === \"draft\";\r\nvar isCreateMode = instance.options.formMode === 'CREATE';\r\n\r\nshow = !isDraftStatus && !isCreateMode;",
+        "type": "columns",
+        "input": false
+      },
+      {
+        "columns": [
+          {
+            "components": [
+              {
+                "label": "Cancel",
+                "removeIndents": true,
+                "action": "event",
+                "state": "",
+                "showValidations": false,
+                "event": "cancel",
+                "block": true,
+                "key": "submit2",
+                "type": "button",
+                "input": true
+              }
+            ],
+            "md": 3,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "index": 0,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "md": 3,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "index": 1,
+            "components": [],
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "md": 3,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "index": 2,
+            "components": [],
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "md": 3,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "index": 3,
+            "components": [
+              {
+                "label": "Create",
+                "removeIndents": true,
+                "state": "",
+                "theme": "primary",
+                "block": true,
+                "key": "submit4",
+                "type": "button",
+                "input": true
+              }
+            ],
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          }
+        ],
+        "key": "columns11",
+        "customConditional": "var isDraftStatus = data.caseStatus === \"draft\";\r\nvar isCreateMode = instance.options.formMode === 'CREATE';\r\n\r\nshow = isDraftStatus || isCreateMode;",
+        "type": "columns",
+        "input": false
+      }
+    ]
+  },
+  "attributes": {}
+}

@@ -1,0 +1,12 @@
+
+id: contract-subject
+
+name: { ru: Конфигурация, en: Config }
+
+parentRef: emodel/type@data-list
+formRef: uiserv/form@contracts-subject-form
+journalRef: uiserv/journal@contract-subjects
+
+properties:
+  alfType: contracts:subject
+  alfRoot: /app:company_home/st:sites/cm:contracts/cm:dataLists/cm:subjects

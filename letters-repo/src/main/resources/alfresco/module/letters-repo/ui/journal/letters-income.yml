@@ -1,0 +1,25 @@
+id: letters-income
+name: { ru: Входящие, en: Incoming }
+
+actions:
+  - uiserv/action@download-zip
+  - uiserv/action@edit
+  - uiserv/action@view-dashboard
+  - uiserv/action@view-dashboard-in-background
+
+columns:
+  - id: cm:created
+  - id: idocs:documentStatus
+  - id: idocs:registrationDate
+  - id: idocs:registrationNumber
+  - id: letters:nomenclature
+  - id: tk:kind
+  - id: letters:deliveryMethod
+  - id: letters:reporterOrganization
+  - id: letters:letterWriter
+  - id: letters:subdivision
+  - id: letters:receiver
+  - id: idocs:summary
+  - id: idocs:note
+  - id: idocs:pagesNumber
+  - id: idocs:appendixPagesNumber

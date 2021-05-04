@@ -1,0 +1,69 @@
+---
+id: contracts-cat-doctype-contract
+name:
+  ru: Договор
+  en: Contract
+
+parentRef: emodel/type@contracts-cat-doctype-contract-case
+formRef: uiserv/form@agreement-form
+journalRef: uiserv/journal@contract-agreements
+
+actions:
+  - uiserv/action@pdf-content-with-barcode
+  - uiserv/action@document-add-closing-doc-for-payment
+  - uiserv/action@document-add-payment-for-approved
+  - uiserv/action@document-add-sup-agreement
+
+properties:
+  alfType: contracts:agreement
+  alfRoot: /app:company_home/st:sites/cm:contracts/cm:documentLibrary/cm:contracts
+
+associations:
+
+  - id: payments:basis
+    name:
+      ru: Счета
+      en: Invoices
+
+    direction: SOURCE
+    target: emodel/type@user-base
+
+  - id: contracts:mainAgreement
+    name:
+      ru: Доп.соглашения
+      en: Additional Agreements
+
+    direction: SOURCE
+    target: emodel/type@user-base
+
+  - id: contracts:closingDocumentAgreement
+    name:
+      ru: Учетные документы
+      en: Accounting documents
+
+    direction: SOURCE
+    target: emodel/type@user-base
+
+model:
+  attributes:
+    - id: idocs:legalFormCountry
+      type: ASSOC
+      config:
+        typeRef: emodel/type@country-iso3166
+    - id: contracts:contractor
+      type: ASSOC
+      config:
+        typeRef: emodel/type@idocs-contractor
+    - id: contracts:agreementCurrency
+      type: ASSOC
+      config:
+        typeRef: emodel/type@currency
+    - id: contracts:agreementLegalEntity
+      type: ASSOC
+      config:
+        typeRef: emodel/type@legal-entity
+    - id: contracts:agreementSubject
+      type: ASSOC
+      config:
+        typeRef: emodel/type@contract-subject
+

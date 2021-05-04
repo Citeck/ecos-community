@@ -1,0 +1,5 @@
+{
+  "id": "contracts-cat-doctype-closing-doc/contracts-cat-closing-doc-delivery",
+  "name": "Закрывающий документ. Доставка",
+  "parentRef": "emodel/type@contracts-cat-doctype-closing-doc"
+}

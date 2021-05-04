@@ -1,0 +1,29 @@
+{
+  "id": "create-th-thanks-in-profile",
+  "key": "create-th-thanks-in-profile",
+  "name": {
+    "ru": "Сказать спасибо",
+    "en": "Say thanks"
+  },
+  "type": "create",
+  "icon": "icon-plus",
+  "config": {
+    "redirectToPage": false,
+    "recordRef": "dict@th:thanksType",
+    "options": {
+      "parentFormData": {
+        "cm_userName": "${cm:userName?str}"
+      }
+    }
+  },
+  "evaluator": {
+    "type": "predicate",
+    "config": {
+      "predicate": {
+        "t": "not-eq",
+        "att": "cm:userName",
+        "val": "${$user.cm:userName}"
+      }
+    }
+  }
+}

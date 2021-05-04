@@ -1,0 +1,45 @@
+id: contracts-supplementary-agreement
+name: { ru: Доп. соглашения, en: Add'l agreements }
+
+actions:
+  - uiserv/action@download-zip
+  - uiserv/action@edit
+  - uiserv/action@view-dashboard
+  - uiserv/action@view-dashboard-in-background
+
+columns:
+  - id: cm:created
+  - id: cm:title
+  - id: contracts:mainAgreement
+  - id: contracts:agreementNumber
+  - id: icase:caseStatusAssoc
+    editor:
+      type: journal
+      config:
+        journalId: case-status
+  - id: contracts:agreementLegalEntity
+  - id: contracts:contractor
+  - id: contracts:agreementSubject
+  - id: contracts:agreementAmount
+  - id: contracts:agreementCurrency
+  - id: contracts:agreementDate
+  - id: contracts:duration
+
+  - id: cm:name
+    visible: false
+  - id: idocs:registrationNumber
+    visible: false
+  - id: idocs:registrationDate
+    visible: false
+  - id: idocs:summary
+    visible: false
+  - id: idocs:pagesNumber
+    visible: false
+  - id: idocs:appendixPagesNumber
+    visible: false
+  - id: idocs:signatory
+    visible: false
+  - id: idocs:performer
+    visible: false
+  - id: idocs:note
+    visible: false

@@ -1,0 +1,7 @@
+---
+id: letter-doctype-income/letter-doctype-income-c
+name:
+  ru: Разное
+  en: Other
+
+parentRef: emodel/type@letter-doctype-income

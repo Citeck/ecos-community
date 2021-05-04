@@ -1,6 +1,0 @@
-{
-    "id": "orders-cat-doctype-internal/orders-cat-internal-leave",
-    "name": "Приказ на отпуск",
-    "parent": "emodel/type@orders-cat-doctype-internal",
-    "inheritActions": true
-}

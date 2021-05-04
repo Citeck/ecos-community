@@ -1,0 +1,12 @@
+{
+  "id": "meet-agenda",
+  "name": {
+    "ru": "Повестка",
+    "en": "Agenda"
+  },
+  "formRef": "uiserv/form@meet_agenda",
+  "parentRef": "emodel/type@data-list",
+  "properties": {
+    "alfType": "meet:agenda"
+  }
+}

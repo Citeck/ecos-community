@@ -1,0 +1,535 @@
+{
+  "id": "orders_internal",
+  "formKey": "",
+  "title": {
+    "en": "Orders internal"
+  },
+  "description": {},
+  "customModule": null,
+  "typeRef": "emodel/type@orders-cat-doctype-internal",
+  "width": "default",
+  "i18n": {
+    "ru": {
+      "cm:content": "Содержимое",
+      "tk:kind": "Тип внутреннего документа",
+      "orders:registrationNumber_tooltip": "Регистрационный номер задается на этапе Регистрации после подписания ",
+      "Save": "Сохранить",
+      "Cancel": "Отменить",
+      "Submit": "Создать",
+      "Order (transfer)": "Приказ на перевод",
+      "Order (leave)": "Приказ на отпуск",
+      "Order (recruitment)": "Приказ на прием на работу",
+      "Order (dismissal)": "Приказ на увольнение"
+    },
+    "en": {
+      "cm:content": "Content",
+      "tk:kind": "Internal document type",
+      "orders:registrationNumber_tooltip": "Registration number is filled on the Registration stage after document signing",
+      "Save": "Save",
+      "Cancel": "Cancel",
+      "Submit": "Submit",
+      "Order (transfer)": "Order (transfer)",
+      "Order (leave)": "Order (leave)",
+      "Order (recruitment)": "Order (recruitment)",
+      "Order (dismissal)": "Order (dismissal)"
+    }
+  },
+  "definition": {
+    "components": [
+      {
+        "columns": [
+          {
+            "components": [
+              {
+                "label": "tk:kind",
+                "clearOnHide": false,
+                "dataSrc": "custom",
+                "data": {
+                  "custom": "for (var i in data.subCategories.records){\n  values.push({label: data.subCategories.records[i].title,value: data.subCategories.records[i].id})\n}\n\n"
+                },
+                "defaultValue": "alfresco/@workspace://SpacesStore/orders-cat-internal-order",
+                "refreshOn": [
+                  "subCategories"
+                ],
+                "customDefaultValue": "value = \" \";",
+                "validate": {
+                  "required": true
+                },
+                "key": "tk_kind",
+                "properties": {
+                  "attribute": "tk:kind"
+                },
+                "type": "ecosSelect",
+                "input": true
+              }
+            ],
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "index": 0,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "index": 1,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "components": [
+              {
+                "label": "orders:creationDate",
+                "format": "dd-MM-yyyy",
+                "clearOnHide": false,
+                "datePicker": {
+                  "minDate": "",
+                  "maxDate": ""
+                },
+                "enableTime": false,
+                "defaultDate": "moment()",
+                "defaultValue": "",
+                "key": "orders_creationDate",
+                "properties": {
+                  "attribute": "orders:creationDate"
+                },
+                "type": "datetime",
+                "input": true,
+                "suffix": true
+              }
+            ],
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          }
+        ],
+        "key": "columns2",
+        "type": "columns",
+        "input": false
+      },
+      {
+        "columns": [
+          {
+            "components": [
+              {
+                "label": "idocs:initiator",
+                "currentUserByDefault": true,
+                "defaultValue": "",
+                "validate": {
+                  "required": true
+                },
+                "key": "idocs_initiator",
+                "properties": {
+                  "attribute": "idocs:initiator"
+                },
+                "type": "selectOrgstruct",
+                "input": true
+              }
+            ],
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "index": 0,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "index": 1,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "components": [
+              {
+                "label": "idocs:signatory",
+                "allowedAuthorityType": "USER",
+                "defaultValue": "",
+                "validate": {
+                  "required": true
+                },
+                "key": "idocs_signatory",
+                "properties": {
+                  "attribute": "idocs:signatory"
+                },
+                "type": "selectOrgstruct",
+                "input": true
+              }
+            ],
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          }
+        ],
+        "key": "columns3",
+        "type": "columns",
+        "input": false
+      },
+      {
+        "columns": [
+          {
+            "components": [
+              {
+                "label": "orders:branch",
+                "allowedAuthorityType": "GROUP",
+                "defaultValue": "",
+                "key": "orders_branch",
+                "properties": {
+                  "attribute": "orders:branch"
+                },
+                "type": "selectOrgstruct",
+                "input": true
+              }
+            ],
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "index": 0,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "index": 1,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "components": [
+              {
+                "label": "orders:fileCode",
+                "journalId": "",
+                "key": "orders_fileCode",
+                "properties": {
+                  "attribute": "orders:fileCode"
+                },
+                "type": "selectJournal",
+                "input": true
+              }
+            ],
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          }
+        ],
+        "key": "columns4",
+        "type": "columns",
+        "input": false
+      },
+      {
+        "columns": [
+          {
+            "components": [
+              {
+                "label": "orders:header",
+                "defaultValue": "",
+                "validate": {
+                  "required": true
+                },
+                "key": "orders_header",
+                "properties": {
+                  "attribute": "orders:header"
+                },
+                "type": "textfield",
+                "input": true
+              }
+            ],
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "index": 0,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "index": 1,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "components": [
+              {
+                "label": "idocs:registrationNumber",
+                "tooltip": "orders:registrationNumber_tooltip",
+                "disabled": true,
+                "defaultValue": "",
+                "key": "idocs_registrationNumber",
+                "properties": {
+                  "attribute": "idocs:registrationNumber"
+                },
+                "type": "textfield",
+                "input": true
+              }
+            ],
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          }
+        ],
+        "key": "columns6",
+        "type": "columns",
+        "input": false
+      },
+      {
+        "columns": [
+          {
+            "components": [
+              {
+                "label": "orders:scanRequired",
+                "defaultValue": true,
+                "key": "orders_scanRequired",
+                "properties": {
+                  "attribute": "orders:scanRequired"
+                },
+                "type": "checkbox",
+                "input": true
+              },
+              {
+                "label": "dms:updateContent",
+                "key": "dms_updateContent",
+                "properties": {
+                  "attribute": "dms:updateContent"
+                },
+                "customConditional": "const {tk_kind = \"\"} = data || {};\nvar order1 = tk_kind == \"alfresco/@workspace://SpacesStore/orders-cat-internal-order\";\nvar order2 = tk_kind == \"alfresco/@workspace://SpacesStore/orders-cat-internal-leave\";\nvar order3 = tk_kind == \"alfresco/@workspace://SpacesStore/orders-cat-internal-transfer\";\nvar order4 = tk_kind == \"alfresco/@workspace://SpacesStore/orders-cat-internal-recruitment\";\nvar order5 = tk_kind == \"alfresco/@workspace://SpacesStore/orders-cat-internal-dismissal\";\nshow = order1 || order2 || order3 || order4 || order5;\n",
+                "type": "checkbox",
+                "input": true
+              }
+            ],
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "index": 0,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "index": 1,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "components": [
+              {
+                "label": "idocs:summary",
+                "defaultValue": "",
+                "validate": {
+                  "required": true
+                },
+                "key": "idocs_summary",
+                "properties": {
+                  "attribute": "idocs:summary"
+                },
+                "rows": 2,
+                "type": "textarea",
+                "input": true
+              }
+            ],
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          }
+        ],
+        "key": "columns7",
+        "type": "columns",
+        "input": false
+      },
+      {
+        "columns": [
+          {
+            "components": [],
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "index": 0,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "index": 1,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "components": [
+              {
+                "label": "cm:content",
+                "onFileClick": "download",
+                "storage": "url",
+                "url": " /share/proxy/alfresco/eform/file",
+                "options": "",
+                "validate": {
+                  "required": true
+                },
+                "key": "cm_content",
+                "properties": {
+                  "attribute": "cm:content"
+                },
+                "customConditional": "const {tk_kind = \"\"} = data || null;\nconst {dms_updateContent =\"\"} = data || null;\nshow = tk_kind.includes(\"workspace\") && !dms_updateContent;",
+                "type": "file",
+                "input": true
+              }
+            ],
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          }
+        ],
+        "key": "columns8",
+        "type": "columns",
+        "input": false
+      },
+      {
+        "columns": [
+          {
+            "components": [
+              {
+                "label": "Cancel",
+                "action": "event",
+                "state": "",
+                "showValidations": false,
+                "event": "cancel",
+                "block": true,
+                "key": "submit3",
+                "type": "button",
+                "input": true
+              }
+            ],
+            "md": 3,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "index": 0,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "md": 3,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "index": 1,
+            "components": [
+              {
+                "label": "Save",
+                "state": "draft",
+                "block": true,
+                "key": "submit2",
+                "type": "button",
+                "input": true
+              }
+            ],
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "md": 3,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "index": 2,
+            "components": [],
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "md": 3,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "index": 3,
+            "components": [
+              {
+                "state": "",
+                "theme": "primary",
+                "block": true,
+                "disableOnInvalid": true,
+                "key": "submit",
+                "type": "button",
+                "input": true
+              }
+            ],
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          }
+        ],
+        "key": "columns5",
+        "type": "columns",
+        "input": false
+      },
+      {
+        "label": "subCategories",
+        "source": {
+          "type": "recordsQuery",
+          "recordsQuery": {
+            "attributes": {
+              "title": "cm:title"
+            },
+            "query": "var query = 'PARENT:\"alfresco/@workspace://SpacesStore/orders-cat-doctype-internal\"';\nvar value = {\n  query: query,\n  language: 'fts-alfresco'\n}",
+            "isSingle": false
+          },
+          "forceLoad": false
+        },
+        "update": {
+          "type": "any-change"
+        },
+        "key": "subCategories",
+        "type": "asyncData",
+        "input": true,
+        "conditional": {
+          "show": null,
+          "when": null
+        }
+      }
+    ]
+  },
+  "attributes": {}
+}

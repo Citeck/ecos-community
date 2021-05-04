@@ -1,0 +1,1409 @@
+{
+  "id": "contracts-supplementary-agreement",
+  "formKey": "alf_contracts:supplementaryAgreement",
+  "title": {
+    "en": "Supplementary agreement form"
+  },
+  "description": {},
+  "customModule": null,
+  "typeRef": "",
+  "width": "default",
+  "i18n": {
+    "ru": {
+      "Type of add'l agreement": "Вид доп. соглашения",
+      "Basic": "Основные",
+      "Generate": "Генерировать",
+      "Finance": "Финансы",
+      "Content": "Содержание",
+      "Additionally": "Дополнительно",
+      "Cancel": "Отмена",
+      "Save": "Сохранить",
+      "Create": "Создать",
+      "Add'l agreement number": "Номер. Доп. соглашения",
+      "Add'l agreement signing date": "Дата доп. соглашения",
+      "Value of add'l agreement": "Сумма доп. соглашения"
+    },
+    "en": {
+      "Type of add'l agreement": "Type of add'l agreement",
+      "Basic": "Basic",
+      "Generate": "Generate",
+      "Finance": "Finance",
+      "Content": "Content",
+      "Additionally": "Additionally",
+      "Cancel": "Cancel",
+      "Save": "Save",
+      "Create": "Create",
+      "Add'l agreement number": "Add'l agreement number",
+      "Add'l agreement signing date": "Add'l agreement signing date",
+      "Value of add'l agreement": "Value of add'l agreement"
+    }
+  },
+  "definition": {
+    "components": [
+      {
+        "scrollableContent": true,
+        "key": "panel2",
+        "type": "panel",
+        "input": false,
+        "components": [
+          {
+            "columns": [
+              {
+                "components": [
+                  {
+                    "title": "Basic",
+                    "key": "panel3",
+                    "type": "panel",
+                    "input": false,
+                    "components": [
+                      {
+                        "label": "contracts:mainAgreement",
+                        "hideEditRowButton": true,
+                        "journalId": "contract-agreements",
+                        "validate": {
+                          "required": true
+                        },
+                        "key": "contracts_mainAgreement",
+                        "properties": {
+                          "attribute": "contracts:mainAgreement"
+                        },
+                        "type": "selectJournal",
+                        "input": true,
+                        "_agreementValues": null,
+                        "presetFilterPredicatesJs": null
+                      },
+                      {
+                        "columns": [
+                          {
+                            "components": [
+                              {
+                                "label": {
+                                  "ru": "contracts:agreementLegalEntity"
+                                },
+                                "hideEditRowButton": true,
+                                "journalId": "legal-entities",
+                                "validate": {
+                                  "required": true
+                                },
+                                "key": "contracts_agreementLegalEntity",
+                                "properties": {
+                                  "attribute": "contracts:agreementLegalEntity"
+                                },
+                                "conditional": {
+                                  "show": "false",
+                                  "when": "contracts_mainAgreement"
+                                },
+                                "logic": [
+                                  {
+                                    "name": "Set value",
+                                    "trigger": {
+                                      "type": "javascript",
+                                      "javascript": "const {_agreementValues, contracts_agreementLegalEntity: curVal} = data || {};\nconst {_legalEntity} = _agreementValues || {};\n\nresult = !!_legalEntity && curVal != _legalEntity;"
+                                    },
+                                    "actions": [
+                                      {
+                                        "name": "Set value",
+                                        "type": "value",
+                                        "value": "const {_agreementValues} = data || {};\nconst {_legalEntity} = _agreementValues || {};\n\nvalue = _legalEntity;"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "name": "Disable",
+                                    "trigger": {
+                                      "type": "javascript",
+                                      "javascript": "const {_agreementValues} = data || {};\nconst {_legalEntity} = _agreementValues || {};\n\nresult = !!_legalEntity;"
+                                    },
+                                    "actions": [
+                                      {
+                                        "name": "Disable",
+                                        "type": "property",
+                                        "property": {
+                                          "label": "Disabled",
+                                          "value": "disabled",
+                                          "type": "boolean"
+                                        },
+                                        "state": "true"
+                                      }
+                                    ]
+                                  }
+                                ],
+                                "type": "selectJournal",
+                                "input": true
+                              }
+                            ],
+                            "type": "column",
+                            "input": false,
+                            "key": "column",
+                            "label": "Column",
+                            "index": 0,
+                            "clearOnHide": true,
+                            "conditional": {
+                              "show": null,
+                              "when": null
+                            }
+                          },
+                          {
+                            "components": [
+                              {
+                                "label": {
+                                  "ru": "contracts:contractor"
+                                },
+                                "hideEditRowButton": true,
+                                "journalId": "idocs-contractor",
+                                "validate": {
+                                  "required": true
+                                },
+                                "key": "contracts_contractor",
+                                "properties": {
+                                  "attribute": "contracts:contractor"
+                                },
+                                "conditional": {
+                                  "show": "false",
+                                  "when": "contracts_mainAgreement"
+                                },
+                                "logic": [
+                                  {
+                                    "name": "Set value",
+                                    "trigger": {
+                                      "type": "javascript",
+                                      "javascript": "const {_agreementValues, contracts_contractor: curVal} = data || {};\nconst {_contractor} = _agreementValues || {};\n\nresult = !!_contractor && curVal != _contractor;"
+                                    },
+                                    "actions": [
+                                      {
+                                        "name": "Set value",
+                                        "type": "value",
+                                        "value": "const {_agreementValues} = data || {};\nconst {_contractor} = _agreementValues || {};\n\nvalue = _contractor;"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "name": "Disable",
+                                    "trigger": {
+                                      "type": "javascript",
+                                      "javascript": "const {_agreementValues} = data || {};\nconst {_contractor} = _agreementValues || {};\n\nresult = !!_contractor;"
+                                    },
+                                    "actions": [
+                                      {
+                                        "name": "Disable",
+                                        "type": "property",
+                                        "property": {
+                                          "label": "Disabled",
+                                          "value": "disabled",
+                                          "type": "boolean"
+                                        },
+                                        "state": "true"
+                                      }
+                                    ]
+                                  }
+                                ],
+                                "type": "selectJournal",
+                                "input": true
+                              }
+                            ],
+                            "type": "column",
+                            "input": false,
+                            "key": "column",
+                            "label": "Column",
+                            "index": 1,
+                            "clearOnHide": true,
+                            "conditional": {
+                              "show": null,
+                              "when": null
+                            }
+                          }
+                        ],
+                        "key": "columns4",
+                        "type": "columns",
+                        "input": false
+                      },
+                      {
+                        "columns": [
+                          {
+                            "components": [
+                              {
+                                "label": {
+                                  "ru": "contracts:agreementSubject"
+                                },
+                                "hideEditRowButton": true,
+                                "journalId": "contract-subjects",
+                                "key": "contracts_agreementSubject",
+                                "properties": {
+                                  "attribute": "contracts:agreementSubject"
+                                },
+                                "conditional": {
+                                  "show": "false",
+                                  "when": "contracts_mainAgreement"
+                                },
+                                "logic": [
+                                  {
+                                    "name": "Set value",
+                                    "trigger": {
+                                      "type": "javascript",
+                                      "javascript": "const {_agreementValues, contracts_agreementSubject: curVal} = data || {};\nconst {_subject} = _agreementValues || {};\n\nresult = !!_subject && curVal !== _subject;"
+                                    },
+                                    "actions": [
+                                      {
+                                        "name": "set_value",
+                                        "type": "value",
+                                        "value": "value = data._agreementValues._subject;"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "name": "Disable",
+                                    "trigger": {
+                                      "type": "javascript",
+                                      "javascript": "const {_agreementValues} = data || {};\nconst {_subject} = _agreementValues || {};\n\nresult = !!_subject;"
+                                    },
+                                    "actions": [
+                                      {
+                                        "name": "Disable",
+                                        "type": "property",
+                                        "property": {
+                                          "label": "Disabled",
+                                          "value": "disabled",
+                                          "type": "boolean"
+                                        },
+                                        "state": "true"
+                                      }
+                                    ]
+                                  }
+                                ],
+                                "type": "selectJournal",
+                                "input": true
+                              }
+                            ],
+                            "type": "column",
+                            "input": false,
+                            "key": "column",
+                            "label": "Column",
+                            "index": 0,
+                            "clearOnHide": true,
+                            "conditional": {
+                              "show": null,
+                              "when": null
+                            }
+                          },
+                          {
+                            "components": [
+                              {
+                                "label": {
+                                  "ru": "Type of add'l agreement"
+                                },
+                                "dataSrc": "custom",
+                                "data": {
+                                  "custom": "const {docTypeList, _agreementValues} = data || {};\nconst {childList} = docTypeList || {};\n\nvalues = _.isArray(childList) ? childList : [];"
+                                },
+                                "refreshOn": [
+                                  "docTypeList"
+                                ],
+                                "key": "_type",
+                                "properties": {
+                                  "attribute": "_type"
+                                },
+                                "conditional": {
+                                  "show": "false",
+                                  "when": "contracts_mainAgreement"
+                                },
+                                "logic": [
+                                  {
+                                    "name": "Set value",
+                                    "trigger": {
+                                      "type": "javascript",
+                                      "javascript": "const contractType = \"emodel/type@contracts-cat-doctype-contract\";\nconst suppType = \"emodel/type@contracts-cat-doctype-supp-agreement\";\nconst {_agreementValues, docTypeList, _type: curVal} = data || {};\nconst {childList} = docTypeList || {};\nlet {_type} = _agreementValues || {};\n\nresult = false;\nif (!!_type && _type.startsWith(contractType)) {\n  _type = _type.replace(contractType, suppType)\n}\n\nconst findIndex = _.isArray(childList) ? childList.findIndex(item => item.value === _type) : -1;\nif (findIndex >= 0) {\n  result = curVal != _type;\n}"
+                                    },
+                                    "actions": [
+                                      {
+                                        "name": "Set value",
+                                        "type": "value",
+                                        "value": "const contractType = \"emodel/type@contracts-cat-doctype-contract\";\nconst suppType = \"emodel/type@contracts-cat-doctype-supp-agreement\";\nconst {_agreementValues, docTypeList} = data || {};\nconst {childList} = docTypeList || {};\nlet {_type} = _agreementValues || {};\n\nresult = false;\nif (!!_type && _type.startsWith(contractType)) {\n  _type = _type.replace(contractType, suppType)\n}\n\nvalue = _type;"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "name": "Disable",
+                                    "trigger": {
+                                      "type": "javascript",
+                                      "javascript": "const contractType = \"emodel/type@contracts-cat-doctype-contract\";\nconst suppType = \"emodel/type@contracts-cat-doctype-supp-agreement\";\nconst {_agreementValues, docTypeList, _type: curVal} = data || {};\nconst {childList} = docTypeList || {};\nlet {_type} = _agreementValues || {};\n\nresult = false;\nif (!!_type && _type.startsWith(contractType)) {\n  _type = _type.replace(contractType, suppType)\n}\n\nconst findIndex = _.isArray(childList) ? childList.findIndex(item => item.value === _type) : -1;\nif (findIndex >= 0) {\n  result = true;\n}"
+                                    },
+                                    "actions": [
+                                      {
+                                        "name": "Disable",
+                                        "type": "property",
+                                        "property": {
+                                          "label": "Disabled",
+                                          "value": "disabled",
+                                          "type": "boolean"
+                                        },
+                                        "state": "true"
+                                      }
+                                    ]
+                                  }
+                                ],
+                                "type": "ecosSelect",
+                                "input": true
+                              }
+                            ],
+                            "type": "column",
+                            "input": false,
+                            "key": "column",
+                            "label": "Column",
+                            "index": 1,
+                            "clearOnHide": true,
+                            "conditional": {
+                              "show": null,
+                              "when": null
+                            }
+                          }
+                        ],
+                        "key": "columns5",
+                        "type": "columns",
+                        "input": false
+                      },
+                      {
+                        "columns": [
+                          {
+                            "components": [
+                              {
+                                "label": "Add'l agreement number",
+                                "defaultValue": "",
+                                "validate": {
+                                  "required": true
+                                },
+                                "key": "contracts_agreementNumber",
+                                "properties": {
+                                  "attribute": "contracts:agreementNumber"
+                                },
+                                "logic": [
+                                  {
+                                    "name": "generate_event",
+                                    "trigger": {
+                                      "type": "simple",
+                                      "simple": {
+                                        "show": true,
+                                        "when": "Generate",
+                                        "eq": "true"
+                                      }
+                                    },
+                                    "actions": [
+                                      {
+                                        "name": "set_disabled_on",
+                                        "type": "property",
+                                        "property": {
+                                          "label": "Disabled",
+                                          "value": "disabled",
+                                          "type": "boolean"
+                                        },
+                                        "state": "true"
+                                      },
+                                      {
+                                        "name": "set_value",
+                                        "type": "value",
+                                        "value": "if (instance.options.formMode === 'CREATE') {\n  value = '-';\n}"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "name": "not_generate_event",
+                                    "trigger": {
+                                      "type": "simple",
+                                      "simple": {
+                                        "show": true,
+                                        "when": "Generate",
+                                        "eq": "false"
+                                      }
+                                    },
+                                    "actions": [
+                                      {
+                                        "name": "set_value",
+                                        "type": "value",
+                                        "value": "if (instance.options.formMode === 'CREATE') {\n  if ('-' == value) value = '';\n}"
+                                      }
+                                    ]
+                                  }
+                                ],
+                                "type": "textfield",
+                                "input": true
+                              }
+                            ],
+                            "type": "column",
+                            "input": false,
+                            "key": "column",
+                            "label": "Column",
+                            "index": 0,
+                            "clearOnHide": true,
+                            "conditional": {
+                              "show": null,
+                              "when": null
+                            }
+                          },
+                          {
+                            "components": [
+                              {
+                                "label": "Generate",
+                                "defaultValue": true,
+                                "key": "Generate",
+                                "customConditional": "show = instance.options.formMode === 'CREATE'",
+                                "type": "checkbox",
+                                "input": true
+                              }
+                            ],
+                            "type": "column",
+                            "input": false,
+                            "key": "column",
+                            "label": "Column",
+                            "classes": "d-flex justify-content-start align-items-center",
+                            "index": 1,
+                            "clearOnHide": true,
+                            "conditional": {
+                              "show": null,
+                              "when": null
+                            }
+                          }
+                        ],
+                        "key": "columns6",
+                        "type": "columns",
+                        "input": false
+                      },
+                      {
+                        "columns": [
+                          {
+                            "components": [
+                              {
+                                "label": "Add'l agreement signing date",
+                                "format": "dd.MM.yyyy",
+                                "datePicker": {
+                                  "minDate": "",
+                                  "maxDate": ""
+                                },
+                                "enableTime": false,
+                                "defaultDate": "moment()",
+                                "defaultValue": "",
+                                "key": "contracts_agreementDate",
+                                "properties": {
+                                  "attribute": "contracts:agreementDate"
+                                },
+                                "type": "datetime",
+                                "input": true,
+                                "suffix": true
+                              }
+                            ],
+                            "type": "column",
+                            "input": false,
+                            "key": "column",
+                            "label": "Column",
+                            "index": 0,
+                            "clearOnHide": true,
+                            "conditional": {
+                              "show": null,
+                              "when": null
+                            }
+                          },
+                          {
+                            "components": [
+                              {
+                                "label": "contracts:duration",
+                                "format": "dd.MM.yyyy",
+                                "datePicker": {
+                                  "minDate": "",
+                                  "maxDate": ""
+                                },
+                                "enableTime": false,
+                                "defaultValue": "",
+                                "key": "contracts_duration",
+                                "properties": {
+                                  "attribute": "contracts:duration"
+                                },
+                                "type": "datetime",
+                                "input": true,
+                                "suffix": true
+                              }
+                            ],
+                            "type": "column",
+                            "input": false,
+                            "key": "column",
+                            "label": "Column",
+                            "index": 1,
+                            "clearOnHide": true,
+                            "conditional": {
+                              "show": null,
+                              "when": null
+                            }
+                          }
+                        ],
+                        "key": "columns7",
+                        "type": "columns",
+                        "input": false
+                      },
+                      {
+                        "title": "Finance",
+                        "key": "panel",
+                        "type": "panel",
+                        "input": false,
+                        "components": [
+                          {
+                            "label": {
+                              "ru": "contracts:agreementCurrency"
+                            },
+                            "dataSrc": "custom",
+                            "data": {
+                              "custom": "const {currencyList} = data || {};\nconst {records} = currencyList || {};\n\nvalues = _.isArray(records) ? records : [];"
+                            },
+                            "defaultValue": "",
+                            "refreshOn": [
+                              "currencyList"
+                            ],
+                            "customDefaultValue": "if (data.currencyList && data.currencyList.records) {\n  var el = data.currencyList.records.find(x => x.id === 'alfresco/@workspace://SpacesStore/currency-rur');\n  \n  if(el){\n    value = el.id;\n  }\n  \n}",
+                            "validate": {
+                              "required": true
+                            },
+                            "key": "contracts_agreementCurrency",
+                            "properties": {
+                              "attribute": "contracts:agreementCurrency"
+                            },
+                            "logic": [
+                              {
+                                "name": "Set value",
+                                "trigger": {
+                                  "type": "javascript",
+                                  "javascript": "const {_agreementValues, contracts_agreementCurrency: curVal} = data || {};\nconst {_currency} = _agreementValues || {};\n\nresult = !!_currency && curVal !== _currency;"
+                                },
+                                "actions": [
+                                  {
+                                    "name": "set_value",
+                                    "type": "value",
+                                    "value": "value = data._agreementValues._currency;"
+                                  }
+                                ]
+                              },
+                              {
+                                "name": "Disable",
+                                "trigger": {
+                                  "type": "javascript",
+                                  "javascript": "const {_agreementValues} = data || {};\nconst {_currency} = _agreementValues || {};\n\nresult = !!_currency;"
+                                },
+                                "actions": [
+                                  {
+                                    "name": "Disable",
+                                    "type": "property",
+                                    "property": {
+                                      "label": "Disabled",
+                                      "value": "disabled",
+                                      "type": "boolean"
+                                    },
+                                    "state": "true"
+                                  }
+                                ]
+                              }
+                            ],
+                            "type": "ecosSelect",
+                            "input": true
+                          },
+                          {
+                            "columns": [
+                              {
+                                "components": [
+                                  {
+                                    "label": "Value of add'l agreement",
+                                    "validate": {
+                                      "custom": "valid = (input > 0) || !input ? true : (instance.options.language == 'ru') ? 'Это поле должно содержать положительное число' : 'This field may contain only a positive number';"
+                                    },
+                                    "key": "contracts_agreementAmount",
+                                    "properties": {
+                                      "attribute": "contracts:agreementAmount"
+                                    },
+                                    "type": "number",
+                                    "input": true
+                                  }
+                                ],
+                                "type": "column",
+                                "input": false,
+                                "key": "column",
+                                "label": "Column",
+                                "index": 0,
+                                "clearOnHide": true,
+                                "conditional": {
+                                  "show": null,
+                                  "when": null
+                                }
+                              },
+                              {
+                                "components": [
+                                  {
+                                    "label": "contracts:VAT",
+                                    "validate": {
+                                      "custom": "valid = (input > 0) || !input ? true : (instance.options.language == 'ru') ? 'Это поле должно содержать положительное число' : 'This field may contain only a positive number';"
+                                    },
+                                    "key": "contracts_VAT",
+                                    "properties": {
+                                      "attribute": "contracts:VAT"
+                                    },
+                                    "type": "number",
+                                    "input": true
+                                  }
+                                ],
+                                "type": "column",
+                                "input": false,
+                                "key": "column",
+                                "label": "Column",
+                                "index": 1,
+                                "clearOnHide": true,
+                                "conditional": {
+                                  "show": null,
+                                  "when": null
+                                }
+                              }
+                            ],
+                            "key": "columns8",
+                            "type": "columns",
+                            "input": false
+                          },
+                          {
+                            "label": "payments:payments",
+                            "multiple": true,
+                            "source": {
+                              "type": "custom",
+                              "custom": {
+                                "createVariants": [],
+                                "columns": [
+                                  {
+                                    "name": "payments:typePayment"
+                                  },
+                                  {
+                                    "name": "payments:plannedPaymentDate"
+                                  },
+                                  {
+                                    "name": "payments:currency"
+                                  },
+                                  {
+                                    "name": "payments:paymentAmount"
+                                  },
+                                  {
+                                    "name": "payments:paymentVAT"
+                                  }
+                                ],
+                                "record": null,
+                                "attribute": null
+                              }
+                            },
+                            "key": "payments_payments",
+                            "properties": {
+                              "attribute": "payments:payments"
+                            },
+                            "type": "tableForm",
+                            "input": true,
+                            "_journalId": "alf_payments:paymentDraft",
+                            "reorder": false,
+                            "computed": {
+                              "valueFormKey": null
+                            },
+                            "settingElements": {
+                              "isInstantClone": false
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "type": "column",
+                "input": false,
+                "key": "column",
+                "label": "Column",
+                "index": 0,
+                "clearOnHide": true,
+                "conditional": {
+                  "show": null,
+                  "when": null
+                }
+              },
+              {
+                "components": [
+                  {
+                    "title": "Content",
+                    "key": "panel4",
+                    "type": "panel",
+                    "input": false,
+                    "components": [
+                      {
+                        "label": "idocs:summary",
+                        "defaultValue": "",
+                        "key": "idocs_summary",
+                        "properties": {
+                          "attribute": "idocs:summary"
+                        },
+                        "rows": 2,
+                        "type": "textarea",
+                        "input": true
+                      },
+                      {
+                        "columns": [
+                          {
+                            "components": [
+                              {
+                                "label": "idocs:appendixPagesNumber",
+                                "key": "idocs_appendixPagesNumber",
+                                "properties": {
+                                  "attribute": "idocs:appendixPagesNumber"
+                                },
+                                "type": "number",
+                                "input": true
+                              }
+                            ],
+                            "type": "column",
+                            "input": false,
+                            "key": "column",
+                            "label": "Column",
+                            "index": 0,
+                            "clearOnHide": true,
+                            "conditional": {
+                              "show": null,
+                              "when": null
+                            }
+                          },
+                          {
+                            "components": [
+                              {
+                                "label": "idocs:pagesNumber",
+                                "key": "idocs_pagesNumber",
+                                "properties": {
+                                  "attribute": "idocs:pagesNumber"
+                                },
+                                "type": "number",
+                                "input": true
+                              }
+                            ],
+                            "type": "column",
+                            "input": false,
+                            "key": "column",
+                            "label": "Column",
+                            "index": 1,
+                            "clearOnHide": true,
+                            "conditional": {
+                              "show": null,
+                              "when": null
+                            }
+                          }
+                        ],
+                        "key": "columns2",
+                        "type": "columns",
+                        "input": false
+                      },
+                      {
+                        "columns": [
+                          {
+                            "components": [
+                              {
+                                "label": "idocs:signatory",
+                                "allowedAuthorityType": "USER",
+                                "allUsersGroup": "all",
+                                "defaultValue": "",
+                                "validate": {
+                                  "required": true
+                                },
+                                "key": "idocs_signatory",
+                                "properties": {
+                                  "attribute": "idocs:signatory"
+                                },
+                                "type": "selectOrgstruct",
+                                "input": true
+                              }
+                            ],
+                            "type": "column",
+                            "input": false,
+                            "key": "column",
+                            "label": "Column",
+                            "index": 0,
+                            "clearOnHide": true,
+                            "conditional": {
+                              "show": null,
+                              "when": null
+                            }
+                          },
+                          {
+                            "components": [
+                              {
+                                "label": "idocs:performer",
+                                "allowedAuthorityType": "USER",
+                                "allUsersGroup": "all",
+                                "defaultValue": "",
+                                "key": "idocs_performer",
+                                "properties": {
+                                  "attribute": "idocs:performer"
+                                },
+                                "type": "selectOrgstruct",
+                                "input": true
+                              }
+                            ],
+                            "type": "column",
+                            "input": false,
+                            "key": "column",
+                            "label": "Column",
+                            "index": 1,
+                            "clearOnHide": true,
+                            "conditional": {
+                              "show": null,
+                              "when": null
+                            }
+                          }
+                        ],
+                        "key": "columns11",
+                        "type": "columns",
+                        "input": false
+                      },
+                      {
+                        "label": "contracts:digiSign",
+                        "allowCalculateOverride": true,
+                        "key": "contracts_digiSign",
+                        "properties": {
+                          "attribute": "contracts:digiSign"
+                        },
+                        "logic": [
+                          {
+                            "name": "protected_on",
+                            "trigger": {
+                              "type": "javascript",
+                              "javascript": "result = data.isEntInstalled !== 'true';"
+                            },
+                            "actions": [
+                              {
+                                "name": "protected_on",
+                                "type": "property",
+                                "property": {
+                                  "label": "Disabled",
+                                  "value": "disabled",
+                                  "type": "boolean"
+                                },
+                                "state": "true"
+                              }
+                            ]
+                          }
+                        ],
+                        "type": "checkbox",
+                        "input": true
+                      },
+                      {
+                        "label": "idocs:note",
+                        "defaultValue": "",
+                        "key": "idocs_note",
+                        "properties": {
+                          "attribute": "idocs:note"
+                        },
+                        "rows": 2,
+                        "type": "textarea",
+                        "input": true
+                      },
+                      {
+                        "label": "dms:updateContent",
+                        "labelPosition": "left-left",
+                        "key": "dms_updateContent",
+                        "properties": {
+                          "attribute": "dms:updateContent"
+                        },
+                        "customConditional": "var isDraftStatus = data.caseStatus === \"draft\";\r\nvar isCreateMode = instance.options.formMode === 'CREATE';\r\n\r\nshow = isDraftStatus || isCreateMode;",
+                        "type": "checkbox",
+                        "input": true
+                      },
+                      {
+                        "label": "cm:content",
+                        "onFileClick": "download",
+                        "storage": "url",
+                        "url": "/share/proxy/alfresco/eform/file",
+                        "options": "",
+                        "calculateValue": "({ cm_content: value } = data || {});\r\nconst { fromIncomePackageTask = {} } = data || {};\r\nconst { cm_content } = fromIncomePackageTask || {};\r\nif (!!cm_content) {\r\n\treturn cm_content;\r\n}",
+                        "allowCalculateOverride": true,
+                        "validate": {
+                          "required": true
+                        },
+                        "key": "cm_content",
+                        "properties": {
+                          "attribute": "cm:content"
+                        },
+                        "customConditional": "show = instance.options.formMode != 'CREATE' || (!data.dms_updateContent && instance.options.formMode === 'CREATE');",
+                        "logic": [
+                          {
+                            "name": "DisableLogic",
+                            "trigger": {
+                              "type": "javascript",
+                              "javascript": "const { fromIncomePackageTask = {} } = data || {};\r\nconst { isContentFile = false} = fromIncomePackageTask || {};\r\n\r\nlet isFileExist = Object.getOwnPropertyNames(fromIncomePackageTask).length > 0;\r\nresult = isFileExist && isContentFile;"
+                            },
+                            "actions": [
+                              {
+                                "name": "disable",
+                                "type": "property",
+                                "property": {
+                                  "label": "Disabled",
+                                  "value": "disabled",
+                                  "type": "boolean"
+                                },
+                                "state": "true"
+                              }
+                            ]
+                          }
+                        ],
+                        "type": "file",
+                        "defaultValue": [],
+                        "input": true
+                      },
+                      {
+                        "label": "icase:documents",
+                        "clearOnHide": false,
+                        "onFileClick": "download",
+                        "storage": "url",
+                        "url": "/share/proxy/alfresco/eform/file",
+                        "options": "",
+                        "calculateValue": "({ icase_documents: value } = data || {});\r\nconst { fromIncomePackageTask = {} } = data || {};\r\nconst { icase_documents } = fromIncomePackageTask || {};\r\nif (!!icase_documents) {\r\n\treturn icase_documents;\r\n}",
+                        "allowCalculateOverride": true,
+                        "validate": {
+                          "required": true
+                        },
+                        "key": "icase_documents",
+                        "properties": {
+                          "attribute": "icase:documents"
+                        },
+                        "customConditional": "const { fromIncomePackageTask = {} } = data || {};\r\nconst { isContentFile = false} = fromIncomePackageTask || {};\r\nlet isFileExist = Object.getOwnPropertyNames(fromIncomePackageTask).length > 0;\r\nshow = isFileExist && !isContentFile;",
+                        "logic": [
+                          {
+                            "name": "DisableLogic",
+                            "trigger": {
+                              "type": "javascript",
+                              "javascript": "const { fromIncomePackageTask = {} } = data || {};\r\nconst { isContentFile = false} = fromIncomePackageTask || {};\r\nlet isFileExist = Object.getOwnPropertyNames(fromIncomePackageTask).length > 0;\r\nresult = isFileExist && !isContentFile;"
+                            },
+                            "actions": [
+                              {
+                                "name": "disable",
+                                "type": "property",
+                                "property": {
+                                  "label": "Disabled",
+                                  "value": "disabled",
+                                  "type": "boolean"
+                                },
+                                "state": "true"
+                              }
+                            ]
+                          }
+                        ],
+                        "type": "file",
+                        "defaultValue": [],
+                        "input": true
+                      }
+                    ]
+                  }
+                ],
+                "type": "column",
+                "input": false,
+                "key": "column",
+                "label": "Column",
+                "index": 1,
+                "clearOnHide": true,
+                "conditional": {
+                  "show": null,
+                  "when": null
+                }
+              }
+            ],
+            "key": "columns",
+            "type": "columns",
+            "input": false
+          }
+        ]
+      },
+      {
+        "columns": [
+          {
+            "components": [
+              {
+                "label": "_agreementValues",
+                "source": {
+                  "type": "record",
+                  "record": {
+                    "id": "{{data.contracts_mainAgreement}}",
+                    "attributes": {
+                      "_legalEntity": "contracts:agreementLegalEntity?assoc",
+                      "_contractor": "contracts:contractor?assoc",
+                      "_subject": "contracts:agreementSubject?assoc",
+                      "_kind": "tk:kind?assoc",
+                      "_currency": "contracts:agreementCurrency?assoc",
+                      "_type": "_type?id"
+                    }
+                  },
+                  "forceLoad": false
+                },
+                "update": {
+                  "type": "once"
+                },
+                "refreshOn": [
+                  {
+                    "label": "contracts_mainAgreement",
+                    "value": "contracts_mainAgreement"
+                  }
+                ],
+                "executionCondition": "const { contracts_mainAgreement } = data || {};\nvalue = !!contracts_mainAgreement;",
+                "key": "_agreementValues",
+                "type": "asyncData",
+                "input": true,
+                "conditional": {
+                  "show": null,
+                  "when": null
+                }
+              },
+              {
+                "label": {
+                  "ru": "tk:type"
+                },
+                "customDefaultValue": "value = 'alfresco/@workspace://SpacesStore/contracts-cat-doctype-supp-agreement';",
+                "key": "tk_type",
+                "properties": {
+                  "attribute": "tk:type"
+                },
+                "type": "hidden",
+                "input": true
+              }
+            ],
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "md": 2,
+            "index": 0,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "components": [
+              {
+                "label": "docTypeList",
+                "source": {
+                  "type": "record",
+                  "record": {
+                    "id": "emodel/type@contracts-cat-doctype-supp-agreement",
+                    "attributes": {
+                      "childList": "children[]{label:.disp,value:.id}"
+                    }
+                  },
+                  "forceLoad": false
+                },
+                "update": {
+                  "type": "once"
+                },
+                "key": "docTypeList",
+                "type": "asyncData",
+                "input": true,
+                "conditional": {
+                  "show": null,
+                  "when": null
+                }
+              },
+              {
+                "label": {
+                  "ru": "tk:kind"
+                },
+                "calculateValue": "const {_agreementValues} = data || {};\nlet {_kind} = _agreementValues || {};\nvalue = _kind;",
+                "key": "tk_kind",
+                "properties": {
+                  "attribute": "tk:kind"
+                },
+                "type": "hidden",
+                "input": true
+              }
+            ],
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "md": 2,
+            "index": 1,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "md": 2,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "components": [
+              {
+                "label": "isEntInstalled",
+                "source": {
+                  "type": "ajax",
+                  "ajax": {
+                    "url": "/citeck/info/is-ent-installed",
+                    "data": "value = {}",
+                    "mapping": "const {isEntInstalled} = data || {};\nvalue = isEntInstalled;",
+                    "method": "GET"
+                  },
+                  "forceLoad": false
+                },
+                "update": {
+                  "type": "once"
+                },
+                "key": "isEntInstalled",
+                "type": "asyncData",
+                "input": true,
+                "conditional": {
+                  "show": null,
+                  "when": null
+                }
+              }
+            ],
+            "index": 2,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "md": 2,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "components": [
+              {
+                "label": "edm",
+                "source": {
+                  "type": "ajax",
+                  "ajax": {
+                    "url": "/citeck/ecosConfig/ecos-config-value",
+                    "data": "value = { configName: 'electronic-document-management' }",
+                    "method": "GET",
+                    "mapping": ""
+                  },
+                  "forceLoad": false
+                },
+                "update": {
+                  "type": "once"
+                },
+                "key": "edm",
+                "type": "asyncData",
+                "input": true,
+                "conditional": {
+                  "show": null,
+                  "when": null
+                }
+              }
+            ],
+            "index": 3,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "md": 2,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "components": [
+              {
+                "label": "currencyList",
+                "source": {
+                  "type": "recordsQuery",
+                  "recordsQuery": {
+                    "attributes": {
+                      "label": ".disp",
+                      "value": ".id"
+                    },
+                    "query": "var value = {\r\n  query: 'TYPE:\"idocs:currency\"',\r\n  language: 'fts-alfresco'\r\n}",
+                    "isSingle": false
+                  },
+                  "forceLoad": false
+                },
+                "update": {
+                  "type": "once"
+                },
+                "key": "currencyList",
+                "type": "asyncData",
+                "input": true,
+                "conditional": {
+                  "show": null,
+                  "when": null
+                }
+              }
+            ],
+            "index": 4,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "md": 2,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "components": [
+              {
+                "label": "caseStatus",
+                "source": {
+                  "type": "custom",
+                  "custom": {
+                    "syncData": "value = Citeck.Records.get(recordId).load('icase:caseStatusAssoc.cm:name', true);",
+                    "asyncData": "const {options} = instance || {};\r\nconst {readOnly, viewAsHtml, formMode = 'CREATE'} = options || {};\r\nconst isViewMode = readOnly && viewAsHtml;\r\n\r\nvalue = {};\r\nif (!isViewMode && formMode === 'EDIT') {\r\n  value = data || {};\r\n}"
+                  },
+                  "forceLoad": false
+                },
+                "update": {
+                  "type": "once"
+                },
+                "key": "caseStatus",
+                "type": "asyncData",
+                "input": true,
+                "conditional": {
+                  "show": null,
+                  "when": null
+                }
+              }
+            ],
+            "index": 5,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          }
+        ],
+        "key": "columns3",
+        "type": "columns",
+        "input": false
+      },
+      {
+        "columns": [
+          {
+            "components": [
+              {
+                "label": "Cancel",
+                "removeIndents": true,
+                "action": "event",
+                "state": "",
+                "showValidations": false,
+                "event": "cancel",
+                "block": true,
+                "key": "submit2",
+                "type": "button",
+                "input": true
+              }
+            ],
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "md": 3,
+            "index": 0,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "components": [],
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "md": 3,
+            "index": 1,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "md": 3,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "components": [
+              {
+                "label": "Save",
+                "removeIndents": true,
+                "state": "draft",
+                "block": true,
+                "disableOnInvalid": true,
+                "key": "submit5",
+                "customConditional": "var isDraftStatus = data.caseStatus === \"draft\";\r\nvar isCreateMode = instance.options.formMode === 'CREATE';\r\n\r\nshow = isDraftStatus || isCreateMode;",
+                "type": "button",
+                "input": true
+              }
+            ],
+            "index": 2,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "md": 3,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "label": "Column",
+            "components": [
+              {
+                "label": "Create",
+                "removeIndents": true,
+                "state": "",
+                "theme": "primary",
+                "block": true,
+                "disableOnInvalid": true,
+                "key": "submit",
+                "logic": [
+                  {
+                    "name": "Label",
+                    "trigger": {
+                      "type": "javascript",
+                      "javascript": "var isDraftStatus = data.caseStatus === \"draft\";\r\nvar isCreateMode = instance.options.formMode === 'CREATE';\r\n\r\nresult = !isDraftStatus && !isCreateMode;"
+                    },
+                    "actions": [
+                      {
+                        "name": "Set label",
+                        "type": "property",
+                        "property": {
+                          "label": "Label",
+                          "value": "label",
+                          "type": "string"
+                        },
+                        "text": "Save"
+                      }
+                    ]
+                  }
+                ],
+                "type": "button",
+                "input": true,
+                "defaultValue": false
+              }
+            ],
+            "index": 3,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          }
+        ],
+        "key": "columns10",
+        "type": "columns",
+        "input": false
+      }
+    ],
+    "display": "form"
+  },
+  "attributes": {}
+}

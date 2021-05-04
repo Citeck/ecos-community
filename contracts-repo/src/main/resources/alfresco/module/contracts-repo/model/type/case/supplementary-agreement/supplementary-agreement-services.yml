@@ -1,0 +1,8 @@
+---
+id: contracts-cat-doctype-supp-agreement/contracts-cat-contract-services
+
+name:
+  ru: 'Услуги'
+  en: 'Services'
+
+parentRef: emodel/type@contracts-cat-doctype-supp-agreement

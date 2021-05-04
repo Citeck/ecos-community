@@ -1,0 +1,47 @@
+id: contracts-cat-doctype-closing-doc
+name:
+  ru: Учетный документ
+  en: Accounting document
+
+parentRef: emodel/type@case
+formRef: uiserv/form@closing-document-form
+journalRef: uiserv/journal@contracts-closing-document
+
+actions:
+  - uiserv/action@create-perform-accounting-documents
+
+properties:
+  alfType: contracts:closingDocument
+  alfRoot: /app:company_home/st:sites/cm:contracts/cm:documentLibrary/cm:closing-documents
+
+associations:
+  - id: contracts:closingDocumentAgreement
+    name:
+      ru: Документ-основание
+      en: Document-base
+    attribute: ''
+    target: emodel/type@user-base
+    direction: TARGET
+
+  - id: contracts:closingDocumentPayment
+    name:
+      ru: Связанные счета
+      en: Associated payments
+    attribute: ''
+    target: emodel/type@user-base
+    direction: TARGET
+
+model:
+  attributes:
+    - id: idocs:contractor
+      type: ASSOC
+      config:
+        typeRef: emodel/type@idocs-contractor
+    - id: idocs:legalEntity
+      type: ASSOC
+      config:
+        typeRef: emodel/type@legal-entity
+    - id: contracts:closingDocumentAgreement
+      type: ASSOC
+      config:
+        typeRef: emodel/type@idocs-doc

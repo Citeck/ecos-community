@@ -1,0 +1,43 @@
+id: letter-doctype-income
+name:
+  ru: Входящий документ
+  en: Incoming document
+
+parentRef: emodel/type@case
+formRef: uiserv/form@letters_incoming
+journalRef: uiserv/journal@letters-income
+
+actions:
+  - uiserv/action@create-outcome
+  - uiserv/action@document-start-statement
+  - uiserv/action@document-start-confirm
+  - uiserv/action@upload-new-version
+  - uiserv/action@print-pdf
+  - uiserv/action@edit-in-onlyoffice
+  - uiserv/action@content-download
+  - uiserv/action@delete
+  - uiserv/action@edit
+
+defaultCreateVariant: false
+createVariants:
+  - id: create
+    name: { ru: Входящий, en: Incoming }
+
+model:
+  attributes:
+    - id: letters:nomenclature
+      type: ASSOC
+      config:
+        typeRef: emodel/type@files-nomenclature
+    - id: letters:reporterOrganization
+      type: ASSOC
+      config:
+        typeRef: emodel/type@idocs-contractor
+    - id: letters:subdivision
+      type: AUTHORITY
+
+properties:
+  alfType: letters:income
+  alfRoot: /app:company_home/st:sites/cm:letters/cm:documentLibrary/cm:income
+
+

@@ -1,6 +1,0 @@
-{
-    "id": "meetings-cat-doctype",
-    "name": "Совещания",
-    "parent": "emodel/type@user-base",
-    "inheritActions": true
-}

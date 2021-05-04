@@ -1,0 +1,8 @@
+---
+id: contracts-delete-list
+
+types:
+  - supplementary-agreement/contracts-cat-contract-services
+  - supplementary-agreement/contracts-cat-contract-delivery
+  - supplementary-agreement/contracts-cat-contract-rent
+  - supplementary-agreement

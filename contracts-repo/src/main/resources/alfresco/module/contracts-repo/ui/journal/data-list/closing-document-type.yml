@@ -1,0 +1,8 @@
+id: closing-document-type
+name: { ru: Тип первичных документов, en: Accounting Document Type }
+
+columns:
+  - id: cm:name
+
+  - id: cm:created
+    visible: false

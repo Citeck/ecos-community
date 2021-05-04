@@ -1,0 +1,11 @@
+
+id: payment-period
+
+name: { ru: Период оплаты, en: Payment Period }
+
+parentRef: emodel/type@data-list
+journalRef: uiserv/journal@payment-periods
+
+properties:
+  alfType: payments:period
+  alfRoot: /app:company_home/st:sites/cm:contracts/cm:dataLists/cm:payment-periods

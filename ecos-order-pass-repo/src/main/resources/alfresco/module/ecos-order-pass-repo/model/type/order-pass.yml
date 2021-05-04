@@ -1,0 +1,11 @@
+---
+id: order-pass
+name: { ru: Пропуск, en: Order Pass }
+
+parentRef: emodel/type@case
+journalRef: uiserv/journal@order-passes
+
+properties:
+  alfType: op:orderPass
+  alfRoot: /app:company_home/st:sites/cm:order-pass/cm:documentLibrary/cm:order-passes
+

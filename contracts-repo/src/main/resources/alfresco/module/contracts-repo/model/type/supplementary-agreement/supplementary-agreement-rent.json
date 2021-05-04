@@ -1,9 +1,0 @@
-{
-    "id": "supplementary-agreement/contracts-cat-contract-rent",
-    "name": {
-        "ru": "Доп.соглашение: Аренда",
-        "en": "Supplementary agreement: Rent"
-    },
-    "parent": "emodel/type@supplementary-agreement",
-    "inheritActions": true
-}

@@ -1,0 +1,7 @@
+---
+id: letter-doctype-outcome/letter-doctype-outcome-b
+name:
+  ru: Отчетный
+  en: Отчетный
+
+parentRef: emodel/type@letter-doctype-outcome

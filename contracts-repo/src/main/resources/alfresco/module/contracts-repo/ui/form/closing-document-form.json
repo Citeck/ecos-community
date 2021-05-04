@@ -1,0 +1,971 @@
+{
+  "id": "closing-document-form",
+  "formKey": "alf_contracts:closingDocument",
+  "title": {
+    "en": "Closing document form"
+  },
+  "description": {
+    "en": ""
+  },
+  "customModule": null,
+  "typeRef": "",
+  "width": "default",
+  "i18n": {
+    "ru": {
+      "Document-base": "Документ-основание",
+      "Invoice": "Счет",
+      "Original Location": "Местонахождение оригинала",
+      "Document type": "Вид документа",
+      "Generate": "Генерировать",
+      "Generate from template": "Сгенерировать из шаблона",
+      "Cancel": "Отменить",
+      "Save": "Сохранить",
+      "Create": "Создать",
+      "Name": "Название",
+      "Basic": "Основные",
+      "Finance": "Финансы",
+      "Content": "Содержание"
+    },
+    "en": {
+      "Document-base": "Document-base",
+      "Invoice": "Invoice",
+      "Original Location": "Original Location",
+      "Document type": "Document type",
+      "Generate": "Generate",
+      "Generate from template": "Generate from template",
+      "Cancel": "Cancel",
+      "Save": "Save",
+      "Create": "Create",
+      "Name": "Name",
+      "Basic": "Basic",
+      "Finance": "Finance",
+      "Content": "Content"
+    }
+  },
+  "definition": {
+    "components": [
+      {
+        "type": "panel",
+        "input": false,
+        "components": [
+          {
+            "type": "columns",
+            "input": false,
+            "columns": [
+              {
+                "components": [
+                  {
+                    "type": "panel",
+                    "input": false,
+                    "components": [
+                      {
+                        "label": "Name",
+                        "clearOnHide": false,
+                        "validate": {
+                          "required": true
+                        },
+                        "key": "cm_name",
+                        "properties": {
+                          "attribute": "cm:name"
+                        },
+                        "conditional": {
+                          "show": "true",
+                          "when": "tk_kind",
+                          "eq": "alfresco/@workspace://SpacesStore/contracts-cat-closing-doc-other"
+                        },
+                        "rows": 1,
+                        "type": "textarea",
+                        "input": true
+                      },
+                      {
+                        "type": "columns",
+                        "input": false,
+                        "columns": [
+                          {
+                            "components": [
+                              {
+                                "type": "selectJournal",
+                                "input": true,
+                                "journalId": "contract-agreements",
+                                "key": "contracts_closingDocumentAgreement",
+                                "label": "Document-base",
+                                "properties": {
+                                  "attribute": "contracts:closingDocumentAgreement"
+                                },
+                                "presetFilterPredicatesJs": null
+                              }
+                            ],
+                            "type": "column",
+                            "key": "column",
+                            "index": 0,
+                            "label": "Column",
+                            "input": false,
+                            "clearOnHide": true,
+                            "conditional": {
+                              "show": null,
+                              "when": null
+                            }
+                          },
+                          {
+                            "components": [
+                              {
+                                "type": "selectJournal",
+                                "input": true,
+                                "journalId": "payments",
+                                "key": "contracts_closingDocumentPayment",
+                                "label": "Invoice",
+                                "properties": {
+                                  "attribute": "contracts:closingDocumentPayment"
+                                },
+                                "presetFilterPredicatesJs": null
+                              }
+                            ],
+                            "type": "column",
+                            "key": "column",
+                            "index": 1,
+                            "label": "Column",
+                            "input": false,
+                            "clearOnHide": true,
+                            "conditional": {
+                              "show": null,
+                              "when": null
+                            }
+                          }
+                        ],
+                        "key": "columns7"
+                      },
+                      {
+                        "type": "columns",
+                        "input": false,
+                        "columns": [
+                          {
+                            "components": [
+                              {
+                                "type": "selectJournal",
+                                "input": true,
+                                "journalId": "original-location",
+                                "key": "contracts_closingDocumentOriginalLocation",
+                                "label": "Original Location",
+                                "properties": {
+                                  "attribute": "contracts:closingDocumentOriginalLocation"
+                                },
+                                "presetFilterPredicatesJs": null
+                              }
+                            ],
+                            "type": "column",
+                            "key": "column",
+                            "index": 0,
+                            "label": "Column",
+                            "input": false,
+                            "clearOnHide": true,
+                            "conditional": {
+                              "show": null,
+                              "when": null
+                            }
+                          },
+                          {
+                            "components": [
+                              {
+                                "defaultValue": "",
+                                "type": "selectOrgstruct",
+                                "allowedAuthorityType": "USER",
+                                "input": true,
+                                "allUsersGroup": "all",
+                                "key": "contracts_closingDocumentSigner",
+                                "label": "contracts:closingDocumentSigner",
+                                "properties": {
+                                  "attribute": "contracts:closingDocumentSigner"
+                                }
+                              }
+                            ],
+                            "type": "column",
+                            "key": "column",
+                            "index": 1,
+                            "label": "Column",
+                            "input": false,
+                            "clearOnHide": true,
+                            "conditional": {
+                              "show": null,
+                              "when": null
+                            }
+                          }
+                        ],
+                        "key": "columns9"
+                      },
+                      {
+                        "type": "columns",
+                        "input": false,
+                        "columns": [
+                          {
+                            "components": [
+                              {
+                                "type": "selectJournal",
+                                "hideEditRowButton": true,
+                                "input": true,
+                                "journalId": "legal-entities",
+                                "key": "idocs_legalEntity",
+                                "validate": {
+                                  "required": true
+                                },
+                                "label": "idocs:legalEntity",
+                                "logic": [
+                                  {
+                                    "name": "DocumentDataEvent",
+                                    "trigger": {
+                                      "type": "javascript",
+                                      "javascript": "result = data.DocumentData.legalEntity;"
+                                    },
+                                    "actions": [
+                                      {
+                                        "name": "set_disabled",
+                                        "property": {
+                                          "label": "Disabled",
+                                          "type": "boolean",
+                                          "value": "disabled"
+                                        },
+                                        "state": "true",
+                                        "type": "property"
+                                      },
+                                      {
+                                        "name": "set_value",
+                                        "type": "value",
+                                        "value": "value = data.DocumentData.legalEntity;"
+                                      }
+                                    ]
+                                  }
+                                ],
+                                "properties": {
+                                  "attribute": "idocs:legalEntity"
+                                },
+                                "presetFilterPredicatesJs": null
+                              }
+                            ],
+                            "type": "column",
+                            "key": "column",
+                            "index": 0,
+                            "label": "Column",
+                            "input": false,
+                            "clearOnHide": true,
+                            "conditional": {
+                              "show": null,
+                              "when": null
+                            }
+                          },
+                          {
+                            "components": [
+                              {
+                                "type": "selectJournal",
+                                "input": true,
+                                "journalId": "idocs-contractor",
+                                "key": "contracts_contractor",
+                                "validate": {
+                                  "required": true
+                                },
+                                "label": "contracts:contractor",
+                                "logic": [
+                                  {
+                                    "name": "DocumentDataEvent",
+                                    "trigger": {
+                                      "type": "javascript",
+                                      "javascript": "result = data.DocumentData.contractor;"
+                                    },
+                                    "actions": [
+                                      {
+                                        "name": "set_disabled",
+                                        "property": {
+                                          "label": "Disabled",
+                                          "type": "boolean",
+                                          "value": "disabled"
+                                        },
+                                        "state": "true",
+                                        "type": "property"
+                                      },
+                                      {
+                                        "name": "set_value",
+                                        "type": "value",
+                                        "value": "value = data.DocumentData.contractor;"
+                                      }
+                                    ]
+                                  }
+                                ],
+                                "properties": {
+                                  "attribute": "contracts:contractor"
+                                },
+                                "presetFilterPredicatesJs": null
+                              }
+                            ],
+                            "type": "column",
+                            "key": "column",
+                            "index": 1,
+                            "label": "Column",
+                            "input": false,
+                            "clearOnHide": true,
+                            "conditional": {
+                              "show": null,
+                              "when": null
+                            }
+                          }
+                        ],
+                        "key": "columns10"
+                      },
+                      {
+                        "type": "columns",
+                        "input": false,
+                        "columns": [
+                          {
+                            "components": [
+                              {
+                                "data": {
+                                  "custom": "for (var i in data.docTypeList.records) {\n  values.push({label: data.docTypeList.records[i].key,value: data.docTypeList.records[i].id})\n}"
+                                },
+                                "defaultValue": "",
+                                "type": "ecosSelect",
+                                "refreshEventName": "docTypeEvent",
+                                "refreshOnEvent": true,
+                                "input": true,
+                                "key": "tk_kind",
+                                "dataSrc": "custom",
+                                "validate": {
+                                  "required": true
+                                },
+                                "label": "Document type",
+                                "properties": {
+                                  "attribute": "tk:kind"
+                                }
+                              }
+                            ],
+                            "type": "column",
+                            "key": "column",
+                            "index": 0,
+                            "label": "Column",
+                            "input": false,
+                            "clearOnHide": true,
+                            "conditional": {
+                              "show": null,
+                              "when": null
+                            }
+                          },
+                          {
+                            "components": [
+                              {
+                                "defaultValue": "",
+                                "type": "datetime",
+                                "suffix": true,
+                                "format": "dd-MM-yyyy",
+                                "enableTime": false,
+                                "datePicker": {
+                                  "minDate": "",
+                                  "maxDate": ""
+                                },
+                                "input": true,
+                                "key": "contracts_closingDocumentDate",
+                                "defaultDate": "moment()",
+                                "label": "contracts:closingDocumentDate",
+                                "properties": {
+                                  "attribute": "contracts:closingDocumentDate"
+                                }
+                              }
+                            ],
+                            "type": "column",
+                            "key": "column",
+                            "index": 1,
+                            "label": "Column",
+                            "input": false,
+                            "clearOnHide": true,
+                            "conditional": {
+                              "show": null,
+                              "when": null
+                            }
+                          }
+                        ],
+                        "key": "columns"
+                      },
+                      {
+                        "type": "columns",
+                        "input": false,
+                        "columns": [
+                          {
+                            "components": [
+                              {
+                                "label": "contracts:closingDocumentNumber",
+                                "defaultValue": "",
+                                "validate": {
+                                  "required": true
+                                },
+                                "key": "contracts_closingDocumentNumber",
+                                "properties": {
+                                  "attribute": "contracts:closingDocumentNumber"
+                                },
+                                "logic": [
+                                  {
+                                    "name": "generateEvent",
+                                    "trigger": {
+                                      "simple": {
+                                        "show": true,
+                                        "eq": "true",
+                                        "when": "Generate"
+                                      },
+                                      "type": "simple"
+                                    },
+                                    "actions": [
+                                      {
+                                        "name": "set_value",
+                                        "type": "value",
+                                        "value": "//value = data.closingDocuments.totalCount +1;\nvalue = \"-\";"
+                                      },
+                                      {
+                                        "name": "set_required",
+                                        "property": {
+                                          "label": "Required",
+                                          "type": "boolean",
+                                          "value": "validate.required"
+                                        },
+                                        "state": "false",
+                                        "type": "property"
+                                      },
+                                      {
+                                        "name": "set_disabled",
+                                        "property": {
+                                          "label": "Disabled",
+                                          "type": "boolean",
+                                          "value": "disabled"
+                                        },
+                                        "state": "true",
+                                        "type": "property"
+                                      }
+                                    ]
+                                  }
+                                ],
+                                "type": "textfield",
+                                "input": true
+                              }
+                            ],
+                            "type": "column",
+                            "key": "column",
+                            "index": 0,
+                            "label": "Column",
+                            "input": false,
+                            "clearOnHide": true,
+                            "conditional": {
+                              "show": null,
+                              "when": null
+                            }
+                          },
+                          {
+                            "components": [
+                              {
+                                "type": "checkbox",
+                                "input": true,
+                                "key": "Generate",
+                                "label": "Generate"
+                              }
+                            ],
+                            "classes": "d-flex justify-content-start align-items-center",
+                            "type": "column",
+                            "key": "column",
+                            "index": 1,
+                            "label": "Column",
+                            "input": false,
+                            "clearOnHide": true,
+                            "conditional": {
+                              "show": null,
+                              "when": null
+                            }
+                          }
+                        ],
+                        "key": "columns3"
+                      }
+                    ],
+                    "title": "Basic",
+                    "key": "panel"
+                  }
+                ],
+                "type": "column",
+                "key": "column",
+                "index": 0,
+                "label": "Column",
+                "input": false,
+                "clearOnHide": true,
+                "conditional": {
+                  "show": null,
+                  "when": null
+                }
+              },
+              {
+                "components": [
+                  {
+                    "type": "panel",
+                    "input": false,
+                    "components": [
+                      {
+                        "label": "contracts:closingDocumentCurrency",
+                        "dataSrc": "custom",
+                        "data": {
+                          "custom": "for (var i in data.currencyList.records) {\n        values.push({label: data.currencyList.records[i].key,value: data.currencyList.records[i].id})\n  }"
+                        },
+                        "refreshOnEvent": true,
+                        "refreshEventName": "currencyListEvent",
+                        "defaultValue": "",
+                        "customDefaultValue": "if (data.currencyList && data.currencyList.records) {\n  var el = data.currencyList.records.find(x => x.id === 'alfresco/@workspace://SpacesStore/currency-rur');\n  \n  if(el){\n    value = el.id;\n  }\n  \n}",
+                        "calculateValue": "if (!data.DocumentData.agreementCurrency && data.currencyList && data.currencyList.records) {\n  var el = data.currencyList.records.find(x => x.id === 'alfresco/@workspace://SpacesStore/currency-rur');\n  \n  if(el){\n    value = el.id;\n  }\n  \n}",
+                        "allowCalculateOverride": true,
+                        "validate": {
+                          "required": true
+                        },
+                        "key": "contracts_closingDocumentCurrency",
+                        "properties": {
+                          "attribute": "contracts:closingDocumentCurrency"
+                        },
+                        "logic": [
+                          {
+                            "name": "DocumentDataEvent",
+                            "trigger": {
+                              "type": "javascript",
+                              "javascript": "result = data.DocumentData.agreementCurrency;"
+                            },
+                            "actions": [
+                              {
+                                "name": "set_disabled",
+                                "property": {
+                                  "label": "Disabled",
+                                  "type": "boolean",
+                                  "value": "disabled"
+                                },
+                                "state": "true",
+                                "type": "property"
+                              },
+                              {
+                                "name": "set_value",
+                                "type": "value",
+                                "value": "value = data.DocumentData.agreementCurrency;"
+                              }
+                            ]
+                          }
+                        ],
+                        "type": "ecosSelect",
+                        "input": true
+                      }
+                    ],
+                    "title": "Finance",
+                    "key": "panel4"
+                  },
+                  {
+                    "type": "panel",
+                    "input": false,
+                    "components": [
+                      {
+                        "type": "checkbox",
+                        "customConditional": "var isDraftStatus = data.caseStatus === \"draft\";\r\nvar isCreateMode = instance.options.formMode === 'CREATE';\r\n\r\nshow = isDraftStatus || isCreateMode;",
+                        "input": true,
+                        "key": "dms_updateContent",
+                        "label": "Generate from template",
+                        "properties": {
+                          "attribute": "dms:updateContent"
+                        }
+                      },
+                      {
+                        "defaultValue": [],
+                        "type": "file",
+                        "options": "",
+                        "customConditional": "var isDraftStatus = data.caseStatus === \"draft\";\r\nvar isCreateMode = instance.options.formMode === 'CREATE';\r\n\r\nshow = (!isDraftStatus && !isCreateMode) \r\n    || (!data.dms_updateContent && (isDraftStatus || isCreateMode));",
+                        "input": true,
+                        "storage": "url",
+                        "key": "cm_content",
+                        "validate": {
+                          "required": true
+                        },
+                        "label": "cm:content",
+                        "url": " /share/proxy/alfresco/eform/file",
+                        "properties": {
+                          "attribute": "cm:content"
+                        }
+                      }
+                    ],
+                    "title": "Content",
+                    "key": "panel5"
+                  }
+                ],
+                "type": "column",
+                "key": "column",
+                "index": 1,
+                "label": "Column",
+                "input": false,
+                "clearOnHide": true,
+                "conditional": {
+                  "show": null,
+                  "when": null
+                }
+              }
+            ],
+            "key": "columns5"
+          },
+          {
+            "defaultValue": "alfresco/@workspace://SpacesStore/contracts-cat-doctype-closing-doc",
+            "type": "textfield",
+            "input": true,
+            "hidden": true,
+            "key": "tk_type",
+            "label": "tk:type",
+            "properties": {
+              "attribute": "tk:type"
+            }
+          }
+        ],
+        "key": "panel2",
+        "scrollableContent": true
+      },
+      {
+        "type": "panel",
+        "input": false,
+        "components": [
+          {
+            "type": "columns",
+            "input": false,
+            "columns": [
+              {
+                "components": [
+                  {
+                    "label": "currencyList",
+                    "source": {
+                      "type": "recordsQuery",
+                      "recordsQuery": {
+                        "attributes": {
+                          "key": "cm:title"
+                        },
+                        "query": "var value = {\r\n  query: 'TYPE:\"idocs:currency\"',\r\n  language: 'fts-alfresco'\r\n}",
+                        "isSingle": false
+                      },
+                      "forceLoad": false
+                    },
+                    "update": {
+                      "type": "once"
+                    },
+                    "triggerEventOnChange": true,
+                    "eventName": "currencyListEvent",
+                    "executionCondition": "const { root } = instance;\nconst { loading } = root;\nvalue = loading === false;",
+                    "key": "currencyList",
+                    "type": "asyncData",
+                    "input": true,
+                    "conditional": {
+                      "show": null,
+                      "when": null
+                    }
+                  }
+                ],
+                "type": "column",
+                "md": 2,
+                "key": "column",
+                "index": 0,
+                "label": "Column",
+                "input": false,
+                "clearOnHide": true,
+                "conditional": {
+                  "show": null,
+                  "when": null
+                }
+              },
+              {
+                "components": [
+                  {
+                    "update": {
+                      "type": "any-change"
+                    },
+                    "source": {
+                      "custom": {
+                        "syncData": "value = recordId",
+                        "asyncData": "function getCaseStatus(recordId, attemptsNumber, period = 2000) {\r\n    return new Promise(function(resolve, reject) {\r\n        (function attempt(attemptsLeft) {\r\n        \twindow.Citeck.Records.get(data).load('icase:caseStatusAssoc.cm:name', true).then(status => {\r\n        \t\tif (status !== null) {\r\n        \t\t\treturn resolve(status);\r\n        \t\t}\r\n        \t\tif (attemptsLeft < 1) {\r\n        \t\t\treturn resolve(null);\r\n        \t\t}\r\n        \t\t\r\n        \t\tsetTimeout(attempt.bind(null, attemptsLeft - 1), period);\r\n        \t}).catch(reject);\r\n        })(attemptsNumber);\r\n    });\r\n}\r\n\r\nconst isViewMode = instance.options.readOnly && instance.options.viewAsHtml;\r\nconst formMode = instance.options.formMode;\r\n\r\nif (!isViewMode && formMode === 'EDIT') {\r\n  value = getCaseStatus(data, 10); \r\n} else {\r\n  value = 'status is null';\r\n}"
+                      },
+                      "type": "custom",
+                      "forceLoad": false
+                    },
+                    "type": "asyncData",
+                    "triggerEventOnChange": false,
+                    "key": "caseStatus",
+                    "label": "caseStatus",
+                    "input": true,
+                    "conditional": {
+                      "show": null,
+                      "when": null
+                    }
+                  }
+                ],
+                "type": "column",
+                "md": 2,
+                "key": "column",
+                "index": 1,
+                "label": "Column",
+                "input": false,
+                "clearOnHide": true,
+                "conditional": {
+                  "show": null,
+                  "when": null
+                }
+              },
+              {
+                "components": [
+                  {
+                    "label": "docTypeList",
+                    "source": {
+                      "type": "recordsQuery",
+                      "recordsQuery": {
+                        "attributes": {
+                          "key": "cm:title"
+                        },
+                        "query": "var value = {\n  query: 'PARENT: \"alfresco/@workspace://SpacesStore/contracts-cat-doctype-closing-doc\"',\n  language: 'fts-alfresco'\n}",
+                        "isSingle": false
+                      },
+                      "forceLoad": false
+                    },
+                    "update": {
+                      "type": "once"
+                    },
+                    "triggerEventOnChange": true,
+                    "eventName": "docTypeEvent",
+                    "executionCondition": "const { root } = instance;\nconst { loading } = root;\nvalue = loading === false;",
+                    "key": "docTypeList",
+                    "type": "asyncData",
+                    "input": true,
+                    "conditional": {
+                      "show": null,
+                      "when": null
+                    }
+                  }
+                ],
+                "type": "column",
+                "md": 2,
+                "key": "column",
+                "index": 2,
+                "label": "Column",
+                "input": false,
+                "clearOnHide": true,
+                "conditional": {
+                  "show": null,
+                  "when": null
+                }
+              },
+              {
+                "components": [
+                  {
+                    "label": "closingDocuments",
+                    "source": {
+                      "type": "recordsQuery",
+                      "recordsQuery": {
+                        "attributes": {
+                          "key": "cm:title"
+                        },
+                        "query": "var value = {\n  query: 'TYPE:\"contracts:closingDocument\"',\n  language: 'fts-alfresco'\n}",
+                        "isSingle": false
+                      },
+                      "forceLoad": false
+                    },
+                    "update": {
+                      "type": "once"
+                    },
+                    "executionCondition": "const { root } = instance;\nconst { loading } = root;\nvalue = loading === false;",
+                    "key": "closingDocuments",
+                    "type": "asyncData",
+                    "input": true,
+                    "conditional": {
+                      "show": null,
+                      "when": null
+                    }
+                  }
+                ],
+                "type": "column",
+                "md": 2,
+                "key": "column",
+                "index": 3,
+                "label": "Column",
+                "input": false,
+                "clearOnHide": true,
+                "conditional": {
+                  "show": null,
+                  "when": null
+                }
+              },
+              {
+                "components": [],
+                "type": "column",
+                "md": 2,
+                "key": "column",
+                "index": 4,
+                "label": "Column",
+                "input": false,
+                "clearOnHide": true,
+                "conditional": {
+                  "show": null,
+                  "when": null
+                }
+              },
+              {
+                "components": [
+                  {
+                    "label": "DocumentData",
+                    "source": {
+                      "type": "record",
+                      "record": {
+                        "id": "{{data.contracts_closingDocumentAgreement}}",
+                        "attributes": {
+                          "contractor": "contracts:contractor?assoc",
+                          "agreementCurrency": "contracts:agreementCurrency?assoc",
+                          "legalEntity": "contracts:agreementLegalEntity?assoc"
+                        }
+                      },
+                      "forceLoad": false
+                    },
+                    "update": {
+                      "type": "once"
+                    },
+                    "refreshOn": [
+                      {
+                        "label": "contracts_closingDocumentAgreement",
+                        "value": "contracts_closingDocumentAgreement"
+                      }
+                    ],
+                    "triggerEventOnChange": true,
+                    "eventName": "DocumentDataEvent",
+                    "executionCondition": "const { root } = instance;\nconst { loading } = root;\nvalue = loading === false;",
+                    "key": "DocumentData",
+                    "type": "asyncData",
+                    "input": true,
+                    "conditional": {
+                      "show": null,
+                      "when": null
+                    }
+                  }
+                ],
+                "type": "column",
+                "md": 2,
+                "key": "column",
+                "index": 5,
+                "label": "Column",
+                "input": false,
+                "clearOnHide": true,
+                "conditional": {
+                  "show": null,
+                  "when": null
+                }
+              }
+            ],
+            "key": "columns6"
+          }
+        ],
+        "hidden": true,
+        "title": "Async Data",
+        "key": "panel3"
+      },
+      {
+        "type": "columns",
+        "input": false,
+        "columns": [
+          {
+            "type": "column",
+            "md": 3,
+            "index": 0,
+            "input": false,
+            "components": [
+              {
+                "type": "button",
+                "action": "event",
+                "block": true,
+                "state": "",
+                "showValidations": false,
+                "input": true,
+                "removeIndents": true,
+                "event": "cancel",
+                "key": "submit2",
+                "label": "Cancel"
+              }
+            ],
+            "key": "column",
+            "label": "Column",
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "type": "column",
+            "md": 3,
+            "index": 1,
+            "input": false,
+            "components": [],
+            "key": "column",
+            "label": "Column",
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "components": [],
+            "type": "column",
+            "md": 3,
+            "key": "column",
+            "index": 2,
+            "label": "Column",
+            "input": false,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          },
+          {
+            "components": [
+              {
+                "label": "Save",
+                "removeIndents": true,
+                "state": "",
+                "theme": "primary",
+                "block": true,
+                "disableOnInvalid": true,
+                "clearOnHide": false,
+                "key": "submit",
+                "logic": [
+                  {
+                    "name": "Label",
+                    "trigger": {
+                      "type": "javascript",
+                      "javascript": "const { options } = instance || {};\r\nconst { formMode } = options || {};\r\nconst { caseStatus } = data || {};\r\nconst { 'status': statusStr } = data || {};\r\n\r\nconst isDraftStatus = statusStr === \"draft\";\r\nconst isCreateMode = formMode === 'CREATE';\r\n \r\nresult = isDraftStatus || isCreateMode;"
+                    },
+                    "actions": [
+                      {
+                        "name": "Set label",
+                        "type": "property",
+                        "property": {
+                          "label": "Label",
+                          "value": "label",
+                          "type": "string"
+                        },
+                        "text": "Create"
+                      }
+                    ]
+                  }
+                ],
+                "type": "button",
+                "input": true
+              }
+            ],
+            "type": "column",
+            "md": 3,
+            "key": "column",
+            "index": 3,
+            "label": "Column",
+            "input": false,
+            "clearOnHide": true,
+            "conditional": {
+              "show": null,
+              "when": null
+            }
+          }
+        ],
+        "key": "columns2"
+      }
+    ],
+    "display": "form"
+  },
+  "attributes": {}
+}

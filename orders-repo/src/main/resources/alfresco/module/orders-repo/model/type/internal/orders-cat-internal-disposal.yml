@@ -1,0 +1,6 @@
+{
+  "id": "orders-cat-doctype-internal/orders-cat-internal-disposal",
+  "name": "Распоряжение",
+  "parentRef": "emodel/type@orders-cat-doctype-internal",
+  "inheritForm": true
+}

@@ -1,0 +1,12 @@
+id: payment-periods
+name: { ru: Периоды оплаты, en: Payment Periods }
+
+columns:
+  - id: cm:name
+  - id: payments:periodStart
+  - id: payments:periodEnd
+
+  - id: cm:created
+    visible: false
+  - id: cm:taggable
+    visible: false

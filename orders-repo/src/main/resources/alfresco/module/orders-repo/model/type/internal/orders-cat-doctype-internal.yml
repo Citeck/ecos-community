@@ -1,0 +1,97 @@
+---
+id: orders-cat-doctype-internal
+name:
+  ru: Внутренний документ
+  en: Internal document
+parentRef: emodel/type@case
+formRef: uiserv/form@orders_internal
+journalRef: uiserv/journal@orders-internal
+inheritForm: false
+actions:
+  - uiserv/action@send-to-approval
+  - uiserv/action@document-start-statement
+  - uiserv/action@delete
+  - uiserv/action@edit-in-onlyoffice
+  - uiserv/action@edit
+  - uiserv/action@print-pdf
+  - uiserv/action@upload-new-version
+defaultCreateVariant: true
+model:
+  roles:
+    - id: technologist
+      name:
+        ru: Технолог
+      assignees:
+        - GROUP_orders-technologist
+    - id: initiator
+      name:
+        ru: Инициатор
+      attribute: idocs:initiator
+    - id: signer
+      name:
+        ru: Подписант
+      attribute: idocs:signatory
+    - id: scan-man
+      name:
+        ru: Сканировщик
+      assignees:
+        - GROUP_company_accountant
+    - id: confirmers
+      name:
+        ru: Согласующие
+      assignees:
+        - GROUP_company_director
+  statuses:
+    - id: active
+      name:
+        ru: Действует
+    - id: reworking
+      name:
+        ru: Доработка
+    - id: draft
+      name:
+        ru: Черновик
+    - id: approval
+      name:
+        ru: Согласование
+    - id: prepared
+      name:
+        ru: Подготовлена
+    - id: signing
+      name:
+        ru: На подписании
+    - id: scanning
+      name:
+        ru: Сканирование
+    - id: inprogress
+      name:
+        ru: В процессе
+    - id: onexecution
+      name:
+        ru: На выполнении
+    - id: infamiliarization
+      name:
+        ru: На ознакомлении
+    - id: cancelled
+      name:
+        ru: Отменен
+    - id: EMPTY
+  attributes:
+    - id: orders:branch
+      type: AUTHORITY
+    - id: orders:fileCode
+      type: ASSOC
+      config:
+        typeRef: emodel/type@files-nomenclature
+    - id: idocs:initiator
+      name:
+        ru: Инициатор
+        en: Initiator
+      type: AUTHORITY
+    - id: idocs:signatory
+      name:
+        ru: Подписант
+      type: AUTHORITY
+properties:
+  alfType: orders:internal
+  alfRoot: /app:company_home/st:sites/cm:orders/cm:documentLibrary/cm:documents/cm:internals

@@ -1,0 +1,8 @@
+---
+id: contracts-cat-doctype-supp-agreement/contracts-cat-contract-rent
+
+name:
+  ru: 'Аренда'
+  en: 'Rent'
+
+parentRef: emodel/type@contracts-cat-doctype-supp-agreement
