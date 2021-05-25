@@ -1384,7 +1384,7 @@
                                 "mask": false,
                                 "tableView": true,
                                 "alwaysEnabled": false,
-                                "journalId": "",
+                                "journalId": "idocs-contractor",
                                 "displayColumns": [],
                                 "customPredicateJs": "",
                                 "computed": {
