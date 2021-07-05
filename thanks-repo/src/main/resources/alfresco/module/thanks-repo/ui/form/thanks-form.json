@@ -50,7 +50,7 @@
         },
         "defaultDate": "moment()",
         "defaultValue": "",
-        "key": "th_date",
+        "refreshOn": [],
         "properties": {
           "attribute": "th:date"
         },
