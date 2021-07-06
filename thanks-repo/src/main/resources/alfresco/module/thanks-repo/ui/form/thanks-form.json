@@ -6,7 +6,7 @@
   },
   "description": {},
   "customModule": null,
-  "typeRef": "",
+  "typeRef": "emodel/type@th-thanks",
   "width": "default",
   "i18n": {
     "ru": {
@@ -24,13 +24,17 @@
     "display": "form",
     "components": [
       {
-        "label": "th:author",
-        "clearOnHide": false,
+        "label": {
+          "ru": "th:author"
+        },
         "hidden": true,
+        "key": "th_author",
+        "clearOnHide": false,
         "allowedAuthorityType": "USER",
         "currentUserByDefault": true,
+        "dataType": "authority",
         "defaultValue": "",
-        "key": "th_author",
+        "refreshOn": [],
         "properties": {
           "attribute": "th:author"
         },
@@ -39,9 +43,12 @@
         "input": true
       },
       {
-        "label": "th:date",
-        "clearOnHide": false,
+        "label": {
+          "ru": "th:date"
+        },
         "hidden": true,
+        "key": "th_date",
+        "clearOnHide": false,
         "tableView": false,
         "alwaysEnabled": true,
         "datePicker": {
@@ -50,7 +57,7 @@
         },
         "defaultDate": "moment()",
         "defaultValue": "",
-        "key": "th_date",
+        "refreshOn": [],
         "properties": {
           "attribute": "th:date"
         },
@@ -59,16 +66,21 @@
         "suffix": true
       },
       {
-        "label": "th:recipient",
+        "label": {
+          "ru": "th:recipient"
+        },
+        "key": "th_recipient",
+        "validate": {
+          "required": true,
+          "customMessage": "Нельзя отправлять спасибо себе",
+          "custom": "test = \"alfresco/@\" + input;\nvalid = (test === data.th_author) ? false : true;\n"
+        },
         "clearOnHide": false,
         "allowedAuthorityType": "USER",
         "defaultValue": "",
+        "refreshOn": [],
         "calculateValue": "const {options} = instance || {};\nconst {parentFormData} = options || {};\nconst {cm_userName} = parentFormData || {};\n\nvalue = cm_userName || null;",
         "allowCalculateOverride": true,
-        "validate": {
-          "required": true
-        },
-        "key": "th_recipient",
         "properties": {
           "attribute": "th:recipient"
         },
