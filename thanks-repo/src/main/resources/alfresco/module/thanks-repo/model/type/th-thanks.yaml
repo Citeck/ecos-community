@@ -38,11 +38,11 @@ model:
       computed:
         type: ATTRIBUTE
         config: { attribute: 'th:date|fmt("MM")' }
-        storingType: NONE
+        storingType: ON_EMPTY
 
     - id: year
       name: { ru: Год, en: Year }
       computed:
         type: ATTRIBUTE
         config: { attribute: 'th:date|fmt("yyyy")' }
-        storingType: NONE
+        storingType: ON_EMPTY
