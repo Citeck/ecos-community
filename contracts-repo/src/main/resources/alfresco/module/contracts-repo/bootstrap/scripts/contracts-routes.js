@@ -28,30 +28,48 @@ function updateRoute(route, contractTypeRef) {
 
 function createRoute() {
 
+    var stagesConfig = [
+        {
+            "dueDateExpr": "8/h",
+            "authority": "GROUP_company_accountant"
+        },
+        {
+            "dueDateExpr": "8/h",
+            "authority": "GROUP_company_director"
+        }
+    ];
+
     var routeProps = [];
     var routeName = "contract-confirmation-by-ceo";
     routeProps["tk:appliesToType"] = contractTypeRef;
     var route = routeFolder.createNode(routeName, "route:route", routeProps);
     if (!!route) {
-        var stageProps = [];
-        var stageName = "GROUP_company_director";
-        stageProps["route:dueDateExpr"] = "8/h";
-        stageProps["cm:position"] = "1";
-        var routeStage = route.createNode(stageName, "route:stage", stageProps, "route:stages");
-        if (!!routeStage) {
-            var participantProps = [];
-            var participantName = "GROUP_company_director";
-            participantProps["cm:position"] = "1";
-            routeParticipant = routeStage.createNode(participantName, "route:participant", participantProps, "route:participants");
 
-            var groupCEO = search.selectNodes("/sys:system/sys:authorities/cm:GROUP_company_director");
+        var precedences = [];
 
-            if (!!groupCEO && groupCEO.length > 0) {
-                routeParticipant.createAssociation(groupCEO[0], "route:authority");
+        for (var stageConfigIdx in stagesConfig) {
+            var stageConfig = stagesConfig[stageConfigIdx];
+            var stageProps = {};
+            var stageName = stageConfig["authority"];
+            stageProps["route:dueDateExpr"] = stageConfig["dueDateExpr"];
+            stageProps["cm:position"] = "" + (stageConfigIdx + 1);
+            var routeStage = route.createNode(stageName, "route:stage", stageProps, "route:stages");
+            if (!!routeStage) {
+                var participantProps = [];
+                var participantName = stageConfig["authority"];
+                participantProps["cm:position"] = "1";
+                routeParticipant = routeStage.createNode(participantName, "route:participant", participantProps, "route:participants");
 
-                route.properties["route:precedence"] = groupCEO[0].nodeRef + "_" + stageProps["route:dueDateExpr"];
-                route.save();
+                var authorityNodeArr = search.selectNodes("/sys:system/sys:authorities/cm:" + stageConfig["authority"]);
+
+                if (!!authorityNodeArr && authorityNodeArr.length > 0) {
+                    routeParticipant.createAssociation(authorityNodeArr[0], "route:authority");
+                    precedences.push(authorityNodeArr[0].nodeRef + "_" + stageProps["route:dueDateExpr"]);
+                }
             }
         }
+
+        route.properties["route:precedence"] = precedences.join(",");
+        route.save();
     }
 }
