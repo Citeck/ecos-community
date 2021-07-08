@@ -895,9 +895,11 @@
                         "input": true
                       },
                       {
-                        "label": "dms:updateContent",
-                        "labelPosition": "left-left",
+                        "label": {
+                          "ru": "dms:updateContent"
+                        },
                         "key": "dms_updateContent",
+                        "refreshOn": [],
                         "properties": {
                           "attribute": "dms:updateContent"
                         },

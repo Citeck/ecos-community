@@ -4,9 +4,7 @@
   "title": {
     "en": "Contracts agreement form"
   },
-  "description": {
-    "en": ""
-  },
+  "description": {},
   "customModule": null,
   "typeRef": "",
   "width": "default",
@@ -569,7 +567,7 @@
                       },
                       {
                         "label": "dms:updateContent",
-                        "labelPosition": "left-left",
+                        "labelPosition": "right-left",
                         "key": "dms_updateContent",
                         "properties": {
                           "attribute": "dms:updateContent"
