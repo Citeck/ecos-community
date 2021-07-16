@@ -28,7 +28,7 @@ associations:
       ru: Связь с договором
       en: Relationship to the contract
     direction: TARGET
-    target: emodel/type@user-base
+    target: emodel/type@contracts-cat-doctype-contract
 
 model:
   attributes:
