@@ -37,6 +37,11 @@
             </excludes>
         </fileSet>
         <fileSet>
+            <directory>../build/build-info</directory>
+            <outputDirectory>config/alfresco/module/${project.artifactId}/build-info</outputDirectory>
+            <filtered>false</filtered>
+        </fileSet>
+        <fileSet>
             <directory>target</directory>
             <includes>
                 <include>${project.build.finalName}.jar</include>
