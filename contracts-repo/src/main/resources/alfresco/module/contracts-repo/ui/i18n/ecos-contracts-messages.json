@@ -1,0 +1,14 @@
+{
+  "id": "ecos-contracts-messages",
+  "order": 0,
+  "locales": [
+    "en",
+    "ru"
+  ],
+  "messages": {
+    "property.samwf_caseType.contracts_agreement.title": [
+      "Contract",
+      "Договор"
+    ]
+  }
+}
