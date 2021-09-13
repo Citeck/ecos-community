@@ -1,6 +1,6 @@
 {
-  "id": "contracts_agreement_form_mobile",
-  "formKey": "contracts-cat-doctype-contract_alf_ctrwf:confirmTask_mobile",
+  "id": "supplementary_agreement_form_mobile",
+  "formKey": "contracts-cat-doctype-supp-agreement_alf_ctrwf:confirmTask_mobile",
   "title": {
     "en": "alf_ctrwf:confirmTask_mobile"
   },
@@ -14,10 +14,10 @@
       "Rework": "На доработку",
       "Reject": "Отклонить",
       "contracts:agreementLegalEntity": "Юридическое лицо",
-      "tk:kind": "Вид договора",
-      "contracts:agreementSubject": "Предмет договора",
-      "contracts:agreementNumber": "Номер договора",
-      "contracts:agreementDate": "Дата договора",
+      "tk:kind": "Вид доп. соглашения",
+      "contracts:agreementSubject": "Предмет доп. соглашения",
+      "contracts:agreementNumber": "Номер доп. соглашения",
+      "contracts:agreementDate": "Дата доп. соглашения",
       "contracts:duration": "Срок действия",
       "contracts:agreementCurrency": "Валюта",
       "contracts:VAT": "НДС",
@@ -27,17 +27,18 @@
       "contracts:contractor": "Контрагент",
       "idocs:summary": "Краткое содержание",
       "idocs:note": "Примечание",
-      "contracts:agreementAmount": "Сумма договора",
+      "contracts:agreementAmount": "Сумма доп. соглашения",
+      "contracts:mainAgreement": "Связь с договором"
     },
     "en": {
       "Confirm": "Confirm",
       "Rework": "Rework",
       "Reject": "Reject",
       "contracts:agreementLegalEntity": "Legal Entity",
-      "tk:kind": "Contract kind",
-      "contracts:agreementSubject": "Agreement subject",
-      "contracts:agreementNumber": "Agreement number",
-      "contracts:agreementDate": "Agreement date",
+      "tk:kind": "Supplementary Agreement kind",
+      "contracts:agreementSubject": "Supplementary Agreement subject",
+      "contracts:agreementNumber": "Supplementary Agreement number",
+      "contracts:agreementDate": "Supplementary Agreement date",
       "contracts:duration": "Duration",
       "contracts:agreementCurrency": "Currency",
       "contracts:VAT": "VAT",
@@ -47,7 +48,8 @@
       "contracts:contractor": "Contractor",
       "idocs:summary": "Summary",
       "idocs:note": "Note",
-      "contracts:agreementAmount": "Contract value",
+      "contracts:agreementAmount": "Supplementary Agreement value",
+      "contracts:mainAgreement": "Relationship with the agreement"
     }
   },
   "definition": {
@@ -81,6 +83,22 @@
         "type": "panel",
         "input": false,
         "components": [
+          {
+            "label": "contracts:mainAgreement",
+            "hideEditRowButton": true,
+            "journalId": "contract-agreements",
+            "validate": {
+              "required": true
+            },
+            "key": "contracts_mainAgreement",
+            "properties": {
+              "attribute": "_ECM_contracts:mainAgreement"
+            },
+            "type": "selectJournal",
+            "input": true,
+            "_agreementValues": null,
+            "presetFilterPredicatesJs": null
+          },
           {
             "label": "Юридическое лицо",
             "hideCreateButton": true,
