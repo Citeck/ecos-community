@@ -27,7 +27,7 @@
       "contracts:contractor": "Контрагент",
       "idocs:summary": "Краткое содержание",
       "idocs:note": "Примечание",
-      "contracts:agreementAmount": "Сумма договора",
+      "contracts:agreementAmount": "Сумма договора"
     },
     "en": {
       "Confirm": "Confirm",
@@ -47,7 +47,7 @@
       "contracts:contractor": "Contractor",
       "idocs:summary": "Summary",
       "idocs:note": "Note",
-      "contracts:agreementAmount": "Contract value",
+      "contracts:agreementAmount": "Contract value"
     }
   },
   "definition": {
