@@ -886,8 +886,14 @@
                         "input": true
                       },
                       {
-                        "label": "pas:containsProductsAndServices",
+                        "label": {
+                          "ru": "pas:containsProductsAndServices"
+                        },
                         "multiple": true,
+                        "key": "pas_containsProductsAndServices",
+                        "validate": {
+                          "required": true
+                        },
                         "reorder": false,
                         "clearOnHide": false,
                         "eventName": "routeTableUpdate",
@@ -927,7 +933,7 @@
                               },
                               {
                                 "name": "pas:type",
-                                "formatter": "",
+                                "formatter": "const _t = key => instance.i18next.t(key);\r\n\r\nvalue = {\r\n  \"type\": 'script',\r\n  \"config\": {\r\n    fn: ({cell}) => _t(cell)\r\n  }\r\n}",
                                 "setAttributesManually": false
                               },
                               {
@@ -942,10 +948,7 @@
                           }
                         },
                         "triggerEventOnChange": true,
-                        "validate": {
-                          "required": true
-                        },
-                        "key": "pas_containsProductsAndServices",
+                        "refreshOn": [],
                         "properties": {
                           "attribute": "pas:containsProductsAndServices"
                         },
