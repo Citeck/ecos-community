@@ -54,7 +54,6 @@ timestamps {
         withMaven(mavenLocalRepo: '/opt/jenkins/.m2/repository', tempBinDir: '') {
           sh "mvn clean deploy -Penterprise -DskipTests=true"
           sh "cd war-solution/ && mvn clean deploy -Pjavamelody -DskipTests=true"
-          sh "mvn clean"
         }
       }
       stage('Building an ecos docker image') {
@@ -65,6 +64,11 @@ timestamps {
           string(name: 'ECOS_CLASSIFIER', value: '5.1.f-com'),
           string(name: 'FLOWABLE_VERSION', value: '3.0.5.1')
         ]
+      }
+      stage('Clean') {
+        withMaven(mavenLocalRepo: '/opt/jenkins/.m2/repository', tempBinDir: '') {
+          sh "mvn clean"
+        }
       }
     }
     catch (Exception e) {
