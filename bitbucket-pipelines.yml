@@ -1,0 +1,9 @@
+pipelines:
+    branches:
+      develop:
+        - step:
+           script:
+             - git remote add sync git@github.com:Citeck/ecos-community.git
+             - git checkout develop
+             - git pull
+             - git push sync develop
