@@ -62,7 +62,7 @@ timestamps {
           string(name: 'ECOS', value: 'community'),
           string(name: 'ECOS_VERSION', value: "${project_version}"),
           string(name: 'ECOS_CLASSIFIER', value: '5.1.f-com'),
-          string(name: 'FLOWABLE_VERSION', value: '3.0.5.1')
+          string(name: 'FLOWABLE_VERSION', value: '3.0.5.6')
         ]
       }
       stage('Clean') {
