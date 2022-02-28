@@ -102,7 +102,7 @@ var utils = {
     },
 
     getActivityByName: function(name) {
-        return caseActivityService.getActivityByName(document, name);
+        return CaseActivityService.getActivityByName(document, name);
     },
 
     getActiveWorkflowByTaskType: function(taskType) {
