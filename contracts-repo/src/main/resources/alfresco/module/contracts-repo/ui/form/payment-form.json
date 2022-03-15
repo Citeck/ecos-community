@@ -628,7 +628,7 @@
                         "refreshEventName": "currencyListEvent",
                         "defaultValue": "alfresco/@workspace://SpacesStore/currency-rur",
                         "refreshOn": [
-                          "paymentsBasis",
+                          "payments_basis",
                           "currencyList"
                         ],
                         "calculateValue": "const{paymentsBasis = {}} = data || null;\r\nconst{agreementCurrency = \"\"} = paymentsBasis || null;\r\nconst{currency = \"\"} = paymentsBasis || null;\r\nif (!_.isEmpty(agreementCurrency)) {\r\n    value = agreementCurrency;\r\n} else if (!_.isEmpty(paymentsBasis) && !_.isEmpty(currency) ) {\r\n    value = currency;\r\n} else {\r\n\tvalue = 'alfresco/@workspace://SpacesStore/currency-rur';\r\n}",
