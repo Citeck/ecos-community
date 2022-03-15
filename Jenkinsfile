@@ -34,7 +34,7 @@ timestamps {
         ])
       }
 
-      def project_version = readMavenPom().getVersion()
+      def project_version = readMavenPom().getProperties().getProperty("revision")
 
       if ((env.BRANCH_NAME != "master") && (env.BRANCH_NAME != "master3") && (!project_version.contains('SNAPSHOT'))) {
         echo "Assembly of release artifacts is allowed only from the master branch!"
