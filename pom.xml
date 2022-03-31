@@ -4,7 +4,7 @@
 
     <groupId>ru.citeck.ecos.community</groupId>
     <artifactId>ecos-community</artifactId>
-    <version>4.3.0</version>
+    <version>${revision}</version>
     <packaging>pom</packaging>
 
     <name>ecos-community</name>
@@ -13,6 +13,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <properties>
+
+        <revision>4.4.0</revision>
 
         <alfresco.sdk.version>3.0.1</alfresco.sdk.version>
 
@@ -66,7 +68,7 @@
         <yuicompressor.compress.skip>false</yuicompressor.compress.skip>
 
         <ecos.flowable.version>3.0.5.1</ecos.flowable.version>
-        <ecos.core.version>4.7.1</ecos.core.version>
+        <ecos.core.version>4.11.0</ecos.core.version>
 
         <web.compression.skip>false</web.compression.skip>
 
@@ -640,6 +642,51 @@
         </resources>
 
         <plugins>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <version>1.2.7</version>
+                <configuration>
+                    <updatePomFile>true</updatePomFile>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>flatten.clean</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>3.0.0</version>
+                <configuration>
+                    <rules>
+                        <requireReleaseDeps>
+                            <message>You should remove snapshot dependencies before release build</message>
+                            <onlyWhenRelease>true</onlyWhenRelease>
+                        </requireReleaseDeps>
+                        <bannedDependencies>
+                            <excludes>
+                                <exclude>org.apache.logging.log4j:log4j-core:(,2.16.0)</exclude>
+                            </excludes>
+                        </bannedDependencies>
+                    </rules>
+                    <fail>true</fail>
+                </configuration>
+            </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

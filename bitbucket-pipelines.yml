@@ -1,5 +1,5 @@
 pipelines:
-    branches:      
+    branches:
       master:
         - step:
            script:

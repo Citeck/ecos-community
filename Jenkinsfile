@@ -34,7 +34,7 @@ timestamps {
         ])
       }
 
-      def project_version = readMavenPom().getVersion()
+      def project_version = readMavenPom().getProperties().getProperty("revision")
 
       if ((env.BRANCH_NAME != "master") && (env.BRANCH_NAME != "master3") && (!project_version.contains('SNAPSHOT'))) {
         echo "Assembly of release artifacts is allowed only from the master branch!"
@@ -52,6 +52,7 @@ timestamps {
 
       stage('Assembling and publishing project artifacts') {
         withMaven(mavenLocalRepo: '/opt/jenkins/.m2/repository', tempBinDir: '') {
+          sh "mvn enforcer:enforce"
           sh "mvn clean deploy -Penterprise -DskipTests=true"
           sh "cd war-solution/ && mvn clean deploy -Pjavamelody -DskipTests=true"
         }
@@ -62,8 +63,13 @@ timestamps {
           string(name: 'ECOS', value: 'community'),
           string(name: 'ECOS_VERSION', value: "${project_version}"),
           string(name: 'ECOS_CLASSIFIER', value: '5.1.f-com'),
-          string(name: 'FLOWABLE_VERSION', value: '3.0.5.1')
+          string(name: 'FLOWABLE_VERSION', value: '3.0.5.6')
         ]
+      }
+      stage('Clean') {
+        withMaven(mavenLocalRepo: '/opt/jenkins/.m2/repository', tempBinDir: '') {
+          sh "mvn clean"
+        }
       }
     }
     catch (Exception e) {
