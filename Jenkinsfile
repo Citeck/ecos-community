@@ -14,7 +14,7 @@ timestamps {
           doGenerateSubmoduleConfigurations: false,
           extensions: [],
           submoduleCfg: [],
-          userRemoteConfigs: [[credentialsId: 'awx.integrations', url: 'git@bitbucket.org:citeck/pipelines.git']]
+          userRemoteConfigs: [[credentialsId: 'awx.integrations', url: 'git@gitlab.citeck.ru:infrastructure/pipelines.git']]
         ])
       }
     }
