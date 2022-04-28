@@ -11,13 +11,16 @@ actions:
   - uiserv/action@delete
 columns:
   - id: created
+    name:
+      ru: Дата создания
+      en: Created Date
     type: DATE
     attribute: _created
-  - id: registrationNumber
-  - id: registrationDate
-    type: DATE
   - id: visitorFullName
   - id: visitorOrganization
   - id: visitingDate
   - id: caseStatusAssoc
+    name:
+      ru: Статус
+      en: Status
     attribute: _status
