@@ -1,0 +1,14 @@
+{
+  "id": "meet-agenda-source",
+  "name": {
+    "ru": "Повестка (Совещания) Таблица"
+  },
+  "type": "db",
+  "config": {
+    "dataSourceRef": "",
+    "authEnabled": false,
+    "schema": "",
+    "table": "meet_agenda_source_records_table"
+  },
+  "recordsTypeRef": ""
+}

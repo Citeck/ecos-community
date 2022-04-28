@@ -3,13 +3,80 @@ id: meetings-cat-doctype
 name:
   ru: Совещание
   en: Meeting
-
-formRef: uiserv/form@meetings_meeting
+sourceId: integrations/rs-meetings-source
 parentRef: emodel/type@case
+formRef: uiserv/form@meetings_meeting
 journalRef: uiserv/journal@meetings
-
-properties:
-  alfType: meet:meeting
-  alfRoot: /app:company_home/st:sites/cm:meetings/cm:documentLibrary/cm:meetings
-
-
+inheritActions: false
+defaultCreateVariant: true
+model:
+  attributes:
+    - id: meetingNumber
+      name:
+        ru: Номер
+        en: Number
+    - id: subject
+      name:
+        ru: Предмет совещания
+        en: Subject
+    - id: where
+      name:
+        ru: Где
+        en: Where
+    - id: when
+      name:
+        ru: Когда
+        en: When
+      type: DATETIME
+    - id: confirmDueDate
+      name:
+        ru: Срок завершения согласования
+        en: Confirm Due Date
+    - id: initiator
+      name:
+        ru: Организатор встречи
+        en: Initiator
+      type: ASSOC
+      config:
+        typeRef: emodel/type@person
+      multiple: true
+    - id: childAnsweredQuestions
+      name:
+        ru: Решения
+        en: Answers
+      type: ASSOC
+      config:
+        typeRef: emodel/type@meet-answeredQuestion
+      multiple: true
+    - id: childAgenda
+      name:
+        ru: Повестка
+        en: Agenda
+      type: ASSOC
+      config:
+        typeRef: emodel/type@meet-agenda
+      multiple: true
+    - id: childProtocol
+      name:
+        ru: Протокол
+        en: Protocol
+      type: ASSOC
+      config:
+        typeRef: emodel/type@meet-protocol
+      multiple: true
+    - id: participants
+      name:
+        ru: Присутствовали
+        en: Participants
+      type: ASSOC
+      config:
+        typeRef: emodel/type@person
+      multiple: true
+    - id: plannedReporters
+      name:
+        ru: Докладчики
+        en: Planned Reporters
+      type: ASSOC
+      config:
+        typeRef: emodel/type@person
+      multiple: true

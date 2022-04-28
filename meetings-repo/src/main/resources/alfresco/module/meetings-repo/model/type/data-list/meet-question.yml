@@ -1,12 +1,24 @@
-{
-  "id": "meet-question",
-  "name": {
-    "ru": "Вопрос встречи",
-    "en": "Meet question"
-  },
-  "formRef": "uiserv/form@meet_question",
-  "parentRef": "emodel/type@data-list",
-  "properties": {
-    "alfType": "meet:question"
-  }
-}
+---
+id: meet-question
+name:
+  ru: Вопрос встречи
+  en: Meet question
+sourceId: integrations/rs-meet-question-source
+parentRef: emodel/type@data-list
+formRef: uiserv/form@meet_question
+inheritActions: false
+defaultCreateVariant: true
+model:
+  attributes:
+    - id: question
+      name:
+        ru: Вопрос
+        en: Question
+    - id: plannedReporters
+      name:
+        ru: Докладчики
+        en: Planned Reporters
+      type: ASSOC
+      config:
+        typeRef: emodel/type@person
+      multiple: true

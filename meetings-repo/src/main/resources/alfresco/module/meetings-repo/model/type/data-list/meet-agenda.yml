@@ -1,12 +1,23 @@
-{
-  "id": "meet-agenda",
-  "name": {
-    "ru": "Повестка",
-    "en": "Agenda"
-  },
-  "formRef": "uiserv/form@meet_agenda",
-  "parentRef": "emodel/type@data-list",
-  "properties": {
-    "alfType": "meet:agenda"
-  }
-}
+---
+id: meet-agenda
+name:
+  ru: Повестка
+  en: Agenda
+sourceId: integrations/rs-meet-agenda-source
+parentRef: emodel/type@data-list
+formRef: uiserv/form@meet_agenda
+defaultCreateVariant: true
+model:
+  attributes:
+    - id: plannedParticipants
+      name:
+        ru: Участники
+        en: Planned Participants
+    - id: childQuestions
+      name:
+        ru: Вопросы
+        en: Questions
+      type: ASSOC
+      config:
+        typeRef: emodel/type@meet-question
+      multiple: true
