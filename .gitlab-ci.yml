@@ -14,7 +14,7 @@ mirror:
     - develop
   script:
     - mkdir -p ~/.ssh                                              
-    - echo $GITHUB_MIRROR_PRIVATE | base64 -d > ~/.ssh/id_rsa  
+    - cat $GITHUB_MIRROR_PRIVATE | base64 -d > ~/.ssh/id_rsa  
     - echo $GITHUB_MIRROR_PUBLIC > ~/.ssh/id_rsa.pub
     - touch ~/.ssh/id_test
     - echo "testtttttt" > ~/.ssh/id_test
