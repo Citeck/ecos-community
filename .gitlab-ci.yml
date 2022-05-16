@@ -19,7 +19,7 @@ mirror:
     - ssh-keyscan -t rsa,dsa,ecdsa github.com >> ~/.ssh/known_hosts
     - chmod -R go-rwx ~/.ssh
     - git remote add mirror $TARGET_REPO
-    - git remote -v show mirror
+    - git remote -vvv show mirror
     - git remote -v 
     - git fetch --unshallow origin
     - git push -f --progress mirror HEAD:master
