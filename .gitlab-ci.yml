@@ -16,9 +16,7 @@ mirror:
     - mkdir -p ~/.ssh                                              
     - cat $GITHUB_MIRROR_PRIVATE | base64 -d > ~/.ssh/id_rsa  
     - echo $GITHUB_MIRROR_PUBLIC > ~/.ssh/id_rsa.pub
-    - touch ~/.ssh/id_test
-    - echo "testtttttt" > ~/.ssh/id_test
-    - cat id_test            
+    - cat ~/.ssh/id_rsa           
     - ssh-keyscan -t rsa,dsa,ecdsa github.com >> ~/.ssh/known_hosts
     - chmod -R go-rwx ~/.ssh
     - git remote add mirror $TARGET_REPO
