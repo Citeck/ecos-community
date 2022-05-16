@@ -1,0 +1,234 @@
+{
+  "id": "order-pass-form",
+  "formKey": "order-pass-form",
+  "title": {
+    "en": "Order Pass Form"
+  },
+  "description": {},
+  "customModule": null,
+  "typeRef": "",
+  "width": "lg",
+  "i18n": {},
+  "definition": {
+    "components": [
+      {
+        "label": {
+          "ru": "Columns"
+        },
+        "key": "columns2",
+        "columns": [
+          {
+            "components": [
+              {
+                "label": {
+                  "ru": "visitorFullName"
+                },
+                "key": "visitorFullName",
+                "validate": {
+                  "required": true
+                },
+                "defaultValue": "",
+                "refreshOn": [],
+                "optionalWhenDisabled": false,
+                "type": "textfield",
+                "input": true
+              },
+              {
+                "label": {
+                  "ru": "visitingDate"
+                },
+                "key": "visitingDate",
+                "validate": {
+                  "required": true
+                },
+                "format": "dd.MM.yyyy",
+                "datePicker": {
+                  "minDate": "",
+                  "maxDate": ""
+                },
+                "enableTime": false,
+                "defaultValue": "",
+                "refreshOn": [],
+                "optionalWhenDisabled": false,
+                "type": "datetime",
+                "input": true,
+                "suffix": true
+              },
+              {
+                "label": {
+                  "ru": "visitorDocument"
+                },
+                "key": "visitorDocument",
+                "defaultValue": "",
+                "refreshOn": [],
+                "optionalWhenDisabled": false,
+                "type": "textfield",
+                "input": true
+              },
+              {
+                "label": {
+                  "ru": "initiator"
+                },
+                "key": "initiator",
+                "validate": {
+                  "required": true
+                },
+                "modalTitle": "",
+                "journalId": "persons",
+                "queryData": "",
+                "refreshOn": [],
+                "optionalWhenDisabled": false,
+                "type": "selectJournal",
+                "input": true
+              }
+            ],
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "index": 0
+          },
+          {
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "index": 1,
+            "components": [
+              {
+                "label": {
+                  "ru": "visitorOrganization"
+                },
+                "key": "visitorOrganization",
+                "defaultValue": "",
+                "refreshOn": [],
+                "optionalWhenDisabled": false,
+                "type": "textfield",
+                "input": true
+              },
+              {
+                "label": {
+                  "ru": "carBrandAndNumber"
+                },
+                "key": "carBrandAndNumber",
+                "defaultValue": "",
+                "refreshOn": [],
+                "optionalWhenDisabled": false,
+                "type": "textfield",
+                "input": true
+              },
+              {
+                "label": {
+                  "ru": "initiatorDepartment"
+                },
+                "key": "initiatorDepartment",
+                "defaultValue": "",
+                "refreshOn": [],
+                "optionalWhenDisabled": false,
+                "type": "textfield",
+                "input": true
+              }
+            ]
+          }
+        ],
+        "oneColumnInViewMode": false,
+        "type": "columns",
+        "input": false
+      },
+      {
+        "label": {
+          "ru": "Columns"
+        },
+        "key": "columns3",
+        "columns": [
+          {
+            "components": [
+              {
+                "label": {
+                  "ru": "Отмена",
+                  "en": "Cancel"
+                },
+                "key": "cancel",
+                "action": "event",
+                "state": "",
+                "block": true,
+                "clearOnHide": false,
+                "refreshOn": [],
+                "optionalWhenDisabled": false,
+                "type": "button",
+                "input": true,
+                "showValidations": false,
+                "event": "cancel"
+              }
+            ],
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "index": 0,
+            "md": 3
+          },
+          {
+            "md": 3,
+            "index": 1,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "components": []
+          },
+          {
+            "md": 3,
+            "index": 2,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "components": [
+              {
+                "label": {
+                  "ru": "Сохранить",
+                  "en": "Save"
+                },
+                "key": "save",
+                "removeIndents": true,
+                "state": "draft",
+                "block": true,
+                "clearOnHide": false,
+                "refreshOn": [],
+                "optionalWhenDisabled": false,
+                "type": "button",
+                "input": true
+              }
+            ]
+          },
+          {
+            "md": 3,
+            "index": 3,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "components": [
+              {
+                "label": {
+                  "ru": "Отправить",
+                  "en": "Send"
+                },
+                "key": "send",
+                "removeIndents": true,
+                "state": "",
+                "theme": "primary",
+                "block": true,
+                "disableOnInvalid": true,
+                "clearOnHide": false,
+                "refreshOn": [],
+                "optionalWhenDisabled": false,
+                "type": "button",
+                "input": true
+              }
+            ]
+          }
+        ],
+        "oneColumnInViewMode": false,
+        "type": "columns",
+        "input": false
+      }
+    ]
+  },
+  "attributes": {}
+}
