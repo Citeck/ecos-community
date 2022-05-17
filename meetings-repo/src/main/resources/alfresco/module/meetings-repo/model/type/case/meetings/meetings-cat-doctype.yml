@@ -39,13 +39,13 @@ model:
       type: ASSOC
       config:
         typeRef: emodel/type@person
-      multiple: true
     - id: childAnsweredQuestions
       name:
         ru: Решения
         en: Answers
       type: ASSOC
       config:
+        child: true
         typeRef: emodel/type@meet-answeredQuestion
       multiple: true
     - id: childAgenda
@@ -54,16 +54,16 @@ model:
         en: Agenda
       type: ASSOC
       config:
+        child: true
         typeRef: emodel/type@meet-agenda
-      multiple: true
     - id: childProtocol
       name:
         ru: Протокол
         en: Protocol
       type: ASSOC
       config:
+        child: true
         typeRef: emodel/type@meet-protocol
-      multiple: true
     - id: participants
       name:
         ru: Присутствовали

@@ -13,11 +13,16 @@ model:
       name:
         ru: Участники
         en: Planned Participants
+      type: ASSOC
+      config:
+        typeRef: emodel/type@person
+      multiple: true
     - id: childQuestions
       name:
         ru: Вопросы
         en: Questions
       type: ASSOC
       config:
+        child: true
         typeRef: emodel/type@meet-question
       multiple: true
