@@ -83,9 +83,9 @@
       },
       {
         "label": {
-          "ru": "childAnsweredQuestions"
+          "ru": "answeredQuestions"
         },
-        "key": "childAnsweredQuestions",
+        "key": "answeredQuestions",
         "clearOnHide": false,
         "source": {
           "type": "custom",
