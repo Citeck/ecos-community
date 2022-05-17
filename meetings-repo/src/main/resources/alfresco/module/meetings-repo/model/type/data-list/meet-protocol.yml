@@ -34,7 +34,3 @@ model:
       config:
         typeRef: emodel/type@meet-answeredQuestion
       multiple: true
-    - id: documentStatus
-      name:
-        en: Document status
-        ru: Статус

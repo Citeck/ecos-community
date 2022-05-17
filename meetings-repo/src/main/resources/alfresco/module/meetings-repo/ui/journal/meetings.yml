@@ -8,6 +8,7 @@ actions:
   - uiserv/action@edit
   - uiserv/action@view-dashboard
   - uiserv/action@view-dashboard-in-background
+  - uiserv/action@delete
 columns:
   - id: created
     name:
