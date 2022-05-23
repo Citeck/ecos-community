@@ -1,11 +1,42 @@
 ---
 id: order-pass
-name: { ru: Пропуск, en: Order Pass }
-
+name:
+  ru: Пропуск
+  en: Order Pass
+sourceId: integrations/rs-order-pass-source
 parentRef: emodel/type@case
+formRef: uiserv/form@order-pass-form
 journalRef: uiserv/journal@order-passes
-
-properties:
-  alfType: op:orderPass
-  alfRoot: /app:company_home/st:sites/cm:order-pass/cm:documentLibrary/cm:order-passes
-
+defaultCreateVariant: true
+model:
+  attributes:
+    - id: visitorFullName
+      name:
+        ru: ФИО Посетителя
+        en: Visitor's initials
+    - id: visitorOrganization
+      name:
+        en: Visitor's organization
+        ru: Организация посетителя
+    - id: visitingDate
+      name:
+        ru: Дата посещения
+        en: Visit date
+      type: DATE
+    - id: carBrandAndNumber
+      name:
+        ru: Марка и номер машины
+        en: Car's model
+    - id: visitorDocument
+      name:
+        ru: Документ посетителя
+        en: Visitor's document
+    - id: initiatorDepartment
+      name:
+        ru: Подразделение инициатора
+        en: Initiator branch
+    - id: initiator
+      name:
+        en: Initiator
+        ru: Инициатор
+      type: ASSOC

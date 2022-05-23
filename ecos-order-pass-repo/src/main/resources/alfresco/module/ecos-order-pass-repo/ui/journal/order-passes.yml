@@ -1,21 +1,26 @@
+---
 id: order-passes
-name: { ru: Пропуска, en: Order Passes }
-
+name:
+  ru: Пропуска
+  en: Order Passes
 actions:
   - uiserv/action@download-zip
   - uiserv/action@edit
   - uiserv/action@view-dashboard
   - uiserv/action@view-dashboard-in-background
-
+  - uiserv/action@delete
 columns:
-  - id: cm:created
-  - id: idocs:registrationNumber
-  - id: idocs:registrationDate
-  - id: op:visitorFullName
-  - id: op:visitorOrganization
-  - id: op:visitingDate
-  - id: icase:caseStatusAssoc
-    editor:
-      type: journal
-      config:
-        journalId: case-status
+  - id: created
+    name:
+      ru: Дата создания
+      en: Created Date
+    type: DATE
+    attribute: _created
+  - id: visitorFullName
+  - id: visitorOrganization
+  - id: visitingDate
+  - id: caseStatusAssoc
+    name:
+      ru: Статус
+      en: Status
+    attribute: _status
