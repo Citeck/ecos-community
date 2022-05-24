@@ -40,3 +40,5 @@ model:
         en: Initiator
         ru: Инициатор
       type: ASSOC
+      config:
+        typeRef: emodel/type@person

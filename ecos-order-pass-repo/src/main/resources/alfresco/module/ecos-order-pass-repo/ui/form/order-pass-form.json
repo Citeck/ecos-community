@@ -73,12 +73,11 @@
                 "validate": {
                   "required": true
                 },
-                "modalTitle": "",
-                "journalId": "persons",
-                "queryData": "",
+                "clearOnHide": false,
+                "defaultValue": "",
                 "refreshOn": [],
                 "optionalWhenDisabled": false,
-                "type": "selectJournal",
+                "type": "selectOrgstruct",
                 "input": true
               }
             ],
