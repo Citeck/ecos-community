@@ -22,5 +22,4 @@ src/test/properties/local/alfresco-global-dev.properties
 .alfresco-global-dev.properties
 rebel.xml
 .rebel.xml.bak
-package-lock.json
 .flattened-pom.xml
