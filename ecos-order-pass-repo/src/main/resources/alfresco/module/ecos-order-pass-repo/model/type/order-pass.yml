@@ -9,6 +9,12 @@ formRef: uiserv/form@order-pass-form
 journalRef: uiserv/journal@order-passes
 defaultCreateVariant: true
 model:
+  roles:
+    - id: clerk
+      name:
+        ru: Делопроизводитель
+      assignees:
+        - GROUP_company_clerks
   attributes:
     - id: visitorFullName
       name:

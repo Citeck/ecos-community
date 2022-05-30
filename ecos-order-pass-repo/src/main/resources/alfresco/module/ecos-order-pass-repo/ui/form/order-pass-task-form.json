@@ -1,0 +1,103 @@
+{
+  "id": "order-pass-task-form",
+  "formKey": "",
+  "title": {
+    "en": "order-pass-task-form"
+  },
+  "description": {},
+  "customModule": null,
+  "typeRef": "",
+  "width": "lg",
+  "i18n": {},
+  "definition": {
+    "components": [
+      {
+        "label": {
+          "ru": "Комментарий",
+          "en": "Comment"
+        },
+        "key": "comment",
+        "defaultValue": "",
+        "refreshOn": [],
+        "optionalWhenDisabled": false,
+        "type": "textarea",
+        "input": true
+      },
+      {
+        "label": {
+          "ru": "Columns"
+        },
+        "key": "columns",
+        "columns": [
+          {
+            "components": [
+              {
+                "label": {
+                  "ru": "В пропуске отказано"
+                },
+                "key": "outcome_rejected",
+                "state": "",
+                "theme": "primary",
+                "block": true,
+                "clearOnHide": false,
+                "refreshOn": [],
+                "optionalWhenDisabled": false,
+                "type": "button",
+                "input": true
+              }
+            ],
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "index": 0,
+            "md": 3
+          },
+          {
+            "index": 1,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "components": [
+              {
+                "label": {
+                  "ru": "Пропуск заказан"
+                },
+                "key": "outcome",
+                "state": "",
+                "theme": "primary",
+                "block": true,
+                "disableOnInvalid": true,
+                "clearOnHide": false,
+                "refreshOn": [],
+                "optionalWhenDisabled": false,
+                "type": "button",
+                "input": true
+              }
+            ],
+            "md": 3
+          },
+          {
+            "index": 2,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "components": [],
+            "md": 3
+          },
+          {
+            "index": 3,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "components": [],
+            "md": 3
+          }
+        ],
+        "oneColumnInViewMode": false,
+        "type": "columns",
+        "input": false
+      }
+    ]
+  },
+  "attributes": {}
+}
