@@ -33,7 +33,8 @@
             "components": [
               {
                 "label": {
-                  "ru": "В пропуске отказано"
+                  "ru": "В пропуске отказано",
+                  "en": "Reject"
                 },
                 "key": "outcome_rejected",
                 "state": "",
@@ -60,9 +61,10 @@
             "components": [
               {
                 "label": {
-                  "ru": "Пропуск заказан"
+                  "ru": "Пропуск заказан",
+                  "en": "Order pass"
                 },
-                "key": "outcome",
+                "key": "outcome_confirmed",
                 "state": "",
                 "theme": "primary",
                 "block": true,
