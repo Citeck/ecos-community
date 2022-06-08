@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:ecos="http://www.citeck.ru/ecos/bpmn/1.0" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" id="Definitions_0hq0c8n" name="" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="8.2.0" ecos:name_ml="{}" ecos:formRef="" ecos:enabled="true" ecos:autoStartEnabled="true" ecos:processDefId="order-pass-process" ecos:ecosType="emodel/type@order-pass">
+    <bpmn:process isExecutable="true" id="order-pass-process">
+        <bpmn:startEvent name="" id="StartEvent_1ew9rff" ecos:name_ml="{}">
+            <bpmn:outgoing xmlns="">Flow_05x6v7z</bpmn:outgoing>
+        </bpmn:startEvent>
+        <bpmn:userTask name="Оформление пропуска" id="Activity_0uk50ta" ecos:documentation="{}" ecos:outcomes="[{&quot;id&quot;:&quot;confirmed&quot;,&quot;name&quot;:{&quot;ru&quot;:&quot;Одобрено&quot;}},{&quot;id&quot;:&quot;rejected&quot;,&quot;name&quot;:{&quot;ru&quot;:&quot;Отказано&quot;}}]" ecos:name_ml="{&quot;ru&quot;:&quot;Оформление пропуска&quot;}" ecos:formRef="uiserv/form@order-pass-task-form" ecos:priority="MEDIUM" ecos:assignees="[&quot;clerk&quot;]">
+            <bpmn:incoming xmlns="">Flow_06qz48y</bpmn:incoming>
+            <bpmn:outgoing xmlns="">Flow_19wh04m</bpmn:outgoing>
+        </bpmn:userTask>
+        <bpmn:endEvent name="" id="Event_1ahkq37" ecos:name_ml="{}">
+            <bpmn:incoming xmlns="">Flow_1hqvdjs</bpmn:incoming>
+        </bpmn:endEvent>
+        <bpmn:sequenceFlow sourceRef="StartEvent_1ew9rff" targetRef="Activity_0n3lvc7" name="" id="Flow_05x6v7z" ecos:conditionConfig="{&quot;fn&quot;:&quot;&quot;,&quot;expression&quot;:&quot;&quot;,&quot;outcome&quot;:&quot;&quot;}" ecos:conditionType="NONE"/>
+        <bpmn:sequenceFlow sourceRef="Activity_0n3lvc7" targetRef="Activity_0uk50ta" name="" id="Flow_06qz48y" ecos:conditionConfig="{&quot;fn&quot;:&quot;&quot;,&quot;expression&quot;:&quot;&quot;,&quot;outcome&quot;:&quot;&quot;}" ecos:conditionType="NONE"/>
+        <bpmn:scriptTask name="script" id="Activity_0n3lvc7" ecos:asyncConfig="{&quot;asyncBefore&quot;:false,&quot;asyncAfter&quot;:false,&quot;exclusive&quot;:true}" ecos:name_ml="{&quot;ru&quot;:&quot;script&quot;}" ecos:jobConfig="{&quot;jobPriority&quot;:null,&quot;jobRetryTimeCycle&quot;:null}" ecos:script="document.att('_status', 'order_pass')&#10;document.save()&#10;&#10;">
+            <bpmn:incoming xmlns="">Flow_05x6v7z</bpmn:incoming>
+            <bpmn:outgoing xmlns="">Flow_06qz48y</bpmn:outgoing>
+        </bpmn:scriptTask>
+        <bpmn:exclusiveGateway name="" id="Gateway_09meeom">
+            <bpmn:incoming xmlns="">Flow_19wh04m</bpmn:incoming>
+            <bpmn:outgoing xmlns="">Flow_0tb3r14</bpmn:outgoing>
+            <bpmn:outgoing xmlns="">Flow_180wyqd</bpmn:outgoing>
+        </bpmn:exclusiveGateway>
+        <bpmn:sequenceFlow sourceRef="Activity_0uk50ta" targetRef="Gateway_09meeom" name="" id="Flow_19wh04m" ecos:conditionConfig="{&quot;fn&quot;:&quot;&quot;,&quot;expression&quot;:&quot;&quot;,&quot;outcome&quot;:&quot;&quot;}" ecos:conditionType="NONE"/>
+        <bpmn:sequenceFlow sourceRef="Gateway_09meeom" targetRef="Activity_0vfxthb" name="" id="Flow_0tb3r14" ecos:conditionConfig="{&quot;fn&quot;:&quot;// some script;&quot;,&quot;expression&quot;:&quot;&quot;,&quot;outcome&quot;:&quot;Activity_0uk50ta:confirmed&quot;}" ecos:conditionType="OUTCOME"/>
+        <bpmn:sequenceFlow sourceRef="Gateway_09meeom" targetRef="Activity_1nv9h61" name="" id="Flow_180wyqd" ecos:conditionConfig="{&quot;fn&quot;:&quot;// some script;&quot;,&quot;expression&quot;:&quot;&quot;,&quot;outcome&quot;:&quot;Activity_0uk50ta:rejected&quot;}" ecos:conditionType="OUTCOME"/>
+        <bpmn:exclusiveGateway name="" id="Gateway_05myedq">
+            <bpmn:incoming xmlns="">Flow_0q107pe</bpmn:incoming>
+            <bpmn:incoming xmlns="">Flow_00b95ya</bpmn:incoming>
+            <bpmn:outgoing xmlns="">Flow_1hqvdjs</bpmn:outgoing>
+        </bpmn:exclusiveGateway>
+        <bpmn:sequenceFlow sourceRef="Activity_0vfxthb" targetRef="Gateway_05myedq" name="" id="Flow_0q107pe" ecos:conditionConfig="{&quot;fn&quot;:&quot;&quot;,&quot;expression&quot;:&quot;&quot;,&quot;outcome&quot;:&quot;&quot;}" ecos:conditionType="NONE"/>
+        <bpmn:sequenceFlow sourceRef="Activity_1nv9h61" targetRef="Gateway_05myedq" name="" id="Flow_00b95ya" ecos:conditionConfig="{&quot;fn&quot;:&quot;&quot;,&quot;expression&quot;:&quot;&quot;,&quot;outcome&quot;:&quot;&quot;}" ecos:conditionType="NONE"/>
+        <bpmn:sequenceFlow sourceRef="Gateway_05myedq" targetRef="Event_1ahkq37" name="" id="Flow_1hqvdjs" ecos:conditionConfig="{&quot;fn&quot;:&quot;&quot;,&quot;expression&quot;:&quot;&quot;,&quot;outcome&quot;:&quot;&quot;}" ecos:conditionType="NONE"/>
+        <bpmn:scriptTask name="Одобрение" id="Activity_0vfxthb" ecos:asyncConfig="{&quot;asyncBefore&quot;:false,&quot;asyncAfter&quot;:false,&quot;exclusive&quot;:true}" ecos:name_ml="{&quot;ru&quot;:&quot;Одобрение&quot;}" ecos:jobConfig="{&quot;jobPriority&quot;:null,&quot;jobRetryTimeCycle&quot;:null}" ecos:script="document.att('_status', 'order_confirmed')&#10;document.save()">
+            <bpmn:incoming xmlns="">Flow_0tb3r14</bpmn:incoming>
+            <bpmn:outgoing xmlns="">Flow_0q107pe</bpmn:outgoing>
+        </bpmn:scriptTask>
+        <bpmn:scriptTask name="Отказ" id="Activity_1nv9h61" ecos:asyncConfig="{&quot;asyncBefore&quot;:false,&quot;asyncAfter&quot;:false,&quot;exclusive&quot;:true}" ecos:name_ml="{&quot;ru&quot;:&quot;Отказ&quot;}" ecos:jobConfig="{&quot;jobPriority&quot;:null,&quot;jobRetryTimeCycle&quot;:null}" ecos:script="document.att('_status', 'order_rejected')&#10;document.save()">
+            <bpmn:incoming xmlns="">Flow_180wyqd</bpmn:incoming>
+            <bpmn:outgoing xmlns="">Flow_00b95ya</bpmn:outgoing>
+        </bpmn:scriptTask>
+    </bpmn:process>
+    <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+        <bpmndi:BPMNPlane xmlns="" bpmnElement="order-pass-process" id="BPMNPlane_1">
+            <bpmndi:BPMNEdge bpmnElement="Flow_1hqvdjs" id="Flow_1hqvdjs_di">
+                <di:waypoint x="775.0" y="99.0"/>
+                <di:waypoint x="842.0" y="99.0"/>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="Flow_00b95ya" id="Flow_00b95ya_di">
+                <di:waypoint x="690.0" y="200.0"/>
+                <di:waypoint x="750.0" y="200.0"/>
+                <di:waypoint x="750.0" y="124.0"/>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="Flow_0q107pe" id="Flow_0q107pe_di">
+                <di:waypoint x="690.0" y="0.0"/>
+                <di:waypoint x="750.0" y="0.0"/>
+                <di:waypoint x="750.0" y="74.0"/>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="Flow_180wyqd" id="Flow_180wyqd_di">
+                <di:waypoint x="530.0" y="124.0"/>
+                <di:waypoint x="530.0" y="200.0"/>
+                <di:waypoint x="590.0" y="200.0"/>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="Flow_0tb3r14" id="Flow_0tb3r14_di">
+                <di:waypoint x="530.0" y="74.0"/>
+                <di:waypoint x="530.0" y="0.0"/>
+                <di:waypoint x="590.0" y="0.0"/>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="Flow_19wh04m" id="Flow_19wh04m_di">
+                <di:waypoint x="460.0" y="99.0"/>
+                <di:waypoint x="505.0" y="99.0"/>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="Flow_06qz48y" id="Flow_06qz48y_di">
+                <di:waypoint x="320.0" y="99.0"/>
+                <di:waypoint x="360.0" y="99.0"/>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="Flow_05x6v7z" id="Flow_05x6v7z_di">
+                <di:waypoint x="192.0" y="99.0"/>
+                <di:waypoint x="220.0" y="99.0"/>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNShape bpmnElement="StartEvent_1ew9rff" id="_BPMNShape_StartEvent_2">
+                <dc:Bounds x="156.0" y="81.0" width="36.0" height="36.0"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="Activity_0uk50ta" id="Activity_1r60652_di">
+                <dc:Bounds x="360.0" y="59.0" width="100.0" height="80.0"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="Event_1ahkq37" id="Event_1ahkq37_di">
+                <dc:Bounds x="842.0" y="81.0" width="36.0" height="36.0"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="Activity_0n3lvc7" id="Activity_10y6ygu_di">
+                <dc:Bounds x="220.0" y="59.0" width="100.0" height="80.0"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="Gateway_09meeom" id="Gateway_09meeom_di">
+                <dc:Bounds x="505.0" y="74.0" width="50.0" height="50.0"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="Gateway_05myedq" id="Gateway_05myedq_di">
+                <dc:Bounds x="725.0" y="74.0" width="50.0" height="50.0"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="Activity_0vfxthb" id="Activity_1y4nqat_di">
+                <dc:Bounds x="590.0" y="-40.0" width="100.0" height="80.0"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="Activity_1nv9h61" id="Activity_00qo7dr_di">
+                <dc:Bounds x="590.0" y="160.0" width="100.0" height="80.0"/>
+            </bpmndi:BPMNShape>
+        </bpmndi:BPMNPlane>
+    </bpmndi:BPMNDiagram>
+</bpmn:definitions>
