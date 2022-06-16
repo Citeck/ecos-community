@@ -1,0 +1,7 @@
+---
+type: 'maven-alfresco'
+properties:
+  image:
+    ecosProject: community
+    ecosClassifier: 5.1.f-com
+    flowableVersion: 3.0.5.6
