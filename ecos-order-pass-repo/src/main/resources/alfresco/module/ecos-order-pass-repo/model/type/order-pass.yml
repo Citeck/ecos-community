@@ -1,4 +1,3 @@
----
 id: order-pass
 name:
   ru: Пропуск
@@ -9,6 +8,25 @@ formRef: uiserv/form@order-pass-form
 journalRef: uiserv/journal@order-passes
 defaultCreateVariant: true
 model:
+  roles:
+    - id: clerk
+      name:
+        ru: Делопроизводитель
+      assignees:
+        - GROUP_company_clerks
+  statuses:
+    - id: order_pass
+      name:
+        ru: Заказ пропуска
+        en: Order pass
+    - id: order_confirmed
+      name:
+        ru: Пропуск заказан
+        en: Confirmed
+    - id: order_rejected
+      name:
+        ru: В пропуске отказано
+        en: Rejected
   attributes:
     - id: visitorFullName
       name:
