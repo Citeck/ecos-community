@@ -116,14 +116,26 @@
               },
               {
                 "label": {
-                  "ru": "initiatorDepartment"
+                  "ru": "Дата регистрации",
+                  "en": "Registration date"
                 },
-                "key": "initiatorDepartment",
+                "key": "_created",
+                "disabled": true,
+                "allowInput": false,
+                "format": "dd.MM.yyyy",
+                "clearOnHide": false,
+                "datePicker": {
+                  "minDate": "",
+                  "maxDate": ""
+                },
+                "enableTime": false,
                 "defaultValue": "",
                 "refreshOn": [],
                 "optionalWhenDisabled": false,
-                "type": "textfield",
-                "input": true
+                "customConditional": "const formMode = _.get(instance, 'options.formMode', '');\nshow = formMode != 'CREATE'; ",
+                "type": "datetime",
+                "input": true,
+                "suffix": true
               }
             ]
           }

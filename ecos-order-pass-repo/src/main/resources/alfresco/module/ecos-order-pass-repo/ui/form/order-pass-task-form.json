@@ -17,6 +17,10 @@
           "en": "Comment"
         },
         "key": "comment",
+        "validate": {
+          "required": true,
+          "customMessage": "При отказе поле обязательно к заполнению"
+        },
         "defaultValue": "",
         "refreshOn": [],
         "optionalWhenDisabled": false,
@@ -65,7 +69,7 @@
                   "en": "Order pass"
                 },
                 "key": "outcome_confirmed",
-                "state": "",
+                "state": "draft",
                 "theme": "primary",
                 "block": true,
                 "disableOnInvalid": true,
