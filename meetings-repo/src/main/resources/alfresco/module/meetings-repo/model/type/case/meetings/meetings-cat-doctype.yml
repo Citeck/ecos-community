@@ -9,7 +9,11 @@ formRef: uiserv/form@meetings_meeting
 journalRef: uiserv/journal@meetings
 inheritActions: false
 actions:
-  - uiserv/action@create-agenda
+  - uiserv/action@meet-create-agenda
+  - uiserv/action@meet-create-protocol
+  - uiserv/action@meet-familiarization-distr
+  - uiserv/action@meet-confirmation-send
+  - uiserv/action@meet-perform-send
 defaultCreateVariant: true
 model:
   roles:
