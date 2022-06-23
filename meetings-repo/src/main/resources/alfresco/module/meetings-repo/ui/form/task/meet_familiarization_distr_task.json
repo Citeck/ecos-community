@@ -1,0 +1,154 @@
+{
+  "id": "meet_familiarization_distr_task",
+  "formKey": "",
+  "title": {
+    "en": "Meeting Familiarization Distribution Task"
+  },
+  "description": {},
+  "customModule": null,
+  "typeRef": "",
+  "width": "lg",
+  "i18n": {
+    "ru": {
+      "low": "Низкий",
+      "middle": "Средний",
+      "high": "Высокий"
+    },
+    "en": {
+      "low": "Low",
+      "middle": "Middle",
+      "high": "High"
+    }
+  },
+  "definition": {
+    "components": [
+      {
+        "label": {
+          "ru": "Сообщение",
+          "en": "Message"
+        },
+        "key": "message",
+        "defaultValue": "",
+        "refreshOn": [],
+        "optionalWhenDisabled": false,
+        "type": "textarea",
+        "input": true
+      },
+      {
+        "label": {
+          "ru": "Columns"
+        },
+        "key": "columns2",
+        "columns": [
+          {
+            "components": [
+              {
+                "label": {
+                  "ru": "Срок",
+                  "en": "Term"
+                },
+                "key": "term",
+                "format": "dd.MM.yyyy",
+                "datePicker": {
+                  "minDate": "",
+                  "maxDate": ""
+                },
+                "enableTime": false,
+                "timePicker": {
+                  "showMeridian": false
+                },
+                "defaultValue": "",
+                "refreshOn": [],
+                "optionalWhenDisabled": false,
+                "type": "datetime",
+                "input": true,
+                "suffix": true
+              }
+            ],
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "index": 0
+          },
+          {
+            "index": 1,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "components": [
+              {
+                "label": {
+                  "ru": "Приоритет",
+                  "en": "Priority"
+                },
+                "key": "priority",
+                "dataSrc": "values",
+                "data": {
+                  "values": [
+                    {
+                      "label": "low",
+                      "value": "low"
+                    },
+                    {
+                      "label": "middle",
+                      "value": "middle"
+                    },
+                    {
+                      "label": "high",
+                      "value": "high"
+                    }
+                  ]
+                },
+                "defaultValue": "",
+                "optionalWhenDisabled": false,
+                "type": "ecosSelect",
+                "input": true
+              }
+            ]
+          }
+        ],
+        "oneColumnInViewMode": false,
+        "type": "columns",
+        "input": false
+      },
+      {
+        "label": {
+          "ru": "Получатели",
+          "en": "Receivers"
+        },
+        "key": "receivers",
+        "refreshOn": [],
+        "optionalWhenDisabled": false,
+        "type": "selectOrgstruct",
+        "input": true,
+        "defaultValue": ""
+      },
+      {
+        "label": {
+          "ru": "Отправить уведомление по электронной почте",
+          "en": "Send email notification"
+        },
+        "key": "email",
+        "refreshOn": [],
+        "optionalWhenDisabled": false,
+        "type": "checkbox",
+        "input": true
+      },
+      {
+        "label": {
+          "ru": "Отправить на ознакомление",
+          "en": "Send for familiarization"
+        },
+        "key": "submit",
+        "state": "",
+        "theme": "primary",
+        "disableOnInvalid": true,
+        "refreshOn": [],
+        "optionalWhenDisabled": false,
+        "type": "button",
+        "input": true
+      }
+    ]
+  },
+  "attributes": {}
+}
