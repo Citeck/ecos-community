@@ -1,0 +1,44 @@
+{
+  "id": "meet_familiarized_task",
+  "formKey": "",
+  "title": {
+    "en": "Meeting Familiarized Task"
+  },
+  "description": {},
+  "customModule": null,
+  "typeRef": "",
+  "width": "lg",
+  "i18n": {},
+  "definition": {
+    "components": [
+      {
+        "label": {
+          "ru": "Ознакомлен",
+          "en": "Familiarized"
+        },
+        "key": "outcome_familiarized",
+        "state": "",
+        "theme": "primary",
+        "refreshOn": [],
+        "optionalWhenDisabled": false,
+        "type": "button",
+        "input": true
+      },
+      {
+        "label": {
+          "ru": "Время ознакомления вышло",
+          "en": "Timer expired"
+        },
+        "key": "outcome_familiar_timer_expired",
+        "state": "",
+        "theme": "primary",
+        "disableOnInvalid": true,
+        "refreshOn": [],
+        "optionalWhenDisabled": false,
+        "type": "button",
+        "input": true
+      }
+    ]
+  },
+  "attributes": {}
+}

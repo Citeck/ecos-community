@@ -1,0 +1,43 @@
+{
+  "id": "meet_confirmed_task",
+  "formKey": "",
+  "title": {
+    "en": "Meeting Confirmed Task"
+  },
+  "description": {},
+  "customModule": null,
+  "typeRef": "",
+  "width": "lg",
+  "i18n": {},
+  "definition": {
+    "components": [
+      {
+        "label": {
+          "ru": "Протокол согласован",
+          "en": "Protocol confirmed"
+        },
+        "key": "outcome_confirmed",
+        "state": "",
+        "theme": "primary",
+        "refreshOn": [],
+        "optionalWhenDisabled": false,
+        "type": "button",
+        "input": true
+      },
+      {
+        "label": {
+          "ru": "Время согласования вышло",
+          "en": "Timer expired"
+        },
+        "key": "outcome_confirm_timer_expired",
+        "state": "",
+        "theme": "primary",
+        "refreshOn": [],
+        "optionalWhenDisabled": false,
+        "type": "button",
+        "input": true
+      }
+    ]
+  },
+  "attributes": {}
+}

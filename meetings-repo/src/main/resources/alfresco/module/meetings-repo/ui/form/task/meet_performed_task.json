@@ -1,0 +1,31 @@
+{
+  "id": "meet_performed_task",
+  "formKey": "",
+  "title": {
+    "en": "Meeting Performed Task"
+  },
+  "description": {},
+  "customModule": null,
+  "typeRef": "",
+  "width": "lg",
+  "i18n": {},
+  "definition": {
+    "components": [
+      {
+        "label": {
+          "ru": "Исполнено",
+          "en": "Performed"
+        },
+        "key": "outcome_performed",
+        "state": "",
+        "theme": "primary",
+        "disableOnInvalid": true,
+        "refreshOn": [],
+        "optionalWhenDisabled": false,
+        "type": "button",
+        "input": true
+      }
+    ]
+  },
+  "attributes": {}
+}

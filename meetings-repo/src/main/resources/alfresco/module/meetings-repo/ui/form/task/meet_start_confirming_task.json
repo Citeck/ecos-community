@@ -1,0 +1,31 @@
+{
+  "id": "meet_start_confirming_task",
+  "formKey": "",
+  "title": {
+    "en": "Meeting Start Confirming Task"
+  },
+  "description": {},
+  "customModule": null,
+  "typeRef": "",
+  "width": "lg",
+  "i18n": {},
+  "definition": {
+    "components": [
+      {
+        "label": {
+          "en": "Start confirming",
+          "ru": "Начать согласование"
+        },
+        "key": "outcome_start_confirming",
+        "state": "",
+        "theme": "primary",
+        "disableOnInvalid": true,
+        "refreshOn": [],
+        "optionalWhenDisabled": false,
+        "type": "button",
+        "input": true
+      }
+    ]
+  },
+  "attributes": {}
+}

@@ -1,0 +1,31 @@
+{
+  "id": "meet_familiarization_timer_expired_task",
+  "formKey": "",
+  "title": {
+    "en": "Meeting Familiarization Timer Expired Task"
+  },
+  "description": {},
+  "customModule": null,
+  "typeRef": "",
+  "width": "lg",
+  "i18n": {},
+  "definition": {
+    "components": [
+      {
+        "label": {
+          "ru": "Время ознакомления вышло",
+          "en": "Familarization timer expired"
+        },
+        "key": "outcome_timer_expired",
+        "state": "",
+        "theme": "primary",
+        "disableOnInvalid": true,
+        "refreshOn": [],
+        "optionalWhenDisabled": false,
+        "type": "button",
+        "input": true
+      }
+    ]
+  },
+  "attributes": {}
+}

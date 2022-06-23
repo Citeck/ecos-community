@@ -1,0 +1,31 @@
+{
+  "id": "meet_start_familiarizing_task",
+  "formKey": "",
+  "title": {
+    "en": "Meeting Start Familiarizing Task"
+  },
+  "description": {},
+  "customModule": null,
+  "typeRef": "",
+  "width": "lg",
+  "i18n": {},
+  "definition": {
+    "components": [
+      {
+        "label": {
+          "ru": "Начать ознакомление",
+          "en": "Start familiarizing"
+        },
+        "key": "outcome_start_familiarizing",
+        "state": "",
+        "theme": "primary",
+        "disableOnInvalid": true,
+        "refreshOn": [],
+        "optionalWhenDisabled": false,
+        "type": "button",
+        "input": true
+      }
+    ]
+  },
+  "attributes": {}
+}
