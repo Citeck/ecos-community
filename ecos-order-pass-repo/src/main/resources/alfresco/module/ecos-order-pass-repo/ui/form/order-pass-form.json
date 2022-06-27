@@ -8,7 +8,14 @@
   "customModule": null,
   "typeRef": "",
   "width": "lg",
-  "i18n": {},
+  "i18n": {
+    "ru": {
+      "create": "Создать"
+    },
+    "en": {
+      "create": "Create"
+    }
+  },
   "definition": {
     "components": [
       {
@@ -116,14 +123,26 @@
               },
               {
                 "label": {
-                  "ru": "initiatorDepartment"
+                  "ru": "Дата регистрации",
+                  "en": "Registration date"
                 },
-                "key": "initiatorDepartment",
+                "key": "_created",
+                "disabled": true,
+                "allowInput": false,
+                "format": "dd.MM.yyyy",
+                "clearOnHide": false,
+                "datePicker": {
+                  "minDate": "",
+                  "maxDate": ""
+                },
+                "enableTime": false,
                 "defaultValue": "",
                 "refreshOn": [],
                 "optionalWhenDisabled": false,
-                "type": "textfield",
-                "input": true
+                "customConditional": "const formMode = _.get(instance, 'options.formMode', '');\nshow = formMode != 'CREATE'; ",
+                "type": "datetime",
+                "input": true,
+                "suffix": true
               }
             ]
           }
@@ -178,23 +197,7 @@
             "type": "column",
             "input": false,
             "key": "column",
-            "components": [
-              {
-                "label": {
-                  "ru": "Сохранить",
-                  "en": "Save"
-                },
-                "key": "save",
-                "removeIndents": true,
-                "state": "draft",
-                "block": true,
-                "clearOnHide": false,
-                "refreshOn": [],
-                "optionalWhenDisabled": false,
-                "type": "button",
-                "input": true
-              }
-            ]
+            "components": []
           },
           {
             "md": 3,
@@ -205,10 +208,10 @@
             "components": [
               {
                 "label": {
-                  "ru": "Отправить",
-                  "en": "Send"
+                  "ru": "Сохранить",
+                  "en": "Save"
                 },
-                "key": "send",
+                "key": "submit",
                 "removeIndents": true,
                 "state": "",
                 "theme": "primary",
@@ -217,6 +220,27 @@
                 "clearOnHide": false,
                 "refreshOn": [],
                 "optionalWhenDisabled": false,
+                "logic": [
+                  {
+                    "name": "Create state",
+                    "trigger": {
+                      "type": "javascript",
+                      "javascript": "const formMode = _.get(instance, 'options.formMode', '');\n\nresult = formMode == 'CREATE';"
+                    },
+                    "actions": [
+                      {
+                        "name": "Set \"create\" state",
+                        "type": "property",
+                        "property": {
+                          "label": "Label",
+                          "value": "label",
+                          "type": "string"
+                        },
+                        "text": "create"
+                      }
+                    ]
+                  }
+                ],
                 "type": "button",
                 "input": true
               }
