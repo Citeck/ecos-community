@@ -1,0 +1,31 @@
+{
+  "id": "meet_reconfirm_task",
+  "formKey": "",
+  "title": {
+    "en": "Meeting Reconfirm Task"
+  },
+  "description": {},
+  "customModule": null,
+  "typeRef": "",
+  "width": "lg",
+  "i18n": {},
+  "definition": {
+    "components": [
+      {
+        "label": {
+          "ru": "Отправить на согласование",
+          "en": "Reconfirm"
+        },
+        "key": "outcome_reconfirm",
+        "state": "",
+        "theme": "primary",
+        "disableOnInvalid": true,
+        "refreshOn": [],
+        "optionalWhenDisabled": false,
+        "type": "button",
+        "input": true
+      }
+    ]
+  },
+  "attributes": {}
+}

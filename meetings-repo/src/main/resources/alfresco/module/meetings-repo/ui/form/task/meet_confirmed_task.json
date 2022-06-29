@@ -13,29 +13,91 @@
     "components": [
       {
         "label": {
-          "ru": "Протокол согласован",
-          "en": "Protocol confirmed"
+          "ru": "Columns"
         },
-        "key": "outcome_confirmed",
-        "state": "",
-        "theme": "primary",
-        "refreshOn": [],
-        "optionalWhenDisabled": false,
-        "type": "button",
-        "input": true
-      },
-      {
-        "label": {
-          "ru": "Время согласования вышло",
-          "en": "Timer expired"
-        },
-        "key": "outcome_confirm_timer_expired",
-        "state": "",
-        "theme": "primary",
-        "refreshOn": [],
-        "optionalWhenDisabled": false,
-        "type": "button",
-        "input": true
+        "key": "columns2",
+        "columns": [
+          {
+            "components": [
+              {
+                "label": {
+                  "ru": "Протокол согласован",
+                  "en": "Protocol confirmed"
+                },
+                "key": "outcome_confirmed",
+                "state": "",
+                "theme": "primary",
+                "block": true,
+                "refreshOn": [],
+                "optionalWhenDisabled": false,
+                "type": "button",
+                "input": true
+              }
+            ],
+            "md": 3,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "index": 0
+          },
+          {
+            "md": 3,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "index": 1,
+            "components": [
+              {
+                "label": {
+                  "ru": "Протокол отклонен",
+                  "en": "Protocol rejected"
+                },
+                "key": "outcome_rejected",
+                "state": "",
+                "theme": "primary",
+                "block": true,
+                "refreshOn": [],
+                "optionalWhenDisabled": false,
+                "type": "button",
+                "input": true
+              }
+            ]
+          },
+          {
+            "md": 3,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "index": 2,
+            "components": []
+          },
+          {
+            "md": 3,
+            "type": "column",
+            "input": false,
+            "key": "column",
+            "index": 3,
+            "components": [
+              {
+                "label": {
+                  "ru": "Время согласования вышло",
+                  "en": "Timer expired"
+                },
+                "key": "outcome_confirm_timer_expired",
+                "state": "",
+                "theme": "primary",
+                "block": true,
+                "refreshOn": [],
+                "optionalWhenDisabled": false,
+                "type": "button",
+                "input": true
+              }
+            ]
+          }
+        ],
+        "oneColumnInViewMode": false,
+        "type": "columns",
+        "input": false
       }
     ]
   },
