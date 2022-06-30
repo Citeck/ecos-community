@@ -9,12 +9,14 @@ formRef: uiserv/form@order-pass-form
 journalRef: uiserv/journal@order-passes
 dispNameTemplate:
   ru: Пропуск №${regNumber}
+  en: Order №${regNumber}
 defaultCreateVariant: true
 model:
   roles:
     - id: clerk
       name:
         ru: Делопроизводитель
+        en: Clerk
       assignees:
         - GROUP_company_clerks
   statuses:
