@@ -10,10 +10,11 @@ actions:
   - uiserv/action@view-dashboard-in-background
   - uiserv/action@delete
 columns:
+  - id: regNumber
   - id: created
     name:
-      ru: Дата создания
-      en: Created Date
+      ru: Дата регистрации
+      en: Registration Date
     type: DATE
     attribute: _created
   - id: visitorFullName

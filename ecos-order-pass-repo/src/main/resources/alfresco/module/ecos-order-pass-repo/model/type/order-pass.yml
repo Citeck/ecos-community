@@ -1,3 +1,4 @@
+---
 id: order-pass
 name:
   ru: Пропуск
@@ -6,6 +7,8 @@ sourceId: integrations/rs-order-pass-source
 parentRef: emodel/type@case
 formRef: uiserv/form@order-pass-form
 journalRef: uiserv/journal@order-passes
+dispNameTemplate:
+  ru: Пропуск №${regNumber}
 defaultCreateVariant: true
 model:
   roles:
@@ -60,3 +63,12 @@ model:
       type: ASSOC
       config:
         typeRef: emodel/type@person
+    - id: regNumber
+      name:
+        ru: Регистрационный номер
+        en: Register number
+      computed:
+        type: COUNTER
+        config:
+          numTemplateRef: emodel/num-template@order-pass-num-template
+        storingType: ON_CREATE
