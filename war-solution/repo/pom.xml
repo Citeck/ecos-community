@@ -109,12 +109,6 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>ecos-order-pass-repo</artifactId>
-            <version>${project.version}</version>
-            <type>amp</type>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
             <artifactId>thanks-repo</artifactId>
             <version>${project.version}</version>
             <type>amp</type>
@@ -234,11 +228,6 @@
                         <overlay>
                             <groupId>${project.groupId}</groupId>
                             <artifactId>orders-repo</artifactId>
-                            <type>amp</type>
-                        </overlay>
-                        <overlay>
-                            <groupId>${project.groupId}</groupId>
-                            <artifactId>ecos-order-pass-repo</artifactId>
                             <type>amp</type>
                         </overlay>
                         <overlay>
