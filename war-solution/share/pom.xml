@@ -81,12 +81,6 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>meetings-share</artifactId>
-            <version>${project.version}</version>
-            <type>amp</type>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
             <artifactId>orders-share</artifactId>
             <version>${project.version}</version>
             <type>amp</type>
@@ -201,11 +195,6 @@
                         <overlay>
                             <groupId>${project.groupId}</groupId>
                             <artifactId>letters-share</artifactId>
-                            <type>amp</type>
-                        </overlay>
-                        <overlay>
-                            <groupId>${project.groupId}</groupId>
-                            <artifactId>meetings-share</artifactId>
                             <type>amp</type>
                         </overlay>
                         <overlay>
