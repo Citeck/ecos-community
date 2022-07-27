@@ -97,12 +97,6 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>meetings-repo</artifactId>
-            <version>${project.version}</version>
-            <type>amp</type>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
             <artifactId>orders-repo</artifactId>
             <version>${project.version}</version>
             <type>amp</type>
@@ -224,11 +218,6 @@
                         <overlay>
                             <groupId>${project.groupId}</groupId>
                             <artifactId>letters-repo</artifactId>
-                            <type>amp</type>
-                        </overlay>
-                        <overlay>
-                            <groupId>${project.groupId}</groupId>
-                            <artifactId>meetings-repo</artifactId>
                             <type>amp</type>
                         </overlay>
                         <overlay>
