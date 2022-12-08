@@ -14,6 +14,8 @@ columns:
   - id: idocs:registrationDate
   - id: letters:outcomeNomenclature
   - id: tk:kind
+    searchable: false
+    searchableByText: false
   - id: letters:deliveryMethod
   - id: letters:addressee
   - id: idocs:performer

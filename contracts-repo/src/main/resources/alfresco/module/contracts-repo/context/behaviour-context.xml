@@ -146,6 +146,7 @@
 	<bean id="contracts.agreementNumberBehaviour" parent="EnumerationBehaviour">
         <property name="className" value="contracts:agreement" />
         <property name="numberField" value="contracts:agreementNumber" />
+		<property name="barcodeField" value="contracts:barcode" />
 		<property name="enabledState" value="-" />
         <property name="templateName" value="agreement-number-template" />
     </bean>
