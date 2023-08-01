@@ -52,7 +52,10 @@
           {
             "components": [
               {
-                "label": "tk:kind",
+                "label": {
+                  "ru": "Тип документа",
+                  "en": "Document type"
+                },
                 "mask": false,
                 "tableView": true,
                 "alwaysEnabled": false,

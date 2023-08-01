@@ -51,7 +51,10 @@
           {
             "components": [
               {
-                "label": "tk:kind",
+                "label": {
+                  "ru": "Тип документа",
+                  "en": "Document type"
+                },
                 "dataSrc": "custom",
                 "data": {
                   "custom": "for (var i in data.subCategories.records){\n  values.push({label: data.subCategories.records[i].title,value: data.subCategories.records[i].id})\n}"
