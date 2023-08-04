@@ -14,7 +14,7 @@
 
     <properties>
 
-        <revision>4.9.1-SNAPSHOT</revision>
+        <revision>4.9.1</revision>
 
         <alfresco.sdk.version>3.0.1</alfresco.sdk.version>
 
