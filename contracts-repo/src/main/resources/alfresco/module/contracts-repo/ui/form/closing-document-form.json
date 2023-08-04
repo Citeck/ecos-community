@@ -208,17 +208,12 @@
                                   "required": true
                                 },
                                 "label": "idocs:legalEntity",
-                                "modalTitle" : "",
-                                "queryData" : "",
-                                "refreshOn" : ["DocumentData"],
-                                "calculateValue" : "value = _.get(data, 'DocumentData.legalEntity') || '';",
-                                "optionalWhenDisabled" : false,
                                 "logic": [
                                   {
                                     "name": "DocumentDataEvent",
                                     "trigger": {
                                       "type": "javascript",
-                                      "javascript": "result = _.get(data, 'DocumentData.legalEntity');"
+                                      "javascript": "result = data.DocumentData.legalEntity;"
                                     },
                                     "actions": [
                                       {
@@ -234,14 +229,15 @@
                                       {
                                         "name": "set_value",
                                         "type": "value",
-                                        "value": "value = _.get(data, 'DocumentData.legalEntity') || '';"
+                                        "value": "value = data.DocumentData.legalEntity;"
                                       }
                                     ]
                                   }
                                 ],
                                 "properties": {
                                   "attribute": "idocs:legalEntity"
-                                }
+                                },
+                                "presetFilterPredicatesJs": null
                               }
                             ],
                             "type": "column",
@@ -265,17 +261,13 @@
                                 "validate": {
                                   "required": true
                                 },
-                                "modalTitle": "",
-                                "refreshOn": ["DocumentData"],
-                                "calculateValue" : "value = _.get(data, 'DocumentData.contractor') || '';",
-                                "optionalWhenDisabled" : false,
                                 "label": "contracts:contractor",
                                 "logic": [
                                   {
                                     "name": "DocumentDataEvent",
                                     "trigger": {
                                       "type": "javascript",
-                                      "javascript": "result = _.get(data, 'DocumentData.contractor');"
+                                      "javascript": "result = data.DocumentData.contractor;"
                                     },
                                     "actions": [
                                       {
@@ -291,7 +283,7 @@
                                       {
                                         "name": "set_value",
                                         "type": "value",
-                                        "value": "value = _.get(data, 'DocumentData.contractor') || '';"
+                                        "value": "value = data.DocumentData.contractor;"
                                       }
                                     ]
                                   }
@@ -299,8 +291,7 @@
                                 "properties": {
                                   "attribute": "contracts:contractor"
                                 },
-                                "presetFilterPredicatesJs": null,
-                                "queryData" : ""
+                                "presetFilterPredicatesJs": null
                               }
                             ],
                             "type": "column",
