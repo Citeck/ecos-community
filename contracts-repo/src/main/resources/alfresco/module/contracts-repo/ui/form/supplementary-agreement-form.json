@@ -86,6 +86,10 @@
                                   "required": true
                                 },
                                 "key": "contracts_agreementLegalEntity",
+                                "refreshOn": [
+                                  "_agreementValues"
+                                ],
+                                "calculateValue": "const {_agreementValues} = data || {};\nconst {_legalEntity} = _agreementValues || {};\n\nvalue = !!_legalEntity;",
                                 "properties": {
                                   "attribute": "contracts:agreementLegalEntity"
                                 },
@@ -155,6 +159,10 @@
                                   "required": true
                                 },
                                 "key": "contracts_contractor",
+                                "refreshOn": [
+                                  "_agreementValues"
+                                ],
+                                "calculateValue": "const {_agreementValues} = data || {};\nconst {_contractor} = _agreementValues || {};\n\nvalue = !!_contractor;",
                                 "properties": {
                                   "attribute": "contracts:contractor"
                                 },
@@ -214,6 +222,10 @@
                           }
                         ],
                         "key": "columns4",
+                        "conditional": {
+                          "show": "false",
+                          "when": "contracts_mainAgreement"
+                        },
                         "type": "columns",
                         "input": false
                       },
@@ -228,6 +240,10 @@
                                 "hideEditRowButton": true,
                                 "journalId": "contract-subjects",
                                 "key": "contracts_agreementSubject",
+                                "refreshOn": [
+                                  "_agreementValues"
+                                ],
+                                "calculateValue": "value = data._agreementValues._subject || '';",
                                 "properties": {
                                   "attribute": "contracts:agreementSubject"
                                 },
@@ -358,6 +374,10 @@
                           }
                         ],
                         "key": "columns5",
+                        "conditional": {
+                          "show": "false",
+                          "when": "contracts_mainAgreement"
+                        },
                         "type": "columns",
                         "input": false
                       },
