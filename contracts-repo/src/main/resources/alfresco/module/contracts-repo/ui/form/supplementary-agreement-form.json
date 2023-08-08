@@ -5,9 +5,10 @@
     "en": "Supplementary agreement form"
   },
   "description": {},
-  "customModule": null,
+  "customModule": "",
   "typeRef": "",
   "width": "default",
+  "system": false,
   "i18n": {
     "ru": {
       "Type of add'l agreement": "Вид доп. соглашения",
@@ -86,6 +87,15 @@
                                   "required": true
                                 },
                                 "key": "contracts_agreementLegalEntity",
+                                "clearOnHide": false,
+                                "modalTitle": "",
+                                "queryData": "",
+                                "refreshOn": [
+                                  "contracts_mainAgreement"
+                                ],
+                                "calculateValue": "const {_agreementValues} = data || {};\nconst {_legalEntity} = _agreementValues || {};\n\nif (_legalEntity !== undefined) {\n  value = _legalEntity;\n}",
+                                "allowCalculateOverride": true,
+                                "optionalWhenDisabled": false,
                                 "properties": {
                                   "attribute": "contracts:agreementLegalEntity"
                                 },
@@ -94,20 +104,6 @@
                                   "when": "contracts_mainAgreement"
                                 },
                                 "logic": [
-                                  {
-                                    "name": "Set value",
-                                    "trigger": {
-                                      "type": "javascript",
-                                      "javascript": "const {_agreementValues, contracts_agreementLegalEntity: curVal} = data || {};\nconst {_legalEntity} = _agreementValues || {};\n\nresult = !!_legalEntity && curVal != _legalEntity;"
-                                    },
-                                    "actions": [
-                                      {
-                                        "name": "Set value",
-                                        "type": "value",
-                                        "value": "const {_agreementValues} = data || {};\nconst {_legalEntity} = _agreementValues || {};\n\nvalue = _legalEntity;"
-                                      }
-                                    ]
-                                  },
                                   {
                                     "name": "Disable",
                                     "trigger": {
@@ -149,12 +145,21 @@
                                 "label": {
                                   "ru": "contracts:contractor"
                                 },
-                                "hideEditRowButton": true,
-                                "journalId": "idocs-contractor",
+                                "key": "contracts_contractor",
                                 "validate": {
                                   "required": true
                                 },
-                                "key": "contracts_contractor",
+                                "hideEditRowButton": true,
+                                "clearOnHide": false,
+                                "modalTitle": "",
+                                "journalId": "idocs-contractor",
+                                "queryData": "",
+                                "refreshOn": [
+                                  "contracts_mainAgreement"
+                                ],
+                                "calculateValue": "const {_agreementValues} = data || {};\nconst {_contractor} = _agreementValues || {};\n\nif (_contractor !== undefined) {\n  value = _contractor;\n}",
+                                "allowCalculateOverride": true,
+                                "optionalWhenDisabled": false,
                                 "properties": {
                                   "attribute": "contracts:contractor"
                                 },
@@ -163,20 +168,6 @@
                                   "when": "contracts_mainAgreement"
                                 },
                                 "logic": [
-                                  {
-                                    "name": "Set value",
-                                    "trigger": {
-                                      "type": "javascript",
-                                      "javascript": "const {_agreementValues, contracts_contractor: curVal} = data || {};\nconst {_contractor} = _agreementValues || {};\n\nresult = !!_contractor && curVal != _contractor;"
-                                    },
-                                    "actions": [
-                                      {
-                                        "name": "Set value",
-                                        "type": "value",
-                                        "value": "const {_agreementValues} = data || {};\nconst {_contractor} = _agreementValues || {};\n\nvalue = _contractor;"
-                                      }
-                                    ]
-                                  },
                                   {
                                     "name": "Disable",
                                     "trigger": {
@@ -225,9 +216,17 @@
                                 "label": {
                                   "ru": "contracts:agreementSubject"
                                 },
-                                "hideEditRowButton": true,
-                                "journalId": "contract-subjects",
                                 "key": "contracts_agreementSubject",
+                                "hideEditRowButton": true,
+                                "clearOnHide": false,
+                                "modalTitle": "",
+                                "journalId": "contract-subjects",
+                                "refreshOn": [
+                                  "contracts_mainAgreement"
+                                ],
+                                "calculateValue": "const _subject = data._agreementValues._subject;\nif (_subject !== undefined) {\n  value = _subject;\n}",
+                                "allowCalculateOverride": true,
+                                "optionalWhenDisabled": false,
                                 "properties": {
                                   "attribute": "contracts:agreementSubject"
                                 },
@@ -271,7 +270,8 @@
                                   }
                                 ],
                                 "type": "selectJournal",
-                                "input": true
+                                "input": true,
+                                "queryData": ""
                               }
                             ],
                             "type": "column",
@@ -1407,5 +1407,6 @@
     ],
     "display": "form"
   },
-  "attributes": {}
+  "attributes": {},
+  "notExists": false
 }
