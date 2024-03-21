@@ -52,7 +52,7 @@ model:
     - id: payments:beneficiaryAccount
       type: ASSOC
       config:
-        typeRef: emodel/type@bank-account
+        typeRef: emodel/type@alf-bank-account
     - id: payments:budgetItem
       type: ASSOC
       config:
@@ -60,11 +60,11 @@ model:
     - id: payments:currency
       type: ASSOC
       config:
-        typeRef: emodel/type@currency
+        typeRef: emodel/type@alf-currency
     - id: payments:payer
       type: ASSOC
       config:
-        typeRef: emodel/type@legal-entity
+        typeRef: emodel/type@alf-legal-entity
     - id: payments:period
       type: ASSOC
       config:

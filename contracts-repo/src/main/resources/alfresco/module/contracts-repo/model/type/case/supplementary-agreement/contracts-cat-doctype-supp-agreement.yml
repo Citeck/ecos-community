@@ -35,11 +35,11 @@ model:
     - id: contracts:agreementCurrency
       type: ASSOC
       config:
-        typeRef: emodel/type@currency
+        typeRef: emodel/type@alf-currency
     - id: contracts:agreementLegalEntity
       type: ASSOC
       config:
-        typeRef: emodel/type@legal-entity
+        typeRef: emodel/type@alf-legal-entity
     - id: contracts:agreementSubject
       type: ASSOC
       config:

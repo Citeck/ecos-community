@@ -40,7 +40,7 @@ model:
     - id: idocs:legalEntity
       type: ASSOC
       config:
-        typeRef: emodel/type@legal-entity
+        typeRef: emodel/type@alf-legal-entity
     - id: contracts:closingDocumentAgreement
       type: ASSOC
       config:
