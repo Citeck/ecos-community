@@ -82,7 +82,7 @@
                                   "ru": "contracts:agreementLegalEntity"
                                 },
                                 "hideEditRowButton": true,
-                                "journalId": "legal-entities",
+                                "journalId": "alf-legal-entities",
                                 "validate": {
                                   "required": true
                                 },

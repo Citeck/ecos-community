@@ -56,7 +56,7 @@
                     "components": [
                       {
                         "label": "contracts:agreementLegalEntity",
-                        "journalId": "legal-entities",
+                        "journalId": "alf-legal-entities",
                         "refreshOn": "title",
                         "validate": {
                           "required": true

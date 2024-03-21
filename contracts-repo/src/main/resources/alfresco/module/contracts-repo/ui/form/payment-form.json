@@ -202,7 +202,7 @@
                           "ru": "payments:payer"
                         },
                         "clearOnHide": false,
-                        "journalId": "legal-entities",
+                        "journalId": "alf-legal-entities",
                         "computed": {
                           "valueDisplayName": "disp = value.load('idocs:fullOrganizationName')"
                         },

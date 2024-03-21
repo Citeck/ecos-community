@@ -92,7 +92,7 @@
             "mask": false,
             "tableView": true,
             "alwaysEnabled": false,
-            "journalId": "legal-entities",
+            "journalId": "alf-legal-entities",
             "displayColumns": [],
             "computed": {
               "valueDisplayName": ""
