@@ -1,8 +1,8 @@
 id: contracts-cat-doctype-payment
 
 name:
-  en: Payment
-  ru: Счет
+  en: Payment (Archive)
+  ru: Счет (Архив)
 
 parentRef: emodel/type@case
 journalRef: uiserv/journal@payments

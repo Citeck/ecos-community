@@ -1,7 +1,7 @@
 id: contracts-cat-doctype-closing-doc
 name:
-  ru: Учетный документ
-  en: Accounting document
+  ru: Учетный документ (Архив)
+  en: Accounting document (Archive)
 
 parentRef: emodel/type@case
 formRef: uiserv/form@closing-document-form

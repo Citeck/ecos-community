@@ -1,7 +1,7 @@
 {
   "id": "contracts-cat-doctype-contract/contracts-cat-contract-services",
   "name": {
-    "en": "Договор услуг"
+    "en": "Договор услуг (Архив)"
   },
   "parentRef": "emodel/type@contracts-cat-doctype-contract"
 }

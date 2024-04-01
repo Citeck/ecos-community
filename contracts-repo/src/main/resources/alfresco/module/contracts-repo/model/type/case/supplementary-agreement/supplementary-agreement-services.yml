@@ -2,7 +2,7 @@
 id: contracts-cat-doctype-supp-agreement/contracts-cat-contract-services
 
 name:
-  ru: 'Услуги'
-  en: 'Services'
+  ru: 'Услуги (Архив)'
+  en: 'Services (Archive)'
 
 parentRef: emodel/type@contracts-cat-doctype-supp-agreement

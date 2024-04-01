@@ -2,7 +2,7 @@
 id: contracts-cat-doctype-supp-agreement/contracts-cat-contract-delivery
 
 name:
-  ru: 'Доставка'
-  en: 'Delivery'
+  ru: 'Доставка (Архив)'
+  en: 'Delivery (Archive)'
 
 parentRef: emodel/type@contracts-cat-doctype-supp-agreement

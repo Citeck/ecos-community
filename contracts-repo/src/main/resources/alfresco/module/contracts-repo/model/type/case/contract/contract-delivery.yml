@@ -1,7 +1,7 @@
 {
   "id": "contracts-cat-doctype-contract/contracts-cat-contract-delivery",
   "name": {
-    "en": "Договор доставки"
+    "en": "Договор доставки (Архив)"
   },
   "parentRef": "emodel/type@contracts-cat-doctype-contract"
 }

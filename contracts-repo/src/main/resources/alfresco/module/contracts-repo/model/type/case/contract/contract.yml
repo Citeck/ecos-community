@@ -1,8 +1,8 @@
 ---
 id: contracts-cat-doctype-contract
 name:
-  ru: Договор
-  en: Contract
+  ru: Договор (Архив)
+  en: Contract (Archive)
 
 parentRef: emodel/type@contracts-cat-doctype-contract-case
 formRef: uiserv/form@agreement-form

@@ -1,5 +1,5 @@
 {
   "id": "contracts-cat-doctype-closing-doc/contracts-cat-closing-doc-invoice",
-  "name": "Закрывающий документ. Счет",
+  "name": "Закрывающий документ. Счет (Архив)",
   "parentRef": "emodel/type@contracts-cat-doctype-closing-doc"
 }

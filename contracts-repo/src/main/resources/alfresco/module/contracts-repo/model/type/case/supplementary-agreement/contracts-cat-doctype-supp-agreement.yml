@@ -1,7 +1,7 @@
 id: contracts-cat-doctype-supp-agreement
 name:
-  en: Supplementary agreement
-  ru: Доп. соглашение
+  en: Supplementary agreement (Archive)
+  ru: Доп. соглашение (Архив)
 
 parentRef: emodel/type@contracts-cat-doctype-contract-case
 journalRef: uiserv/journal@contracts-supplementary-agreement

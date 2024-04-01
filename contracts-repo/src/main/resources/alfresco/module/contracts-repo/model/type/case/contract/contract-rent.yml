@@ -1,7 +1,7 @@
 {
   "id": "contracts-cat-doctype-contract/contracts-cat-contract-rent",
   "name": {
-    "en": "Договор аренды"
+    "en": "Договор аренды (Архив)"
   },
   "parentRef": "emodel/type@contracts-cat-doctype-contract"
 }
