@@ -45,13 +45,11 @@
                 "clearOnHide": false,
                 "dataSrc": "custom",
                 "data": {
-                  "custom": "for (var i in data.subCategories.records){\n  values.push({label: data.subCategories.records[i].title,value: data.subCategories.records[i].id})\n}\n\n"
+                  "custom": "let res = [];\nfor (var i in data.subCategories.records){\n    res.push({label: data.subCategories.records[i].title,value: data.subCategories.records[i].id})\n}\nvalues = res;\n"
                 },
-                "defaultValue": "alfresco/@workspace://SpacesStore/orders-cat-internal-order",
                 "refreshOn": [
                   "subCategories"
                 ],
-                "customDefaultValue": "value = \" \";",
                 "validate": {
                   "required": true
                 },
